@@ -1,0 +1,66 @@
+.credits-page {
+  padding-top: calc(var(--header-h) + 40px);
+}
+
+.credits-page-inner {
+  display: grid;
+  gap: 12px;
+}
+
+.credits-page-title {
+  font-size: var(--fs-h1);
+}
+
+.credits-page-text {
+  max-width: 680px;
+  color: var(--muted);
+}
+
+.credits-page-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.credits-page-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--white);
+}
+
+.credits-page-thumb {
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+}
+
+.credits-page-meta {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2px 12px;
+  min-width: 0;
+  font-size: var(--fs-small);
+}
+
+.credits-page-term {
+  color: var(--muted);
+}
+
+.credits-page-value {
+  overflow-wrap: anywhere;
+}
+
+.credits-page-link {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+@media (min-width: 900px) {
+  .credits-page-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}

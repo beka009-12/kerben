@@ -1,0 +1,45 @@
+.cta-banner {
+  position: relative;
+  display: grid;
+  gap: 20px;
+  justify-items: start;
+  align-items: center;
+  padding: clamp(28px, 4vw, 48px);
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  color: var(--white);
+  background: var(--navy);
+  isolation: isolate;
+}
+
+.cta-banner-image {
+  object-fit: cover;
+  z-index: -2;
+}
+
+.cta-banner-shade {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, rgb(8 18 40 / 88%) 0%, rgb(8 18 40 / 50%) 100%);
+}
+
+.cta-banner-body {
+  display: grid;
+  gap: 8px;
+  max-width: 560px;
+}
+
+.cta-banner-title {
+  color: var(--white);
+}
+
+.cta-banner-text {
+  color: rgb(255 255 255 / 80%);
+}
+
+@media (min-width: 900px) {
+  .cta-banner {
+    grid-template-columns: 1fr auto;
+  }
+}

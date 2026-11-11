@@ -1,0 +1,63 @@
+.tour-inclusions {
+  display: grid;
+  gap: 16px;
+}
+
+.tour-inclusions-box {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+  padding: 22px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+}
+
+.tour-inclusions-box-yes {
+  background: var(--white);
+}
+
+.tour-inclusions-box-no {
+  background: #fff8f8;
+  border-color: #f6dede;
+}
+
+.tour-inclusions-title {
+  font-size: 1.125rem;
+}
+
+.tour-inclusions-list {
+  display: grid;
+  gap: 10px;
+}
+
+.tour-inclusions-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--fs-small);
+}
+
+.tour-inclusions-icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+}
+
+.tour-inclusions-icon-yes {
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.tour-inclusions-icon-no {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+@media (min-width: 768px) {
+  .tour-inclusions {
+    grid-template-columns: 1fr 1fr;
+  }
+}

@@ -1,0 +1,4 @@
+.ai-chat-page-loading {
+  min-height: 100dvh;
+  background: var(--soft);
+}

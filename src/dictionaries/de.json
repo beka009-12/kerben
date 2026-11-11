@@ -1,0 +1,1157 @@
+{
+  "meta": {
+    "title": "Kerben Travel — Reisen in Kirgisistan und Zentralasien",
+    "description": "Ein lokaler Reiseveranstalter für Kirgisistan, Kasachstan und Usbekistan. Berge, Seen, Nomadenkultur und die Seidenstraße.",
+    "toursTitle": "Alle Touren",
+    "toursDescription": "Finden Sie eine Tour nach Reiseziel, Kategorie, Preis und Gruppengröße.",
+    "destinationsTitle": "Reiseziele entdecken",
+    "destinationsDescription": "Finden Sie Ihr nächstes Abenteuer auf der interaktiven Karte.",
+    "hotelsTitle": "Unterkünfte",
+    "hotelsDescription": "Ausgewählte Hotels, Lodges und Jurtencamps für jede Reise.",
+    "aboutTitle": "Über uns",
+    "aboutDescription": "Wer wir sind und warum Reisende uns vertrauen.",
+    "contactTitle": "Kontakt",
+    "contactDescription": "Fragen Sie uns alles zu Ihrer nächsten Reise.",
+    "savedTitle": "Gespeicherte Touren",
+    "loginTitle": "Anmelden",
+    "creditsTitle": "Bildnachweise",
+    "chatTitle": "Kerben Travel KI-Assistent",
+    "chatDescription": "Ihr persönlicher KI-Assistent: Routen, Jahreszeiten und Tipps für Zentralasien.",
+    "trekkingTitle": "Trekking in den Bergen Kirgisistans",
+    "trekkingDescription": "Wanderrouten im Tian Shan: Tagesprogramm, Preise und Online-Anfrage.",
+    "transportTitle": "Transport und Transfers",
+    "transportDescription": "Autos mit Fahrer für Transfers und Reisen durch Kirgisistan.",
+    "helicopterTitle": "Helikopter-Touren",
+    "helicopterDescription": "Flüge über die Berge, Seen und Gletscher Kirgisistans.",
+    "requestsTitle": "Meine Anfragen",
+    "faqTitle": "Häufig gestellte Fragen",
+    "faqDescription": "Antworten auf häufige Fragen zu Reisen in Kirgisistan: Visa, Reisezeit, Bezahlung, Ausrüstung und Sicherheit.",
+    "tripsTitle": "Meine Reisen"
+  },
+  "a11y": {
+    "skip": "Zum Inhalt springen",
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen",
+    "language": "Sprache",
+    "home": "Kerben Travel — Startseite",
+    "search": "Touren suchen",
+    "saved": "Gespeicherte Touren",
+    "prev": "Vorheriges Bild",
+    "next": "Nächstes Bild",
+    "close": "Schließen"
+  },
+  "nav": {
+    "home": "Start",
+    "destinations": "Reiseziele",
+    "tours": "Touren",
+    "hotels": "Unterkünfte",
+    "about": "Über uns",
+    "contact": "Kontakt",
+    "login": "Anmelden",
+    "saved": "Gemerkt",
+    "explore": "Entdecken",
+    "profile": "Profil",
+    "chat": "KI-Assistent",
+    "aiHint": "Fragen Sie zu jeder Reise",
+    "services": "Leistungen",
+    "trekking": "Trekking",
+    "transport": "Transport",
+    "helicopter": "Helikopter-Touren",
+    "requests": "Meine Anfragen",
+    "trips": "Meine Reisen",
+    "tripsShort": "Reisen"
+  },
+  "hero": {
+    "eyebrow": "Entdecken Sie die Schönheit Kirgisistans",
+    "title": "Reisen, die das Leben",
+    "titleAccent": "verändern",
+    "text": "Kerben Travel ist Ihr verlässlicher Reisepartner. Wir gestalten einzigartige Routen durch Kirgisistan und Zentralasien, damit Sie neue Horizonte entdecken.",
+    "features": [
+      "Einzigartige Routen",
+      "Zuverlässiger Service",
+      "Ganz Zentralasien"
+    ],
+    "place": "Kirgisistan",
+    "placeNote": "Berge, Seen, Freiheit",
+    "primary": "Tour wählen",
+    "secondary": "Meine Reise gestalten",
+    "secondaryAsk": "Hilf mir, meine eigene Reise nach Kirgisistan zu planen. Frag mich nach Reisedaten, Anzahl der Tage, Mitreisenden und Interessen.",
+    "slides": [
+      {
+        "place": "Issyk-Kul",
+        "caption": "1.607 m über dem Meeresspiegel"
+      },
+      {
+        "place": "Song-Kul",
+        "caption": "3.016 m · Jurten und Pferde"
+      },
+      {
+        "place": "Dschety-Ögüz",
+        "caption": "Rote Felsen des Tian Shan"
+      },
+      {
+        "place": "Ala-Artscha",
+        "caption": "40 Minuten von Bischkek"
+      }
+    ]
+  },
+  "popular": {
+    "title": "Unsere Reisen",
+    "text": "Fertige Programme in Kirgisistan und darüber hinaus — wählen Sie Ihres.",
+    "viewAll": "Alle Touren"
+  },
+  "card": {
+    "from": "Ab",
+    "reviews": "Bewertungen",
+    "reviewForms": {
+      "one": "Bewertung",
+      "other": "Bewertungen"
+    },
+    "days": "Tage",
+    "perPerson": "pro Person",
+    "bestseller": "Bestseller",
+    "new": "Neu",
+    "addFavorite": "Tour merken",
+    "removeFavorite": "Aus Merkliste entfernen",
+    "details": "Tour ansehen",
+    "more": "Details"
+  },
+  "categories": {
+    "title": "Nach Kategorie entdecken",
+    "text": "Finden Sie die perfekte Reise für Ihre Interessen.",
+    "items": {
+      "nature": {
+        "title": "Natur",
+        "text": "Berge, Seen, Wälder"
+      },
+      "beach": {
+        "title": "Strand",
+        "text": "Sonne, Meer, Erholung"
+      },
+      "culture": {
+        "title": "Kultur",
+        "text": "Geschichte, Traditionen, Städte"
+      },
+      "adventure": {
+        "title": "Abenteuer",
+        "text": "Wandern, Trekking, Sport"
+      },
+      "luxury": {
+        "title": "Luxus",
+        "text": "Premium-Erlebnisse"
+      },
+      "family": {
+        "title": "Familie",
+        "text": "Spaß für jedes Alter"
+      }
+    }
+  },
+  "explore": {
+    "title": "Reiseziele entdecken",
+    "text": "Finden Sie Ihr nächstes Abenteuer auf der interaktiven Karte.",
+    "destinations": "Reiseziele",
+    "regions": {
+      "asia": "Asien",
+      "europe": "Europa",
+      "africa": "Afrika",
+      "northAmerica": "Nordamerika",
+      "southAmerica": "Südamerika",
+      "oceania": "Ozeanien"
+    },
+    "world": "Ganze Welt",
+    "tours": "Touren",
+    "soon": "Weitere Regionen folgen bald",
+    "loading": "Karte wird geladen…",
+    "error": "Die Karte konnte nicht geladen werden. Prüfen Sie Ihre Verbindung."
+  },
+  "cta": {
+    "title": "Bereit für Ihr nächstes Abenteuer?",
+    "text": "Jetzt buchen und Erinnerungen fürs Leben schaffen.",
+    "book": "Diese Tour buchen",
+    "browse": "Touren ansehen",
+    "video": "Video ansehen",
+    "tourText": "Platz in einer Minute buchen – oder den KI-Assistenten nach Saison, Ausrüstung und Anreise fragen."
+  },
+  "footer": {
+    "tagline": "Wir öffnen Kirgisistan für die Welt",
+    "privacy": "Datenschutz",
+    "terms": "Buchungsbedingungen",
+    "faq": "FAQ",
+    "credits": "Bildnachweise",
+    "countries": "Kirgisistan • Kasachstan • Usbekistan",
+    "company": "Unternehmen",
+    "travel": "Reisen",
+    "aboutLink": "Über uns",
+    "custom": "Individuelle Reisen",
+    "experiences": "Erlebnisse",
+    "centers": "Erholungszentren",
+    "centralAsia": "Zentralasien",
+    "guide": "Reiseführer"
+  },
+  "tours": {
+    "kicker": "Katalog",
+    "title": "Alle Touren",
+    "text": "Finden Sie eine Tour nach Reiseziel, Kategorie, Preis und Gruppengröße.",
+    "search": "Suche",
+    "searchPh": "Reiseziel oder Tourname",
+    "category": "Kategorie",
+    "all": "Alle",
+    "maxPrice": "Max. Preis",
+    "any": "Beliebig",
+    "guests": "Gäste",
+    "sort": "Sortieren",
+    "sorts": {
+      "popular": "Nach Beliebtheit",
+      "priceAsc": "Preis: aufsteigend",
+      "priceDesc": "Preis: absteigend",
+      "rating": "Beste Bewertung",
+      "duration": "Kürzeste zuerst"
+    },
+    "found": "Touren gefunden",
+    "empty": "Keine Touren entsprechen Ihren Filtern.",
+    "reset": "Filter zurücksetzen",
+    "filters": "Filter",
+    "themes": "Themen",
+    "themeAll": "Alle Touren",
+    "themeEmpty": "Noch keine Touren zum Thema „{theme}“ — wir zeigen alle Touren.",
+    "themeAsk": "Route mit KI planen",
+    "heroTitle": "Kirgisistan, das inspiriert",
+    "heroText": "Finde deine Reise zwischen Bergen, Seen und Nomadentraditionen",
+    "resetAll": "Alles zurücksetzen",
+    "pricePerPerson": "Preis pro Person",
+    "priceMax": "Preis bis",
+    "duration": "Dauer",
+    "durations": {
+      "one": "1 Tag",
+      "short": "2–3 Tage",
+      "long": "4+ Tage"
+    },
+    "format": "Tourformat",
+    "formats": {
+      "individual": "Individuell",
+      "group": "Gruppe"
+    },
+    "countForms": {
+      "one": "Tour",
+      "other": "Touren"
+    },
+    "showMore": "Mehr anzeigen",
+    "showResults": "Touren anzeigen",
+    "close": "Schließen"
+  },
+  "tour": {
+    "back": "Alle Touren",
+    "tabs": {
+      "overview": "Überblick",
+      "itinerary": "Reiseverlauf",
+      "inclusions": "Leistungen",
+      "reviews": "Bewertungen",
+      "location": "Lage"
+    },
+    "about": "Über diese Tour",
+    "excellent": "Ausgezeichnet",
+    "basedOn": "Basierend auf {n} {reviews}",
+    "basedOnForms": {
+      "one": "Bewertung",
+      "other": "Bewertungen"
+    },
+    "dayForms": {
+      "one": "Tag",
+      "other": "Tage"
+    },
+    "duration": "Dauer",
+    "nights": "Nächte",
+    "nightForms": {
+      "one": "Nacht",
+      "other": "Nächte"
+    },
+    "noNights": "Ohne Übernachtung",
+    "inOther": "Zum Kurs der NBKR",
+    "som": "Som",
+    "groupSize": "Gruppengröße",
+    "difficulty": "Schwierigkeit",
+    "language": "Sprache",
+    "highlights": "Highlights der Tour",
+    "itinerary": "Reiseverlauf",
+    "day": "Tag",
+    "showFull": "Gesamten Reiseverlauf zeigen",
+    "showLess": "Weniger anzeigen",
+    "mapTitle": "Karte & Lage",
+    "viewOnMap": "Auf der Karte zeigen",
+    "included": "Inklusive",
+    "notIncluded": "Nicht inklusive",
+    "reviewsTitle": "Bewertungen von Reisenden",
+    "related": "Das könnte Ihnen auch gefallen",
+    "from": "Ab",
+    "perPerson": "pro Person",
+    "bookNow": "Jetzt buchen",
+    "days": "Tage",
+    "people": "Personen",
+    "difficultyLevels": {
+      "easy": "Leicht",
+      "moderate": "Mittel",
+      "hard": "Anspruchsvoll"
+    },
+    "inclusions": {
+      "hotel": "Hotelunterkunft",
+      "transfers": "Transfers",
+      "guide": "Professioneller Guide",
+      "meals": "Mahlzeiten (Frühstück & Abendessen)",
+      "tickets": "Eintrittsgelder",
+      "insurance": "Reiseversicherung",
+      "flights": "Flüge",
+      "personal": "Persönliche Ausgaben",
+      "alcohol": "Alkoholische Getränke",
+      "tips": "Trinkgelder",
+      "yurt": "Übernachtung in der Jurte",
+      "horse": "Reiten",
+      "cruise": "Bootsfahrt",
+      "skiPass": "Skipass"
+    },
+    "photo": "Foto",
+    "hotelsKicker": "Unterkunft",
+    "hotelsTitle": "Übernachten in der Nähe",
+    "hotelsAll": "Alle Hotels",
+    "km": "km",
+    "fromRoute": "von der Route",
+    "perNight": "pro Nacht",
+    "rating": "Bewertung",
+    "tripKicker": "Ihre Reise",
+    "tripStepTour": "Tour",
+    "tripStepHotel": "Hotel",
+    "tripStepCar": "Transport",
+    "tripStepDone": "Fertig",
+    "tripCarTitle": "Ein Auto für die Reise",
+    "tripCarsAll": "Alle Fahrzeuge",
+    "tripChoose": "Wählen",
+    "tripDoneTitle": "Ihre Reise steht",
+    "tripDoneText": "Ein Manager ruft an, bestätigt die Details und sendet den Endpreis. Alle Anfragen finden Sie unter „Meine Reisen“.",
+    "tripNoHotel": "Ohne Hotel",
+    "tripNoCar": "Ohne Auto",
+    "tripMyTrips": "Meine Reisen",
+    "tripAsk": "Den KI-Assistenten zur Reise fragen",
+    "tripAskPrompt": "Hilf mir, die Reise zu planen: {title}",
+    "tripChange": "Auswahl ändern",
+    "tripSkipHotel": "Kein Hotel nötig",
+    "tripSkipCar": "Kein Transport nötig",
+    "contact": "Manager kontaktieren",
+    "contactMessage": "Hallo! Ich interessiere mich für die Tour „{title}“. Welche Termine sind frei und wie hoch ist der Gesamtpreis? {url}",
+    "guestsUpTo": "Bis zu {n} Gäste",
+    "guests": "{n} Gäste",
+    "breadcrumbs": "Brotkrümelnavigation"
+  },
+  "booking": {
+    "title": "Diese Tour buchen",
+    "name": "Vollständiger Name",
+    "namePh": "Ihr Name",
+    "phone": "Telefon / WhatsApp",
+    "phonePh": "+996 700 123 456",
+    "email": "E-Mail (optional)",
+    "emailPh": "name@mail.com",
+    "date": "Reisedatum",
+    "guests": "Reisende",
+    "less": "Weniger",
+    "more": "Mehr",
+    "from": "Anfrage von",
+    "changePhone": "Andere Nummer",
+    "submit": "Buchungsanfrage senden",
+    "sending": "Wird gesendet…",
+    "success": "Vielen Dank! Ihre Anfrage ist eingegangen — wir melden uns in Kürze.",
+    "successId": "Anfragenummer",
+    "error": "Die Anfrage konnte nicht gesendet werden. Prüfen Sie Ihre Verbindung und versuchen Sie es erneut.",
+    "note": "Jetzt keine Zahlung — ein Manager bestätigt zuerst die Details.",
+    "done": "Fertig",
+    "errors": {
+      "required": "Pflichtfeld",
+      "email": "Geben Sie eine gültige E-Mail ein",
+      "contact": "Geben Sie eine Telefonnummer (ab 7 Ziffern) oder E-Mail ein",
+      "tooLong": "Zu lang",
+      "pastDate": "Wählen Sie ein Datum in der Zukunft",
+      "guests": "1 bis 30 Gäste",
+      "short": "Mindestens 10 Zeichen",
+      "phone": "Telefonnummer eingeben (mindestens 7 Ziffern)",
+      "dateOrder": "Enddatum liegt vor dem Startdatum"
+    },
+    "myRequests": "Meine Anfragen",
+    "rental": {
+      "mode": "Wie möchten Sie fahren?",
+      "withDriver": "Mit Fahrer",
+      "withDriverHint": "Transfer oder Ausflug — der Fahrer kennt die Straßen",
+      "selfDrive": "Miete ohne Fahrer",
+      "selfDriveHint": "Sie nehmen das Auto und fahren selbst",
+      "from": "Von",
+      "to": "Bis",
+      "days": "{n} Tage",
+      "summaryDriver": "mit Fahrer",
+      "summarySelf": "Miete"
+    }
+  },
+  "destinations": {
+    "kicker": "Karte",
+    "title": "Reiseziele entdecken",
+    "text": "Wählen Sie eine Region auf der Karte oder sehen Sie sich unten alle Reiseziele an.",
+    "all": "Alle Reiseziele"
+  },
+  "hotels": {
+    "kicker": "Übernachten",
+    "title": "Hotels & Unterkünfte",
+    "text": "Ausgewählte Hotels, Berghütten und authentische Jurtencamps.",
+    "perNight": "pro Nacht",
+    "stars": "Sterne",
+    "book": "Verfügbarkeit prüfen",
+    "amenities": {
+      "wifi": "WLAN",
+      "pool": "Pool",
+      "spa": "Spa",
+      "breakfast": "Frühstück",
+      "parking": "Parkplatz",
+      "beach": "Strand",
+      "mountainView": "Bergblick"
+    },
+    "request": "Unterkunftsanfrage",
+    "back": "Alle Hotels",
+    "about": "Über das Hotel",
+    "amenitiesTitle": "Ausstattung",
+    "location": "Lage",
+    "openMap": "In Karten öffnen",
+    "other": "Weitere Hotels",
+    "photos": "Alle Fotos",
+    "photo": "Foto",
+    "call": "Anrufen",
+    "askAi": "KI-Assistenten fragen",
+    "askPrompt": "Erzähl mir vom Hotel \"{name}\" ({place}): Was ist in der Nähe, wie komme ich hin und wann ist die beste Reisezeit?",
+    "details": "Hotel ansehen",
+    "noPay": "Jetzt keine Zahlung — ein Manager bestätigt Verfügbarkeit und Preis.",
+    "reply": "Antwort innerhalb eines Tages",
+    "free": "Kostenlose Beratung",
+    "aboutFallback": "Ein gemütlicher Ort zum Erholen nach einer intensiven Route. Unser Manager sagt Ihnen, welche Zimmer zu Ihren Daten frei sind, und verbindet den Aufenthalt mit Kerben Travel-Touren."
+  },
+  "about": {
+    "kicker": "Über uns",
+    "title": "Wir gestalten Reisen, die die Welt verbinden.",
+    "text": "Kerben Travel ist ein Team von Profis, die das Reisen lieben. Wir organisieren Touren durch Zentralasien und die ganze Welt und empfangen Gäste in Kirgisistan.",
+    "note": "Von der ersten Anfrage bis zur Rückkehr nach Hause planen wir jedes Detail: Transfers, Unterkunft, Verpflegung und Ausflüge. Sie genießen die Reise — um alles andere kümmern wir uns.",
+    "values": [
+      {
+        "title": "Lokale Experten",
+        "text": "Guides, die dort leben, wo Sie reisen."
+      },
+      {
+        "title": "Faire Preise",
+        "text": "Keine versteckten Kosten — alles steht im Programm."
+      },
+      {
+        "title": "Sicherheit zuerst",
+        "text": "Versicherung, geprüfte Fahrzeuge und Support rund um die Uhr."
+      },
+      {
+        "title": "Kleine Gruppen",
+        "text": "Bis zu 12 Personen für ein persönliches Erlebnis."
+      }
+    ],
+    "storyTitle": "Unsere Geschichte",
+    "story": "Wir haben mit Wochenendausflügen an den Issyk-Kul für Freunde angefangen. Heute veranstalten wir Touren in ganz Kirgisistan und zu über 150 Zielen weltweit — und planen jede noch immer wie für Freunde.",
+    "sectionsKicker": "Wer wir sind"
+  },
+  "contact": {
+    "kicker": "Kontakt",
+    "title": "Lassen Sie uns Ihre Reise planen",
+    "text": "Nennen Sie uns Ihre Reisedaten und Ihr Traumziel — wir antworten innerhalb eines Werktags.",
+    "name": "Name",
+    "email": "E-Mail",
+    "message": "Nachricht",
+    "messagePh": "Wohin möchten Sie reisen?",
+    "phone": "Telefon",
+    "office": "Büro",
+    "officeText": "Bischkek, Kirgisistan",
+    "hours": "Öffnungszeiten",
+    "hoursText": "Mo–Sa, 9:00–19:00",
+    "messengerHint": "Schreiben Sie Ihre Nachricht und senden Sie sie unserem Manager per Messenger — wir antworten innerhalb eines Werktags.",
+    "whatsapp": "Über WhatsApp schreiben",
+    "telegram": "Über Telegram schreiben",
+    "copied": "Text kopiert — fügen Sie ihn in den Telegram-Chat ein."
+  },
+  "saved": {
+    "kicker": "Ihre Liste",
+    "title": "Gespeicherte Touren",
+    "text": "Touren, die Ihnen gefallen, werden in diesem Browser gespeichert.",
+    "emptyTitle": "Noch nichts gespeichert",
+    "empty": "Tippen Sie bei einer Tour auf ♡ — sie wird hier gespeichert.",
+    "browse": "Touren ansehen",
+    "clear": "Liste leeren"
+  },
+  "login": {
+    "title": "Willkommen zurück",
+    "text": "Melden Sie sich an, um mit dem KI-Assistenten zu sprechen.",
+    "registerTitle": "Konto erstellen",
+    "registerText": "Das dauert nur eine Minute — danach steht Ihnen der KI-Assistent zur Verfügung.",
+    "name": "Name",
+    "namePh": "Wie dürfen wir Sie nennen?",
+    "phone": "Telefon / WhatsApp",
+    "phonePh": "+996 700 123 456",
+    "phoneHint": "Unter dieser Nummer bestätigt ein Manager Ihre Buchungen",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "passwordHint": "Mindestens 8 Zeichen",
+    "showPassword": "Passwort anzeigen",
+    "hidePassword": "Passwort verbergen",
+    "submit": "Anmelden",
+    "register": "Registrieren",
+    "loading": "Bitte warten…",
+    "noAccount": "Noch kein Konto?",
+    "signUp": "Registrieren",
+    "haveAccount": "Bereits ein Konto?",
+    "signIn": "Anmelden",
+    "account": "Ihr Konto",
+    "welcome": "Hallo, {name}!",
+    "logout": "Abmelden",
+    "toChat": "Zum KI-Assistenten",
+    "guestNote": "Die Website ist für alle offen — ein Konto brauchen Sie nur für den KI-Assistenten.",
+    "forgot": "Passwort vergessen?",
+    "resetTitle": "Passwort zurücksetzen",
+    "resetText": "Geben Sie die E-Mail Ihres Kontos an — wir senden einen Link für ein neues Passwort.",
+    "resetSend": "Link senden",
+    "resetSent": "Link gesendet",
+    "backToLogin": "Zurück zur Anmeldung",
+    "newPasswordTitle": "Neues Passwort",
+    "newPasswordText": "Legen Sie ein neues Passwort für Ihr Kerben Travel-Konto fest.",
+    "savePassword": "Passwort speichern",
+    "passwordSaved": "Passwort geändert. Sie sind angemeldet.",
+    "resetExpired": "Der Link ist abgelaufen oder wurde schon verwendet. Fordern Sie auf der Anmeldeseite einen neuen an.",
+    "errors": {
+      "required": "Pflichtfeld",
+      "email": "Geben Sie eine gültige E-Mail ein",
+      "short": "Mindestens 8 Zeichen",
+      "name": "Der Name muss 2–40 Zeichen lang sein",
+      "invalid": "Falsche E-Mail oder falsches Passwort",
+      "taken": "Diese E-Mail ist bereits registriert — melden Sie sich an",
+      "notConfirmed": "Bestätigen Sie Ihre E-Mail über den zugesandten Link",
+      "badEmail": "Diese E-Mail kann nicht verwendet werden — geben Sie Ihre echte Adresse ein",
+      "rateLimit": "Zu viele Versuche. Warten Sie eine Minute",
+      "network": "Keine Verbindung zum Server. Prüfen Sie Ihr Internet",
+      "unknown": "Etwas ist schiefgelaufen. Versuchen Sie es erneut",
+      "phone": "Telefonnummer eingeben (mind. 7 Ziffern)"
+    }
+  },
+  "credits": {
+    "title": "Bildnachweise",
+    "text": "Fotos aus Kirgisistan stammen von Wikimedia Commons unter Creative-Commons-Lizenzen. Andere Fotos stammen von Unsplash.",
+    "author": "Autor",
+    "license": "Lizenz",
+    "source": "Quelle"
+  },
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "text": "Dieser Pfad führt ins Nichts. Wir bringen Sie zurück auf den richtigen Weg.",
+    "home": "Zur Startseite"
+  },
+  "error": {
+    "title": "Etwas ist schiefgelaufen",
+    "text": "Diese Seite konnte nicht geladen werden. Bitte versuchen Sie es erneut.",
+    "retry": "Erneut versuchen"
+  },
+  "story": {
+    "title": "Ein Kirgisistan, an das man sich erinnern will",
+    "cta": "Tour finden",
+    "panels": [
+      {
+        "title": "Hohe Berge.",
+        "stat": "Tian Shan · über 90 % des Landes sind Berge",
+        "text": "Schluchten, Gletscher und Pässe — von leichten Spaziergängen bis zu ernsthaften Besteigungen."
+      },
+      {
+        "title": "Türkisfarbene Seen.",
+        "stat": "Issyk-Kul · Song-Kul · Kel-Suu",
+        "text": "Bergseen in unwirklichen Farben — mit Jurten am Ufer und Sternenhimmel."
+      },
+      {
+        "title": "Nomadenkultur.",
+        "stat": "Jurten · Pferde · Traditionen",
+        "text": "Eine Nacht in der Jurte, ein Ausritt mit Hirten und echter Kumys."
+      },
+      {
+        "title": "Die Seidenstraße.",
+        "stat": "Burana · alte Karawanenwege",
+        "text": "Türme, alte Siedlungen und Wege, auf denen jahrhundertelang Karawanen zogen."
+      },
+      {
+        "title": "Endlose Täler.",
+        "stat": "Dschailoo — Sommerweiden",
+        "text": "Stille, Weite und Pferdeherden bis zum Horizont."
+      }
+    ],
+    "outroLead": "Und Menschen, die\nGäste empfangen\n*wie Freunde.*",
+    "outroText": "Wir zeigen Ihnen Kirgisistan nicht wie auf einer\nPostkarte, sondern von innen.",
+    "tapHint": "Tippen für das nächste Bild"
+  },
+  "home": {
+    "stats": {
+      "title": "Kerben\nTravel\nin Zahlen",
+      "items": [
+        {
+          "value": "6+",
+          "label": "Jahre Erfahrung"
+        },
+        {
+          "value": "28.000+",
+          "label": "Reisende"
+        },
+        {
+          "value": "3",
+          "label": "Länder Zentralasiens"
+        },
+        {
+          "value": "20+",
+          "label": "Reiseziele"
+        },
+        {
+          "value": "100+",
+          "label": "Routen und Programme"
+        },
+        {
+          "value": "365",
+          "label": "Tage voller Reisemöglichkeiten"
+        }
+      ]
+    },
+    "experiences": {
+      "kicker": "Erlebnisse",
+      "title": "Wählen Sie Ihr Kirgisistan",
+      "back": "Zurück",
+      "tours": "Touren",
+      "toursCount": "Touren: {n}",
+      "empty": "Zu diesem Thema gibt es noch keine Touren. Sagen Sie uns, was Sie sehen möchten — wir planen eine Route.",
+      "emptyCta": "Route planen",
+      "allTours": "Alle Touren",
+      "others": "Weitere Erlebnisse",
+      "items": [
+        {
+          "title": "Berge",
+          "text": "Der Tian Shan, Schluchten, Gletscher, Hochpässe und Routen für Abenteuerlustige.",
+          "cta": "Berge entdecken"
+        },
+        {
+          "title": "Seen",
+          "text": "Issyk-Kul, Song-Kul, Kel-Suu und weitere Naturjuwelen Kirgisistans.",
+          "cta": "Seen ansehen"
+        },
+        {
+          "title": "Nomadenkultur",
+          "text": "Jurten, Pferde, Nationalküche, Traditionen und das Leben der Nomaden.",
+          "cta": "Kultur kennenlernen"
+        },
+        {
+          "title": "Abenteuer",
+          "text": "Reittouren, Trekking, Rafting, Adlerjagd und weitere Erlebnisse.",
+          "cta": "Abenteuer finden"
+        },
+        {
+          "title": "Geschichte",
+          "text": "Burana, Städte der Großen Seidenstraße, alte Routen und kulturelles Erbe.",
+          "cta": "Reise in die Geschichte"
+        },
+        {
+          "title": "Winterliches Kirgisistan",
+          "text": "Schnee, Berge, Skifahren, Winterresorts und die besondere Stimmung der kalten Jahreszeit.",
+          "cta": "Winter entdecken"
+        }
+      ]
+    },
+    "custom": {
+      "kicker": "Individuelle Reisen",
+      "title": "Ihre Route — Ihre Regeln",
+      "lead": "Nicht das passende Programm gefunden? Wir erstellen eine Route nur für Sie.",
+      "text": "Ändern Sie Reisedauer, Hotelniveau, Transport, Anzahl der Aktivitäten und die Orte, die Sie besuchen.",
+      "audiences": [
+        "Familien",
+        "Paare",
+        "Freunde",
+        "Fotografen",
+        "Firmengruppen",
+        "Alleinreisende"
+      ],
+      "cta": "Route erstellen",
+      "ask": "Ich möchte eine individuelle Reise nach Kirgisistan. Hilf mir bei der Planung: Frag mich nach Reisedaten, Budget, Hotelniveau und Interessen."
+    },
+    "infrastructure": {
+      "kicker": "Kerben Travel — mehr als Tourismus",
+      "title": "Wir schaffen Orte,\nan die man\nzurückkehren möchte",
+      "text": "Kerben Travel entwickelt eigene touristische Infrastruktur in Kirgisistan. Hier wohnen Reisende mitten in der Natur, erholen sich nach einer intensiven Route und spüren den Geist des Landes."
+    },
+    "centralAsia": {
+      "kicker": "Zentralasien auf einer Reise",
+      "title": "Drei Länder. Ein Abenteuer.",
+      "text": "Beginnen Sie Ihre Reise in Kirgisistan und setzen Sie sie in den Nachbarländern fort.",
+      "countries": [
+        {
+          "flag": "🇰🇬",
+          "name": "Kirgisistan",
+          "places": [
+            "Issyk-Kul",
+            "Song-Kul",
+            "Berge",
+            "Nomadenkultur"
+          ]
+        },
+        {
+          "flag": "🇰🇿",
+          "name": "Kasachstan",
+          "places": [
+            "Almaty",
+            "Scharyn",
+            "Kolsai",
+            "Kaindy"
+          ]
+        },
+        {
+          "flag": "🇺🇿",
+          "name": "Usbekistan",
+          "places": [
+            "Taschkent",
+            "Samarkand",
+            "Buchara",
+            "Seidenstraße"
+          ]
+        }
+      ],
+      "note": "Wir helfen Ihnen, mehrere Länder zu einer durchdachten Route zu verbinden.",
+      "cta": "Zentralasien entdecken",
+      "ask": "Hilf mir, Kirgisistan, Kasachstan und Usbekistan in einer Reise zu verbinden. Welche Route und wie viele Tage würdest du vorschlagen?"
+    },
+    "seasons": {
+      "kicker": "Jahreszeiten",
+      "title": "Wann reisen?",
+      "items": [
+        {
+          "months": "März — Mai",
+          "title": "Frühling",
+          "text": "Grüne Täler, blühende Natur und mildes Wetter."
+        },
+        {
+          "months": "Juni — September",
+          "title": "Sommer",
+          "text": "Hochgebirgsseen, Trekking, Reitrouten — die beste Zeit für die Berge."
+        },
+        {
+          "months": "Oktober — November",
+          "title": "Herbst",
+          "text": "Herbstlandschaften, goldene Berge und weniger Touristen."
+        },
+        {
+          "months": "Dezember — Februar",
+          "title": "Winter",
+          "text": "Schnee, Skifahren, Winterresorts und ein ganz anderes Kirgisistan."
+        }
+      ],
+      "cta": "Die richtige Jahreszeit wählen",
+      "ask": "Wann ist die beste Zeit für mich, Kirgisistan zu besuchen? Erzähl mir, was jede Jahreszeit besonders macht, und frag mich, was ich mag."
+    },
+    "faq": {
+      "kicker": "FAQ",
+      "title": "Häufige Fragen",
+      "items": [
+        {
+          "q": "Brauche ich ein Visum für Kirgisistan?",
+          "a": "Bürger vieler Länder, darunter der EU, Großbritanniens, der USA und der GUS-Staaten, können visumfrei einreisen — in der Regel für bis zu 60 Tage. Die Regeln ändern sich, prüfen Sie sie daher vor der Reise auf einer offiziellen Website."
+        },
+        {
+          "q": "Ist Kirgisistan ein sicheres Reiseland?",
+          "a": "Kirgisistan ist ein gastfreundliches und ruhiges Land für Reisende. In den Bergen sind Erfahrung und Ausrüstung wichtig, deshalb führen wir anspruchsvolle Routen mit erfahrenen Guides durch."
+        },
+        {
+          "q": "Wie komme ich vom Flughafen weg?",
+          "a": "Der internationale Flughafen Manas liegt etwa 25–30 km von Bischkek entfernt. Wir holen unsere Gäste am Flughafen ab und organisieren den Transfer."
+        },
+        {
+          "q": "Welche Währung sollte ich mitbringen?",
+          "a": "Die Landeswährung ist der Kirgisische Som (KGS). Am einfachsten bringen Sie US-Dollar oder Euro mit und tauschen in Bischkek. In Städten funktionieren Karten, in den Bergen und Dörfern brauchen Sie Bargeld."
+        },
+        {
+          "q": "Kann ich im Winter reisen?",
+          "a": "Ja. Im Winter gibt es Skigebiete (zum Beispiel in Karakol), und die Berge und Schluchten sehen ganz anders aus."
+        },
+        {
+          "q": "Eignet sich Kirgisistan für eine Reise mit Kindern?",
+          "a": "Ja. Es gibt entspannte Routen mit komfortablen Hotels und kurzen Fahrten — wir passen das Programm an das Alter Ihrer Kinder an."
+        }
+      ],
+      "more": "KI-Assistenten fragen",
+      "all": "Alle Fragen",
+      "page": {
+        "text": "Visa, Reisezeit, Bezahlung, Ausrüstung und Sicherheit — Antworten auf die Fragen, die uns am häufigsten gestellt werden.",
+        "helpTitle": "Keine Antwort gefunden?",
+        "helpText": "Fragen Sie den KI-Assistenten für eine sofortige Antwort oder schreiben Sie einem Manager — wir antworten innerhalb eines Tages.",
+        "ask": "KI-Assistenten fragen",
+        "contact": "Manager kontaktieren"
+      }
+    },
+    "plan": {
+      "title": "Ihre Reise beginnt mit einer Nachricht",
+      "text": "Sie wissen nicht, welche Route Sie wählen sollen? Erzählen Sie uns von Ihren Plänen — Reisedaten, Anzahl der Tage, Mitreisende und Interessen. Wir schlagen die passende Route vor.",
+      "cta": "Meine Reise planen",
+      "ask": "Hilf mir, eine Reise zu planen. Frag mich nach Reisedaten, Anzahl der Tage, Mitreisenden und Interessen.",
+      "facts": [
+        "6+ Jahre Erfahrung",
+        "28.000+ Reisende",
+        "3 Länder Zentralasiens",
+        "20+ Reiseziele",
+        "Eigene touristische Infrastruktur"
+      ],
+      "tagline": "Kirgisistan sehen. Zentralasien fühlen.",
+      "start": "Reise beginnen"
+    }
+  },
+  "ai": {
+    "title": "Kerben Travel KI",
+    "gateTitle": "Ihr persönlicher KI-Assistent für Zentralasien",
+    "gateText": "Routen, Jahreszeiten, Budgets und Tipps in Sekunden. Registrieren Sie sich, um zu starten — es ist kostenlos.",
+    "gatePoints": [
+      "Eine Route Tag für Tag für Ihre Reisedaten",
+      "Passende Kerben Travel-Touren mit Preisen",
+      "Antworten auf Deutsch, Englisch, Russisch und Chinesisch"
+    ],
+    "newChat": "Neuer Chat",
+    "history": "Verlauf",
+    "emptyHistory": "Ihre Chats erscheinen hier",
+    "deleteChat": "Chat löschen",
+    "deleteConfirm": "Dieser Chat wird endgültig gelöscht.",
+    "openHistory": "Verlauf öffnen",
+    "welcomeTitle": "Wohin soll die Reise gehen?",
+    "welcomeText": "Fragen Sie alles über Reisen in Kirgisistan und Zentralasien.",
+    "suggestions": [
+      {
+        "title": "Eine 7-Tage-Route",
+        "prompt": "Plane eine 7-tägige Reise durch Kirgisistan im Juli: Berge, Seen und Jurten."
+      },
+      {
+        "title": "Beste Reisezeit",
+        "prompt": "Wann ist die beste Zeit, den Issyk-Kul und den Song-Kul zu besuchen?"
+      },
+      {
+        "title": "Drei Länder",
+        "prompt": "Wie kann ich Kirgisistan, Kasachstan und Usbekistan in einer 12-tägigen Reise verbinden?"
+      },
+      {
+        "title": "Was einpacken",
+        "prompt": "Was sollte ich für einen Reittrek zum Song-Kul einpacken?"
+      }
+    ],
+    "placeholder": "Kerben Travel AI fragen…",
+    "send": "Senden",
+    "stop": "Stopp",
+    "thinking": "Der KI-Assistent schreibt",
+    "disclaimer": "KI kann Fehler machen. Prüfen Sie Preise und Verfügbarkeit mit einem Manager.",
+    "scrollDown": "Zu den neuesten Nachrichten",
+    "truncated": "Die Antwort war lang und wurde abgeschnitten. Bitten Sie um Fortsetzung.",
+    "tourButton": "KI-Assistenten fragen",
+    "askTour": "Erzähl mir mehr über die Tour \"{title}\": Was ist inklusive, wann ist die beste Reisezeit und was sollte ich einpacken?",
+    "errors": {
+      "notConfigured": "Der KI-Assistent ist vorübergehend nicht verfügbar. Versuchen Sie es später erneut oder schreiben Sie uns über die Kontaktseite.",
+      "dailyLimit": "Sie haben das heutige Nachrichtenlimit erreicht. Kommen Sie morgen wieder!",
+      "busy": "Gerade gibt es viele Anfragen. Versuchen Sie es in einer Minute erneut.",
+      "refusal": "Bei dieser Anfrage kann ich nicht helfen. Lassen Sie uns zum Reisen zurückkehren.",
+      "network": "Keine Verbindung zum Server. Prüfen Sie Ihr Internet.",
+      "server": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
+      "unauthorized": "Ihre Sitzung ist abgelaufen — bitte melden Sie sich erneut an.",
+      "load": "Der Chat konnte nicht geladen werden. Aktualisieren Sie die Seite."
+    },
+    "back": "Zur Website",
+    "menu": {
+      "open": "Hinzufügen",
+      "templates": "Fragevorlagen",
+      "favorites": "Meine gespeicherten Touren",
+      "favoritesEmpty": "Touren mit dem Herz speichern — die KI vergleicht sie",
+      "requestHint": "Name und Telefon — ein Manager meldet sich",
+      "back": "Zurück",
+      "slash": "Vorlagen",
+      "noMatch": "Keine solche Vorlage",
+      "favoritesPick": "Wählen Sie eine Tour",
+      "favoritePrompt": "Ich möchte die Tour „{title}“ machen. Hilf mir bei der Planung: Termin — [wann], wir sind [wie viele Personen]."
+    },
+    "templates": [
+      {
+        "title": "Route nach Tagen",
+        "prompt": "Plane eine [Anzahl]-tägige Reise durch Kirgisistan im [Monat]. Wir sind [wie viele Personen], Interessen: [Berge / Seen / Kultur]."
+      },
+      {
+        "title": "Reisebudget",
+        "prompt": "Was kostet eine [Anzahl]-tägige Reise nach Kirgisistan für [wie viele Personen]? Aufschlüsselung: Unterkunft, Transport, Essen, Touren."
+      },
+      {
+        "title": "Packliste",
+        "prompt": "Was sollte ich im [Monat] nach Kirgisistan mitnehmen? Ich plane [Trekking / Reittour / Stadt]."
+      },
+      {
+        "title": "Beste Reisezeit",
+        "prompt": "Wann ist die beste Reisezeit für [Ort], und wie unterscheiden sich die Jahreszeiten?"
+      },
+      {
+        "title": "Visum und Einreise",
+        "prompt": "Brauchen Bürger von [Land] ein Visum für Kirgisistan? Was ist für die Einreise nötig?"
+      },
+      {
+        "title": "Reise mit Kindern",
+        "prompt": "Schlage eine entspannte [Anzahl]-tägige Route in Kirgisistan für eine Familie mit Kindern im Alter von [Alter] vor."
+      }
+    ],
+    "clearHistory": "Leeren",
+    "clearConfirm": "Alle Chats löschen? Das kann nicht rückgängig gemacht werden.",
+    "cancel": "Abbrechen",
+    "booking": {
+      "start": "Ich möchte buchen: {title}. Bitte helfen Sie mir mit der Anfrage.",
+      "label": "Buchung",
+      "form": "Formular",
+      "dismiss": "Buchung aus dem Chat entfernen",
+      "cardTitle": "Anfrage prüfen",
+      "sentTitle": "Anfrage gesendet",
+      "item": "Buchung",
+      "date": "Daten",
+      "guests": "Reisende",
+      "name": "Name",
+      "phone": "Telefon",
+      "email": "E-Mail",
+      "message": "Wünsche",
+      "send": "An Manager senden",
+      "sending": "Wird gesendet…",
+      "sent": "Anfragenummer {id}. Ein Manager meldet sich, um die Details zu bestätigen.",
+      "myRequests": "Meine Anfragen",
+      "error": "Senden fehlgeschlagen. Prüfen Sie die Verbindung und versuchen Sie es erneut.",
+      "invalid": "In der Anfrage stimmt etwas nicht (z. B. Datum in der Vergangenheit oder unvollständige Telefonnummer) — schreiben Sie im Chat, was geändert werden soll.",
+      "note": "Keine Zahlung jetzt — zuerst bestätigt ein Manager die Details.",
+      "preparing": "Anfrage wird vorbereitet…",
+      "gateTitle": "Buchung: {title}",
+      "gateText": "Einmal registrieren — dauert eine Minute und ist kostenlos. Danach klärt der KI-Assistent die Daten und bucht direkt im Chat, ohne weitere Formulare.",
+      "from": "ab",
+      "chosen": "Ihre Auswahl",
+      "checkText": "Alles korrekt? Senden Sie es ab — ein Manager bestätigt Verfügbarkeit und Preis.",
+      "details": "Details"
+    }
+  },
+  "search": {
+    "placeholder": "Touren und Orte suchen",
+    "results": "Ergebnisse",
+    "empty": "Keine Treffer für „{q}“. Versuchen Sie ein anderes Wort oder fragen Sie den KI-Assistenten.",
+    "popular": "Beliebte Touren",
+    "all": "Alle Touren",
+    "ask": "KI-Assistenten fragen",
+    "close": "Suche schließen"
+  },
+  "reviews": {
+    "empty": "Noch keine Bewertungen. Waren Sie auf dieser Tour? Erzählen Sie anderen davon.",
+    "write": "Bewertung schreiben",
+    "rating": "Ihre Bewertung",
+    "star": "{n} von 5",
+    "placeholder": "Was hat Ihnen gefallen? Was sollten andere wissen?",
+    "submit": "Veröffentlichen",
+    "sending": "Wird veröffentlicht…",
+    "login": "Bewertungen schreiben können beim KI-Assistenten registrierte Reisende",
+    "loginCta": "Registrieren",
+    "already": "Sie haben diese Tour bereits bewertet.",
+    "you": "Sie",
+    "remove": "Bewertung löschen",
+    "removeConfirm": "Ihre Bewertung löschen?",
+    "errorShort": "Mindestens 10 Zeichen",
+    "errorRating": "Bitte eine Bewertung wählen",
+    "error": "Bewertung konnte nicht gespeichert werden. Bitte erneut versuchen.",
+    "loadError": "Bewertungen konnten nicht geladen werden.",
+    "filterAll": "Alle",
+    "filterGood": "Positiv",
+    "filterBad": "Negativ",
+    "filterLabel": "Bewertungen anzeigen",
+    "filterEmpty": "Noch keine Bewertungen mit dieser Note.",
+    "showAll": "Alle Bewertungen anzeigen ({n})",
+    "showLess": "Weniger anzeigen"
+  },
+  "units": {
+    "per_person": "pro Person",
+    "per_day": "pro Tag",
+    "per_night": "pro Nacht",
+    "per_hour": "pro Stunde",
+    "per_trip": "pro Fahrt"
+  },
+  "offers": {
+    "request": "Anfrage senden",
+    "requestTitle": "Anfrage senden",
+    "details": "Details",
+    "from": "ab",
+    "gallery": "Fotos",
+    "program": "Programm",
+    "about": "Beschreibung",
+    "back": "Alle Routen",
+    "emptyTitle": "Angebote folgen in Kürze",
+    "emptyText": "Wir fügen sie gerade hinzu. Senden Sie eine Anfrage — ein Manager findet eine Option und meldet sich.",
+    "note": "Jetzt keine Zahlung — zuerst bestätigt ein Manager die Details."
+  },
+  "trekking": {
+    "kicker": "Wanderrouten",
+    "title": "Trekking",
+    "text": "Pässe, Gletscher und Bergseen des Tian Shan — Routen mit erfahrenen Guides.",
+    "days": "{n} Tage"
+  },
+  "transport": {
+    "kicker": "Transfers und Miete",
+    "title": "Transport",
+    "text": "Autos mit Fahrer oder zur Miete: Flughafenabholung, Transfers, Fahrten durchs Land — oder selbst fahren.",
+    "seats": "{n} Sitze",
+    "driver": "Mit Fahrer",
+    "noDriver": "Ohne Fahrer",
+    "ac": "Klimaanlage",
+    "year": "{n}",
+    "back": "Alle Fahrzeuge",
+    "about": "Über das Fahrzeug",
+    "specs": "Ausstattung",
+    "seatsLabel": "Sitzplätze",
+    "driverLabel": "Fahrer",
+    "acLabel": "Klimaanlage",
+    "yearLabel": "Baujahr",
+    "colorLabel": "Farbe",
+    "modelLabel": "Marke und Modell",
+    "yes": "Ja",
+    "no": "Nein",
+    "other": "Weitere Fahrzeuge",
+    "details": "Details ansehen",
+    "aboutFallback": "Ein komfortables Fahrzeug für Reisen durch Kirgisistan: Abholung am Flughafen, Transfers in Städte und zu Seen, Fahrten in die Berge. Ein Manager bestätigt die Verfügbarkeit und schlägt eine Route vor.",
+    "askPrompt": "Hilf mir, eine Fahrt mit dem Fahrzeug \"{name}\" zu planen: Wohin können wir fahren, wie lange dauert die Fahrt und was lohnt sich unterwegs?"
+  },
+  "helicopter": {
+    "kicker": "Blick von oben",
+    "title": "Helikopter-Touren",
+    "text": "Berge, Gletscher und Seen Kirgisistans aus der Vogelperspektive.",
+    "minutes": "{n} Min.",
+    "passengers": "bis {n} Passagiere",
+    "back": "Alle Flüge",
+    "kickerOne": "Helikoptertour",
+    "duration": "In der Luft",
+    "passengersLabel": "Passagiere",
+    "routeLabel": "Route",
+    "priceLabel": "Preis",
+    "upTo": "bis {n}",
+    "about": "Über den Flug",
+    "aboutFallback": "Berge, Gletscher und Seen Kirgisistans aus der Vogelperspektive. Ein Manager bestätigt Datum, Abflugzeit und Plätze.",
+    "stepsTitle": "So läuft der Flug ab",
+    "steps": [
+      {
+        "title": "Treffen und Einweisung",
+        "text": "Wir treffen uns am Landeplatz. Der Pilot erklärt die Route und die Sicherheitsregeln an Bord."
+      },
+      {
+        "title": "Flug entlang der Route",
+        "text": "Berge und Seen von oben — der Pilot zeigt Ihnen die besten Fotomotive."
+      },
+      {
+        "title": "Rückkehr",
+        "text": "Landung wie in der Route geplant. Die Flugzeit steht auf der Flugkarte."
+      }
+    ],
+    "weatherTitle": "Flüge hängen vom Wetter ab",
+    "weatherText": "Bei ungeeignetem Flugwetter meldet sich ein Manager und schlägt eine andere Zeit oder einen anderen Tag vor.",
+    "photos": "Fotos vom Flug",
+    "other": "Weitere Flüge",
+    "askPrompt": "Erzähl mir von der Helikoptertour „{name}“: was sieht man, wie lange dauert sie und was sollte ich mitnehmen?"
+  },
+  "requests": {
+    "toast": {
+      "new": "Anfrage erhalten",
+      "in_progress": "Anfrage in Bearbeitung",
+      "completed": "Anfrage bestätigt",
+      "cancelled": "Anfrage storniert"
+    },
+    "toastMore": "+ {n} weitere",
+    "kicker": "Ihr Konto",
+    "title": "Meine Anfragen",
+    "text": "Alles, was Sie bei Kerben Travel angefragt haben — Touren, Hotels, Transport, Flüge und Trekking — an einem Ort.",
+    "emptyTitle": "Hier ist noch nichts",
+    "emptyText": "Ihre Anfragen erscheinen hier. Lassen Sie uns gemeinsam eine Tour für Sie finden!",
+    "browseTours": "Tour wählen",
+    "browseTransport": "Transport",
+    "guestNote": "Ihre Anfragen sind in diesem Browser gespeichert. Registrieren Sie sich beim KI-Assistenten, um sie auf jedem Gerät zu sehen.",
+    "login": "Registrieren",
+    "number": "Anfrage Nr.",
+    "steps": {
+      "sent": "Gesendet",
+      "review": "Manager meldet sich",
+      "confirmed": "Bestätigt"
+    },
+    "status": {
+      "new": "Ein Manager meldet sich innerhalb eines Tages per Telefon oder WhatsApp.",
+      "in_progress": "Ein Manager bearbeitet Ihre Anfrage.",
+      "completed": "Ihre Anfrage ist bestätigt. Gute Reise!",
+      "cancelled": "Diese Anfrage wurde storniert."
+    },
+    "cancelled": "Storniert",
+    "open": "Öffnen",
+    "hide": "Ausblenden",
+    "kinds": {
+      "tour": "Tour",
+      "hotel": "Hotel",
+      "transport": "Transport",
+      "helicopter": "Hubschrauber",
+      "trekking": "Trekking",
+      "request": "Anfrage"
+    },
+    "count": "Anfragen insgesamt: {n}",
+    "loading": "Anfragen werden geladen…",
+    "error": "Anfragen konnten nicht geladen werden. Aktualisieren Sie die Seite.",
+    "cancel": "Anfrage stornieren",
+    "undoQuestion": "Versehentlich gesendet? Anfrage stornieren",
+    "cancelConfirm": "Diese Anfrage wirklich stornieren? Der Manager wird benachrichtigt.",
+    "cancelYes": "Ja, stornieren",
+    "cancelNo": "Nein, behalten",
+    "cancelling": "Wird storniert…",
+    "cancelDone": "Die Anfrage ist storniert. Der Manager wurde benachrichtigt und bearbeitet sie nicht.",
+    "cancelError": "Stornierung fehlgeschlagen — keine Verbindung. Versuchen Sie es erneut oder schreiben Sie uns per WhatsApp.",
+    "all": "Alle",
+    "ticket": {
+      "label": "Ticket",
+      "items": "In dieser Reise",
+      "dates": "Daten",
+      "guests": "Reisende",
+      "name": "Name",
+      "phone": "Telefon",
+      "wishes": "Wünsche",
+      "statuses": {
+        "new": "Gesendet",
+        "in_progress": "Manager meldet sich",
+        "completed": "Bestätigt",
+        "cancelled": "Storniert"
+      }
+    }
+  },
+  "trips": {
+    "kicker": "Alles an einem Ort",
+    "title": "Meine Reisen",
+    "text": "Ihre Anfragen für Touren, Hotels und Autos und gespeicherte Touren — alles hier.",
+    "tabs": {
+      "requests": "Anfragen",
+      "saved": "Gespeichert"
+    }
+  },
+  "trip": {
+    "choose": "Auswählen",
+    "chosen": "Ausgewählt",
+    "chooseTour": "Tour auswählen",
+    "tourChosen": "Tour ausgewählt",
+    "undo": "Klicken, um die Auswahl aufzuheben",
+    "added": "„{title}“ ist in Ihrer Reise",
+    "openChat": "Chat öffnen",
+    "authTitle": "Registrieren Sie sich, um auszuwählen",
+    "authText": "Das dauert eine Minute. Ihre Auswahl wird gespeichert, und der KI-Assistent im Chat hilft bei der Buchung.",
+    "authVisitTitle": "Registrieren Sie sich, um zu öffnen",
+    "authVisitText": "Das dauert eine Minute. Danach öffnet sich sofort die gewählte Seite.",
+    "stepTitle": "Beginnen Sie mit der Tour",
+    "stepText": "Wählen Sie diese Tour — dann suchen wir ein Hotel und ein Auto aus.",
+    "doneText": "Ihre Auswahl ist bereits im Chat: Der KI-Assistent fragt nach Daten und Kontakten und sendet die Anfrage an einen Manager.",
+    "chatTitle": "Ihre Reise",
+    "chatHint": "Der KI-Assistent sieht Ihre Auswahl und hilft bei der Buchung",
+    "chatStart": "Reise buchen",
+    "chatStartPrompt": "Bitte hilf mir, meine Reise zu buchen: erzähl kurz über die Tour, das Hotel und das Auto — was enthalten ist, was es ungefähr kostet und was noch zu klären ist.",
+    "prev": "Zurück",
+    "next": "Weiter",
+    "options": "Optionen: {total}",
+    "swipe": "Seitlich wischen",
+    "backToTour": "Zurück zur Tour",
+    "chatShow": "Buchung zeigen",
+    "chatHide": "Einklappen",
+    "chatCount": "{count} in der Buchung"
+  }
+}

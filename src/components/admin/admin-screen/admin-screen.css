@@ -1,0 +1,6 @@
+.admin-screen {
+  position: relative;
+  z-index: 200;
+  min-height: 100dvh;
+  background: var(--soft);
+}

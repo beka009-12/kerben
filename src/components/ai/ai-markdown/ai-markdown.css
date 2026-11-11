@@ -1,0 +1,50 @@
+.ai-markdown {
+  display: grid;
+  gap: 12px;
+  font-size: 0.9875rem;
+  line-height: 1.7;
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+.ai-markdown-heading {
+  margin-top: 4px;
+  font-size: 1.0625rem;
+}
+
+.ai-markdown-paragraph {
+  margin: 0;
+}
+
+.ai-markdown-list {
+  display: grid;
+  gap: 6px;
+  padding-left: 22px;
+  list-style: disc;
+}
+
+.ai-markdown-list-numbered {
+  list-style: decimal;
+}
+
+.ai-markdown-item {
+  padding-left: 2px;
+}
+
+.ai-markdown-item::marker {
+  color: var(--primary);
+}
+
+.ai-markdown-code {
+  padding: 1px 6px;
+  border-radius: 6px;
+  background: var(--soft);
+  font-size: 0.9em;
+}
+
+.ai-markdown-link {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

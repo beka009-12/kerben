@@ -1,0 +1,40 @@
+.tour-page-skeleton {
+  min-height: 80vh;
+  background: linear-gradient(180deg, var(--navy) 0 60%, var(--soft) 60%);
+}
+
+.tour-page-body {
+  display: grid;
+  gap: 56px;
+  padding-block: 40px var(--section);
+}
+
+.tour-page-split {
+  display: grid;
+  gap: 32px;
+}
+
+.tour-page-related-title {
+  margin-bottom: 24px;
+}
+
+.tour-page-related {
+  display: grid;
+  gap: 20px;
+}
+
+@media (min-width: 640px) {
+  .tour-page-related {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1000px) {
+  .tour-page-split {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .tour-page-related {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

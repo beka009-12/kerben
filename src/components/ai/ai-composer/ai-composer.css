@@ -1,0 +1,245 @@
+.ai-composer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: var(--white);
+  box-shadow: 0 10px 40px rgb(15 23 42 / 8%);
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.ai-composer:focus-within {
+  border-color: rgb(23 105 255 / 45%);
+  box-shadow:
+    0 0 0 4px var(--primary-soft),
+    0 10px 40px rgb(15 23 42 / 8%);
+}
+
+.ai-composer-input {
+  flex: 1;
+  min-width: 0;
+  min-height: 44px;
+  max-height: 200px;
+  padding: 11px 0;
+  border: 0;
+  background: transparent;
+  font-size: 1rem;
+  line-height: 1.5;
+  overflow-y: hidden;
+  resize: none;
+}
+
+.ai-composer-input:focus {
+  outline: none;
+}
+
+.ai-composer-input::placeholder {
+  overflow: hidden;
+  color: var(--muted);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 767px) {
+  .ai-composer-input {
+    max-height: 144px;
+  }
+}
+
+.ai-composer-button {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--white);
+  transition:
+    background-color 0.2s,
+    transform 0.15s;
+}
+
+.ai-composer-button:hover {
+  background: var(--primary);
+}
+
+.ai-composer-button:active {
+  transform: scale(0.94);
+}
+
+.ai-composer-button:disabled {
+  background: var(--line);
+  color: var(--muted);
+  cursor: default;
+}
+
+.ai-composer-button-stop {
+  background: var(--text);
+}
+
+.ai-composer-stop {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  background: var(--white);
+}
+
+.ai-composer-plus {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: var(--muted);
+  transform: rotate(45deg);
+  transition:
+    background-color 0.2s,
+    color 0.2s,
+    transform 0.25s var(--ease);
+}
+
+.ai-composer-plus:hover {
+  background: var(--soft);
+  color: var(--text);
+}
+
+.ai-composer-plus-open {
+  background: var(--soft);
+  color: var(--text);
+  transform: rotate(0deg);
+}
+
+.ai-composer-panel {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 0;
+  z-index: 5;
+  display: grid;
+  gap: 2px;
+  width: min(320px, 100%);
+  max-height: min(360px, 50dvh);
+  overflow-y: auto;
+  padding: 6px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--white);
+  box-shadow: 0 18px 50px rgb(15 23 42 / 16%);
+  animation: ai-composer-panel-in 0.18s var(--ease) both;
+}
+
+@keyframes ai-composer-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+.ai-composer-heading {
+  padding: 6px 10px 4px;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.ai-composer-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 42px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  font-size: var(--fs-small);
+  text-align: left;
+  transition: background-color 0.15s;
+}
+
+.ai-composer-item:hover,
+.ai-composer-item-active {
+  background: var(--soft);
+}
+
+.ai-composer-item:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.ai-composer-item:disabled:hover {
+  background: transparent;
+}
+
+.ai-composer-item-back {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.ai-composer-item-icon {
+  flex-shrink: 0;
+  color: var(--muted);
+}
+
+.ai-composer-item-label {
+  flex: 1;
+  min-width: 0;
+}
+
+.ai-composer-item-hint {
+  min-width: 22px;
+  padding: 1px 7px;
+  border-radius: var(--radius-full);
+  background: var(--soft);
+  font-size: var(--fs-xs);
+  color: var(--muted);
+  text-align: center;
+}
+
+.ai-composer-slash {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.ai-composer-note {
+  padding: 6px 10px 8px;
+  font-size: var(--fs-xs);
+  color: var(--muted);
+}
+
+.ai-composer-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.ai-composer-thumb {
+  position: relative;
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 40px;
+  height: 30px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--soft);
+  color: var(--primary);
+}
+
+.ai-composer-thumb-image {
+  object-fit: cover;
+}

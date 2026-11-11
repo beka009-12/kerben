@@ -1,0 +1,32 @@
+.rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--fs-small);
+  color: var(--text);
+}
+
+.rating-light {
+  color: var(--white);
+}
+
+.rating-stars {
+  display: inline-flex;
+  gap: 2px;
+}
+
+.rating-star {
+  color: var(--star);
+}
+
+.rating-value {
+  font-weight: 600;
+}
+
+.rating-count {
+  color: var(--muted);
+}
+
+.rating-count-light {
+  color: rgb(255 255 255 / 80%);
+}

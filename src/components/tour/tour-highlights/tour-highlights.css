@@ -1,0 +1,54 @@
+.tour-highlights {
+  display: grid;
+  gap: 16px;
+}
+
+.tour-highlights-title {
+  font-size: var(--fs-h2);
+}
+
+.tour-highlights-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.tour-highlights-item {
+  display: grid;
+  gap: 4px;
+  align-content: start;
+}
+
+.tour-highlights-media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  margin-bottom: 6px;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--soft);
+}
+
+.tour-highlights-item:hover {
+  --zoom: 1.06;
+}
+
+.tour-highlights-image {
+  object-fit: cover;
+  transform: scale(var(--zoom, 1));
+  transition: transform 0.5s var(--ease);
+}
+
+.tour-highlights-name {
+  font-size: var(--fs-small);
+}
+
+.tour-highlights-text {
+  font-size: var(--fs-xs);
+  color: var(--muted);
+}
+
+@media (min-width: 900px) {
+  .tour-highlights-list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

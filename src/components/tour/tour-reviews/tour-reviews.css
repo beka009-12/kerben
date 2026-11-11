@@ -1,0 +1,260 @@
+.tour-reviews {
+  display: grid;
+  gap: 16px;
+}
+
+.tour-reviews-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+}
+
+.tour-reviews-title {
+  font-size: var(--fs-h2);
+}
+
+.tour-reviews-summary {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.tour-reviews-based {
+  font-size: var(--fs-xs);
+  color: var(--muted);
+}
+
+.tour-reviews-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tour-reviews-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-full);
+  background: var(--white);
+  color: var(--text);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    border-color 0.15s,
+    background-color 0.15s,
+    color 0.15s;
+}
+
+.tour-reviews-filter svg {
+  color: #f5a524;
+}
+
+@media (hover: hover) {
+  .tour-reviews-filter:hover {
+    border-color: var(--primary);
+  }
+}
+
+.tour-reviews-filter-on,
+.tour-reviews-filter-on:hover {
+  border-color: var(--navy);
+  background: var(--navy);
+  color: var(--white);
+}
+
+.tour-reviews-filter-count {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.tour-reviews-filter-on .tour-reviews-filter-count {
+  color: rgb(255 255 255 / 70%);
+}
+
+.tour-reviews-filter:focus-visible,
+.tour-reviews-more:focus-visible {
+  outline: 3px solid rgb(20 95 240 / 35%);
+  outline-offset: 2px;
+}
+
+.tour-reviews-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: 14px;
+}
+
+.tour-reviews-more {
+  display: inline-flex;
+  align-items: center;
+  justify-self: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 0 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-full);
+  background: var(--white);
+  color: var(--primary);
+  font-size: var(--fs-small);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .tour-reviews-more:hover {
+    border-color: var(--primary);
+    background: var(--primary-soft);
+  }
+}
+
+.tour-reviews-card {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  padding: 18px;
+  border-radius: var(--radius);
+  background: var(--soft);
+}
+
+.tour-reviews-person {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tour-reviews-who {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+}
+
+.tour-reviews-remove {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: var(--muted);
+  transition:
+    background-color 0.15s,
+    color 0.15s;
+}
+
+.tour-reviews-remove:hover {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.tour-reviews-name {
+  font-size: var(--fs-small);
+}
+
+.tour-reviews-from {
+  font-size: var(--fs-xs);
+  color: var(--muted);
+}
+
+.tour-reviews-text {
+  font-size: var(--fs-small);
+  overflow-wrap: anywhere;
+  white-space: pre-line;
+}
+
+.tour-reviews-note {
+  padding: 18px;
+  border-radius: var(--radius);
+  background: var(--soft);
+  color: var(--muted);
+}
+
+.tour-reviews-login {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  color: var(--muted);
+  font-size: var(--fs-small);
+}
+
+.tour-reviews-login-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.tour-reviews-form {
+  display: grid;
+  gap: 12px;
+  justify-items: start;
+  max-width: 640px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.tour-reviews-form-title {
+  font-size: var(--fs-h3);
+}
+
+.tour-reviews-stars {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  border: 0;
+}
+
+.tour-reviews-label {
+  margin-bottom: 6px;
+  font-size: var(--fs-small);
+  font-weight: 600;
+}
+
+.tour-reviews-star {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.tour-reviews-star:focus-within {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+.tour-reviews-star-on {
+  color: var(--star);
+}
+
+.tour-reviews-star-off {
+  color: var(--line);
+}
+
+.tour-reviews-input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--white);
+  font-size: 1rem;
+  resize: vertical;
+}
+
+.tour-reviews-input:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+.tour-reviews-error {
+  color: var(--danger);
+  font-size: var(--fs-small);
+}

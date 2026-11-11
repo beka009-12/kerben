@@ -1,0 +1,23 @@
+.admin-tone-new {
+  --tone: var(--primary);
+  --tone-text: var(--primary-dark);
+  --tone-bg: var(--primary-soft);
+}
+
+.admin-tone-in_progress {
+  --tone: #f59e0b;
+  --tone-text: #b45309;
+  --tone-bg: #fef6e4;
+}
+
+.admin-tone-completed {
+  --tone: var(--success);
+  --tone-text: #15803d;
+  --tone-bg: var(--success-soft);
+}
+
+.admin-tone-cancelled {
+  --tone: #94a3b8;
+  --tone-text: var(--muted);
+  --tone-bg: #f1f5f9;
+}

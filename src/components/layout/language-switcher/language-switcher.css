@@ -1,0 +1,221 @@
+.language-switcher {
+  position: relative;
+  color: var(--text);
+}
+
+.language-switcher-light {
+  color: var(--white);
+}
+
+.language-switcher-open {
+  --lang-chevron: 180deg;
+  --lang-button-bg: rgb(127 127 127 / 16%);
+}
+
+.language-switcher-pending {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.language-switcher-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 40px;
+  padding: 0 12px;
+  border-radius: var(--radius-full);
+  background: var(--lang-button-bg, transparent);
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.language-switcher-button:hover {
+  background: rgb(127 127 127 / 14%);
+}
+
+.language-switcher-button:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.language-switcher-value {
+  min-width: 2ch;
+  font-size: var(--fs-small);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.language-switcher-chevron {
+  display: inline-flex;
+  opacity: 0.7;
+  transform: rotate(var(--lang-chevron, 0deg));
+  transition: transform 0.25s var(--ease);
+}
+
+.language-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  z-index: 60;
+  display: grid;
+  gap: 2px;
+  width: 248px;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--white);
+  color: var(--text);
+  box-shadow: var(--shadow-lg);
+  transform-origin: top right;
+  animation: language-menu-in 0.22s var(--ease);
+}
+
+.language-menu[hidden] {
+  display: none;
+}
+
+.language-menu::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  right: 22px;
+  width: 12px;
+  height: 12px;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+  background: var(--white);
+  transform: rotate(45deg);
+}
+
+@keyframes language-menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.97);
+  }
+}
+
+.language-menu-title {
+  padding: 8px 12px 6px;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.language-option {
+  display: grid;
+  grid-template-columns: 40px 1fr 20px;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.language-option:hover,
+.language-option:focus-visible {
+  background: var(--soft);
+  outline: none;
+}
+
+.language-option-active {
+  --lang-code-bg: var(--primary);
+  --lang-code-color: var(--white);
+  --lang-check: 1;
+  background: var(--primary-soft);
+}
+
+.language-option-active:hover {
+  background: var(--primary-soft);
+}
+
+.language-option-code {
+  display: grid;
+  place-items: center;
+  height: 32px;
+  border-radius: 10px;
+  background: var(--lang-code-bg, var(--soft));
+  color: var(--lang-code-color, var(--text));
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+.language-option-names {
+  display: grid;
+  line-height: 1.25;
+}
+
+.language-option-native {
+  font-weight: 700;
+}
+
+.language-option-full {
+  font-size: var(--fs-xs);
+  color: var(--muted);
+}
+
+.language-option-check {
+  display: inline-flex;
+  color: var(--primary);
+  opacity: var(--lang-check, 0);
+  transform: scale(calc(0.6 + var(--lang-check, 0) * 0.4));
+  transition:
+    opacity 0.2s,
+    transform 0.2s var(--ease);
+}
+
+.language-inline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+}
+
+.language-chip {
+  min-width: 48px;
+  height: 40px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-full);
+  background: var(--white);
+  color: var(--text);
+  font: inherit;
+  font-size: var(--fs-small);
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s,
+    color 0.2s;
+}
+
+.language-chip:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.language-chip:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.language-chip-active,
+.language-chip-active:hover {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: var(--white);
+}

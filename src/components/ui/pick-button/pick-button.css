@@ -1,0 +1,69 @@
+.pick-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-full);
+  background: var(--accent-fill);
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  box-shadow: var(--accent-shadow);
+  transition:
+    background-color 0.25s var(--ease),
+    box-shadow 0.25s var(--ease),
+    transform 0.2s var(--ease);
+}
+
+.pick-button:hover {
+  background: var(--accent-fill-hover);
+}
+
+.pick-button:active {
+  transform: scale(0.97);
+}
+
+.pick-button-md {
+  min-height: 44px;
+  padding: 0 22px;
+  font-size: 0.9375rem;
+}
+
+.pick-button-lg {
+  min-height: 54px;
+  padding: 0 30px;
+  font-size: 1rem;
+}
+
+.pick-button-block {
+  width: 100%;
+}
+
+.pick-button-on {
+  background: var(--success);
+  box-shadow: 0 8px 20px rgb(22 163 74 / 30%);
+  animation: pick-button-pop 0.35s var(--ease);
+}
+
+.pick-button-on:hover {
+  background: #15803d;
+}
+
+.pick-button-check {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--success);
+}
+
+@keyframes pick-button-pop {
+  50% {
+    transform: scale(1.06);
+  }
+}

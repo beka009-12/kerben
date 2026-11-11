@@ -1,0 +1,118 @@
+.faq-list {
+  border-top: 1px solid var(--line);
+}
+
+.faq-list-item {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq-list-item[open] {
+  --faq-rotate: 45deg;
+  --faq-toggle-bg: var(--primary);
+  --faq-toggle-color: var(--white);
+}
+
+.faq-list-question {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 0;
+  font-family: var(--font-heading);
+  font-size: clamp(0.9375rem, 0.9rem + 0.2vw, 1.0625rem);
+  font-weight: 600;
+  line-height: 1.4;
+  cursor: pointer;
+  list-style: none;
+  transition: color 0.2s;
+}
+
+.faq-list-question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-list-question:hover {
+  color: var(--primary);
+}
+
+.faq-list-question:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+
+.faq-list-number {
+  flex-shrink: 0;
+  min-width: 28px;
+  font-size: var(--fs-small);
+  font-weight: 700;
+  color: var(--primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.faq-list-text {
+  flex: 1;
+}
+
+.faq-list-toggle {
+  position: relative;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--faq-toggle-bg, var(--soft));
+  color: var(--faq-toggle-color, currentColor);
+  transform: rotate(var(--faq-rotate, 0deg));
+  transition:
+    transform 0.3s var(--ease),
+    background-color 0.2s,
+    color 0.2s;
+}
+
+.faq-list-toggle::before,
+.faq-list-toggle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 11px;
+  height: 1.5px;
+  border-radius: 2px;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+}
+
+.faq-list-toggle::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.faq-list-answer {
+  max-width: 720px;
+  padding-bottom: 20px;
+  font-size: 0.9375rem;
+  color: var(--muted);
+  line-height: 1.7;
+  white-space: pre-line;
+  animation: faq-list-open 0.35s var(--ease) both;
+}
+
+.faq-list-answer-numbered {
+  padding-left: 48px;
+}
+
+@keyframes faq-list-open {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+@media (max-width: 767px) {
+  .faq-list-question {
+    gap: 14px;
+    padding: 16px 0;
+  }
+
+  .faq-list-answer-numbered {
+    padding-left: 0;
+  }
+}

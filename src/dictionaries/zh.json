@@ -1,0 +1,1157 @@
+{
+  "meta": {
+    "title": "Kerben Travel — 吉尔吉斯斯坦与中亚旅行",
+    "description": "吉尔吉斯斯坦、哈萨克斯坦和乌兹别克斯坦的本地旅行社。雪山、湖泊、游牧文化与丝绸之路。",
+    "toursTitle": "全部线路",
+    "toursDescription": "按目的地、类别、价格和人数查找线路。",
+    "destinationsTitle": "探索目的地",
+    "destinationsDescription": "在互动地图上找到你的下一次冒险。",
+    "hotelsTitle": "住宿",
+    "hotelsDescription": "为每一次旅行精选的酒店、山间小屋和毡房营地。",
+    "aboutTitle": "关于我们",
+    "aboutDescription": "我们是谁，以及旅行者为什么信任我们。",
+    "contactTitle": "联系我们",
+    "contactDescription": "关于下一次旅行的任何问题都可以问我们。",
+    "savedTitle": "收藏的线路",
+    "loginTitle": "登录",
+    "creditsTitle": "图片来源",
+    "chatTitle": "Kerben Travel AI 助手",
+    "chatDescription": "你的私人 AI 旅行顾问：中亚的路线、季节和实用建议。",
+    "trekkingTitle": "吉尔吉斯斯坦山地徒步",
+    "trekkingDescription": "天山徒步路线：每日行程、价格与在线申请。",
+    "transportTitle": "交通与接送",
+    "transportDescription": "带司机的车辆，提供接送及吉尔吉斯斯坦境内出行。",
+    "helicopterTitle": "直升机游览",
+    "helicopterDescription": "飞越吉尔吉斯斯坦的群山、湖泊与冰川。",
+    "requestsTitle": "我的申请",
+    "faqTitle": "常见问题",
+    "faqDescription": "关于吉尔吉斯斯坦旅行的常见问题解答：签证、季节、付款、装备与安全。",
+    "tripsTitle": "我的行程"
+  },
+  "a11y": {
+    "skip": "跳到主要内容",
+    "openMenu": "打开菜单",
+    "closeMenu": "关闭菜单",
+    "language": "语言",
+    "home": "Kerben Travel — 首页",
+    "search": "搜索线路",
+    "saved": "收藏的线路",
+    "prev": "上一张",
+    "next": "下一张",
+    "close": "关闭"
+  },
+  "nav": {
+    "home": "首页",
+    "destinations": "目的地",
+    "tours": "线路",
+    "hotels": "住宿",
+    "about": "关于我们",
+    "contact": "联系",
+    "login": "登录",
+    "saved": "收藏",
+    "explore": "探索",
+    "profile": "个人中心",
+    "chat": "AI 助手",
+    "aiHint": "随时咨询任何行程",
+    "services": "服务",
+    "trekking": "徒步",
+    "transport": "交通",
+    "helicopter": "直升机游览",
+    "requests": "我的申请",
+    "trips": "我的行程",
+    "tripsShort": "行程"
+  },
+  "hero": {
+    "eyebrow": "探索吉尔吉斯斯坦之美",
+    "title": "改变人生的",
+    "titleAccent": "旅行",
+    "text": "Kerben Travel 是您值得信赖的旅行伙伴。我们为您打造吉尔吉斯斯坦和中亚的独特路线，带您发现新的视野。",
+    "features": [
+      "独特路线",
+      "可靠服务",
+      "遍及中亚"
+    ],
+    "place": "吉尔吉斯斯坦",
+    "placeNote": "高山、湖泊、自由",
+    "primary": "选择线路",
+    "secondary": "定制我的旅程",
+    "secondaryAsk": "帮我定制一次吉尔吉斯斯坦之旅。请问我出行日期、天数、同行人数和兴趣。",
+    "slides": [
+      {
+        "place": "伊塞克湖",
+        "caption": "海拔 1,607 米"
+      },
+      {
+        "place": "松湖",
+        "caption": "海拔 3,016 米 · 毡房与骏马"
+      },
+      {
+        "place": "七牛岩",
+        "caption": "天山的红色岩石"
+      },
+      {
+        "place": "阿拉阿查",
+        "caption": "距比什凯克 40 分钟"
+      }
+    ]
+  },
+  "popular": {
+    "title": "我们的旅程",
+    "text": "吉尔吉斯斯坦及更多目的地的精选线路——挑选属于你的那一条。",
+    "viewAll": "全部线路"
+  },
+  "card": {
+    "from": "起价",
+    "reviews": "条评价",
+    "reviewForms": {
+      "one": "条评价",
+      "other": "条评价"
+    },
+    "days": "天",
+    "perPerson": "每人",
+    "bestseller": "热销",
+    "new": "新线路",
+    "addFavorite": "收藏线路",
+    "removeFavorite": "取消收藏",
+    "details": "查看线路",
+    "more": "查看详情"
+  },
+  "categories": {
+    "title": "按类别探索",
+    "text": "找到最适合你兴趣的旅行。",
+    "items": {
+      "nature": {
+        "title": "自然",
+        "text": "雪山、湖泊、森林"
+      },
+      "beach": {
+        "title": "海滩",
+        "text": "阳光、大海、放松"
+      },
+      "culture": {
+        "title": "文化",
+        "text": "历史、传统、城市"
+      },
+      "adventure": {
+        "title": "探险",
+        "text": "徒步、登山、运动"
+      },
+      "luxury": {
+        "title": "奢华",
+        "text": "高端体验"
+      },
+      "family": {
+        "title": "亲子",
+        "text": "老少皆宜"
+      }
+    }
+  },
+  "explore": {
+    "title": "探索目的地",
+    "text": "在互动地图上找到你的下一次冒险。",
+    "destinations": "个目的地",
+    "regions": {
+      "asia": "亚洲",
+      "europe": "欧洲",
+      "africa": "非洲",
+      "northAmerica": "北美洲",
+      "southAmerica": "南美洲",
+      "oceania": "大洋洲"
+    },
+    "world": "全世界",
+    "tours": "条线路",
+    "soon": "更多地区即将上线",
+    "loading": "地图加载中…",
+    "error": "地图加载失败，请检查网络连接。"
+  },
+  "cta": {
+    "title": "准备好下一次冒险了吗？",
+    "text": "立即预订，创造一生难忘的回忆。",
+    "book": "预订此线路",
+    "browse": "浏览线路",
+    "video": "观看视频",
+    "tourText": "一分钟预订名额——或向 AI 助手询问季节、装备和交通。"
+  },
+  "footer": {
+    "tagline": "向世界展示吉尔吉斯斯坦",
+    "privacy": "隐私政策",
+    "terms": "预订条款",
+    "faq": "常见问题",
+    "credits": "图片来源",
+    "countries": "吉尔吉斯斯坦 • 哈萨克斯坦 • 乌兹别克斯坦",
+    "company": "公司",
+    "travel": "旅行",
+    "aboutLink": "关于我们",
+    "custom": "定制旅行",
+    "experiences": "特色体验",
+    "centers": "度假中心",
+    "centralAsia": "中亚",
+    "guide": "旅行指南"
+  },
+  "tours": {
+    "kicker": "线路目录",
+    "title": "全部线路",
+    "text": "按目的地、类别、价格和人数查找线路。",
+    "search": "搜索",
+    "searchPh": "目的地或线路名称",
+    "category": "类别",
+    "all": "全部",
+    "maxPrice": "最高价格",
+    "any": "不限",
+    "guests": "人数",
+    "sort": "排序",
+    "sorts": {
+      "popular": "按热门程度",
+      "priceAsc": "价格从低到高",
+      "priceDesc": "价格从高到低",
+      "rating": "评分最高",
+      "duration": "时长最短"
+    },
+    "found": "条线路",
+    "empty": "没有符合筛选条件的线路。",
+    "reset": "重置筛选",
+    "filters": "筛选",
+    "themes": "主题",
+    "themeAll": "全部线路",
+    "themeEmpty": "暂无“{theme}”主题线路，为您展示全部线路。",
+    "themeAsk": "让 AI 规划路线",
+    "heroTitle": "令人向往的吉尔吉斯斯坦",
+    "heroText": "在群山、湖泊与游牧传统中找到你的旅程",
+    "resetAll": "全部重置",
+    "pricePerPerson": "人均价格",
+    "priceMax": "最高价格",
+    "duration": "时长",
+    "durations": {
+      "one": "1 天",
+      "short": "2–3 天",
+      "long": "4 天以上"
+    },
+    "format": "行程形式",
+    "formats": {
+      "individual": "私人定制",
+      "group": "拼团"
+    },
+    "countForms": {
+      "one": "个行程",
+      "other": "个行程"
+    },
+    "showMore": "显示更多",
+    "showResults": "查看行程",
+    "close": "关闭"
+  },
+  "tour": {
+    "back": "全部线路",
+    "tabs": {
+      "overview": "概览",
+      "itinerary": "行程",
+      "inclusions": "费用说明",
+      "reviews": "评价",
+      "location": "位置"
+    },
+    "about": "关于此线路",
+    "excellent": "非常好",
+    "basedOn": "基于 {n} {reviews}",
+    "basedOnForms": {
+      "one": "条评价",
+      "other": "条评价"
+    },
+    "dayForms": {
+      "one": "天",
+      "other": "天"
+    },
+    "duration": "时长",
+    "nights": "晚数",
+    "nightForms": {
+      "one": "晚",
+      "other": "晚"
+    },
+    "noNights": "不过夜",
+    "inOther": "按吉尔吉斯国家银行汇率",
+    "som": "索姆",
+    "groupSize": "团队人数",
+    "difficulty": "难度",
+    "language": "语言",
+    "highlights": "线路亮点",
+    "itinerary": "行程",
+    "day": "日程",
+    "showFull": "查看完整行程",
+    "showLess": "收起",
+    "mapTitle": "地图与位置",
+    "viewOnMap": "在地图上查看",
+    "included": "费用包含",
+    "notIncluded": "费用不含",
+    "reviewsTitle": "旅行者评价",
+    "related": "你可能还喜欢",
+    "from": "起价",
+    "perPerson": "每人",
+    "bookNow": "立即预订",
+    "days": "天",
+    "people": "人",
+    "difficultyLevels": {
+      "easy": "轻松",
+      "moderate": "中等",
+      "hard": "有挑战"
+    },
+    "inclusions": {
+      "hotel": "酒店住宿",
+      "transfers": "接送",
+      "guide": "专业导游",
+      "meals": "餐食（早餐和晚餐）",
+      "tickets": "景点门票",
+      "insurance": "旅行保险",
+      "flights": "机票",
+      "personal": "个人消费",
+      "alcohol": "酒精饮料",
+      "tips": "小费",
+      "yurt": "毡房住宿",
+      "horse": "骑马",
+      "cruise": "游船",
+      "skiPass": "滑雪通票"
+    },
+    "photo": "照片",
+    "hotelsKicker": "住宿",
+    "hotelsTitle": "附近住宿",
+    "hotelsAll": "全部酒店",
+    "km": "公里",
+    "fromRoute": "距线路",
+    "perNight": "每晚",
+    "rating": "评分",
+    "tripKicker": "您的行程",
+    "tripStepTour": "线路",
+    "tripStepHotel": "酒店",
+    "tripStepCar": "交通",
+    "tripStepDone": "完成",
+    "tripCarTitle": "行程用车",
+    "tripCarsAll": "全部车辆",
+    "tripChoose": "选择",
+    "tripDoneTitle": "行程已安排好",
+    "tripDoneText": "经理会致电确认细节并发送最终价格。所有申请都在“我的行程”中。",
+    "tripNoHotel": "不需要酒店",
+    "tripNoCar": "不需要用车",
+    "tripMyTrips": "我的行程",
+    "tripAsk": "向 AI 助手咨询行程",
+    "tripAskPrompt": "帮我规划行程：{title}",
+    "tripChange": "修改选择",
+    "tripSkipHotel": "不需要酒店",
+    "tripSkipCar": "不需要交通",
+    "contact": "联系经理",
+    "contactMessage": "您好！我对“{title}”这条线路感兴趣。请告诉我可选日期和总价。{url}",
+    "guestsUpTo": "最多 {n} 位客人",
+    "guests": "{n} 位客人",
+    "breadcrumbs": "导航路径"
+  },
+  "booking": {
+    "title": "预订此线路",
+    "name": "姓名",
+    "namePh": "你的姓名",
+    "phone": "电话 / WhatsApp",
+    "phonePh": "+996 700 123 456",
+    "email": "邮箱（选填）",
+    "emailPh": "name@mail.com",
+    "date": "出行日期",
+    "guests": "出行人数",
+    "less": "减少",
+    "more": "增加",
+    "from": "申请人",
+    "changePhone": "更换电话",
+    "submit": "发送预订申请",
+    "sending": "发送中…",
+    "success": "谢谢！我们已收到你的申请，会尽快与你联系。",
+    "successId": "申请编号",
+    "error": "申请发送失败，请检查网络后重试。",
+    "note": "现在无需付款——客户经理会先与你确认细节。",
+    "done": "完成",
+    "errors": {
+      "required": "必填项",
+      "email": "请输入有效的邮箱",
+      "contact": "请输入电话（至少 7 位数字）或邮箱",
+      "tooLong": "内容过长",
+      "pastDate": "请选择未来的日期",
+      "guests": "人数为 1 至 30 人",
+      "short": "至少 10 个字符",
+      "phone": "请输入电话号码（至少 7 位数字）",
+      "dateOrder": "结束日期早于开始日期"
+    },
+    "myRequests": "我的申请",
+    "rental": {
+      "mode": "怎么出行？",
+      "withDriver": "带司机",
+      "withDriverHint": "接送或出游——司机熟悉路况",
+      "selfDrive": "自驾租车",
+      "selfDriveHint": "自己取车自己开",
+      "from": "从",
+      "to": "到",
+      "days": "{n} 天",
+      "summaryDriver": "带司机",
+      "summarySelf": "租车"
+    }
+  },
+  "destinations": {
+    "kicker": "地图",
+    "title": "探索目的地",
+    "text": "在地图上选择地区，或在下方浏览全部目的地。",
+    "all": "全部目的地"
+  },
+  "hotels": {
+    "kicker": "住宿",
+    "title": "酒店与住宿",
+    "text": "精选酒店、山间小屋和地道的毡房营地。",
+    "perNight": "每晚",
+    "stars": "星级",
+    "book": "查询空房",
+    "amenities": {
+      "wifi": "Wi-Fi",
+      "pool": "泳池",
+      "spa": "水疗",
+      "breakfast": "早餐",
+      "parking": "停车场",
+      "beach": "海滩",
+      "mountainView": "山景"
+    },
+    "request": "住宿申请",
+    "back": "全部酒店",
+    "about": "酒店介绍",
+    "amenitiesTitle": "设施",
+    "location": "位置",
+    "openMap": "在地图中打开",
+    "other": "其他酒店",
+    "photos": "全部照片",
+    "photo": "照片",
+    "call": "致电",
+    "askAi": "询问 AI 助手",
+    "askPrompt": "介绍一下酒店「{name}」（{place}）：附近有什么、怎么去、什么时候去最好？",
+    "details": "查看酒店",
+    "noPay": "现在无需付款——客户经理会确认空房和价格。",
+    "reply": "一天内回复",
+    "free": "免费咨询",
+    "aboutFallback": "紧凑行程后的舒适休憩之所。我们的客户经理会告诉您所选日期的空房情况，并帮您把住宿与 Kerben Travel 线路结合起来。"
+  },
+  "about": {
+    "kicker": "关于我们",
+    "title": "我们打造连接世界的旅程。",
+    "text": "Kerben Travel 是一支热爱旅行的专业团队。我们组织中亚及世界各地的旅行，也在吉尔吉斯斯坦接待各地游客。",
+    "note": "从第一次咨询到平安回家，我们为您安排好每个细节：接送、住宿、餐饮和游览。您只管享受旅程——其他一切交给我们。",
+    "values": [
+      {
+        "title": "本地专家",
+        "text": "导游就生活在你旅行的地方。"
+      },
+      {
+        "title": "价格透明",
+        "text": "没有隐藏费用——一切都写在行程里。"
+      },
+      {
+        "title": "安全第一",
+        "text": "保险、经过检查的车辆和全天候支持。"
+      },
+      {
+        "title": "小团出行",
+        "text": "最多 12 人，体验更私密。"
+      }
+    ],
+    "storyTitle": "我们的故事",
+    "story": "我们最初只是带朋友周末去伊塞克湖。如今我们的线路遍布吉尔吉斯斯坦，并覆盖全球 150 多个目的地——但每一条线路仍像为朋友规划一样用心。",
+    "sectionsKicker": "关于我们"
+  },
+  "contact": {
+    "kicker": "联系我们",
+    "title": "一起规划你的旅行",
+    "text": "告诉我们你的出行日期和梦想目的地——我们会在一个工作日内回复。",
+    "name": "姓名",
+    "email": "邮箱",
+    "message": "留言",
+    "messagePh": "你想去哪里？",
+    "phone": "电话",
+    "office": "办公室",
+    "officeText": "吉尔吉斯斯坦，比什凯克",
+    "hours": "营业时间",
+    "hoursText": "周一至周六 9:00–19:00",
+    "messengerHint": "写下您的留言，通过即时通讯发送给我们的经理——我们会在一个工作日内回复。",
+    "whatsapp": "通过 WhatsApp 联系",
+    "telegram": "通过 Telegram 联系",
+    "copied": "文字已复制——请粘贴到 Telegram 聊天中。"
+  },
+  "saved": {
+    "kicker": "你的清单",
+    "title": "收藏的线路",
+    "text": "你喜欢的线路保存在此浏览器中。",
+    "emptyTitle": "还没有收藏",
+    "empty": "点击喜欢线路上的 ♡，它会保存在这里。",
+    "browse": "浏览线路",
+    "clear": "清空清单"
+  },
+  "login": {
+    "title": "欢迎回来",
+    "text": "登录后即可与 AI 助手对话。",
+    "registerTitle": "创建账户",
+    "registerText": "只需一分钟——注册后即可使用 AI 助手。",
+    "name": "名字",
+    "namePh": "我们该怎么称呼你？",
+    "phone": "电话 / WhatsApp",
+    "phonePh": "+996 700 123 456",
+    "phoneHint": "经理会拨打此号码确认预订",
+    "email": "邮箱",
+    "password": "密码",
+    "passwordHint": "至少 8 个字符",
+    "showPassword": "显示密码",
+    "hidePassword": "隐藏密码",
+    "submit": "登录",
+    "register": "注册",
+    "loading": "请稍候…",
+    "noAccount": "还没有账户？",
+    "signUp": "注册",
+    "haveAccount": "已有账户？",
+    "signIn": "登录",
+    "account": "你的账户",
+    "welcome": "你好，{name}！",
+    "logout": "退出登录",
+    "toChat": "前往 AI 助手",
+    "guestNote": "网站对所有人开放——只有使用 AI 助手时才需要账户。",
+    "forgot": "忘记密码？",
+    "resetTitle": "重置密码",
+    "resetText": "输入账号邮箱，我们会发送设置新密码的链接。",
+    "resetSend": "发送链接",
+    "resetSent": "链接已发送",
+    "backToLogin": "返回登录",
+    "newPasswordTitle": "新密码",
+    "newPasswordText": "为您的 Kerben Travel 账号设置新密码。",
+    "savePassword": "保存密码",
+    "passwordSaved": "密码已修改，您已登录。",
+    "resetExpired": "链接已过期或已使用。请在登录页重新获取。",
+    "errors": {
+      "required": "必填项",
+      "email": "请输入有效的邮箱",
+      "short": "至少 8 个字符",
+      "name": "名字长度为 2–40 个字符",
+      "invalid": "邮箱或密码错误",
+      "taken": "该邮箱已注册——请直接登录",
+      "notConfirmed": "请通过我们发送的链接确认邮箱",
+      "badEmail": "该邮箱无法使用——请输入真实地址",
+      "rateLimit": "尝试次数过多，请稍等一分钟",
+      "network": "无法连接服务器，请检查网络",
+      "unknown": "出了点问题，请重试",
+      "phone": "请输入电话号码（至少 7 位）"
+    }
+  },
+  "credits": {
+    "title": "图片来源",
+    "text": "吉尔吉斯斯坦的照片来自 Wikimedia Commons，采用知识共享许可协议。其他照片来自 Unsplash。",
+    "author": "作者",
+    "license": "许可",
+    "source": "来源"
+  },
+  "notFound": {
+    "title": "页面未找到",
+    "text": "这条小路通向了未知。我们带你回到正轨。",
+    "home": "返回首页"
+  },
+  "error": {
+    "title": "出了点问题",
+    "text": "无法加载此页面，请重试。",
+    "retry": "重试"
+  },
+  "story": {
+    "title": "一个让人难以忘怀的吉尔吉斯斯坦",
+    "cta": "查找线路",
+    "panels": [
+      {
+        "title": "巍峨雪山。",
+        "stat": "天山 · 全国 90% 以上是山地",
+        "text": "峡谷、冰川与山口——从轻松漫步到真正的攀登。"
+      },
+      {
+        "title": "碧蓝湖泊。",
+        "stat": "伊塞克湖 · 松湖 · 克尔苏湖",
+        "text": "色彩梦幻的高山湖泊——岸边有毡房，夜晚满天繁星。"
+      },
+      {
+        "title": "游牧文化。",
+        "stat": "毡房 · 骏马 · 传统",
+        "text": "在毡房过夜，与牧民一起骑马，品尝地道的马奶酒。"
+      },
+      {
+        "title": "丝绸之路。",
+        "stat": "布拉纳塔 · 古老的商队之路",
+        "text": "古塔、古城遗址，以及商队走了数百年的道路。"
+      },
+      {
+        "title": "无尽山谷。",
+        "stat": "加伊洛——夏季牧场",
+        "text": "寂静、辽阔，成群的骏马一直延伸到地平线。"
+      }
+    ],
+    "outroLead": "还有像对待朋友一样\n欢迎客人的\n*人们。*",
+    "outroText": "我们带你看到的吉尔吉斯斯坦，不是明信片上的样子，\n而是它真实的内在。",
+    "tapHint": "点击查看下一张"
+  },
+  "home": {
+    "stats": {
+      "title": "数说 Kerben Travel",
+      "items": [
+        {
+          "value": "6+",
+          "label": "年旅游经验"
+        },
+        {
+          "value": "28,000+",
+          "label": "位旅行者"
+        },
+        {
+          "value": "3",
+          "label": "个中亚国家"
+        },
+        {
+          "value": "20+",
+          "label": "个旅游目的地"
+        },
+        {
+          "value": "100+",
+          "label": "条路线和行程"
+        },
+        {
+          "value": "365",
+          "label": "天随时可以出发"
+        }
+      ]
+    },
+    "experiences": {
+      "kicker": "特色体验",
+      "title": "选择你的吉尔吉斯斯坦",
+      "back": "返回",
+      "tours": "线路",
+      "toursCount": "线路：{n}",
+      "empty": "该主题暂时没有线路。告诉我们您想看什么，我们来规划路线。",
+      "emptyCta": "规划路线",
+      "allTours": "全部线路",
+      "others": "其他体验",
+      "items": [
+        {
+          "title": "雪山",
+          "text": "天山、峡谷、冰川、高山垭口，以及为探险爱好者准备的路线。",
+          "cta": "探索雪山"
+        },
+        {
+          "title": "湖泊",
+          "text": "伊塞克湖、松湖、克尔苏湖以及吉尔吉斯斯坦的其他自然瑰宝。",
+          "cta": "欣赏湖泊"
+        },
+        {
+          "title": "游牧文化",
+          "text": "毡房、骏马、民族美食、传统习俗和游牧生活方式。",
+          "cta": "了解文化"
+        },
+        {
+          "title": "探险",
+          "text": "骑马、徒步、漂流、鹰猎等多种体验。",
+          "cta": "寻找冒险"
+        },
+        {
+          "title": "历史",
+          "text": "布拉纳塔、伟大丝绸之路上的城市、古老路线和文化遗产。",
+          "cta": "穿越历史"
+        },
+        {
+          "title": "冬季吉尔吉斯斯坦",
+          "text": "白雪、山峦、滑雪、冬季度假村和寒冷季节的独特氛围。",
+          "cta": "发现冬季"
+        }
+      ]
+    },
+    "custom": {
+      "kicker": "定制旅行",
+      "title": "你的路线，你做主",
+      "lead": "没有找到合适的行程？我们为你量身定制路线。",
+      "text": "可调整行程天数、酒店等级、交通方式、活动数量以及要去的地方。",
+      "audiences": [
+        "家庭",
+        "情侣",
+        "朋友",
+        "摄影师",
+        "企业团队",
+        "独自旅行者"
+      ],
+      "cta": "定制路线",
+      "ask": "我想定制一次吉尔吉斯斯坦之旅。请帮我规划：问问我的出行日期、预算、酒店等级和兴趣。"
+    },
+    "infrastructure": {
+      "kicker": "Kerben Travel——不只是旅游",
+      "title": "我们打造让人想要再来的地方",
+      "text": "Kerben Travel 在吉尔吉斯斯坦建设自己的旅游设施。旅行者可以住在大自然之中，在紧凑的行程后好好休息，感受这个国家的气息。"
+    },
+    "centralAsia": {
+      "kicker": "一次旅行游遍中亚",
+      "title": "三个国家，一场冒险。",
+      "text": "从吉尔吉斯斯坦出发，再继续前往邻国。",
+      "countries": [
+        {
+          "flag": "🇰🇬",
+          "name": "吉尔吉斯斯坦",
+          "places": [
+            "伊塞克湖",
+            "松湖",
+            "雪山",
+            "游牧文化"
+          ]
+        },
+        {
+          "flag": "🇰🇿",
+          "name": "哈萨克斯坦",
+          "places": [
+            "阿拉木图",
+            "恰伦峡谷",
+            "科尔赛湖",
+            "凯迪湖"
+          ]
+        },
+        {
+          "flag": "🇺🇿",
+          "name": "乌兹别克斯坦",
+          "places": [
+            "塔什干",
+            "撒马尔罕",
+            "布哈拉",
+            "丝绸之路"
+          ]
+        }
+      ],
+      "note": "我们帮你把多个国家串联成一条精心规划的路线。",
+      "cta": "探索中亚",
+      "ask": "帮我把吉尔吉斯斯坦、哈萨克斯坦和乌兹别克斯坦安排进一次旅行。你建议怎样的路线、需要几天？"
+    },
+    "seasons": {
+      "kicker": "季节",
+      "title": "什么时候来？",
+      "items": [
+        {
+          "months": "3 月 — 5 月",
+          "title": "春季",
+          "text": "绿色山谷、繁花盛开，天气温和。"
+        },
+        {
+          "months": "6 月 — 9 月",
+          "title": "夏季",
+          "text": "高山湖泊、徒步、骑马路线——游山的最佳季节。"
+        },
+        {
+          "months": "10 月 — 11 月",
+          "title": "秋季",
+          "text": "秋日风光、金色群山，游客更少。"
+        },
+        {
+          "months": "12 月 — 2 月",
+          "title": "冬季",
+          "text": "白雪、滑雪、冬季度假村，一个完全不同的吉尔吉斯斯坦。"
+        }
+      ],
+      "cta": "选择合适的季节",
+      "ask": "我什么时候去吉尔吉斯斯坦最好？介绍一下每个季节的特色，并问问我喜欢什么。"
+    },
+    "faq": {
+      "kicker": "常见问题",
+      "title": "常见问题",
+      "items": [
+        {
+          "q": "去吉尔吉斯斯坦需要签证吗？",
+          "a": "许多国家（包括欧盟、英国、美国和独联体国家）的公民可以免签入境，通常最长 60 天。中国公民的入境政策请以官方信息为准。规则可能变化，出行前请在官方网站上查询你所在国家的最新要求。"
+        },
+        {
+          "q": "在吉尔吉斯斯坦旅行安全吗？",
+          "a": "吉尔吉斯斯坦是一个热情、安宁的旅行目的地。在山区，经验和装备很重要，因此有难度的路线我们都会安排经验丰富的导游。"
+        },
+        {
+          "q": "如何从机场出发？",
+          "a": "玛纳斯国际机场距比什凯克约 25–30 公里。我们会在机场接机并安排接送。"
+        },
+        {
+          "q": "应该带什么货币？",
+          "a": "当地货币是吉尔吉斯索姆（KGS）。最方便的是携带美元或欧元，在比什凯克兑换。城市里可以刷卡，山区和乡村需要现金。"
+        },
+        {
+          "q": "冬天可以去旅行吗？",
+          "a": "可以。冬季有滑雪场（例如卡拉科尔），雪山和峡谷也会呈现完全不同的样子。"
+        },
+        {
+          "q": "适合带孩子去吗？",
+          "a": "适合。有轻松的路线、舒适的酒店和较短的车程——我们会根据孩子的年龄调整行程。"
+        }
+      ],
+      "more": "询问 AI 助手",
+      "all": "全部问题",
+      "page": {
+        "text": "签证、季节、付款、装备与安全——我们整理了旅行者最常问的问题。",
+        "helpTitle": "没有找到答案？",
+        "helpText": "向 AI 助手提问可立即获得回答，或给经理留言——我们会在一天内回复。",
+        "ask": "询问 AI 助手",
+        "contact": "联系经理"
+      }
+    },
+    "plan": {
+      "title": "你的旅程，从一条消息开始",
+      "text": "不知道选哪条路线？告诉我们你的计划——出行日期、天数、同行人数和兴趣，我们会为你推荐合适的路线。",
+      "cta": "规划我的旅程",
+      "ask": "帮我规划一次旅行。请问我出行日期、天数、同行人数和兴趣。",
+      "facts": [
+        "6 年以上经验",
+        "28,000+ 位旅行者",
+        "中亚 3 个国家",
+        "20+ 个旅游目的地",
+        "自有旅游设施"
+      ],
+      "tagline": "看见吉尔吉斯斯坦，感受中亚。",
+      "start": "开启旅程"
+    }
+  },
+  "ai": {
+    "title": "Kerben Travel AI",
+    "gateTitle": "你的中亚私人 AI 助手",
+    "gateText": "几秒钟内获得路线、季节、预算和实用建议。注册即可开始——完全免费。",
+    "gatePoints": [
+      "按你的日期生成逐日行程",
+      "推荐带价格的 Kerben Travel 线路",
+      "支持中文、英语、俄语和德语"
+    ],
+    "newChat": "新对话",
+    "history": "历史记录",
+    "emptyHistory": "你的对话会显示在这里",
+    "deleteChat": "删除对话",
+    "deleteConfirm": "此对话将被永久删除。",
+    "openHistory": "打开历史记录",
+    "welcomeTitle": "我们去哪儿？",
+    "welcomeText": "关于吉尔吉斯斯坦和中亚旅行的任何问题都可以问我。",
+    "suggestions": [
+      {
+        "title": "7 天路线",
+        "prompt": "帮我规划 7 月份 7 天的吉尔吉斯斯坦之旅：雪山、湖泊和毡房。"
+      },
+      {
+        "title": "最佳季节",
+        "prompt": "什么时候去伊塞克湖和松湖最好？"
+      },
+      {
+        "title": "三国联游",
+        "prompt": "如何在 12 天内游览吉尔吉斯斯坦、哈萨克斯坦和乌兹别克斯坦？"
+      },
+      {
+        "title": "行李清单",
+        "prompt": "骑马去松湖需要带些什么？"
+      }
+    ],
+    "placeholder": "向 Kerben Travel AI 提问…",
+    "send": "发送",
+    "stop": "停止",
+    "thinking": "AI 助手正在输入",
+    "disclaimer": "AI 可能会出错。价格和余位请与客户经理确认。",
+    "scrollDown": "滚动到最新消息",
+    "truncated": "回答较长，已被截断。可以让它继续。",
+    "tourButton": "询问 AI 助手",
+    "askTour": "介绍一下线路「{title}」：包含哪些内容、什么时候去最好、需要带什么？",
+    "errors": {
+      "notConfigured": "AI 助手暂时无法使用。请稍后再试，或通过联系页面给我们留言。",
+      "dailyLimit": "今天的消息次数已用完，明天再来吧！",
+      "busy": "当前请求较多，请一分钟后再试。",
+      "refusal": "这个请求我无法帮忙。我们回到旅行话题吧。",
+      "network": "无法连接服务器，请检查网络。",
+      "server": "出了点问题，请重试。",
+      "unauthorized": "登录已过期，请重新登录。",
+      "load": "无法加载对话，请刷新页面。"
+    },
+    "back": "返回网站",
+    "menu": {
+      "open": "添加",
+      "templates": "问题模板",
+      "favorites": "我收藏的线路",
+      "favoritesEmpty": "用爱心收藏线路——AI 会帮您比较",
+      "requestHint": "留下姓名和电话——经理会联系您",
+      "back": "返回",
+      "slash": "模板",
+      "noMatch": "没有这个模板",
+      "favoritesPick": "选择一条线路",
+      "favoritePrompt": "我想参加“{title}”线路。请帮我规划：日期——[何时]，我们[几人]。"
+    },
+    "templates": [
+      {
+        "title": "每日行程",
+        "prompt": "为我规划 [月份] 的 [天数] 天吉尔吉斯斯坦行程。我们 [人数] 人，兴趣：[山 / 湖 / 文化]。"
+      },
+      {
+        "title": "旅行预算",
+        "prompt": "[人数] 人去吉尔吉斯斯坦 [天数] 天需要多少钱？请列出住宿、交通、餐饮、游览的预算。"
+      },
+      {
+        "title": "行李清单",
+        "prompt": "[月份] 去吉尔吉斯斯坦应该带什么？我计划 [徒步 / 骑马 / 城市游]。"
+      },
+      {
+        "title": "最佳季节",
+        "prompt": "什么时候去 [地点] 最好？各个季节有什么不同？"
+      },
+      {
+        "title": "签证与入境",
+        "prompt": "[国家] 公民去吉尔吉斯斯坦需要签证吗？入境需要什么？"
+      },
+      {
+        "title": "亲子出行",
+        "prompt": "为带 [年龄] 岁孩子的家庭推荐一条轻松的 [天数] 天吉尔吉斯斯坦路线。"
+      }
+    ],
+    "clearHistory": "清空",
+    "clearConfirm": "删除所有对话？此操作无法撤销。",
+    "cancel": "取消",
+    "booking": {
+      "start": "我想预订：{title}。请帮我提交申请。",
+      "label": "预订",
+      "form": "表单",
+      "dismiss": "从聊天中移除预订",
+      "cardTitle": "请核对申请",
+      "sentTitle": "申请已发送",
+      "item": "预订项目",
+      "date": "日期",
+      "guests": "出行人数",
+      "name": "姓名",
+      "phone": "电话",
+      "email": "邮箱",
+      "message": "需求",
+      "send": "发送给经理",
+      "sending": "发送中…",
+      "sent": "申请编号 {id}。经理会联系您确认细节。",
+      "myRequests": "我的申请",
+      "error": "发送失败，请检查网络后重试。",
+      "invalid": "申请中有错误（例如日期已过或电话不完整）——请在聊天中告诉我们要修改什么。",
+      "note": "现在无需付款——经理会先确认细节。",
+      "preparing": "正在准备申请…",
+      "gateTitle": "预订：{title}",
+      "gateText": "只需注册一次，一分钟且免费。之后 AI 助手会确认日期，并直接在聊天中提交申请，无需再填表。",
+      "from": "起",
+      "chosen": "您的选择",
+      "checkText": "信息无误？发送后经理会确认空位和价格。",
+      "details": "详情"
+    }
+  },
+  "search": {
+    "placeholder": "搜索线路和地点",
+    "results": "搜索结果",
+    "empty": "未找到与“{q}”相关的结果。换个词试试，或询问 AI 助手。",
+    "popular": "热门线路",
+    "all": "全部线路",
+    "ask": "询问 AI 助手",
+    "close": "关闭搜索"
+  },
+  "reviews": {
+    "empty": "暂无评价。参加过这条线路吗？分享您的体验，帮助其他旅行者。",
+    "write": "写评价",
+    "rating": "您的评分",
+    "star": "{n} / 5",
+    "placeholder": "您喜欢什么？其他人应该了解什么？",
+    "submit": "发布",
+    "sending": "发布中…",
+    "login": "在 AI 助手注册的旅行者可以发表评价",
+    "loginCta": "注册",
+    "already": "您已评价过这条线路。",
+    "you": "您",
+    "remove": "删除评价",
+    "removeConfirm": "删除您的评价？",
+    "errorShort": "请至少写 10 个字符",
+    "errorRating": "请选择评分",
+    "error": "评价保存失败，请重试。",
+    "loadError": "无法加载评价。",
+    "filterAll": "全部",
+    "filterGood": "好评",
+    "filterBad": "差评",
+    "filterLabel": "显示评价",
+    "filterEmpty": "暂无此类评价。",
+    "showAll": "显示全部评价（{n}）",
+    "showLess": "收起"
+  },
+  "units": {
+    "per_person": "每人",
+    "per_day": "每天",
+    "per_night": "每晚",
+    "per_hour": "每小时",
+    "per_trip": "每趟"
+  },
+  "offers": {
+    "request": "提交申请",
+    "requestTitle": "提交申请",
+    "details": "详情",
+    "from": "起",
+    "gallery": "照片",
+    "program": "行程",
+    "about": "介绍",
+    "back": "全部路线",
+    "emptyTitle": "即将上线",
+    "emptyText": "我们正在添加中。提交申请，经理会为您挑选方案并与您联系。",
+    "note": "现在无需付款——经理会先确认细节。"
+  },
+  "trekking": {
+    "kicker": "徒步路线",
+    "title": "徒步",
+    "text": "天山的山口、冰川与高山湖泊——由经验丰富的向导带领。",
+    "days": "{n} 天"
+  },
+  "transport": {
+    "kicker": "接送与租车",
+    "title": "交通",
+    "text": "带司机或租车：机场接机、接送、全国出游——也可以自驾。",
+    "seats": "{n} 座",
+    "driver": "含司机",
+    "noDriver": "不含司机",
+    "ac": "空调",
+    "year": "{n} 年",
+    "back": "全部车辆",
+    "about": "车辆介绍",
+    "specs": "车辆参数",
+    "seatsLabel": "座位",
+    "driverLabel": "司机",
+    "acLabel": "空调",
+    "yearLabel": "年份",
+    "colorLabel": "颜色",
+    "modelLabel": "品牌型号",
+    "yes": "有",
+    "no": "无",
+    "other": "其他车辆",
+    "details": "查看详情",
+    "aboutFallback": "适合在吉尔吉斯斯坦出行的舒适车辆：机场接机、前往城市和湖泊的接送、进山游览。客户经理会确认您日期的可用情况并推荐路线。",
+    "askPrompt": "帮我规划乘坐「{name}」的行程：可以去哪里、路上需要多久、沿途有什么值得看？"
+  },
+  "helicopter": {
+    "kicker": "空中视角",
+    "title": "直升机游览",
+    "text": "从空中俯瞰吉尔吉斯斯坦的群山、冰川与湖泊。",
+    "minutes": "{n} 分钟",
+    "passengers": "最多 {n} 名乘客",
+    "back": "全部飞行",
+    "kickerOne": "直升机之旅",
+    "duration": "飞行时间",
+    "passengersLabel": "乘客",
+    "routeLabel": "航线",
+    "priceLabel": "价格",
+    "upTo": "最多 {n} 人",
+    "about": "关于飞行",
+    "aboutFallback": "从空中俯瞰吉尔吉斯斯坦的群山、冰川和湖泊。经理会确认日期、起飞时间和座位。",
+    "stepsTitle": "飞行流程",
+    "steps": [
+      {
+        "title": "集合与安全说明",
+        "text": "我们在停机坪集合，飞行员介绍航线和机上安全规则。"
+      },
+      {
+        "title": "沿航线飞行",
+        "text": "从空中欣赏群山和湖泊——飞行员会告诉您最佳拍照位置。"
+      },
+      {
+        "title": "返回",
+        "text": "按航线计划降落。飞行时长见飞行卡片。"
+      }
+    ],
+    "weatherTitle": "飞行取决于天气",
+    "weatherText": "如遇不宜飞行的天气，经理会联系您并安排其他时间或日期。",
+    "photos": "飞行照片",
+    "other": "其他飞行",
+    "askPrompt": "介绍一下直升机之旅“{name}”：能看到什么、飞多久、需要带什么？"
+  },
+  "requests": {
+    "toast": {
+      "new": "申请已收到",
+      "in_progress": "申请处理中",
+      "completed": "申请已确认",
+      "cancelled": "申请已取消"
+    },
+    "toastMore": "另加 {n} 项",
+    "kicker": "个人中心",
+    "title": "我的申请",
+    "text": "您在 Kerben Travel 提交的所有申请——线路、酒店、用车、直升机和徒步——都在这里。",
+    "emptyTitle": "这里还是空的",
+    "emptyText": "您的申请会显示在这里。让我们一起为您挑选线路吧！",
+    "browseTours": "选择线路",
+    "browseTransport": "用车",
+    "guestNote": "申请保存在此浏览器中。在 AI 助手注册后，可在任何设备上查看。",
+    "login": "注册",
+    "number": "申请编号",
+    "steps": {
+      "sent": "已提交",
+      "review": "客户经理联系中",
+      "confirmed": "已确认"
+    },
+    "status": {
+      "new": "客户经理会在一天内通过电话或 WhatsApp 联系您。",
+      "in_progress": "客户经理正在处理您的申请。",
+      "completed": "申请已确认，祝您旅途愉快！",
+      "cancelled": "该申请已取消。"
+    },
+    "cancelled": "已取消",
+    "open": "打开",
+    "hide": "隐藏",
+    "kinds": {
+      "tour": "线路",
+      "hotel": "酒店",
+      "transport": "用车",
+      "helicopter": "直升机",
+      "trekking": "徒步",
+      "request": "申请"
+    },
+    "count": "申请总数：{n}",
+    "loading": "正在加载申请…",
+    "error": "无法加载申请，请刷新页面。",
+    "cancel": "取消申请",
+    "undoQuestion": "误发了？取消申请",
+    "cancelConfirm": "确定取消吗？客户经理会收到取消通知。",
+    "cancelYes": "是，取消",
+    "cancelNo": "不，保留",
+    "cancelling": "正在取消…",
+    "cancelDone": "申请已取消。客户经理已收到通知，不会再处理。",
+    "cancelError": "取消失败——网络连接问题。请重试或通过 WhatsApp 联系我们。",
+    "all": "全部",
+    "ticket": {
+      "label": "行程单",
+      "items": "行程内容",
+      "dates": "日期",
+      "guests": "人数",
+      "name": "姓名",
+      "phone": "电话",
+      "wishes": "备注",
+      "statuses": {
+        "new": "已发送",
+        "in_progress": "经理联系中",
+        "completed": "已确认",
+        "cancelled": "已取消"
+      }
+    }
+  },
+  "trips": {
+    "kicker": "一处查看全部",
+    "title": "我的行程",
+    "text": "旅游、酒店和用车的申请，以及收藏的线路——都在这里。",
+    "tabs": {
+      "requests": "申请",
+      "saved": "收藏"
+    }
+  },
+  "trip": {
+    "choose": "选择",
+    "chosen": "已选择",
+    "chooseTour": "选择线路",
+    "tourChosen": "已选线路",
+    "undo": "点击取消选择",
+    "added": "“{title}”已加入您的行程",
+    "openChat": "打开聊天",
+    "authTitle": "注册后即可选择",
+    "authText": "只需一分钟。您的选择会被保存，聊天中的 AI 助手将帮助您预订行程。",
+    "authVisitTitle": "注册后即可查看",
+    "authVisitText": "只需一分钟。注册后将立即打开您选择的页面。",
+    "stepTitle": "从线路开始",
+    "stepText": "选择此线路——接着为您挑选酒店和车辆。",
+    "doneText": "您的选择已在聊天中：AI 助手会询问日期和联系方式，并将申请发送给经理。",
+    "chatTitle": "您的行程",
+    "chatHint": "AI 助手能看到您的选择并帮助预订",
+    "chatStart": "预订行程",
+    "chatStartPrompt": "请帮我预订行程：简单介绍一下这个线路、酒店和车辆——包含什么、大概多少钱，还需要确认哪些信息。",
+    "prev": "上一个",
+    "next": "下一个",
+    "options": "共 {total} 个选项",
+    "swipe": "左右滑动查看",
+    "backToTour": "返回线路",
+    "chatShow": "查看预订",
+    "chatHide": "收起",
+    "chatCount": "预订中 {count} 项"
+  }
+}

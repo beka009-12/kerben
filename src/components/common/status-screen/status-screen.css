@@ -1,0 +1,36 @@
+.status-screen {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 12px;
+  min-height: 70svh;
+  padding: calc(var(--header-h) + 40px) var(--gutter) 64px;
+  text-align: center;
+}
+
+.status-screen-code {
+  font-family: var(--font-heading);
+  font-size: clamp(5rem, 18vw, 9rem);
+  font-weight: 800;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--primary), var(--navy));
+  background-clip: text;
+  color: transparent;
+}
+
+.status-screen-title {
+  font-size: var(--fs-h2);
+}
+
+.status-screen-text {
+  max-width: 460px;
+  color: var(--muted);
+}
+
+.status-screen-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 8px;
+}

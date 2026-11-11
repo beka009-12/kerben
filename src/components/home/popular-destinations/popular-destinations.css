@@ -1,0 +1,27 @@
+.popular-destinations-list {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: min(44vw, 260px);
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--gutter);
+  margin-inline: calc(-1 * var(--gutter));
+  padding: 4px var(--gutter) 12px;
+  scrollbar-width: none;
+}
+
+.popular-destinations-item {
+  scroll-snap-align: start;
+}
+
+@media (min-width: 1100px) {
+  .popular-destinations-list {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    overflow: visible;
+    margin-inline: 0;
+    padding-inline: 0;
+  }
+}

@@ -1,0 +1,137 @@
+.ai-message {
+  display: flex;
+  gap: 14px;
+  animation: ai-message-in 0.35s var(--ease) both;
+}
+
+@keyframes ai-message-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+.ai-message-user {
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.ai-message-bubble {
+  max-width: min(80%, 620px);
+  padding: 12px 18px;
+  border-radius: 22px 22px 6px 22px;
+  background: var(--primary-soft);
+  color: var(--text);
+  font-size: 0.9875rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.ai-message-mark {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--white);
+}
+
+.ai-message-body {
+  flex: 1;
+  min-width: 0;
+  padding-top: 6px;
+}
+
+.ai-message-thinking {
+  display: inline-flex;
+  gap: 5px;
+  padding: 10px 0;
+}
+
+.ai-message-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--primary);
+  animation: ai-message-dot 1.2s ease-in-out infinite;
+}
+
+.ai-message-dot-2 {
+  animation-delay: 0.15s;
+}
+
+.ai-message-dot-3 {
+  animation-delay: 0.3s;
+}
+
+@keyframes ai-message-dot {
+  0%,
+  80%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.8);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.ai-message-caret {
+  display: inline-block;
+  width: 8px;
+  height: 18px;
+  margin-top: 4px;
+  border-radius: 2px;
+  background: var(--primary);
+  animation: ai-message-caret 1s steps(2) infinite;
+}
+
+@keyframes ai-message-caret {
+  50% {
+    opacity: 0;
+  }
+}
+
+.ai-message-preparing {
+  margin-top: 12px;
+  font-size: var(--fs-small);
+  color: var(--muted);
+  animation: ai-message-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes ai-message-pulse {
+  50% {
+    opacity: 0.45;
+  }
+}
+
+.ai-message-photo {
+  position: relative;
+  display: block;
+  width: var(--photo-width, min(260px, 70vw));
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 18px;
+  background: var(--soft);
+}
+
+.ai-message-photos {
+  display: grid;
+  justify-items: end;
+}
+
+.ai-message-photos-row {
+  grid-auto-flow: column;
+  grid-auto-columns: min(110px, 26vw);
+  gap: 6px;
+  --photo-width: 100%;
+}
+
+.ai-message-photo-image {
+  object-fit: cover;
+}

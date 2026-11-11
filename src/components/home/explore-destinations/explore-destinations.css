@@ -1,0 +1,98 @@
+.explore {
+  display: grid;
+  gap: 20px;
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  background: var(--navy);
+  color: var(--white);
+}
+
+.explore-head {
+  display: grid;
+  gap: 4px;
+}
+
+.explore-title {
+  font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  color: var(--white);
+}
+
+.explore-text {
+  font-size: var(--fs-small);
+  color: rgb(255 255 255 / 65%);
+}
+
+.explore-body {
+  display: grid;
+  gap: 16px;
+}
+
+.explore-map {
+  position: relative;
+  height: 340px;
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+.explore-regions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  align-content: start;
+}
+
+.explore-region {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  background: rgb(255 255 255 / 6%);
+  color: rgb(255 255 255 / 85%);
+  font-size: var(--fs-small);
+  text-align: left;
+  transition: background-color 0.2s;
+}
+
+.explore-region:hover {
+  background: rgb(255 255 255 / 12%);
+}
+
+.explore-region-active {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.explore-region-name {
+  flex: 1;
+}
+
+.explore-region-count {
+  font-weight: 600;
+  opacity: 0.85;
+}
+
+@media (min-width: 900px) {
+  .explore-body {
+    grid-template-columns: 1fr 260px;
+  }
+
+  .explore-map {
+    height: 440px;
+  }
+
+  .explore-regions {
+    grid-template-columns: 1fr;
+  }
+}
+
+.explore-regions-wide {
+  grid-column: 1 / -1;
+}
+
+.explore-regions-note {
+  padding: 4px 2px;
+  font-size: var(--fs-xs);
+  color: rgb(255 255 255 / 55%);
+}

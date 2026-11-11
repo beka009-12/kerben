@@ -1,0 +1,78 @@
+.header-menu {
+  position: relative;
+}
+
+.header-menu-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  border-radius: var(--radius-full);
+  font-size: var(--fs-small);
+  font-weight: 500;
+  opacity: 0.92;
+  transition:
+    opacity 0.2s,
+    background-color 0.2s;
+}
+
+.header-menu-button:hover {
+  opacity: 1;
+  background: rgb(127 127 127 / 12%);
+}
+
+.header-menu-button-active {
+  color: var(--primary);
+  font-weight: 600;
+  opacity: 1;
+}
+
+.header-menu-chevron {
+  transition: transform 0.2s var(--ease);
+}
+
+.header-menu-chevron-open {
+  transform: rotate(180deg);
+}
+
+.header-menu-panel {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  z-index: 10;
+  display: grid;
+  min-width: 220px;
+  margin-top: 8px;
+  padding: 6px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+  color: var(--text);
+  box-shadow: var(--shadow);
+  transform: translateX(-50%);
+  animation: header-menu-in 0.18s var(--ease) both;
+}
+
+@keyframes header-menu-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -4px);
+  }
+}
+
+.header-menu-link {
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: var(--fs-small);
+  font-weight: 500;
+  transition: background-color 0.15s;
+}
+
+.header-menu-link:hover {
+  background: var(--soft);
+}
+
+.header-menu-link-active {
+  color: var(--primary);
+  font-weight: 600;
+}

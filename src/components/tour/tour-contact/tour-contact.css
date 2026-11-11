@@ -1,0 +1,163 @@
+.tour-contact-card {
+  display: grid;
+  gap: 4px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--white);
+  box-shadow: 0 8px 28px rgb(15 23 42 / 6%);
+}
+
+.tour-contact-price {
+  color: var(--text);
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.tour-contact-from {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: lowercase;
+}
+
+.tour-contact-per {
+  margin-bottom: 16px;
+  color: var(--muted);
+  font-size: var(--fs-small);
+}
+
+.tour-contact-other {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin: -8px 0 16px;
+  color: var(--text);
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.tour-contact-other-item {
+  white-space: nowrap;
+}
+
+.tour-contact-actions {
+  display: grid;
+  gap: 10px;
+}
+
+.tour-contact-button {
+  --button-bg: var(--primary);
+  --button-hover: var(--primary-dark);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 48px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--button-bg);
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background-color 0.2s var(--ease),
+    transform 0.15s var(--ease);
+}
+
+.tour-contact-button-whatsapp {
+  --button-bg: #1faa53;
+  --button-hover: #178a43;
+}
+
+.tour-contact-button-telegram {
+  --button-bg: #229ed9;
+  --button-hover: #1a85b8;
+}
+
+@media (hover: hover) {
+  .tour-contact-button:hover {
+    background: var(--button-hover);
+  }
+}
+
+.tour-contact-button:active {
+  transform: scale(0.98);
+}
+
+.tour-contact-button:focus-visible {
+  outline: 3px solid rgb(20 95 240 / 35%);
+  outline-offset: 2px;
+}
+
+.tour-contact-bar {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .tour-contact-bar {
+    position: fixed;
+    right: var(--mobile-nav-gap);
+    bottom: calc(var(--mobile-nav-h) - var(--mobile-nav-gap) + env(safe-area-inset-bottom) + 8px);
+    left: var(--mobile-nav-gap);
+    z-index: 44;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    max-width: 520px;
+    margin-inline: auto;
+    padding: 10px 10px 10px 16px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--white);
+    box-shadow: 0 10px 30px rgb(15 23 42 / 14%);
+  }
+
+  .tour-contact-bar-actions {
+    display: flex;
+    flex-shrink: 0;
+    gap: 6px;
+  }
+
+  .tour-contact-button-compact {
+    width: auto;
+    min-width: 46px;
+    min-height: 46px;
+    padding: 0 12px;
+    font-size: 0.8125rem;
+    white-space: nowrap;
+  }
+
+  body:has(.tour-contact-bar) {
+    padding-bottom: calc(var(--mobile-nav-h) + 84px + env(safe-area-inset-bottom));
+  }
+}
+
+.tour-contact-bar-price {
+  display: grid;
+  min-width: 0;
+  line-height: 1.2;
+}
+
+.tour-contact-bar-amount {
+  color: var(--text);
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.tour-contact-bar-amount::first-letter {
+  text-transform: lowercase;
+}
+
+.tour-contact-bar-per {
+  color: var(--muted);
+  font-size: var(--fs-xs);
+}

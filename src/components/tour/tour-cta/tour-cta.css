@@ -1,0 +1,12 @@
+.tour-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media (max-width: 479px) {
+  .tour-cta-actions {
+    display: grid;
+    width: 100%;
+  }
+}

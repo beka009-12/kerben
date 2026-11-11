@@ -1,0 +1,72 @@
+.about-values {
+  display: grid;
+  gap: 32px;
+  padding-top: 10px;
+}
+
+.about-values-story {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+  max-width: 760px;
+}
+
+.about-values-title {
+  font-size: var(--fs-h2);
+}
+
+.about-values-text {
+  color: var(--muted);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+.about-values-list {
+  display: grid;
+  gap: 14px;
+}
+
+.about-values-card {
+  display: grid;
+  gap: 8px;
+  padding: 20px;
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  border: 1px solid var(--line);
+}
+
+.about-values-icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
+.about-values-name {
+  font-size: 1rem;
+}
+
+.about-values-card-text {
+  font-size: var(--fs-small);
+  color: var(--muted);
+}
+
+@media (min-width: 640px) {
+  .about-values-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1000px) {
+  .about-values-list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .about-values-card {
+    padding: 24px;
+  }
+}

@@ -1,0 +1,12 @@
+.faq-page {
+  display: grid;
+  gap: 40px;
+}
+
+@media (min-width: 900px) {
+  .faq-page {
+    grid-template-columns: 1.7fr minmax(300px, 0.8fr);
+    align-items: start;
+    gap: 64px;
+  }
+}

@@ -1,0 +1,52 @@
+.tour-tabs {
+  position: sticky;
+  top: var(--header-offset, var(--header-h));
+  transition: top 0.35s var(--ease);
+  z-index: 20;
+  background: rgb(255 255 255 / 96%);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(8px);
+}
+
+.tour-tabs-inner {
+  position: relative;
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.tour-tabs-link {
+  flex-shrink: 0;
+  padding: 16px 14px;
+  border-bottom: 2px solid transparent;
+  font-size: var(--fs-small);
+  font-weight: 500;
+  color: var(--muted);
+  transition:
+    color 0.2s,
+    border-color 0.2s;
+}
+
+.tour-tabs-link:hover {
+  color: var(--text);
+}
+
+.tour-tabs-link-active {
+  border-bottom-color: var(--primary);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+@media (max-width: 899px) {
+  .tour-tabs-inner {
+    padding-right: 40px;
+    mask-image: linear-gradient(90deg, #000 calc(100% - 40px), transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tour-tabs {
+    transition: none;
+  }
+}

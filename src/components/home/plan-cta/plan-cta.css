@@ -1,0 +1,76 @@
+.plan-cta {
+  position: relative;
+  padding-block: clamp(96px, 14vh, 160px);
+  color: var(--white);
+  text-align: center;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.plan-cta-image {
+  object-fit: cover;
+  z-index: -2;
+}
+
+.plan-cta-shade {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse at center, rgb(6 12 28 / 55%) 0%, rgb(6 12 28 / 85%) 75%),
+    rgb(6 12 28 / 30%);
+}
+
+.plan-cta-inner {
+  display: grid;
+  gap: 22px;
+  justify-items: center;
+}
+
+.plan-cta-title {
+  max-width: 16ch;
+  font-size: var(--fs-display);
+  font-weight: var(--fw-heading);
+  line-height: var(--lh-display);
+  letter-spacing: var(--ls-heading);
+  text-wrap: balance;
+  color: var(--white);
+}
+
+.plan-cta-text {
+  max-width: 620px;
+  font-size: clamp(1rem, 0.9rem + 0.4vw, 1.25rem);
+  color: rgb(255 255 255 / 85%);
+}
+
+.plan-cta-facts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.plan-cta-fact {
+  padding: 8px 16px;
+  border: 1px solid rgb(255 255 255 / 25%);
+  border-radius: var(--radius-full);
+  background: rgb(255 255 255 / 8%);
+  font-size: var(--fs-small);
+  backdrop-filter: blur(6px);
+}
+
+.plan-cta-tagline {
+  margin-top: 8px;
+  font-family: var(--font-heading);
+  font-size: clamp(1.125rem, 1rem + 0.6vw, 1.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #8ab8ff;
+}
+
+@media (max-width: 767px) {
+  .plan-cta {
+    padding-block: 64px;
+  }
+}

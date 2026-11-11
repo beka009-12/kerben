@@ -1,0 +1,102 @@
+.mobile-nav {
+  position: fixed;
+  inset: auto 0 0;
+  z-index: 45;
+  padding: 0 var(--mobile-nav-gap) calc(var(--mobile-nav-gap) + env(safe-area-inset-bottom));
+  pointer-events: none;
+}
+
+.mobile-nav-bar {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(var(--nav-count), minmax(0, 1fr));
+  height: var(--mobile-nav-bar);
+  max-width: 520px;
+  margin-inline: auto;
+  padding: 4px 2px;
+  border: 1px solid var(--nav-border);
+  border-radius: 999px;
+  background: var(--nav-glass);
+  box-shadow: var(--nav-shadow);
+  -webkit-backdrop-filter: saturate(180%) blur(18px);
+  backdrop-filter: saturate(180%) blur(18px);
+  pointer-events: auto;
+}
+
+.mobile-nav-pill {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 2px;
+  width: calc((100% - 4px) / var(--nav-count));
+  border-radius: 999px;
+  background: var(--primary-soft);
+  transform: translateX(calc(100% * var(--nav-index)));
+  transition: transform 0.35s var(--ease);
+}
+
+.mobile-nav-item {
+  position: relative;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 2px;
+  min-width: 0;
+  border-radius: 999px;
+  color: var(--muted);
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    color 0.2s,
+    transform 0.2s var(--ease);
+}
+
+.mobile-nav-item:active {
+  transform: scale(0.92);
+}
+
+.mobile-nav-item:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: -2px;
+}
+
+.mobile-nav-item-active {
+  color: var(--primary);
+}
+
+.mobile-nav-icon {
+  display: grid;
+  place-items: center;
+  height: 26px;
+  transition: transform 0.25s var(--ease);
+}
+
+.mobile-nav-item-active .mobile-nav-icon {
+  transform: translateY(-1px) scale(1.06);
+}
+
+.mobile-nav-label {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.mobile-nav-item-active .mobile-nav-label {
+  font-weight: 700;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-nav-pill,
+  .mobile-nav-icon {
+    transition: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-nav {
+    display: none;
+  }
+}

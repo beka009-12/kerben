@@ -1,0 +1,12 @@
+.contact-page-grid {
+  display: grid;
+  gap: 24px;
+}
+
+@media (min-width: 900px) {
+  .contact-page-grid {
+    grid-template-columns: 340px 1fr;
+    align-items: start;
+    gap: 32px;
+  }
+}

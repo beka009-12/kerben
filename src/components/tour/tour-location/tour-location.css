@@ -1,0 +1,17 @@
+.tour-location {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+}
+
+.tour-location-title {
+  font-size: var(--fs-h2);
+}
+
+.tour-location-map {
+  position: relative;
+  height: 340px;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+}

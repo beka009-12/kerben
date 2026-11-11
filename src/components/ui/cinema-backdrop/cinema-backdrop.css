@@ -1,0 +1,84 @@
+.cinema-backdrop {
+  --cinema-fade: 1.6s;
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  background: var(--navy);
+}
+
+.cinema-backdrop-fast {
+  --cinema-fade: 0.7s;
+}
+
+.cinema-backdrop-layer {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity var(--cinema-fade) var(--ease);
+}
+
+.cinema-backdrop-layer-active {
+  opacity: 1;
+}
+
+.cinema-backdrop-image {
+  object-fit: cover;
+  transform: scale(1.08);
+}
+
+.cinema-backdrop-zoom-in {
+  will-change: transform;
+  animation: cinema-zoom-in 11s linear forwards;
+}
+
+.cinema-backdrop-zoom-out {
+  will-change: transform;
+  animation: cinema-zoom-out 11s linear forwards;
+}
+
+.cinema-backdrop-pan-left {
+  will-change: transform;
+  animation: cinema-pan-left 11s linear forwards;
+}
+
+.cinema-backdrop-pan-right {
+  will-change: transform;
+  animation: cinema-pan-right 11s linear forwards;
+}
+
+@keyframes cinema-zoom-in {
+  from {
+    transform: scale(1.02);
+  }
+  to {
+    transform: scale(1.16);
+  }
+}
+
+@keyframes cinema-zoom-out {
+  from {
+    transform: scale(1.18);
+  }
+  to {
+    transform: scale(1.04);
+  }
+}
+
+@keyframes cinema-pan-left {
+  from {
+    transform: scale(1.14) translateX(2.5%);
+  }
+  to {
+    transform: scale(1.14) translateX(-2.5%);
+  }
+}
+
+@keyframes cinema-pan-right {
+  from {
+    transform: scale(1.14) translate(-2.5%, 1%);
+  }
+  to {
+    transform: scale(1.14) translate(2.5%, -1%);
+  }
+}

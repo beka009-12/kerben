@@ -1,0 +1,30 @@
+.favorite-button {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 92%);
+  color: var(--text);
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform 0.2s var(--ease),
+    color 0.2s,
+    background-color 0.2s;
+}
+
+.favorite-button:hover {
+  transform: scale(1.08);
+}
+
+.favorite-button-dark {
+  background: rgb(15 23 42 / 45%);
+  color: var(--white);
+  backdrop-filter: blur(6px);
+}
+
+.favorite-button-active {
+  color: #ef4444;
+}

@@ -1,0 +1,102 @@
+.slide-progress {
+  display: grid;
+  gap: 10px;
+  width: 100%;
+  color: var(--white);
+}
+
+.slide-progress-counter {
+  font-family: var(--font-heading);
+  font-size: var(--fs-small);
+  letter-spacing: 0.08em;
+  color: rgb(255 255 255 / 70%);
+}
+
+.slide-progress-current {
+  font-size: 1.25rem;
+  color: var(--white);
+}
+
+.slide-progress-bars {
+  display: grid;
+  grid-auto-columns: minmax(0, 1fr);
+  grid-auto-flow: column;
+  gap: 12px;
+}
+
+.slide-progress-item {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+  padding: 6px 0;
+  color: inherit;
+  text-align: left;
+  opacity: 0.65;
+  transition: opacity 0.2s;
+}
+
+.slide-progress-item:hover,
+.slide-progress-item[aria-current="true"] {
+  opacity: 1;
+}
+
+.slide-progress-label {
+  overflow: hidden;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.slide-progress-track {
+  position: relative;
+  display: block;
+  height: 2px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: rgb(255 255 255 / 28%);
+}
+
+.slide-progress-fill {
+  position: absolute;
+  inset: 0;
+  background: var(--white);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.slide-progress-fill-done {
+  transform: scaleX(1);
+}
+
+.slide-progress-fill-active {
+  animation: slide-progress-fill var(--slide-duration, 6000ms) linear forwards;
+}
+
+.slide-progress-fill-paused {
+  animation-play-state: paused;
+}
+
+@keyframes slide-progress-fill {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide-progress-fill-active {
+    transform: scaleX(1);
+  }
+}
+
+@media (max-width: 599px) {
+  .slide-progress-label {
+    display: none;
+  }
+
+  .slide-progress-item {
+    padding: 10px 0;
+  }
+}

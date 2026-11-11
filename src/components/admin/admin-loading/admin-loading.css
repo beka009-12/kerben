@@ -1,0 +1,41 @@
+.admin-loading {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.admin-loading-title {
+  width: 220px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background: var(--line);
+  animation: admin-loading-pulse 1.2s ease-in-out infinite;
+}
+
+.admin-loading-card {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+}
+
+.admin-loading-row {
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background: var(--soft);
+  animation: admin-loading-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes admin-loading-pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .admin-loading-title,
+  .admin-loading-row {
+    animation: none;
+  }
+}

@@ -1,0 +1,353 @@
+.trip {
+  scroll-margin-top: calc(var(--header-h) + var(--space-5));
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.trip-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.trip-copy {
+  max-width: 640px;
+}
+
+.trip-kicker {
+  margin: 0 0 var(--space-2);
+  color: var(--primary);
+  font-size: var(--fs-small);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.trip-title {
+  margin: 0 0 var(--space-2);
+  font-family: var(--font-heading);
+  font-size: var(--fs-section);
+  font-weight: var(--fw-heading);
+  letter-spacing: var(--ls-heading);
+  line-height: var(--lh-section);
+}
+
+.trip-text {
+  margin: 0;
+  color: var(--muted);
+}
+
+.trip-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.trip-step {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 6px var(--space-3) 6px 6px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-full);
+  background: var(--white);
+  color: var(--muted);
+  font-size: var(--fs-small);
+  font-weight: 600;
+}
+
+.trip-step-done {
+  border-color: var(--success);
+  color: var(--success);
+}
+
+.trip-step-current {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: var(--white);
+}
+
+.trip-step-dot {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-full);
+  background: var(--soft);
+  color: var(--muted);
+  font-size: var(--fs-xs);
+}
+
+.trip-step-dot-done {
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.trip-step-dot-current {
+  background: var(--white);
+  color: var(--primary);
+}
+
+.trip-loading {
+  min-height: 160px;
+  border-radius: var(--radius-lg);
+  background: var(--soft);
+}
+
+.trip-start {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+.trip-start-media {
+  position: relative;
+  width: 112px;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--soft);
+}
+
+.trip-start-image {
+  object-fit: cover;
+}
+
+.trip-start-title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h3);
+  font-weight: 700;
+}
+
+@media (max-width: 639px) {
+  .trip-start {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .trip-start-media {
+    width: 88px;
+  }
+}
+
+.trip-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.trip-all {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.trip-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  padding: 0 var(--space-4);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-full);
+  background: var(--white);
+  color: var(--text);
+  font: inherit;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.trip-button:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.trip-button-primary {
+  border-color: transparent;
+  background: var(--accent-fill);
+  color: var(--white);
+}
+
+.trip-button-primary:hover {
+  background: var(--accent-fill-hover);
+  color: var(--white);
+}
+
+.trip-button-small {
+  min-height: 38px;
+}
+
+.trip-link-button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  font-size: var(--fs-small);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.trip-link-button:hover {
+  color: var(--text);
+}
+
+.trip-button:focus-visible,
+.trip-link-button:focus-visible,
+.trip-all:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.trip-done {
+  display: flex;
+  gap: var(--space-5);
+  padding: var(--space-6);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+.trip-done-icon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-full);
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.trip-done-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.trip-done-title {
+  margin: 0 0 var(--space-2);
+  font-family: var(--font-heading);
+  font-size: var(--fs-h2);
+  letter-spacing: var(--ls-heading);
+}
+
+.trip-done-text {
+  margin: 0 0 var(--space-5);
+  color: var(--muted);
+}
+
+.trip-summary {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 var(--space-5);
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  list-style: none;
+}
+
+.trip-summary-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--line);
+}
+
+.trip-summary-row:last-child {
+  border-bottom: 0;
+}
+
+.trip-summary-photo {
+  position: relative;
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
+.trip-summary-label {
+  width: 96px;
+  flex: none;
+  color: var(--muted);
+  font-size: var(--fs-small);
+}
+
+.trip-summary-value {
+  flex: 1;
+  min-width: 0;
+  font-weight: 600;
+}
+
+.trip-summary-value-muted {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.trip-summary-check {
+  color: var(--success);
+}
+
+.trip-done-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+@media (max-width: 599px) {
+  .trip-done {
+    flex-direction: column;
+    padding: var(--space-5);
+  }
+
+  .trip-summary-label {
+    width: auto;
+  }
+}
+
+.trip-sections {
+  display: grid;
+  gap: var(--space-7);
+}
+
+.trip-section {
+  scroll-margin-top: calc(var(--header-h) + var(--space-5));
+  display: grid;
+  gap: var(--space-4);
+}
+
+.trip-section-head {
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--line);
+}
+
+.trip-section-title {
+  font-size: var(--fs-h2);
+}

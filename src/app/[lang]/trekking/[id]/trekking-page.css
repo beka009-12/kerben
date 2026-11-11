@@ -1,0 +1,84 @@
+.trekking-page-skeleton {
+  min-height: 100svh;
+  background: var(--soft);
+}
+
+.trekking-page {
+  display: grid;
+  gap: 32px;
+  padding-block: 32px var(--section);
+}
+
+.trekking-page-main {
+  display: grid;
+  gap: 32px;
+  align-content: start;
+  min-width: 0;
+}
+
+.trekking-page-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  justify-self: start;
+  color: var(--muted);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.trekking-page-back:hover {
+  color: var(--primary);
+}
+
+.trekking-page-title {
+  margin-bottom: 12px;
+  font-size: var(--fs-h2);
+}
+
+.trekking-page-text {
+  white-space: pre-line;
+  color: var(--text);
+}
+
+.trekking-page-side {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+.trekking-page-fact {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+}
+
+.trekking-page-price {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.trekking-page-note {
+  font-size: var(--fs-xs);
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (min-width: 900px) {
+  .trekking-page {
+    grid-template-columns: minmax(0, 1fr) 340px;
+    align-items: start;
+  }
+
+  .trekking-page-side {
+    position: sticky;
+    top: calc(var(--header-h) + 24px);
+  }
+}
