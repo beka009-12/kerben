@@ -11,7 +11,7 @@ export function CustomTrip({ image, locale, dict }: { image: string; locale: Loc
     <section id="custom" className="custom-trip" aria-labelledby="custom-title">
       <div className="container custom-trip-inner">
         <div className="custom-trip-media">
-          <Image src={image} alt="" fill sizes="(min-width: 900px) 50vw, 100vw" className="custom-trip-image" />
+          <Image src={image} alt="" fill sizes="(min-width: 1024px) 568px, 100vw" className="custom-trip-image" />
         </div>
         <div className="custom-trip-copy">
           <p className="custom-trip-kicker">{t.kicker}</p>

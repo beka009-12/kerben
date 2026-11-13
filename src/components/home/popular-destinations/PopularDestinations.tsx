@@ -7,17 +7,24 @@ import "./popular-destinations.css";
 
 export function PopularDestinations({ tours, locale, dict }: { tours: Tour[]; locale: Locale; dict: Dictionary }) {
   return (
-    <section className="section" aria-labelledby="popular-title">
+    <section className="popular-destinations" aria-labelledby="popular-title">
       <div className="container">
         <SectionHeader
           id="popular-title"
-          title={dict.popular.title}
-          link={{ href: `/${locale}/destinations`, label: dict.popular.viewAll }}
+          kicker={dict.popular.title}
+          title={dict.popular.heading}
+          link={{ href: `/${locale}/tours`, label: dict.popular.viewAll }}
         />
         <ul className="popular-destinations-list">
           {tours.map((tour) => (
             <li key={tour.slug} className="popular-destinations-item">
-              <DestinationCard tour={tour} locale={locale} fromLabel={dict.card.from} daysLabel={dict.card.days} perLabel={dict.card.perPerson}
+              <DestinationCard
+                tour={tour}
+                locale={locale}
+                fromLabel={dict.card.from}
+                daysLabel={dict.card.days}
+                oneDayLabel={dict.card.oneDay}
+                perLabel={dict.card.perPerson}
                 categoryLabel={tour.categoryName ?? dict.categories.items[tour.category]?.title}
               />
             </li>
