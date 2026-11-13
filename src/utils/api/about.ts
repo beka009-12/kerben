@@ -1,5 +1,6 @@
 import { cacheLife, cacheTag } from "next/cache";
 import { backendFetch } from "./backend";
+import { RETRY_SOON, errorText } from "./cache-fallback";
 
 interface BackendAbout {
   id: number;
@@ -27,7 +28,15 @@ export async function loadCompanyStats(): Promise<CompanyStats | null> {
   cacheLife("minutes");
   cacheTag("about");
 
-  const list = await backendFetch<BackendAbout[]>("/abouts/");
+  let list: BackendAbout[];
+  try {
+    list = await backendFetch<BackendAbout[]>("/abouts/");
+  } catch (error) {
+    // Ошибка внутри "use cache" валит сборку — короткий кеш и цифры по умолчанию
+    console.warn("[about] backend unavailable — using default stats:", errorText(error));
+    cacheLife(RETRY_SOON);
+    return null;
+  }
   const about = (Array.isArray(list) ? list : []).find((item) => item.is_active !== false);
   if (!about) return null;
   return [about.experience_years, about.travelers_count, about.branches_count, about.destinations_count, about.routes_count];

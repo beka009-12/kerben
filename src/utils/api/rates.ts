@@ -1,4 +1,5 @@
 import { cacheLife, cacheTag } from "next/cache";
+import { RETRY_SOON, errorText } from "./cache-fallback";
 
 const NBKR_DAILY = "https://www.nbkr.kg/XML/daily.xml";
 
@@ -27,9 +28,16 @@ export async function loadKgsRates(): Promise<KgsRates | null> {
   "use cache";
   cacheLife("hours");
   cacheTag("rates");
-  const response = await fetch(NBKR_DAILY, { signal: AbortSignal.timeout(5_000) });
-  if (!response.ok) throw new Error(`NBKR ${response.status}`);
-  return parseNbkrRates(await response.text());
+  try {
+    const response = await fetch(NBKR_DAILY, { signal: AbortSignal.timeout(5_000) });
+    if (!response.ok) throw new Error(`NBKR ${response.status}`);
+    return parseNbkrRates(await response.text());
+  } catch (error) {
+    // Ошибка внутри "use cache" валит сборку — без курса, повтор через 30 секунд
+    console.warn("[rates] NBKR unavailable:", errorText(error));
+    cacheLife(RETRY_SOON);
+    return null;
+  }
 }
 
 export async function getKgsRates(): Promise<KgsRates | null> {

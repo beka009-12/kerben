@@ -1,6 +1,7 @@
 import { cacheLife, cacheTag } from "next/cache";
 import type { Locale } from "@/utils/i18n/config";
 import { backendFetch } from "./backend";
+import { RETRY_SOON, errorText } from "./cache-fallback";
 
 interface BackendContact {
   id: number;
@@ -72,7 +73,15 @@ export async function loadContacts(locale: Locale): Promise<SiteContacts> {
   cacheLife("minutes");
   cacheTag("contacts");
 
-  const list = await backendFetch<BackendContact[]>(`/contacts/?lang=${locale}`);
+  let list: BackendContact[];
+  try {
+    list = await backendFetch<BackendContact[]>(`/contacts/?lang=${locale}`);
+  } catch (error) {
+    // Ошибка внутри "use cache" валит сборку — короткий кеш и без выдуманных контактов
+    console.warn("[contacts] backend unavailable:", errorText(error));
+    cacheLife(RETRY_SOON);
+    return NO_CONTACTS;
+  }
   const c = (Array.isArray(list) ? list : []).find((item) => item.is_active !== false);
   if (!c) return NO_CONTACTS;
   const phone = c.phone?.trim();
