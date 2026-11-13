@@ -2,46 +2,47 @@ import { cacheLife, cacheTag } from "next/cache";
 import { NO_PHOTO } from "@/data/images";
 import type { Locale } from "@/utils/i18n/config";
 import { backendFetch, backendImage, backendPrice, hasSiteAccount, type PriceUnit } from "./backend";
+import { RETRY_SOON, errorText } from "./cache-fallback";
 import { ApiError } from "./client";
 
-async function loadList<T>(path: string, locale?: Locale): Promise<T[]> {
+function loadList<T>(path: string, locale?: Locale): Promise<T[]> {
   const url = locale ? `${path}${path.includes("?") ? "&" : "?"}lang=${locale}` : path;
-  try {
-    return await loadListCached<T>(url);
-  } catch (error) {
-    console.warn(`[catalog] ${url} unavailable:`, error instanceof Error ? error.message : error);
-    return [];
-  }
+  return loadListCached<T>(url);
 }
 
+/** Сбой backend — пустой список на 30 секунд вместо ошибки, иначе падает сборка (см. cache-fallback.ts) */
 export async function loadListCached<T>(url: string): Promise<T[]> {
   "use cache";
   cacheLife("minutes");
   cacheTag("catalog");
-  const data = await backendFetch<unknown>(url).catch((error: unknown) => {
+  try {
+    const data = await backendFetch<unknown>(url);
+    return Array.isArray(data) ? (data as T[]) : [];
+  } catch (error) {
+    // Закрытый раздел — это ответ backend, а не сбой: кешируем как обычно
     if (error instanceof ApiError && (error.status === 401 || error.status === 403)) return [];
-    throw error;
-  });
-  return Array.isArray(data) ? (data as T[]) : [];
+    console.warn(`[catalog] ${url} unavailable:`, errorText(error));
+    cacheLife(RETRY_SOON);
+    return [];
+  }
 }
 
-async function loadDetailCached<T>(url: string): Promise<T> {
+async function loadDetailCached<T>(url: string): Promise<T | null> {
   "use cache";
   cacheLife("minutes");
   cacheTag("catalog");
-  return backendFetch<T>(url);
+  try {
+    return await backendFetch<T>(url);
+  } catch (error) {
+    console.warn(`[catalog] ${url} unavailable:`, errorText(error));
+    cacheLife(RETRY_SOON);
+    return null;
+  }
 }
 
 async function withDetails<T extends { id: number }>(path: string, list: T[], locale: Locale): Promise<T[]> {
   if (!hasSiteAccount() || list.length === 0) return list;
-  const full = await Promise.all(
-    list.map((item) =>
-      loadDetailCached<Partial<T>>(`${path}${item.id}/?lang=${locale}`).catch((error: unknown) => {
-        console.warn(`[catalog] ${path}${item.id}/ unavailable:`, error instanceof Error ? error.message : error);
-        return null;
-      }),
-    ),
-  );
+  const full = await Promise.all(list.map((item) => loadDetailCached<Partial<T>>(`${path}${item.id}/?lang=${locale}`)));
   return list.map((item, i) => ({ ...item, ...(full[i] ?? {}) }));
 }
 

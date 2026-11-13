@@ -11,6 +11,7 @@ import {
   type BackendTourDetail,
   type TourType,
 } from "./backend";
+import { RETRY_SOON, errorText } from "./cache-fallback";
 import { getTourCategoryNames } from "./catalog";
 
 export function isBackendTour(value: unknown): value is BackendTour {
@@ -111,29 +112,47 @@ export async function loadBackendTours(locale: Locale): Promise<Tour[]> {
   cacheLife("minutes");
   cacheTag("tours");
 
+  // Сбой любой части — не ошибка (она валит сборку), а короткий кеш: данные дотянутся через 30 секунд
+  let degraded = false;
   const [list, slides, categories] = await Promise.all([
-    backendFetch<unknown>(`/tours/?lang=${locale}`),
+    fetchTourList(locale),
     loadTourSlides(locale),
     getTourCategoryNames(locale),
   ]);
-  const tours = (Array.isArray(list) ? list : []).filter(isBackendTour).filter((t) => t.is_active !== false);
+  if (list === null) {
+    cacheLife(RETRY_SOON);
+    return [];
+  }
+  const tours = list.filter(isBackendTour).filter((t) => t.is_active !== false);
   if (tours.length === 0) return [];
   const details = await Promise.all(
-    tours.map((tour) => {
-      const fallback = { ...tour, description: tour.description ?? slides.get(tour.id) ?? null } as BackendTourDetail;
+    tours.map(async (tour): Promise<BackendTourDetail> => {
+      const fallback = { ...tour, description: tour.description ?? slides.map.get(tour.id) ?? null } as BackendTourDetail;
       if (!hasSiteAccount()) return fallback;
-      return backendFetch<BackendTourDetail>(`/tours/${tour.id}/?lang=${locale}`)
-        .then((detail) => ({ ...fallback, ...detail }))
-        .catch((error: unknown) => {
-          console.warn(`[tours] detail ${tour.id} failed:`, error instanceof Error ? error.message : error);
-          return fallback;
-        });
+      try {
+        return { ...fallback, ...(await backendFetch<BackendTourDetail>(`/tours/${tour.id}/?lang=${locale}`)) };
+      } catch (error) {
+        console.warn(`[tours] detail ${tour.id} failed:`, errorText(error));
+        degraded = true;
+        return fallback;
+      }
     }),
   );
+  if (degraded || slides.failed) cacheLife(RETRY_SOON);
   return details.map((tour) => fromBackendTour(tour, locale, categories));
 }
 
-async function loadTourSlides(locale: Locale): Promise<Map<number, string>> {
+async function fetchTourList(locale: Locale): Promise<unknown[] | null> {
+  try {
+    const list = await backendFetch<unknown>(`/tours/?lang=${locale}`);
+    return Array.isArray(list) ? list : [];
+  } catch (error) {
+    console.warn("[tours] backend unavailable:", errorText(error));
+    return null;
+  }
+}
+
+async function loadTourSlides(locale: Locale): Promise<{ map: Map<number, string>; failed: boolean }> {
   const map = new Map<number, string>();
   try {
     const data = await backendFetch<{ slides?: { id?: unknown; description?: unknown }[] }>(`/tours/home/slides/?lang=${locale}`);
@@ -141,9 +160,10 @@ async function loadTourSlides(locale: Locale): Promise<Map<number, string>> {
       if (typeof slide.id === "number" && typeof slide.description === "string" && slide.description.trim()) map.set(slide.id, slide.description);
     }
   } catch (error) {
-    console.warn("[tours] slides unavailable:", error instanceof Error ? error.message : error);
+    console.warn("[tours] slides unavailable:", errorText(error));
+    return { map, failed: true };
   }
-  return map;
+  return { map, failed: false };
 }
 
 /** Туры только из backend: если их нет или backend недоступен — пустой список, без выдуманных туров */
