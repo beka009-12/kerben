@@ -35,6 +35,10 @@ export function useHeader() {
     { href: `${base}/trekking`, label: dict.nav.trekking },
     { href: `${base}/helicopter`, label: dict.nav.helicopter },
   ];
+  const guide: HeaderLink[] = [
+    { href: `${base}/attractions`, label: dict.nav.attractions },
+    { href: `${base}/faq`, label: dict.nav.faq },
+  ];
   const mainLinks: HeaderLink[] = [
     { href: base, label: dict.nav.home },
     { href: `${base}/tours`, label: dict.nav.tours },
@@ -49,6 +53,7 @@ export function useHeader() {
         { href: base, label: dict.nav.home, icon: "home" },
         { href: `${base}/destinations`, label: dict.nav.destinations, icon: "compass" },
         { href: `${base}/tours`, label: dict.nav.tours, icon: "route" },
+        { href: `${base}/attractions`, label: dict.nav.attractions, icon: "landmark" },
         { href: `${base}/hotels`, label: dict.nav.hotels, icon: "bed" },
         { href: `${base}/chat`, label: dict.nav.chat, icon: "chat" },
       ],
@@ -104,6 +109,7 @@ export function useHeader() {
     burgerRef,
     tripsCount,
     services,
+    guide,
     mainLinks,
     aboutLink,
     chatLink,

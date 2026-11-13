@@ -1,6 +1,6 @@
 .people-numbers {
   padding: 79px 0 var(--section-pad);
-  background: var(--soft);
+  background: var(--white);
 }
 
 .people-numbers-inner {
@@ -14,15 +14,6 @@
   flex-direction: column;
   gap: 20px;
   min-width: 0;
-}
-
-.people-numbers-kicker {
-  font-size: var(--fs-eyebrow);
-  font-weight: 700;
-  line-height: var(--lh-tight);
-  letter-spacing: var(--ls-eyebrow);
-  text-transform: uppercase;
-  color: var(--accent);
 }
 
 .people-numbers-title {
@@ -40,39 +31,6 @@
   color: var(--body);
 }
 
-.people-numbers-cards {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-  margin-top: 12px;
-}
-
-.people-numbers-card {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  min-height: 133px;
-  padding: 22px;
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  background: var(--white);
-}
-
-.people-numbers-value {
-  font-family: var(--font-heading);
-  font-size: 2.125rem;
-  font-weight: 800;
-  line-height: var(--lh-tight);
-  letter-spacing: -0.02em;
-  color: var(--primary);
-}
-
-.people-numbers-label {
-  font-size: 0.875rem;
-  line-height: 1.4;
-  color: var(--body);
-}
-
 .people-numbers-photos {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -81,33 +39,19 @@
 
 .people-numbers-photo {
   position: relative;
-  aspect-ratio: 240 / 520;
+  aspect-ratio: 1;
   overflow: hidden;
   border-radius: var(--radius-photo);
   background: var(--photo-bg);
 }
 
 .people-numbers-photo-low {
-  margin-top: 56px;
+  margin-top: 40px;
 }
 
 .people-numbers-image {
   object-fit: cover;
-}
-
-/* Одно фото на две карточки: в левой — левая девушка, в правой — правая */
-.people-numbers-image-start {
-  object-position: 18% 50%;
-}
-
-.people-numbers-image-end {
-  object-position: 66% 50%;
-}
-
-@media (min-width: 640px) {
-  .people-numbers-cards {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
+  object-position: 50% 55%;
 }
 
 @media (min-width: 1024px) {
@@ -120,5 +64,78 @@
 @media (max-width: 1023px) {
   .people-numbers-photos {
     max-width: 496px;
+  }
+}
+
+.numbers-view {
+  padding-top: var(--section-pad);
+  background: var(--white);
+}
+
+.numbers-view-wrap {
+  display: grid;
+  gap: clamp(24px, 3vw, 40px);
+}
+
+.numbers-view-heading {
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  font-size: clamp(2rem, 1.2rem + 2.2vw, 3rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.numbers-view-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+.numbers-view-card {
+  display: grid;
+  gap: 8px;
+  align-content: center;
+  min-height: 120px;
+  padding: clamp(20px, 2vw, 28px);
+  border: 1px solid var(--stat-card-border);
+  border-radius: 20px;
+  background: var(--stat-card-bg);
+  box-shadow: var(--stat-card-shadow);
+}
+
+.numbers-view-value {
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  font-size: clamp(2.25rem, 1.4rem + 2.2vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--cream);
+}
+
+.numbers-view-label {
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  font-size: clamp(1rem, 0.9rem + 0.3vw, 1.125rem);
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--cream-soft);
+}
+
+@media (min-width: 640px) {
+  .numbers-view-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .numbers-view-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-rows: 1fr;
+  }
+
+  .numbers-view-card {
+    min-height: 138px;
   }
 }

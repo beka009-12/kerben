@@ -50,6 +50,8 @@
   font-weight: 800;
   line-height: 1.06;
   letter-spacing: var(--ls-heading);
+  /* Страховка от вылета длинного слова за карточку на узком телефоне */
+  overflow-wrap: break-word;
 }
 
 .page-hero-text {

@@ -39,6 +39,12 @@ export function Header({ searchItems, contacts }: { searchItems: SearchItem[]; c
             active={h.services.some((item) => h.isActive(item.href))}
             isActive={h.isActive}
           />
+          <HeaderMenu
+            label={dict.footer.guide}
+            items={h.guide}
+            active={h.guide.some((item) => h.isActive(item.href))}
+            isActive={h.isActive}
+          />
           <Link
             href={h.aboutLink.href}
             className={h.linkClass(h.aboutLink.href)}

@@ -54,6 +54,7 @@ export function Footer({ locale, dict, contacts }: { locale: Locale; dict: Dicti
   const company: FooterLink[] = [
     { href: `${base}/about`, label: t.aboutLink },
     { href: `${base}/tours`, label: dict.nav.tours },
+    { href: `${base}/attractions`, label: dict.nav.attractions },
     { href: `${base}/destinations`, label: dict.nav.destinations },
     { href: `${base}/trips`, label: dict.nav.trips },
   ];

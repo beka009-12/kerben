@@ -42,16 +42,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 24px;
-  max-width: 680px;
-}
-
-.hero-kicker {
-  font-size: var(--fs-eyebrow);
-  font-weight: 700;
-  line-height: var(--lh-tight);
-  letter-spacing: var(--ls-eyebrow);
-  text-transform: uppercase;
-  color: var(--orange-soft);
+  max-width: 840px;
 }
 
 .hero-title {
@@ -59,11 +50,31 @@
   font-weight: var(--fw-heading);
   line-height: var(--lh-display);
   letter-spacing: var(--ls-heading);
-  text-wrap: wrap;
+  text-wrap: balance;
   color: var(--white);
 }
 
+/* Заголовок из двух фраз: на десктопе чуть мельче общего --fs-display, чтобы не было 7 строк */
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: clamp(2.375rem, 1.4rem + 2.2vw, 3rem);
+  }
+}
+
+/* Китайский без пробелов: переносим только по знакам препинания, а не посреди слова */
+.hero-title:lang(zh) {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.hero-title-accent {
+  display: block;
+  text-wrap: balance;
+  color: var(--accent);
+}
+
 .hero-text {
+  max-width: 620px;
   font-size: 1.1875rem;
   line-height: 1.55;
   color: var(--on-dark);
