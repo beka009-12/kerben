@@ -62,7 +62,6 @@ export function ExperienceGrid({
                   <span className="experience-grid-shade" />
                   <span className="experience-grid-body">
                     <span className="experience-grid-name">{item.title}</span>
-                    <span className="experience-grid-text">{item.text}</span>
                     <span className="experience-grid-cta">
                       {item.cta}
                       <Icon name="arrowRight" size={18} />
