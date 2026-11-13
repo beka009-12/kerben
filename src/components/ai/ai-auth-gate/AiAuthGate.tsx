@@ -11,13 +11,11 @@ import "./ai-auth-gate.css";
 
 export function AiAuthGate({
   title,
-  text,
   points,
   homeHref,
   backLabel,
 }: {
   title: string;
-  text: string;
   points: string[];
   homeHref: string;
   backLabel: string;
@@ -33,25 +31,30 @@ export function AiAuthGate({
           <Logo />
         </Link>
       </div>
+      {/* Телефон: только форма. Планшет: фото-полоса → форма «шторкой» → что умеет ассистент. Десктоп: фото с текстом слева, форма справа */}
       <div className="ai-gate-card">
-        <div className="ai-gate-intro">
-          <Image src={kg("song-kul-yurts")} alt="" fill sizes="(min-width: 900px) 50vw, 100vw" className="ai-gate-image" />
+        {/* Без preload: на телефоне блок скрыт, и ленивое фото там не скачивается */}
+        <div className="ai-gate-media" aria-hidden="true">
+          <Image src={kg("song-kul-yurts")} alt="" fill sizes="(min-width: 900px) 520px, 560px" className="ai-gate-image" />
           <div className="ai-gate-shade" />
-          <span className="ai-gate-badge">Kerben Travel AI</span>
-          <h1 className="ai-gate-title">{title}</h1>
-          <p className="ai-gate-text">{text}</p>
-          <ul className="ai-gate-points">
-            {points.map((point) => (
-              <li key={point} className="ai-gate-point">
-                <Icon name="check" size={16} />
-                {point}
-              </li>
-            ))}
-          </ul>
+        </div>
+        {/* Заголовок страницы — «Создать аккаунт» в форме; здесь только подпись к фото, поэтому не <h1> */}
+        <div className="ai-gate-intro">
+          <p className="ai-gate-title">{title}</p>
         </div>
         <div className="ai-gate-form">
           <AuthForm initialMode="register" showLogo={false} />
         </div>
+        <ul className="ai-gate-points">
+          {points.map((point) => (
+            <li key={point} className="ai-gate-point">
+              <span className="ai-gate-point-icon">
+                <Icon name="check" size={14} />
+              </span>
+              {point}
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

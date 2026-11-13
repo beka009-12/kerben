@@ -14,7 +14,6 @@ export function AiChatPage({ tours }: { tours: ComposerTour[] }) {
   return (
     <AiAuthGate
       title={dict.ai.gateTitle}
-      text={dict.ai.gateText}
       points={dict.ai.gatePoints}
       homeHref={`/${locale}`}
       backLabel={dict.ai.back}
