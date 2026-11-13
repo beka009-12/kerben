@@ -44,13 +44,13 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
       <Hero locale={lang} dict={dict} />
       <PeopleNumbers dict={dict} locale={lang} stats={null} />
       {popular.length > 0 && <PopularDestinations tours={popular} locale={lang} dict={dict} />}
+      <CentralAsia locale={lang} dict={dict} />
       <ExperienceGrid
         images={EXPERIENCES.map((item) => item.image)}
         themes={EXPERIENCES.map((item) => item.theme)}
         locale={lang}
         dict={dict}
       />
-      <CentralAsia locale={lang} dict={dict} />
       <CustomTrip image={home("custom-trip")} locale={lang} dict={dict} />
       <Infrastructure image={home("infrastructure")} dict={dict} />
       <Seasons locale={lang} dict={dict} />
