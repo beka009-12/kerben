@@ -2,19 +2,18 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  border: 1.5px solid transparent;
-  border-radius: var(--radius-full);
-  font-family: var(--font-heading);
+  gap: 10px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-btn);
+  font-family: var(--font-body);
   font-weight: 600;
-  line-height: 1;
+  line-height: var(--lh-tight);
   white-space: nowrap;
   transition:
     background-color 0.2s var(--ease),
     border-color 0.2s var(--ease),
     color 0.2s var(--ease),
-    transform 0.2s var(--ease),
-    box-shadow 0.2s var(--ease);
+    transform 0.2s var(--ease);
 }
 
 .button:active {
@@ -28,20 +27,21 @@
 
 .button-sm {
   min-height: 38px;
-  padding: 0 16px;
+  padding: 0 14px;
   font-size: 0.8125rem;
 }
 
 .button-md {
-  min-height: 46px;
-  padding: 0 24px;
-  font-size: 0.9375rem;
+  min-height: var(--btn-h);
+  padding: 0 var(--btn-pad);
+  font-size: 0.875rem;
 }
 
 .button-lg {
-  min-height: 54px;
-  padding: 0 32px;
-  font-size: 1rem;
+  min-height: var(--btn-h-lg);
+  padding: 0 var(--btn-pad-lg);
+  border-radius: var(--radius-btn-lg);
+  font-size: 0.9375rem;
 }
 
 .button-block {
@@ -49,40 +49,47 @@
 }
 
 .button-primary {
-  background: var(--accent-fill);
+  background: var(--accent);
   color: var(--white);
-  box-shadow: var(--accent-shadow);
 }
 
 .button-primary:hover {
-  background: var(--accent-fill-hover);
+  background: var(--accent-dark);
+}
+
+.button-blue {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.button-blue:hover {
+  background: var(--primary-dark);
 }
 
 .button-outline {
-  border-color: var(--line);
+  border-color: var(--line-strong);
   background: var(--white);
-  color: var(--text);
+  color: var(--ink);
 }
 
 .button-outline:hover {
-  border-color: var(--accent);
-  color: var(--accent-dark);
+  border-color: var(--ink);
 }
 
 .button-ghost {
-  border-color: rgb(255 255 255 / 55%);
-  background: rgb(255 255 255 / 10%);
+  border-color: rgb(255 255 255 / 40%);
+  background: rgb(255 255 255 / 16%);
   color: var(--white);
   backdrop-filter: blur(6px);
 }
 
 .button-ghost:hover {
-  background: rgb(255 255 255 / 22%);
+  background: rgb(255 255 255 / 26%);
 }
 
 .button-light {
   background: var(--white);
-  color: var(--text);
+  color: var(--ink);
 }
 
 .button-light:hover {

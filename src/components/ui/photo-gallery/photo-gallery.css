@@ -1,16 +1,15 @@
 .photo-gallery {
   display: grid;
-  gap: 10px;
+  gap: 12px;
 }
 
 .photo-gallery-stage {
   position: relative;
-  aspect-ratio: 16 / 9;
-  max-height: min(540px, 60vh);
+  aspect-ratio: 1200 / 520;
   width: 100%;
   overflow: hidden;
-  border-radius: var(--radius-lg);
-  background: var(--soft);
+  border-radius: var(--radius-photo);
+  background: var(--photo-bg);
 }
 
 .photo-gallery-open {
@@ -67,18 +66,18 @@
 
 .photo-gallery-count {
   position: absolute;
-  right: 12px;
-  bottom: 12px;
+  right: 16px;
+  bottom: 16px;
   z-index: 1;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 5px 12px;
+  padding: 6px 12px;
   border-radius: var(--radius-full);
-  background: rgb(11 22 48 / 72%);
+  background: rgb(7 18 45 / 72%);
   color: var(--white);
-  font-size: var(--fs-xs);
+  font-size: 0.75rem;
   font-weight: 700;
+  line-height: var(--lh-tight);
   pointer-events: none;
 }
 
@@ -135,10 +134,10 @@
 
 .photo-gallery-mosaic {
   display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 792fr) minmax(0, 392fr);
   grid-template-rows: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-  height: clamp(320px, 34vw, 440px);
+  gap: 16px;
+  height: clamp(320px, 36vw, 480px);
 }
 
 .photo-gallery-tile {
@@ -147,8 +146,8 @@
   overflow: hidden;
   padding: 0;
   border: 0;
-  border-radius: 14px;
-  background: rgb(255 255 255 / 6%);
+  border-radius: var(--radius-photo);
+  background: var(--photo-bg);
   cursor: zoom-in;
 }
 
@@ -167,7 +166,7 @@
 }
 
 .photo-gallery-tile:focus-visible {
-  outline: 3px solid rgb(255 255 255 / 85%);
+  outline: 3px solid var(--primary);
   outline-offset: 2px;
 }
 

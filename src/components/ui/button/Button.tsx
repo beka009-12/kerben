@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { ButtonHTMLAttributes, ReactNode } from "react";
 import "./button.css";
 
-type Variant = "primary" | "outline" | "ghost" | "light" | "dark";
+type Variant = "primary" | "blue" | "outline" | "ghost" | "light" | "dark";
 type Size = "sm" | "md" | "lg";
 
 interface CommonProps {
