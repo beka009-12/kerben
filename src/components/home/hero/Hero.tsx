@@ -14,9 +14,8 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
       <div className="hero-shade" />
       <div className="container-wide hero-inner">
         <div className="hero-copy">
-          <p className="hero-kicker">{t.eyebrow}</p>
           <h1 id="hero-title" className="hero-title">
-            {t.title}
+            <span className="hero-title-accent">{t.eyebrow}</span> {t.title}
           </h1>
           <p className="hero-text">{t.text}</p>
           <div className="hero-actions">
