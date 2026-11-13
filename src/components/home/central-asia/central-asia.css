@@ -1,59 +1,48 @@
 .central-asia {
+  --cream: #f6ebd8;
+  --gold: #ddbb68;
   position: relative;
   display: grid;
   place-items: center;
-  min-height: 760px;
+  min-height: 100svh;
   overflow: hidden;
-  background: var(--navy);
-  color: var(--white);
-  scroll-margin-top: var(--header-h);
+  padding-block: var(--section);
+  background: #0b0d14;
+  color: var(--cream);
+  font-family: var(--font-manrope), system-ui, sans-serif;
   isolation: isolate;
 }
 
 .central-asia-flags {
   position: absolute;
   inset: 0;
+  container-type: size;
   z-index: -2;
+  animation: central-asia-drift 18s ease-in-out infinite alternate;
 }
 
-/*
- * 18s cycle, 6s per flag. Flag i fades in over the last 1.2s of flag i-1 (on top of it),
- * then flag i-1 fades out underneath — so the navy background never shows through.
- * Delay starts at -1.2s so the first flag is already fully visible on load.
- */
+@keyframes central-asia-drift {
+  from {
+    transform: scale(1.03) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.06) translate3d(-1%, -0.6%, 0);
+  }
+}
+
 .central-asia-flag {
+  --w: max(100cqw, 177.68cqh);
+  --h: max(100cqh, 56.28cqw);
   object-fit: cover;
+  object-position:
+    clamp(100cqw - var(--w), 50cqw - var(--fx, 0.5) * var(--w), 0px)
+    clamp(100cqh - var(--h), 50cqh - var(--fy, 0.5) * var(--h), 0px);
   opacity: 0;
-  animation: central-asia-flag 18s ease-in-out infinite both;
-  animation-delay: calc(var(--i, 0) * 6s - 1.2s);
+  transition: opacity 0.8s var(--ease);
 }
 
-.central-asia-flag:first-child {
+.central-asia-flag-active {
   opacity: 1;
-}
-
-@keyframes central-asia-flag {
-  0% {
-    opacity: 0;
-  }
-  6.667% {
-    opacity: 1;
-  }
-  40% {
-    opacity: 1;
-  }
-  46.667% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .central-asia-flag {
-    animation-name: none;
-  }
 }
 
 .central-asia-shade {
@@ -61,68 +50,214 @@
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(55% 50% at 50% 50%, rgb(5 10 26 / 30%), transparent),
-    rgb(5 10 26 / 45%);
+    radial-gradient(60% 58% at 50% 50%, rgb(6 10 22 / 72%) 0%, rgb(6 10 22 / 48%) 60%, rgb(6 10 22 / 28%) 100%),
+    rgb(6 10 22 / 12%);
 }
 
 .central-asia-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  justify-items: center;
   text-align: center;
 }
 
-/* Второстепенная строка над заголовком: мельче, обычный регистр, чуть прозрачнее */
-.central-asia-subtitle {
-  font-size: 1.125rem;
-  font-weight: 500;
-  line-height: 1.4;
-  color: rgb(255 255 255 / 88%);
-  text-shadow: 0 2px 12px rgb(0 0 0 / 45%);
+@media (scripting: enabled) {
+  .central-asia-kicker,
+  .central-asia-title,
+  .central-asia-switch,
+  .central-asia-places,
+  .central-asia-footer {
+    opacity: 0;
+    transform: translate3d(0, 28px, 0);
+    transition:
+      opacity 0.8s var(--ease) calc(var(--d, 0) * 120ms),
+      transform 0.8s var(--ease) calc(var(--d, 0) * 120ms);
+  }
+
+  .central-asia-in {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.central-asia-kicker {
+  font-size: clamp(0.75rem, 0.6rem + 0.3vw, 0.9375rem);
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--cream);
 }
 
 .central-asia-title {
-  margin-top: 12px;
-  font-size: clamp(1.75rem, 1.2rem + 1.6vw, 2.625rem);
+  margin-top: clamp(14px, 1.6vw, 24px);
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  font-size: clamp(2.25rem, 1rem + 3.4vw, 4.75rem);
   font-weight: 800;
-  line-height: 1.3;
-  letter-spacing: 0;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
   text-wrap: balance;
-  text-shadow: 0 2px 12px rgb(0 0 0 / 45%);
+  color: var(--cream);
+}
+
+.central-asia-title-line {
+  display: block;
+}
+
+.central-asia-switch {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px clamp(16px, 3.2vw, 64px);
+  margin-top: clamp(28px, 3.6vw, 56px);
+}
+
+.central-asia-option {
+  position: relative;
+  padding: 6px 2px 12px;
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  font-size: clamp(1.0625rem, 0.5rem + 1.5vw, 2.25rem);
+  font-weight: 600;
+  white-space: nowrap;
+  color: rgb(246 235 216 / 55%);
+  cursor: pointer;
+  transition: color 0.3s var(--ease);
+}
+
+.central-asia-option::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform 0.35s var(--ease);
+}
+
+.central-asia-option:hover {
+  color: rgb(246 235 216 / 85%);
+}
+
+.central-asia-option:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 6px;
+  border-radius: 6px;
+}
+
+.central-asia-option-active,
+.central-asia-option-active:hover {
+  color: var(--cream);
+}
+
+.central-asia-option-active::after {
+  transform: scaleX(1);
+}
+
+.central-asia-places {
+  display: grid;
+  margin-top: clamp(18px, 2vw, 32px);
+}
+
+.central-asia-line {
+  grid-area: 1 / 1;
+  font-size: clamp(1rem, 0.5rem + 1.1vw, 1.75rem);
+  font-weight: 400;
+  line-height: 1.4;
+  color: rgb(246 235 216 / 88%);
+  opacity: 0;
+  transform: translate3d(0, 8px, 0);
+  transition:
+    opacity 0.45s var(--ease),
+    transform 0.45s var(--ease);
+}
+
+.central-asia-line-active {
+  opacity: 1;
+  transform: none;
+}
+
+.central-asia-footer {
+  margin-top: clamp(32px, 4vw, 64px);
 }
 
 .central-asia-cta {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  min-height: var(--btn-h-lg);
-  margin-top: 40px;
-  padding: 0 var(--btn-pad-lg);
-  border: 1px solid rgb(255 255 255 / 40%);
-  border-radius: var(--radius-btn-lg);
-  background: rgb(255 255 255 / 16%);
-  box-shadow: 0 2px 12px rgb(0 0 0 / 45%);
-  backdrop-filter: blur(6px);
-  font-size: 1rem;
+  gap: 12px;
+  min-height: 56px;
+  padding: 0 32px;
+  border: 1px solid rgb(246 235 216 / 55%);
+  border-radius: var(--radius-full);
+  background: rgb(6 10 22 / 42%);
+  color: var(--cream);
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  font-size: clamp(0.9375rem, 0.8rem + 0.3vw, 1.125rem);
   font-weight: 600;
-  line-height: var(--lh-tight);
-  transition: background-color 0.2s var(--ease);
+  backdrop-filter: blur(8px);
+  transition:
+    background-color 0.25s,
+    border-color 0.25s,
+    gap 0.25s var(--ease);
 }
 
 .central-asia-cta:hover {
-  background: rgb(255 255 255 / 26%);
+  gap: 16px;
+  border-color: var(--cream);
+  background: rgb(6 10 22 / 62%);
 }
 
-@media (max-width: 767px) {
+.central-asia-cta:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+@media (max-width: 639px) {
   .central-asia {
-    min-height: 520px;
+    min-height: 92svh;
   }
 
-  .central-asia-subtitle {
-    font-size: 1rem;
+  .central-asia-kicker {
+    letter-spacing: 0.22em;
+  }
+
+  .central-asia-switch {
+    flex-wrap: nowrap;
+    gap: 14px;
+  }
+
+  .central-asia-option {
+    padding-bottom: 9px;
+  }
+
+  .central-asia-line {
+    max-width: 30ch;
+    margin-inline: auto;
   }
 
   .central-asia-cta {
-    font-size: 1rem;
+    padding: 0 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .central-asia-flags {
+    animation: none;
+  }
+
+  .central-asia-flag,
+  .central-asia-line,
+  .central-asia-option::after {
+    transition: none;
+  }
+
+  .central-asia-kicker,
+  .central-asia-title,
+  .central-asia-switch,
+  .central-asia-places,
+  .central-asia-footer {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
