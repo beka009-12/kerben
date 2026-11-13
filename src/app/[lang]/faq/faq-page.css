@@ -1,12 +1,15 @@
-.faq-page {
-  display: grid;
-  gap: 40px;
+.faq-page-section {
+  padding-block: var(--section-pad);
 }
 
-@media (min-width: 900px) {
+.faq-page {
+  display: grid;
+  gap: 32px;
+}
+
+@media (min-width: 1024px) {
   .faq-page {
-    grid-template-columns: 1.7fr minmax(300px, 0.8fr);
+    grid-template-columns: minmax(0, 808fr) minmax(0, 360fr);
     align-items: start;
-    gap: 64px;
   }
 }

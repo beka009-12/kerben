@@ -1,51 +1,59 @@
 .faq-list {
-  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 12px;
 }
 
 .faq-list-item {
-  border-bottom: 1px solid var(--line);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--white);
+  transition: border-color 0.3s var(--ease);
 }
 
-.faq-list-item[open] {
-  --faq-rotate: 45deg;
+.faq-list-item-open {
+  --faq-bar: 0;
+  --faq-rows: 1fr;
+  --faq-answer-opacity: 1;
+  --faq-answer-shift: 0;
+  --faq-question-bottom: 12px;
   --faq-toggle-bg: var(--primary);
   --faq-toggle-color: var(--white);
+  border-color: var(--primary);
+}
+
+.faq-list-heading {
+  font-size: inherit;
+  line-height: inherit;
 }
 
 .faq-list-question {
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding: 18px 0;
+  gap: 16px;
+  width: 100%;
+  padding: 20px 24px var(--faq-question-bottom, 20px);
+  border-radius: 18px;
   font-family: var(--font-heading);
-  font-size: clamp(0.9375rem, 0.9rem + 0.2vw, 1.0625rem);
-  font-weight: 600;
-  line-height: 1.4;
-  cursor: pointer;
-  list-style: none;
-  transition: color 0.2s;
-}
-
-.faq-list-question::-webkit-details-marker {
-  display: none;
-}
-
-.faq-list-question:hover {
-  color: var(--primary);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--ink);
+  text-align: left;
+  transition: padding-bottom 0.3s var(--ease);
 }
 
 .faq-list-question:focus-visible {
-  outline: 2px solid var(--primary);
-  outline-offset: 4px;
-  border-radius: var(--radius-sm);
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
 }
 
 .faq-list-number {
   flex-shrink: 0;
-  min-width: 28px;
-  font-size: var(--fs-small);
+  min-width: 24px;
+  font-family: var(--font-body);
+  font-size: var(--fs-eyebrow);
   font-weight: 700;
-  color: var(--primary);
+  color: var(--placeholder);
   font-variant-numeric: tabular-nums;
 }
 
@@ -56,16 +64,14 @@
 .faq-list-toggle {
   position: relative;
   flex-shrink: 0;
-  width: 28px;
-  height: 28px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  background: var(--faq-toggle-bg, var(--soft));
-  color: var(--faq-toggle-color, currentColor);
-  transform: rotate(var(--faq-rotate, 0deg));
+  background: var(--faq-toggle-bg, var(--primary-soft));
+  color: var(--faq-toggle-color, var(--primary));
   transition:
-    transform 0.3s var(--ease),
-    background-color 0.2s,
-    color 0.2s;
+    background-color 0.3s var(--ease),
+    color 0.3s var(--ease);
 }
 
 .faq-list-toggle::before,
@@ -74,7 +80,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 11px;
+  width: 10.5px;
   height: 1.5px;
   border-radius: 2px;
   background: currentColor;
@@ -82,37 +88,56 @@
 }
 
 .faq-list-toggle::after {
-  transform: translate(-50%, -50%) rotate(90deg);
+  transform: translate(-50%, -50%) rotate(90deg) scaleX(var(--faq-bar, 1));
+  transition: transform 0.3s var(--ease);
+}
+
+.faq-list-panel {
+  display: grid;
+  grid-template-rows: var(--faq-rows, 0fr);
+  transition: grid-template-rows 0.35s var(--ease);
+}
+
+.faq-list-panel-inner {
+  min-height: 0;
+  overflow: hidden;
 }
 
 .faq-list-answer {
-  max-width: 720px;
-  padding-bottom: 20px;
+  padding: 0 76px 20px 24px;
   font-size: 0.9375rem;
-  color: var(--muted);
-  line-height: 1.7;
+  line-height: 1.6;
+  color: var(--body);
   white-space: pre-line;
-  animation: faq-list-open 0.35s var(--ease) both;
+  opacity: var(--faq-answer-opacity, 0);
+  transform: translateY(var(--faq-answer-shift, -6px));
+  transition:
+    opacity 0.3s var(--ease),
+    transform 0.35s var(--ease);
 }
 
 .faq-list-answer-numbered {
-  padding-left: 48px;
+  padding-left: 24px;
 }
 
-@keyframes faq-list-open {
-  from {
-    opacity: 0;
-    transform: translateY(-6px);
+@media (hover: hover) {
+  .faq-list-item:hover {
+    border-color: var(--line-strong);
+  }
+
+  .faq-list-item-open:hover {
+    border-color: var(--primary);
   }
 }
 
 @media (max-width: 767px) {
   .faq-list-question {
-    gap: 14px;
-    padding: 16px 0;
+    padding: 16px 18px var(--faq-question-bottom, 16px);
+    font-size: 1rem;
   }
 
+  .faq-list-answer,
   .faq-list-answer-numbered {
-    padding-left: 0;
+    padding: 0 18px 18px;
   }
 }

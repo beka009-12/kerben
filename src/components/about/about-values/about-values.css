@@ -1,72 +1,51 @@
 .about-values {
   display: grid;
-  gap: 32px;
-  padding-top: 10px;
-}
-
-.about-values-story {
-  display: grid;
-  gap: 14px;
-  align-content: start;
-  max-width: 760px;
-}
-
-.about-values-title {
-  font-size: var(--fs-h2);
-}
-
-.about-values-text {
-  color: var(--muted);
-  font-size: 1.0625rem;
-  line-height: 1.65;
-}
-
-.about-values-list {
-  display: grid;
-  gap: 14px;
+  gap: 24px;
 }
 
 .about-values-card {
-  display: grid;
-  gap: 8px;
-  padding: 20px;
-  border-radius: var(--radius-lg);
-  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 26px;
   border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--white);
 }
 
 .about-values-icon {
   display: grid;
   place-items: center;
-  width: 46px;
-  height: 46px;
-  border-radius: 12px;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 10px;
+  border-radius: 14px;
   background: var(--primary-soft);
   color: var(--primary);
 }
 
 .about-values-name {
-  font-size: 1rem;
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: 0;
+  color: var(--ink);
 }
 
-.about-values-card-text {
-  font-size: var(--fs-small);
-  color: var(--muted);
+.about-values-text {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--body);
 }
 
 @media (min-width: 640px) {
-  .about-values-list {
-    grid-template-columns: 1fr 1fr;
+  .about-values {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (min-width: 1000px) {
-  .about-values-list {
+@media (min-width: 1024px) {
+  .about-values {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 16px;
-  }
-
-  .about-values-card {
-    padding: 24px;
   }
 }

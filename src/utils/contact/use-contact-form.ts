@@ -21,10 +21,20 @@ export function useContactForm(contacts: Pick<SiteContacts, "whatsappHref" | "te
   const t = dict.contact;
   const uid = useId();
   const [name, setName] = useState("");
+  const [dates, setDates] = useState("");
+  const [people, setPeople] = useState("");
+  const [interests, setInterests] = useState("");
   const [message, setMessage] = useState("");
   const [copied, setCopied] = useState(false);
 
-  const text = [message.trim(), name.trim() ? `— ${name.trim()}` : ""].filter(Boolean).join("\n\n");
+  const details = [
+    dates.trim() ? `${t.dates}: ${dates.trim()}` : "",
+    people.trim() ? `${t.people}: ${people.trim()}` : "",
+    interests.trim() ? `${t.interests}: ${interests.trim()}` : "",
+  ]
+    .filter(Boolean)
+    .join("\n");
+  const text = [message.trim(), details, name.trim() ? `— ${name.trim()}` : ""].filter(Boolean).join("\n\n");
   const whatsappHref = contacts.whatsappHref ? whatsappWithText(contacts.whatsappHref, text) : null;
   const telegramHref = contacts.telegramHref;
 
@@ -40,5 +50,5 @@ export function useContactForm(contacts: Pick<SiteContacts, "whatsappHref" | "te
 
   const id = (field: string) => `${uid}-${field}`;
 
-  return { t, name, setName, message, setMessage, whatsappHref, telegramHref, copyForTelegram, copied, id };
+  return { t, name, setName, dates, setDates, people, setPeople, interests, setInterests, message, setMessage, whatsappHref, telegramHref, copyForTelegram, copied, id };
 }
