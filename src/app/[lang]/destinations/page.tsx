@@ -45,7 +45,8 @@ export default async function DestinationsPage({ params }: PageProps<"/[lang]/de
             <ul className="destinations-page-grid">
               {tours.map((tour) => (
                 <li key={tour.slug}>
-                  <DestinationCard tour={tour} locale={lang} fromLabel={dict.card.from} daysLabel={dict.card.days} perLabel={dict.card.perPerson}
+                  <DestinationCard tour={tour} locale={lang} fromLabel={dict.card.from} daysLabel={dict.card.days}
+      oneDayLabel={dict.card.oneDay} perLabel={dict.card.perPerson}
                   categoryLabel={tour.categoryName ?? dict.categories.items[tour.category]?.title}
                 />
                 </li>
