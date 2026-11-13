@@ -38,7 +38,9 @@
     "saved": "Gespeicherte Touren",
     "prev": "Vorheriges Bild",
     "next": "Nächstes Bild",
-    "close": "Schließen"
+    "close": "Schließen",
+    "pauseVideo": "Video pausieren",
+    "playVideo": "Video abspielen"
   },
   "nav": {
     "home": "Start",
@@ -744,7 +746,8 @@
     },
     "centralAsia": {
       "kicker": "Zentralasien auf einer Reise",
-      "title": "Drei Länder. Ein Abenteuer.",
+      "title": "Grand Tour durch Zentralasien",
+      "subtitle": "Die Große Seidenstraße",
       "text": "Beginnen Sie Ihre Reise in Kirgisistan und setzen Sie sie in den Nachbarländern fort.",
       "countries": [
         {
@@ -780,8 +783,7 @@
       ],
       "note": "Wir helfen Ihnen, mehrere Länder zu einer durchdachten Route zu verbinden.",
       "cta": "Zentralasien entdecken",
-      "ask": "Hilf mir, Kirgisistan, Kasachstan und Usbekistan in einer Reise zu verbinden. Welche Route und wie viele Tage würdest du vorschlagen?",
-      "banner": "Grand Tour durch Zentralasien:\ndie Große Seidenstraße auf einer Reise"
+      "ask": "Hilf mir, Kirgisistan, Kasachstan und Usbekistan in einer Reise zu verbinden. Welche Route und wie viele Tage würdest du vorschlagen?"
     },
     "seasons": {
       "kicker": "Jahreszeiten",
