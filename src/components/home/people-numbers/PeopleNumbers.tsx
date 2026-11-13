@@ -36,10 +36,22 @@ export function PeopleNumbers({ dict, locale, stats }: { dict: Dictionary; local
         </div>
         <div className="people-numbers-photos" aria-hidden="true">
           <div className="people-numbers-photo">
-            <Image src="/images/home/numbers-milk-pour.webp" alt="" fill sizes="240px" className="people-numbers-image" />
+            <Image
+              src="/images/home/numbers-guests.webp"
+              alt=""
+              fill
+              sizes="780px"
+              className="people-numbers-image people-numbers-image-start"
+            />
           </div>
           <div className="people-numbers-photo people-numbers-photo-low">
-            <Image src="/images/home/numbers-milk-bowl.webp" alt="" fill sizes="240px" className="people-numbers-image" />
+            <Image
+              src="/images/home/numbers-guests.webp"
+              alt=""
+              fill
+              sizes="780px"
+              className="people-numbers-image people-numbers-image-end"
+            />
           </div>
         </div>
       </div>
