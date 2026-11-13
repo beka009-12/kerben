@@ -29,7 +29,7 @@ export function HeaderMenu({
         onClick={() => setOpen((value) => !value)}
       >
         {label}
-        <Icon name="chevronDown" size={14} className={open ? "header-menu-chevron header-menu-chevron-open" : "header-menu-chevron"} />
+        <Icon name="chevronDown" size={16} className={open ? "header-menu-chevron header-menu-chevron-open" : "header-menu-chevron"} />
       </button>
       {open && (
         <div id={menuId} className="header-menu-panel">

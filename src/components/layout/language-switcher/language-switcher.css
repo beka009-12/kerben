@@ -12,6 +12,17 @@
   --lang-button-bg: rgb(127 127 127 / 16%);
 }
 
+.language-switcher-pill {
+  --lang-button-height: 37px;
+  --lang-button-pad: 0 12px;
+  --lang-button-border: var(--line);
+  --lang-value-weight: 600;
+  --lang-value-spacing: 0;
+  --lang-value-size: 0.875rem;
+  --lang-chevron-opacity: 1;
+  color: var(--ink);
+}
+
 .language-switcher-pending {
   opacity: 0.6;
   pointer-events: none;
@@ -21,8 +32,9 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  height: 40px;
-  padding: 0 12px;
+  height: var(--lang-button-height, 40px);
+  padding: var(--lang-button-pad, 0 12px);
+  border: 1px solid var(--lang-button-border, transparent);
   border-radius: var(--radius-full);
   background: var(--lang-button-bg, transparent);
   color: inherit;
@@ -42,14 +54,15 @@
 
 .language-switcher-value {
   min-width: 2ch;
-  font-size: var(--fs-small);
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  font-size: var(--lang-value-size, var(--fs-small));
+  font-weight: var(--lang-value-weight, 700);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--lang-value-spacing, 0.04em);
 }
 
 .language-switcher-chevron {
   display: inline-flex;
-  opacity: 0.7;
+  opacity: var(--lang-chevron-opacity, 0.7);
   transform: rotate(var(--lang-chevron, 0deg));
   transition: transform 0.25s var(--ease);
 }
