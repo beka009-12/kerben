@@ -30,18 +30,46 @@ afterEach(() => {
   vi.clearAllMocks();
 });
 
-describe("регистрация: email уже есть", () => {
-  it("форма сама переключается на «Войти» и сохраняет email и пароль", async () => {
-    signUp.mockResolvedValue({ error: "taken" });
+describe("регистрация: только логин и пароль", () => {
+  it("отправляет логин и пароль, без имени, телефона и email", async () => {
+    signUp.mockResolvedValue({});
     renderAuth("register");
-    fireEvent.change(screen.getByLabelText(t.name), { target: { value: "Айдана" } });
-    fireEvent.change(screen.getByLabelText(t.phone), { target: { value: "+996 700 123 456" } });
-    fireEvent.change(screen.getByLabelText(t.email), { target: { value: "aidana@mail.kg" } });
+    expect(screen.queryByLabelText(t.email)).toBeNull();
+    fireEvent.change(screen.getByLabelText(t.login), { target: { value: "aidana_kg" } });
     fireEvent.change(screen.getByLabelText(t.password), { target: { value: "secret12" } });
     fireEvent.click(screen.getByRole("button", { name: t.register }));
-    expect(await screen.findByRole("heading", { name: t.title })).toBeTruthy();
-    expect((screen.getByLabelText(t.email) as HTMLInputElement).value).toBe("aidana@mail.kg");
-    expect(screen.getByRole("alert").textContent).toBe(t.errors.taken);
+    await waitFor(() => expect(signUp).toHaveBeenCalledWith("aidana_kg", "secret12"));
+  });
+
+  it("логин занят — остаёмся в регистрации, введённое не теряется", async () => {
+    signUp.mockResolvedValue({ error: "taken" });
+    renderAuth("register");
+    fireEvent.change(screen.getByLabelText(t.login), { target: { value: "aidana_kg" } });
+    fireEvent.change(screen.getByLabelText(t.password), { target: { value: "secret12" } });
+    fireEvent.click(screen.getByRole("button", { name: t.register }));
+    expect((await screen.findByRole("alert")).textContent).toBe(t.errors.taken);
+    expect(screen.getByRole("heading", { name: t.registerTitle })).toBeTruthy();
+    expect((screen.getByLabelText(t.login) as HTMLInputElement).value).toBe("aidana_kg");
+  });
+
+  it("email в поле логина при регистрации — подсказка, без запроса", async () => {
+    renderAuth("register");
+    fireEvent.change(screen.getByLabelText(t.login), { target: { value: "aidana@mail.kg" } });
+    fireEvent.change(screen.getByLabelText(t.password), { target: { value: "secret12" } });
+    fireEvent.click(screen.getByRole("button", { name: t.register }));
+    expect(await screen.findByText(t.errors.login)).toBeTruthy();
+    expect(signUp).not.toHaveBeenCalled();
+  });
+});
+
+describe("вход: логин или email", () => {
+  it("значение поля уходит в signIn как есть", async () => {
+    signIn.mockResolvedValue({});
+    renderAuth("login");
+    fireEvent.change(screen.getByLabelText(t.loginOrEmail), { target: { value: "aidana@mail.kg" } });
+    fireEvent.change(screen.getByLabelText(t.password), { target: { value: "secret12" } });
+    fireEvent.click(screen.getByRole("button", { name: t.submit }));
+    await waitFor(() => expect(signIn).toHaveBeenCalledWith("aidana@mail.kg", "secret12"));
   });
 });
 

@@ -73,25 +73,26 @@ export function todayISO(): string {
 /** Минимальная длина пароля — как в backend (/account/register, /account/reset-password) */
 export const PASSWORD_MIN = 8;
 
+/** Логин аккаунта — как в backend (/account/register: username от 3 до 50 символов) */
+export const LOGIN_MIN = 3;
+export const LOGIN_MAX = 50;
+
 export interface AuthInput {
-  name?: string;
-  phone?: string;
+  /** Регистрация — логин; вход — логин или email */
+  login: string;
+  /** Только для «забыли пароль» */
   email: string;
   password: string;
 }
 
-export function validateAuth(mode: "login" | "register", input: AuthInput) {
+export function validateAuth(mode: "login" | "register", input: Pick<AuthInput, "login" | "password">) {
   const errors: Partial<Record<keyof AuthInput, FieldError>> = {};
-  if (mode === "register") {
-    const name = input.name?.trim() ?? "";
-    if (!name) errors.name = "required";
-    else if (name.length < 2) errors.name = "short";
-    else if (name.length > 40) errors.name = "tooLong";
-    if (!input.phone?.trim()) errors.phone = "required";
-    else if (!isPhone(input.phone)) errors.phone = "phone";
-  }
-  if (!input.email.trim()) errors.email = "required";
-  else if (!isEmail(input.email)) errors.email = "email";
+  const login = input.login.trim();
+  if (!login) errors.login = "required";
+  // При входе с «@» backend ищет по email, поэтому в логине регистрации «@» запрещён — иначе войти не получится
+  else if (mode === "register" && (login.length < LOGIN_MIN || login.includes("@"))) errors.login = "short";
+  else if (mode === "register" && login.length > LOGIN_MAX) errors.login = "tooLong";
+  else if (mode === "login" && login.includes("@") && !isEmail(login)) errors.login = "email";
   if (!input.password) errors.password = "required";
   // Backend принимает пароль от 8 символов; при входе длину не проверяем — старый пароль решает backend
   else if (mode === "register" && input.password.length < PASSWORD_MIN) errors.password = "short";

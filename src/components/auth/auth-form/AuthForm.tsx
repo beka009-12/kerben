@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button/Button";
 import { Icon } from "@/components/ui/icon/Icon";
 import { Logo } from "@/components/ui/logo/Logo";
 import { useAuthForm } from "@/utils/auth-gate/use-auth-form";
-import type { AuthInput } from "@/utils/validation";
+import { LOGIN_MAX, type AuthInput } from "@/utils/validation";
 import "./auth-form.css";
 
 export function AuthForm({
@@ -35,69 +35,50 @@ export function AuthForm({
         <p className="auth-form-text">{forgot ? t.resetText : register ? t.registerText : t.text}</p>
       </div>
 
-      {register && (
+      {forgot ? (
         <div className="auth-form-field">
-          <label htmlFor={id("name")} className="auth-form-label">
-            {t.name}
+          <label htmlFor={id("email")} className="auth-form-label">
+            {t.email}
           </label>
           <input
-            id={id("name")}
+            id={id("email")}
+            type="email"
             className="auth-form-input"
-            value={values.name}
-            placeholder={t.namePh}
-            autoComplete="nickname"
-            maxLength={40}
-            onChange={(e) => set("name", e.target.value)}
-            aria-invalid={!!errors.name}
-            aria-describedby={errors.name ? id("name-error") : undefined}
+            value={values.email}
+            autoComplete="email"
+            inputMode="email"
+            onChange={(e) => set("email", e.target.value)}
+            aria-invalid={!!errors.email}
+            aria-describedby={errors.email ? id("email-error") : undefined}
           />
-          {fieldError("name")}
+          {fieldError("email")}
         </div>
-      )}
-
-      {register && (
+      ) : (
         <div className="auth-form-field">
-          <label htmlFor={id("phone")} className="auth-form-label">
-            {t.phone}
+          <label htmlFor={id("login")} className="auth-form-label">
+            {register ? t.login : t.loginOrEmail}
           </label>
           <input
-            id={id("phone")}
-            type="tel"
-            inputMode="tel"
+            id={id("login")}
             className="auth-form-input"
-            value={values.phone}
-            placeholder={t.phonePh}
-            autoComplete="tel"
-            maxLength={20}
-            onChange={(e) => set("phone", e.target.value)}
-            aria-invalid={!!errors.phone}
-            aria-describedby={errors.phone ? id("phone-error") : id("phone-hint")}
+            value={values.login}
+            autoComplete="username"
+            autoCapitalize="none"
+            autoCorrect="off"
+            spellCheck={false}
+            maxLength={register ? LOGIN_MAX : 254}
+            onChange={(e) => set("login", e.target.value)}
+            aria-invalid={!!errors.login}
+            aria-describedby={errors.login ? id("login-error") : register ? id("login-hint") : undefined}
           />
-          {fieldError("phone") ?? (
-            <span id={id("phone-hint")} className="auth-form-hint">
-              {t.phoneHint}
-            </span>
-          )}
+          {fieldError("login") ??
+            (register && (
+              <span id={id("login-hint")} className="auth-form-hint">
+                {t.loginHint}
+              </span>
+            ))}
         </div>
       )}
-
-      <div className="auth-form-field">
-        <label htmlFor={id("email")} className="auth-form-label">
-          {t.email}
-        </label>
-        <input
-          id={id("email")}
-          type="email"
-          className="auth-form-input"
-          value={values.email}
-          autoComplete="email"
-          inputMode="email"
-          onChange={(e) => set("email", e.target.value)}
-          aria-invalid={!!errors.email}
-          aria-describedby={errors.email ? id("email-error") : undefined}
-        />
-        {fieldError("email")}
-      </div>
 
       {!forgot && (
         <div className="auth-form-field">
