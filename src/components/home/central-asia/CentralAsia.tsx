@@ -19,7 +19,6 @@ const FLAGS: readonly Flag[] = [
 
 export function CentralAsia({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const t = dict.home.centralAsia;
-  const [lead, ...rest] = t.banner.split("\n");
 
   return (
     <section id="central-asia" className="central-asia" aria-labelledby="central-asia-title">
@@ -39,9 +38,9 @@ export function CentralAsia({ locale, dict }: { locale: Locale; dict: Dictionary
       </div>
       <div className="central-asia-shade" aria-hidden="true" />
       <div className="container central-asia-inner">
-        <p className="central-asia-kicker">{t.title.replace(/\s*\n\s*/g, " ")}</p>
+        <p className="central-asia-subtitle">{t.subtitle}</p>
         <h2 id="central-asia-title" className="central-asia-title">
-          <span className="central-asia-line">{lead}</span> <span className="central-asia-line">{rest.join(" ")}</span>
+          {t.title}
         </h2>
         <Link href={`/${locale}/chat?ask=${encodeURIComponent(t.ask)}`} className="central-asia-cta">
           {t.cta}

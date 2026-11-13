@@ -95,6 +95,15 @@
   object-fit: cover;
 }
 
+/* Одно фото на две карточки: в левой — левая девушка, в правой — правая */
+.people-numbers-image-start {
+  object-position: 18% 50%;
+}
+
+.people-numbers-image-end {
+  object-position: 66% 50%;
+}
+
 @media (min-width: 640px) {
   .people-numbers-cards {
     grid-template-columns: repeat(3, minmax(0, 1fr));

@@ -1,35 +1,40 @@
+/* Видео на весь экран: от верха страницы (под фиксированной шапкой) до низа первого экрана */
 .hero {
-  padding-top: calc(var(--header-h) + 24px);
-}
-
-.hero-card {
   position: relative;
+  display: flex;
+  min-height: 100svh;
+  padding-top: var(--header-h);
   overflow: hidden;
-  min-height: 680px;
-  border-radius: 28px;
   background: var(--photo-bg);
+  color: var(--white);
   isolation: isolate;
 }
 
-.hero-image {
+.hero-video {
+  position: absolute;
+  inset: 0;
   z-index: -2;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  pointer-events: none;
 }
 
 .hero-shade {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(90deg, rgb(7 18 45 / 86%) 0%, rgb(7 18 45 / 55%) 48%, rgb(7 18 45 / 8%) 100%);
+  background:
+    linear-gradient(90deg, rgb(7 18 45 / 82%) 0%, rgb(7 18 45 / 50%) 42%, rgb(7 18 45 / 0%) 72%),
+    linear-gradient(0deg, rgb(7 18 45 / 55%) 0%, rgb(7 18 45 / 0%) 35%);
 }
 
 .hero-inner {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 48px;
-  min-height: 680px;
-  padding: 72px 80px 48px;
+  justify-content: center;
+  gap: 24px;
+  padding-block: 48px;
 }
 
 .hero-copy {
@@ -91,18 +96,10 @@
   background: var(--accent);
 }
 
-.hero-cta:hover {
-  background: var(--accent-dark);
-}
-
 .hero-ghost {
   border-color: rgb(255 255 255 / 40%);
   background: rgb(255 255 255 / 16%);
   backdrop-filter: blur(6px);
-}
-
-.hero-ghost:hover {
-  background: rgb(255 255 255 / 26%);
 }
 
 .hero-features {
@@ -121,32 +118,55 @@
   color: var(--ink);
 }
 
-@media (max-width: 1099px) {
-  .hero-inner {
-    padding: 56px 40px 40px;
+/* WCAG 2.2.2: пауза видео — справа внизу первого экрана */
+.hero-video-toggle {
+  position: absolute;
+  inset-block-end: 32px;
+  inset-inline-end: var(--gutter);
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgb(255 255 255 / 35%);
+  border-radius: 50%;
+  background: rgb(7 18 45 / 45%);
+  color: var(--white);
+  backdrop-filter: blur(6px);
+  transition: background-color 0.15s var(--ease);
+}
+
+.hero-video-toggle:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 3px;
+}
+
+@media (hover: hover) {
+  .hero-cta:hover {
+    background: var(--accent-dark);
+  }
+
+  .hero-ghost:hover {
+    background: rgb(255 255 255 / 26%);
+  }
+
+  .hero-video-toggle:hover {
+    background: rgb(7 18 45 / 70%);
   }
 }
 
 @media (max-width: 767px) {
-  .hero {
-    padding-top: calc(var(--header-h) + 12px);
-  }
-
-  .hero-card,
-  .hero-inner {
-    min-height: 600px;
-  }
-
-  .hero-card {
-    border-radius: 22px;
-  }
-
   .hero-shade {
-    background: linear-gradient(0deg, rgb(7 18 45 / 88%) 0%, rgb(7 18 45 / 55%) 60%, rgb(7 18 45 / 25%) 100%);
+    background: linear-gradient(0deg, rgb(7 18 45 / 88%) 0%, rgb(7 18 45 / 55%) 55%, rgb(7 18 45 / 25%) 100%);
   }
 
+  /*
+   * На телефоне контент прижат к низу над фиксированным нижним меню (видео под ним остаётся),
+   * плашки занимают всю ширину — поэтому пауза уходит наверх, под шапку
+   */
   .hero-inner {
-    padding: 32px 20px 24px;
+    justify-content: flex-end;
+    padding-block: 72px calc(var(--mobile-nav-h) + 24px);
   }
 
   .hero-text {
@@ -156,5 +176,9 @@
   .hero-cta,
   .hero-ghost {
     width: 100%;
+  }
+
+  .hero-video-toggle {
+    inset-block: calc(var(--header-h) + 16px) auto;
   }
 }

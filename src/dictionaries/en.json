@@ -38,7 +38,9 @@
     "saved": "Saved tours",
     "prev": "Previous slide",
     "next": "Next slide",
-    "close": "Close"
+    "close": "Close",
+    "pauseVideo": "Pause video",
+    "playVideo": "Play video"
   },
   "nav": {
     "home": "Home",
@@ -744,7 +746,8 @@
     },
     "centralAsia": {
       "kicker": "Central Asia in one trip",
-      "title": "Three countries. One adventure.",
+      "title": "Grand tour of Central Asia",
+      "subtitle": "The Great Silk Road",
       "text": "Start your journey in Kyrgyzstan and continue it in the neighbouring countries.",
       "countries": [
         {
@@ -780,8 +783,7 @@
       ],
       "note": "We will help you combine several countries into one well-planned route.",
       "cta": "Discover Central Asia",
-      "ask": "Help me combine Kyrgyzstan, Kazakhstan and Uzbekistan into one trip. What route and how many days would you suggest?",
-      "banner": "Grand tour of Central Asia:\nthe Great Silk Road in one journey"
+      "ask": "Help me combine Kyrgyzstan, Kazakhstan and Uzbekistan into one trip. What route and how many days would you suggest?"
     },
     "seasons": {
       "kicker": "Seasons",

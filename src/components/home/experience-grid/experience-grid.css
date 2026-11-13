@@ -18,8 +18,8 @@
   flex-direction: column;
   justify-content: flex-end;
   height: 100%;
-  min-height: 320px;
-  padding: 24px;
+  min-height: 192px;
+  padding: 20px;
   overflow: hidden;
   border-radius: var(--radius-photo);
   background: var(--photo-bg);
@@ -53,54 +53,39 @@
 .experience-grid-body {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
   max-width: 44ch;
 }
 
 .experience-grid-name {
   font-family: var(--font-heading);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 800;
   line-height: 1.2;
-}
-
-.experience-grid-text {
-  display: -webkit-box;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  font-size: 0.9375rem;
-  line-height: 1.5;
-  color: var(--on-photo);
 }
 
 .experience-grid-cta {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-top: 4px;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   font-weight: 600;
   line-height: var(--lh-tight);
   color: var(--orange-soft);
 }
 
 .experience-grid-card-feature {
-  min-height: 440px;
-  padding: 32px;
+  min-height: 264px;
+  padding: 24px;
 }
 
 .experience-grid-card-feature .experience-grid-name {
-  font-size: clamp(2rem, 1.4rem + 1.6vw, 2.75rem);
+  font-size: clamp(1.5rem, 1.1rem + 1vw, 2rem);
   line-height: 1.1;
 }
 
-.experience-grid-card-feature .experience-grid-text {
-  font-size: 1.0625rem;
-}
-
 .experience-grid-card-wide .experience-grid-name {
-  font-size: clamp(1.5rem, 1.1rem + 1vw, 2rem);
+  font-size: clamp(1.25rem, 1rem + 0.6vw, 1.5rem);
 }
 
 @media (min-width: 640px) {
@@ -111,7 +96,7 @@
       "b c"
       "d e"
       "f e";
-    grid-auto-rows: 280px;
+    grid-auto-rows: 168px;
     gap: 20px;
   }
 
@@ -152,12 +137,12 @@
       "a a b c"
       "a a d e"
       "f f f e";
-    grid-auto-rows: 300px;
+    grid-auto-rows: 180px;
     gap: 24px;
   }
 
   .experience-grid-card-feature {
-    padding: 40px;
+    padding: 28px;
   }
 
   .experience-grid-card-compact,
@@ -167,19 +152,11 @@
 
   .experience-grid-card-compact .experience-grid-name,
   .experience-grid-card-tall .experience-grid-name {
-    font-size: 1.375rem;
-  }
-
-  .experience-grid-card-compact .experience-grid-text {
-    -webkit-line-clamp: 2;
-  }
-
-  .experience-grid-card-tall .experience-grid-text {
-    -webkit-line-clamp: 5;
+    font-size: 1.125rem;
   }
 
   .experience-grid-card-wide {
-    padding: 32px;
+    padding: 24px;
   }
 }
 

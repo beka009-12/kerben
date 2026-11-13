@@ -41,7 +41,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
-      <Hero image={home("hero-lake")} locale={lang} dict={dict} />
+      <Hero locale={lang} dict={dict} />
       <PeopleNumbers dict={dict} locale={lang} stats={null} />
       {popular.length > 0 && <PopularDestinations tours={popular} locale={lang} dict={dict} />}
       <ExperienceGrid

@@ -9,4 +9,8 @@ export const photoCredits = [
   { file: "/images/kg/song-kul-peaks.jpg", author: "Thomas Holbach", license: "CC BY 4.0", source: "https://commons.wikimedia.org/wiki/File:Song-Kul_2015_02.jpg" },
   { file: "/images/kg/jeti-oguz-rocks.jpg", author: "Baitour", license: "CC BY-SA 4.0", source: "https://commons.wikimedia.org/wiki/File:Jeti-Oguz._April_2024_(2).jpg" },
   { file: "/images/kg/ala-archa.jpg", author: "Nikolai Bulykin", license: "CC BY-SA 4.0", source: "https://commons.wikimedia.org/wiki/File:%D0%90%D0%BB%D0%B0-%D0%90%D1%80%D1%87%D0%B0_%D1%81%D0%B2%D0%B5%D1%80%D1%85%D1%83_(1).jpg" },
+  { file: "/images/home/experience-lakes-kol-suu.webp", author: "Eventyrlys", license: "CC BY-SA 4.0", source: "https://commons.wikimedia.org/wiki/File:Kol-Suu.jpg" },
+  { file: "/images/home/experience-adventure-ala-kul.webp", author: "Bruno Rijsman", license: "CC BY-SA 2.0", source: "https://commons.wikimedia.org/wiki/File:Lake_Ala_Kul_Trek_(Kyrgyzstan,_August_2019)_-_39_(50565178363).jpg" },
+  { file: "/images/home/experience-history-burana.webp", author: "Bgag", license: "CC0", source: "https://commons.wikimedia.org/wiki/File:Burana_Tower,_Kyrgyzstan_01.jpg" },
+  { file: "/images/home/experience-winter-ski.webp", author: "Thomas Depenbusch (Depi) from Cologne, Germany", license: "CC BY 2.0", source: "https://commons.wikimedia.org/wiki/File:Kyrgyzstan_Downhill_Skiing_(7208585660).jpg" },
 ] as const;
