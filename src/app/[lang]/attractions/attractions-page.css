@@ -1,0 +1,224 @@
+.attractions-index {
+  padding-top: 28px;
+}
+
+.attractions-index-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.attractions-index-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-full);
+  background: var(--white);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  line-height: var(--lh-tight);
+  color: var(--nav-text);
+  transition:
+    border-color 0.2s var(--ease),
+    color 0.2s var(--ease);
+}
+
+.attractions-index-link:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.attractions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+  padding-block: 56px var(--section-pad);
+}
+
+.attraction {
+  display: grid;
+  gap: 24px;
+}
+
+.attraction-media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius-photo);
+  background: var(--photo-bg);
+}
+
+.attraction-media-portrait {
+  aspect-ratio: 4 / 5;
+}
+
+.attraction-image {
+  object-fit: cover;
+}
+
+.attraction-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 560px;
+}
+
+.attraction-head,
+.attraction-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.attraction-nowrap {
+  white-space: nowrap;
+}
+
+/* Место без фото: текстовая карточка на всю ширину, пока снимка нет */
+.attraction-solo {
+  padding: 32px 24px;
+  border-radius: var(--radius-photo);
+  background: var(--soft);
+}
+
+.attraction-region {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  line-height: var(--lh-tight);
+  color: var(--primary);
+}
+
+.attraction-name {
+  font-size: var(--fs-section);
+  font-weight: var(--fw-heading);
+  line-height: var(--lh-section);
+  letter-spacing: var(--ls-heading);
+  color: var(--ink);
+}
+
+.attraction-text {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: var(--fs-body);
+  line-height: 1.65;
+  color: var(--body);
+}
+
+.attraction-points {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-left: 18px;
+  border-left: 2px solid var(--brand-orange);
+}
+
+.attraction-point dt {
+  margin-bottom: 4px;
+  font-family: var(--font-heading);
+  font-size: var(--fs-body);
+  font-weight: 700;
+  line-height: var(--lh-tight);
+  color: var(--ink);
+}
+
+.attraction-point dd {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--body);
+}
+
+.attraction-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 4px;
+}
+
+.attraction-facts li {
+  padding: 7px 12px;
+  border-radius: var(--radius-full);
+  background: var(--chip-bg);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: var(--lh-tight);
+  color: var(--ink);
+}
+
+.attraction-plan {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: var(--btn-h-lg);
+  margin-top: 4px;
+  padding: 0 var(--btn-pad-lg);
+  border-radius: var(--radius-btn-lg);
+  background: var(--primary-soft);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: var(--lh-tight);
+  color: var(--primary);
+  transition: background-color 0.2s var(--ease);
+}
+
+.attraction-plan:hover {
+  background: var(--line-soft);
+}
+
+.attractions-cta {
+  padding-bottom: var(--section-pad);
+}
+
+@media (min-width: 1024px) {
+  .attractions-index {
+    padding-top: 40px;
+  }
+
+  .attractions-list {
+    gap: 112px;
+    padding-top: 80px;
+  }
+
+  .attraction {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 72px;
+  }
+
+  .attraction-flip .attraction-media {
+    order: 2;
+  }
+
+  .attraction-media {
+    aspect-ratio: 5 / 4;
+  }
+
+  .attraction-media-portrait {
+    aspect-ratio: 4 / 5;
+  }
+
+  .attraction-solo {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 56px;
+  }
+
+  .attraction-solo .attraction-body {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+    gap: 72px;
+    max-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .attractions-index-link,
+  .attraction-plan {
+    transition: none;
+  }
+}

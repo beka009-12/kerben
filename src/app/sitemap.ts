@@ -5,7 +5,7 @@ import { getTours } from "@/utils/api/tours";
 import { defaultLocale, localeNames, locales } from "@/utils/i18n/config";
 import { THEMES } from "@/utils/tour-filters";
 
-const PAGES = ["", "/tours", "/destinations", "/hotels", "/trekking", "/transport", "/helicopter", "/chat", "/about", "/faq", "/contact", "/credits"];
+const PAGES = ["", "/tours", "/attractions", "/destinations", "/hotels", "/trekking", "/transport", "/helicopter", "/chat", "/about", "/faq", "/contact", "/credits"];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [tours, treks] = await Promise.all([getTours(defaultLocale), getTrekkings(defaultLocale)]);
