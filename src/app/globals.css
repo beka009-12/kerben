@@ -45,6 +45,12 @@
   --on-dark-line: #1f2c4d;
   --tag-bg: rgb(13 26 58 / 55%);
   --shade: rgb(7 18 45);
+  /* Тёмные карточки «в цифрах»: главная и «О нас» */
+  --cream: #f6ebd8;
+  --cream-soft: #e3ddcf;
+  --stat-card-border: rgb(120 170 255 / 22%);
+  --stat-card-bg: radial-gradient(120% 140% at 100% 0%, rgb(0 79 220 / 45%) 0%, rgb(0 79 220 / 0%) 60%), rgb(3 17 43 / 88%);
+  --stat-card-shadow: 0 12px 30px rgb(2 8 22 / 22%);
   --card-shadow: 0 8px 24px rgb(13 26 59 / 8%);
   --white: #ffffff;
   --star: #f5b301;

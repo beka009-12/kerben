@@ -68,8 +68,6 @@
 }
 
 .numbers-view {
-  --cream: #f6ebd8;
-  --cream-soft: #e3ddcf;
   padding-top: var(--section-pad);
   background: var(--white);
 }
@@ -100,12 +98,10 @@
   align-content: center;
   min-height: 120px;
   padding: clamp(20px, 2vw, 28px);
-  border: 1px solid rgb(120 170 255 / 22%);
+  border: 1px solid var(--stat-card-border);
   border-radius: 20px;
-  background:
-    radial-gradient(120% 140% at 100% 0%, rgb(0 79 220 / 45%) 0%, rgb(0 79 220 / 0%) 60%),
-    rgb(3 17 43 / 88%);
-  box-shadow: 0 12px 30px rgb(2 8 22 / 22%);
+  background: var(--stat-card-bg);
+  box-shadow: var(--stat-card-shadow);
 }
 
 .numbers-view-value {

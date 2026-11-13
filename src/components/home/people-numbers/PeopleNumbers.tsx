@@ -13,6 +13,25 @@ interface PeopleNumbersProps {
 
 const plain = (text: string) => text.replace(/\*/g, "").replace(/\s*\n\s*/g, " ").trim();
 
+export interface StatItem {
+  value: string;
+  label: string;
+}
+
+/** Тёмные карточки с цифрами — общие для главной и страницы «О нас» */
+export function NumbersCards({ items, className }: { items: StatItem[]; className?: string }) {
+  return (
+    <dl className={className ? `numbers-view-cards ${className}` : "numbers-view-cards"}>
+      {items.map((item) => (
+        <div key={item.label} className="numbers-view-card">
+          <dt className="numbers-view-value">{item.value}</dt>
+          <dd className="numbers-view-label">{item.label}</dd>
+        </div>
+      ))}
+    </dl>
+  );
+}
+
 export function PeopleNumbers({ dict, locale, stats }: PeopleNumbersProps) {
   const t = dict.home.stats;
   const items = t.items.map((item, i) => {
@@ -29,14 +48,7 @@ export function PeopleNumbers({ dict, locale, stats }: PeopleNumbersProps) {
           <h2 id="numbers-title" className="numbers-view-heading">
             {plain(t.title)}
           </h2>
-          <dl className="numbers-view-cards">
-            {items.map((item) => (
-              <div key={item.label} className="numbers-view-card">
-                <dt className="numbers-view-value">{item.value}</dt>
-                <dd className="numbers-view-label">{item.label}</dd>
-              </div>
-            ))}
-          </dl>
+          <NumbersCards items={items} />
         </div>
       </section>
 

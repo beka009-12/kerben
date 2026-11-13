@@ -4,6 +4,7 @@ import { AboutSections } from "@/components/about/about-sections/AboutSections";
 import { AboutValues } from "@/components/about/about-values/AboutValues";
 import { CtaBanner, CtaBannerLink } from "@/components/common/cta-banner/CtaBanner";
 import { PageHero } from "@/components/common/page-hero/PageHero";
+import { NumbersCards } from "@/components/home/people-numbers/PeopleNumbers";
 import { Icon } from "@/components/ui/icon/Icon";
 import { SectionHeader } from "@/components/ui/section-header/SectionHeader";
 import { getAboutSections } from "@/utils/api/catalog";
@@ -41,15 +42,8 @@ export default async function AboutPage({ params }: PageProps<"/[lang]/about">) 
 
       <section className="about-page-numbers" aria-labelledby="about-stats">
         <div className="container">
-          <SectionHeader id="about-stats" kicker={dict.home.stats.kicker} title={t.statsTitle} />
-          <dl className="about-page-stats">
-            {dict.home.stats.items.map((item) => (
-              <div key={item.label} className="about-page-stat">
-                <dt className="about-page-stat-value">{item.value}</dt>
-                <dd className="about-page-stat-label">{item.label}</dd>
-              </div>
-            ))}
-          </dl>
+          <SectionHeader id="about-stats" title={dict.home.stats.kicker} />
+          <NumbersCards items={dict.home.stats.items} className="about-page-stats" />
           <AboutValues dict={dict} />
         </div>
       </section>
