@@ -10,6 +10,7 @@ export function TourCard({ tour, locale, dict, eager = false }: { tour: Tour; lo
       locale={locale}
       fromLabel={dict.card.from}
       daysLabel={dict.card.days}
+      oneDayLabel={dict.card.oneDay}
       perLabel={dict.card.perPerson}
       categoryLabel={tour.categoryName ?? dict.categories.items[tour.category]?.title}
       eager={eager}

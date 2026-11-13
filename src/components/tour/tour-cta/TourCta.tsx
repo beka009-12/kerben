@@ -13,13 +13,11 @@ export function TourCta({ tour, locale, dict }: { tour: Tour; locale: Locale; di
       title={dict.cta.title}
       text={dict.cta.tourText}
       image={tour.gallery[0] ?? tour.image}
-      action={
-        <div className="tour-cta-actions">
-          <ButtonLink href={`/${locale}/chat?ask=${encodeURIComponent(question)}`} variant="ghost" size="lg">
-            <Icon name="chat" size={18} />
-            {dict.ai.tourButton}
-          </ButtonLink>
-        </div>
+      actions={
+        <ButtonLink href={`/${locale}/chat?ask=${encodeURIComponent(question)}`} variant="ghost" size="lg">
+          <Icon name="chat" size={18} />
+          {dict.ai.tourButton}
+        </ButtonLink>
       }
     />
   );

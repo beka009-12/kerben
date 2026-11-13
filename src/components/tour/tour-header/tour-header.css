@@ -1,80 +1,68 @@
 .tour-header {
-  margin-top: var(--header-h);
-  padding: 22px 0 32px;
-  background: var(--navy);
-  color: var(--white);
+  padding: calc(var(--header-h) + 48px) 0 32px;
 }
 
 .tour-header-inner {
-  display: grid;
-  gap: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
 }
 
-.tour-header-crumbs-list {
+.tour-header-crumbs {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  gap: 6px;
-  color: rgb(255 255 255 / 62%);
-  font-size: 0.8125rem;
-}
-
-.tour-header-crumbs-list li {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.tour-header-crumbs-list a {
-  color: inherit;
-  transition: color 0.2s var(--ease);
-}
-
-@media (hover: hover) {
-  .tour-header-crumbs-list a:hover {
-    color: var(--white);
-  }
-}
-
-.tour-header-crumbs-list [aria-current="page"] {
-  color: var(--white);
+  gap: 4px;
+  font-size: 0.875rem;
   font-weight: 500;
+  line-height: var(--lh-tight);
+  color: var(--muted);
 }
 
-.tour-header-head {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 16px;
+.tour-header-crumb {
+  display: inline-flex;
+  gap: 4px;
 }
 
-.tour-header-copy {
-  display: grid;
-  gap: 8px;
-  min-width: 0;
+.tour-header-crumb-link:hover {
+  color: var(--primary);
+}
+
+.tour-header-kicker {
+  font-size: var(--fs-eyebrow);
+  font-weight: 700;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--accent);
 }
 
 .tour-header-title {
-  font-family: var(--font-heading);
-  font-size: clamp(2rem, 1.5rem + 1.8vw, 2.75rem);
+  font-size: clamp(2rem, 1.4rem + 1.8vw, 3rem);
   font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  overflow-wrap: anywhere;
+  line-height: 1.06;
+  letter-spacing: var(--ls-heading);
+  color: var(--ink);
 }
 
-.tour-header-subtitle {
-  max-width: 70ch;
-  color: rgb(205 216 238 / 88%);
-  font-size: clamp(1rem, 0.95rem + 0.3vw, 1.1875rem);
+.tour-header-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+
+.tour-header-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: var(--lh-tight);
+  color: var(--muted);
 }
 
 @media (max-width: 767px) {
   .tour-header {
-    padding: 14px 0 22px;
-  }
-
-  .tour-header-inner {
-    gap: 14px;
+    padding: calc(var(--header-h) + 24px) 0 24px;
   }
 }

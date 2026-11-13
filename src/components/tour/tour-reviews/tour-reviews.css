@@ -1,6 +1,31 @@
 .tour-reviews {
   display: grid;
-  gap: 16px;
+  gap: 18px;
+}
+
+.tour-reviews-empty {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  padding: 36px 32px;
+  border: 1px dashed var(--field-line);
+  border-radius: var(--radius-photo);
+  background: var(--soft);
+  text-align: center;
+}
+
+.tour-reviews-empty-title {
+  font-family: var(--font-heading);
+  font-size: 1.1875rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.tour-reviews-empty-text {
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--body);
 }
 
 .tour-reviews-head {
@@ -12,7 +37,11 @@
 }
 
 .tour-reviews-title {
-  font-size: var(--fs-h2);
+  font-size: 1.625rem;
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--ink);
 }
 
 .tour-reviews-summary {

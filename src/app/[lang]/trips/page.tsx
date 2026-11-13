@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { PageHero } from "@/components/common/page-hero/PageHero";
 import { TripsTabs } from "@/components/trips/trips-tabs/TripsTabs";
-import { pagePhoto } from "@/data/images";
 import { getTours } from "@/utils/api/tours";
 import { hasLocale } from "@/utils/i18n/config";
 import { getDictionary } from "@/utils/i18n/dictionaries";
@@ -23,8 +22,8 @@ export default async function TripsPage({ params }: PageProps<"/[lang]/trips">) 
 
   return (
     <>
-      <PageHero kicker={t.kicker} title={t.title} text={t.text} image={pagePhoto("green-valley")} />
-      <section className="section section-soft">
+      <PageHero kicker={t.kicker} title={t.title} text={t.text} image="/images/pages/trips-hero.webp" />
+      <section className="trips-page-section">
         <div className="container">
           <Suspense fallback={<div className="trips-tabs-fallback" aria-busy="true" />}>
             <TripsTabs tours={tours} />

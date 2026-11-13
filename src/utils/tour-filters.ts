@@ -73,7 +73,7 @@ export function tripDays(from: string, to: string): number {
 /** Локация в карточке: направление из админки, иначе страна */
 export const tourLocation = (tour: Pick<Tour, "categoryName" | "country">) => tour.categoryName?.trim() || tour.country;
 
-function maxGroup(groupSize: string): number {
+export function maxGroup(groupSize: string): number {
   const numbers = groupSize.match(/\d+/g);
   return numbers ? Number(numbers[numbers.length - 1]) : Infinity;
 }

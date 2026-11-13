@@ -1,89 +1,73 @@
+.trips-page-section {
+  padding-block: var(--section-pad);
+}
+
 .trips-tabs {
   display: grid;
-  gap: 28px;
+  gap: 32px;
 }
 
 .trips-tabs-bar {
-  display: inline-flex;
-  justify-self: start;
-  gap: 4px;
-  padding: 4px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-full);
-  background: var(--white);
-  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .trips-tabs-tab {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  min-height: 44px;
-  padding: 0 20px;
+  min-height: 41px;
+  padding: 0 16px;
+  border: 1px solid var(--line);
   border-radius: var(--radius-full);
-  color: var(--muted);
+  background: var(--white);
+  font-size: 0.875rem;
   font-weight: 600;
+  line-height: var(--lh-tight);
+  color: var(--nav-text);
   transition:
     background-color 0.2s,
+    border-color 0.2s,
     color 0.2s;
 }
 
 .trips-tabs-tab:hover {
-  color: var(--text);
+  border-color: var(--line-strong);
+  color: var(--ink);
 }
 
 .trips-tabs-tab:focus-visible {
-  outline: 2px solid var(--primary);
+  outline: 3px solid var(--primary);
   outline-offset: 2px;
 }
 
-.trips-tabs-tab-active {
-  --trips-count-bg: rgb(255 255 255 / 18%);
-  --trips-count-color: var(--white);
-  background: var(--navy);
-  color: var(--white);
-}
-
+.trips-tabs-tab-active,
 .trips-tabs-tab-active:hover {
+  border-color: var(--primary);
+  background: var(--primary);
   color: var(--white);
 }
 
 .trips-tabs-count {
-  min-width: 22px;
-  padding: 1px 7px;
+  padding: 2px 8px;
   border-radius: var(--radius-full);
-  background: var(--trips-count-bg, var(--primary-soft));
-  color: var(--trips-count-color, var(--primary));
-  font-size: var(--fs-xs);
+  background: var(--primary-soft);
+  font-size: 0.75rem;
   font-weight: 700;
-  text-align: center;
+  line-height: var(--lh-tight);
+  color: var(--primary);
+}
+
+.trips-tabs-count-active {
+  background: rgb(255 255 255 / 22%);
+  color: var(--white);
 }
 
 .trips-tabs-panel {
   min-height: 320px;
-  animation: trips-tabs-in 0.3s var(--ease) both;
-}
-
-@keyframes trips-tabs-in {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-}
-
-@media (max-width: 599px) {
-  .trips-tabs-bar {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-self: stretch;
-  }
-
-  .trips-tabs-tab {
-    justify-content: center;
-    padding: 0 12px;
-  }
 }
 
 .trips-tabs-fallback {
-  min-height: 400px;
+  min-height: 420px;
 }
