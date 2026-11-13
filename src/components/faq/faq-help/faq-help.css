@@ -1,77 +1,63 @@
 .faq-help {
-  display: grid;
-  gap: 12px;
-  align-content: start;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
   padding: 28px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  background: var(--white);
-  box-shadow: var(--shadow-sm);
-}
-
-.faq-help-icon {
-  display: grid;
-  place-items: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  background: var(--primary-soft);
-  color: var(--primary);
+  border-radius: 20px;
+  background: var(--soft);
 }
 
 .faq-help-title {
-  font-size: var(--fs-h2);
+  font-size: 1.375rem;
   font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -0.03em;
+  line-height: 1.25;
+  letter-spacing: 0;
+  color: var(--ink);
 }
 
 .faq-help-text {
-  color: var(--muted);
-}
-
-.faq-help-actions {
-  display: grid;
-  gap: 10px;
-  margin-top: 8px;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--body);
 }
 
 .faq-help-button {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  min-height: 48px;
-  padding: 0 20px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-full);
+  gap: 10px;
+  min-height: var(--btn-h-panel);
+  padding: 0 var(--btn-pad);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-btn-lg);
+  background: var(--white);
+  font-size: 0.9375rem;
   font-weight: 600;
+  line-height: var(--lh-tight);
+  color: var(--ink);
   transition:
-    border-color 0.2s,
-    background-color 0.2s,
-    color 0.2s;
+    background-color 0.2s var(--ease),
+    border-color 0.2s var(--ease);
 }
 
 .faq-help-button:hover {
-  border-color: var(--primary);
-  color: var(--primary);
+  border-color: var(--ink);
 }
 
-.faq-help-button-primary {
-  border-color: transparent;
-  background: var(--accent-fill);
+.faq-help-button-primary,
+.faq-help-button-primary:hover {
+  border-color: var(--primary);
+  background: var(--primary);
   color: var(--white);
 }
 
 .faq-help-button-primary:hover {
-  border-color: transparent;
-  background: var(--accent-fill-hover);
-  color: var(--white);
+  background: var(--primary-dark);
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1024px) {
   .faq-help {
     position: sticky;
-    top: calc(var(--header-h) + 32px);
+    top: calc(var(--header-h) + 24px);
   }
 }

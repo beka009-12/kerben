@@ -5,26 +5,27 @@
 .header-menu-button {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  padding: 8px 12px;
+  gap: 6px;
+  padding: 10px 14px;
   border-radius: var(--radius-full);
-  font-size: var(--fs-small);
+  font-size: 0.9375rem;
   font-weight: 500;
-  opacity: 0.92;
+  line-height: var(--lh-tight);
+  color: var(--nav-text);
   transition:
-    opacity 0.2s,
+    color 0.2s,
     background-color 0.2s;
 }
 
 .header-menu-button:hover {
-  opacity: 1;
-  background: rgb(127 127 127 / 12%);
+  background: var(--soft);
+  color: var(--ink);
 }
 
 .header-menu-button-active {
+  background: var(--primary-soft);
   color: var(--primary);
   font-weight: 600;
-  opacity: 1;
 }
 
 .header-menu-chevron {

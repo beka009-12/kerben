@@ -4,7 +4,6 @@ import { usePathname } from "next/navigation";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import type { IconName } from "@/components/ui/icon/Icon";
 import { useActiveRequests } from "@/utils/hooks/useActiveRequests";
-import { useHideOnScroll } from "@/utils/hooks/useHideOnScroll";
 import { useScrolled } from "@/utils/hooks/useScrolled";
 import { useI18n } from "@/utils/i18n/I18nProvider";
 import { useFavorites } from "@/utils/store/favorites";
@@ -23,16 +22,6 @@ export function useHeader() {
   const { locale, dict } = useI18n();
   const pathname = usePathname();
   const scrolled = useScrolled(24);
-  const hiddenByScroll = useHideOnScroll();
-
-  // Липкие панели под шапкой (вкладки тура) поднимаются к верху экрана, когда шапка спряталась
-  useEffect(() => {
-    const root = document.documentElement;
-    root.style.setProperty("--header-offset", hiddenByScroll ? "0px" : "var(--header-h)");
-    return () => {
-      root.style.removeProperty("--header-offset");
-    };
-  }, [hiddenByScroll]);
   const [open, setOpen] = useState(false);
   const burgerRef = useRef<HTMLButtonElement>(null);
   const savedCount = useFavorites((state) => state.slugs.length);
@@ -48,14 +37,11 @@ export function useHeader() {
   ];
   const mainLinks: HeaderLink[] = [
     { href: base, label: dict.nav.home },
-    { href: `${base}/destinations`, label: dict.nav.destinations },
     { href: `${base}/tours`, label: dict.nav.tours },
     { href: `${base}/hotels`, label: dict.nav.hotels },
   ];
-  const tailLinks: HeaderLink[] = [
-    { href: `${base}/about`, label: dict.nav.about },
-    { href: `${base}/chat`, label: dict.nav.chat },
-  ];
+  const aboutLink: HeaderLink = { href: `${base}/about`, label: dict.nav.about };
+  const chatLink: HeaderLink = { href: `${base}/chat`, label: dict.nav.chat };
   const drawerGroups: DrawerGroup[] = [
     {
       title: dict.footer.travel,
@@ -108,11 +94,8 @@ export function useHeader() {
 
   useLayoutEffect(() => () => setOpen(false), []);
 
-  // Плашка всегда белая; при прокрутке тень сильнее
-  // Вниз — шапка уезжает вверх, вверх — возвращается; с открытым меню всегда на месте
-  const headerClass = ["header", scrolled || open ? "header-raised" : "", open ? "header-open" : "", hiddenByScroll && !open ? "header-hidden" : ""]
-    .filter(Boolean)
-    .join(" ");
+  // Плашка всегда белая и всегда на месте; при прокрутке тень сильнее
+  const headerClass = ["header", scrolled || open ? "header-raised" : "", open ? "header-open" : ""].filter(Boolean).join(" ");
 
   return {
     dict,
@@ -122,7 +105,8 @@ export function useHeader() {
     tripsCount,
     services,
     mainLinks,
-    tailLinks,
+    aboutLink,
+    chatLink,
     drawerGroups,
     headerClass,
     isActive,

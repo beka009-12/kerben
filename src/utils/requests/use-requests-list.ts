@@ -90,5 +90,5 @@ export function useRequestsList() {
     event.currentTarget.scrollIntoView({ inline: "nearest", block: "nearest", behavior: "smooth" });
   };
 
-  return { locale, t, state, filter, setFilter, cancel, setCancel, confirmCancel, hide, date, kinds, current, visible, tabs, pickTab };
+  return { locale, dict, t, state, filter, setFilter, cancel, setCancel, confirmCancel, hide, date, kinds, current, visible, tabs, pickTab };
 }

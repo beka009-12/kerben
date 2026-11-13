@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { EmptyOffers } from "@/components/common/empty-offers/EmptyOffers";
 import { TourCard } from "@/components/tours/tour-card/TourCard";
 import { Button, ButtonLink } from "@/components/ui/button/Button";
 import { Icon } from "@/components/ui/icon/Icon";
@@ -15,15 +15,17 @@ export function SavedList({ tours }: { tours: Tour[] }) {
 
   if (saved.length === 0) {
     return (
-      <div className="saved-list-empty">
-        <Image src="/images/saved/empty-camel.webp" alt="" width={514} height={503} sizes="280px" className="saved-list-empty-art" priority />
-        <h2 className="saved-list-empty-title">{dict.saved.emptyTitle}</h2>
-        <p className="saved-list-empty-text">{dict.saved.empty}</p>
-        <ButtonLink href={`/${locale}/tours`}>
-          <Icon name="route" size={18} />
-          {dict.saved.browse}
-        </ButtonLink>
-      </div>
+      <EmptyOffers
+        icon="heart"
+        title={dict.trips.emptyTitle}
+        text={dict.trips.emptyText}
+        action={
+          <ButtonLink href={`/${locale}/tours`} size="lg">
+            {dict.hero.primary}
+            <Icon name="arrowRight" size={18} />
+          </ButtonLink>
+        }
+      />
     );
   }
 

@@ -5,18 +5,26 @@ import { Icon } from "@/components/ui/icon/Icon";
 import { usePhotoGallery, type GalleryLabels } from "@/utils/ui/use-photo-gallery";
 import "./photo-gallery.css";
 
+// Каждый новый URL /_next/image — это заново скачанный с backend оригинал (0.3–1 МБ, медленно) и новое кодирование.
+// Сцена, просмотрщик и размытый фон берут один URL, обе ленты миниатюр — другой: на фото два запроса, а не пять
+const MAIN_SIZES = "(min-width: 1100px) 1240px, 100vw";
+const MAIN_QUALITY = 90;
+const THUMB_SIZES = "104px";
+
 export function PhotoGallery({
   images: rawImages,
   name,
   labels,
   layout = "strip",
   fit = "cover",
+  caption,
 }: {
   images: string[];
   name: string;
   labels: GalleryLabels;
   layout?: "strip" | "mosaic";
   fit?: "cover" | "contain";
+  caption?: string;
 }) {
   const { images, count, index, setIndex, viewer, setViewer, dialogRef, thumbsRef, viewerThumbsRef, go, swipe } = usePhotoGallery(rawImages);
 
@@ -41,7 +49,7 @@ export function PhotoGallery({
                 fill
                 sizes={i === 0 ? "(min-width: 1024px) 820px, 100vw" : "(min-width: 1024px) 400px, 50vw"}
                 quality={85}
-                priority={i === 0}
+                preload={i === 0}
                 className="photo-gallery-image"
               />
               {i === mosaic.length - 1 && count > mosaic.length && (
@@ -56,7 +64,17 @@ export function PhotoGallery({
         <>
           <div className={fit === "contain" ? "photo-gallery-stage photo-gallery-stage-contain" : "photo-gallery-stage"} {...swipe}>
             {fit === "contain" && (
-              <Image key={`${images[index]}-backdrop`} src={images[index]} alt="" fill sizes="64px" quality={40} aria-hidden className="photo-gallery-backdrop" />
+              <Image
+                key={`${images[index]}-backdrop`}
+                src={images[index]}
+                alt=""
+                fill
+                sizes={MAIN_SIZES}
+                quality={MAIN_QUALITY}
+                loading={index === 0 ? "eager" : "lazy"}
+                aria-hidden
+                className="photo-gallery-backdrop"
+              />
             )}
             <button type="button" className="photo-gallery-open" onClick={() => setViewer(true)} aria-label={`${labels.photo} ${index + 1} / ${count}`}>
               <Image
@@ -64,8 +82,8 @@ export function PhotoGallery({
                 src={images[index]}
                 alt={index === 0 ? name : ""}
                 fill
-                sizes="(min-width: 1100px) 1240px, 100vw"
-                quality={90}
+                sizes={MAIN_SIZES}
+                quality={MAIN_QUALITY}
                 loading={index === 0 ? "eager" : "lazy"}
                 className="photo-gallery-image"
               />
@@ -81,7 +99,7 @@ export function PhotoGallery({
               </>
             )}
             <span className="photo-gallery-count" aria-live="polite">
-              <Icon name="image" size={14} />
+              {caption ? `${caption} · ` : ""}
               {index + 1} / {count}
             </span>
           </div>
@@ -98,7 +116,7 @@ export function PhotoGallery({
                   className={i === index ? "photo-gallery-thumb photo-gallery-thumb-active" : "photo-gallery-thumb"}
                   onClick={() => setIndex(i)}
                 >
-                  <Image src={src} alt="" fill sizes="160px" loading="lazy" className="photo-gallery-image" />
+                  <Image src={src} alt="" fill sizes={THUMB_SIZES} loading="lazy" className="photo-gallery-image" />
                 </button>
               ))}
             </div>
@@ -109,7 +127,7 @@ export function PhotoGallery({
       <dialog ref={dialogRef} className="photo-viewer" onClose={() => setViewer(false)} aria-label={name}>
         {viewer && (
           <div className="photo-viewer-inner" {...swipe}>
-            <Image key={`${images[index]}-ambient`} src={images[index]} alt="" fill sizes="64px" quality={40} aria-hidden className="photo-viewer-ambient" />
+            <Image key={`${images[index]}-ambient`} src={images[index]} alt="" fill sizes={MAIN_SIZES} quality={MAIN_QUALITY} aria-hidden className="photo-viewer-ambient" />
             <div className="photo-viewer-bar">
               <div className="photo-viewer-heading">
                 <span className="photo-viewer-title">{name}</span>
@@ -122,7 +140,15 @@ export function PhotoGallery({
               </button>
             </div>
             <div className="photo-viewer-stage">
-              <Image key={images[index]} src={images[index]} alt={`${name} — ${labels.photo} ${index + 1}`} fill sizes="(min-width: 1280px) 1200px, 100vw" quality={90} className="photo-viewer-image" />
+              <Image
+                key={images[index]}
+                src={images[index]}
+                alt={`${name} — ${labels.photo} ${index + 1}`}
+                fill
+                sizes={MAIN_SIZES}
+                quality={MAIN_QUALITY}
+                className="photo-viewer-image"
+              />
               {count > 1 && (
                 <>
                   <button type="button" className="photo-viewer-button photo-viewer-arrow photo-viewer-prev" onClick={() => go(index - 1)} aria-label={labels.prev}>
@@ -146,7 +172,7 @@ export function PhotoGallery({
                     className={i === index ? "photo-viewer-thumb photo-viewer-thumb-active" : "photo-viewer-thumb"}
                     onClick={() => setIndex(i)}
                   >
-                    <Image src={src} alt="" fill sizes="96px" className="photo-viewer-thumb-image" />
+                    <Image src={src} alt="" fill sizes={THUMB_SIZES} className="photo-viewer-thumb-image" />
                   </button>
                 ))}
               </div>

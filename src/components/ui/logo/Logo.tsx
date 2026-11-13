@@ -5,7 +5,7 @@ import "./logo.css";
 
 export function Logo({ light = false, size = "md" }: { light?: boolean; size?: "md" | "lg" }) {
   const large = size === "lg";
-  const height = large ? 60 : 46;
+  const height = large ? 60 : 48;
   const image = light ? logoLight : logo;
 
   return (
@@ -16,7 +16,7 @@ export function Logo({ light = false, size = "md" }: { light?: boolean; size?: "
         height={height}
         width={Math.round((height * image.width) / image.height)}
         loading={large ? "lazy" : "eager"}
-        className="logo-image"
+        className={large ? "logo-image" : "logo-image logo-image-md"}
       />
     </span>
   );

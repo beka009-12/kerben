@@ -17,8 +17,7 @@ export function Header({ searchItems, contacts }: { searchItems: SearchItem[]; c
 
   return (
     <header className={h.headerClass}>
-      <div className="container">
-        <div className="header-bar">
+      <div className="container-wide header-bar">
         <Link href={h.base} className="header-brand" aria-label={dict.a11y.home} onNavigate={h.close}>
           <Logo />
         </Link>
@@ -40,33 +39,49 @@ export function Header({ searchItems, contacts }: { searchItems: SearchItem[]; c
             active={h.services.some((item) => h.isActive(item.href))}
             isActive={h.isActive}
           />
-          {h.tailLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={h.linkClass(link.href)}
-              aria-current={h.isActive(link.href) ? "page" : undefined}
-            >
-              {link.label}
-            </Link>
-          ))}
+          <Link
+            href={h.aboutLink.href}
+            className={h.linkClass(h.aboutLink.href)}
+            aria-current={h.isActive(h.aboutLink.href) ? "page" : undefined}
+          >
+            {h.aboutLink.label}
+          </Link>
+          <Link
+            href={h.chatLink.href}
+            className={h.isActive(h.chatLink.href) ? "header-link header-link-ai header-link-active" : "header-link header-link-ai"}
+            aria-current={h.isActive(h.chatLink.href) ? "page" : undefined}
+          >
+            {h.chatLink.label}
+            <Icon name="sparkle" size={18} />
+          </Link>
         </nav>
 
         <div className="header-actions">
           <div className="header-desktop-only">
-            <LanguageSwitcher id="lang-desktop" />
+            <LanguageSwitcher id="lang-desktop" pill />
           </div>
-          <HeaderSearch items={searchItems} />
-          <Link
-            href={`${h.base}/trips`}
-            className="header-icon"
-            aria-label={`${dict.nav.trips}${h.tripsCount ? ` (${h.tripsCount})` : ""}`}
-            title={dict.nav.trips}
-            onNavigate={h.close}
-          >
-            <Icon name="suitcase" size={20} />
-            {h.tripsCount > 0 && <span className="header-badge">{h.tripsCount}</span>}
+          {contacts.phone && contacts.phoneHref && (
+            <a href={contacts.phoneHref} className="header-phone">
+              <Icon name="phone" size={16} />
+              {contacts.phone}
+            </a>
+          )}
+          <Link href={`${h.base}/tours`} className="header-cta" onNavigate={h.close}>
+            {dict.hero.primary}
           </Link>
+          <div className="header-mobile-only">
+            <HeaderSearch items={searchItems} />
+            <Link
+              href={`${h.base}/trips`}
+              className="header-icon"
+              aria-label={`${dict.nav.trips}${h.tripsCount ? ` (${h.tripsCount})` : ""}`}
+              title={dict.nav.trips}
+              onNavigate={h.close}
+            >
+              <Icon name="suitcase" size={20} />
+              {h.tripsCount > 0 && <span className="header-badge">{h.tripsCount}</span>}
+            </Link>
+          </div>
           <button
             ref={burgerRef}
             type="button"
@@ -78,7 +93,6 @@ export function Header({ searchItems, contacts }: { searchItems: SearchItem[]; c
           >
             <Icon name={h.open ? "close" : "menu"} size={24} />
           </button>
-        </div>
         </div>
       </div>
 

@@ -8,10 +8,12 @@ import "./language-switcher.css";
 export function LanguageSwitcher({
   id,
   light = false,
+  pill = false,
   variant = "menu",
 }: {
   id: string;
   light?: boolean;
+  pill?: boolean;
   variant?: "menu" | "inline";
 }) {
   const { locale, dict, pending, open, setOpen, rootRef, buttonRef, itemsRef, prefetch, names, change, onMenuKey } = useLanguageSwitcher();
@@ -46,6 +48,7 @@ export function LanguageSwitcher({
   const classes = [
     "language-switcher",
     light ? "language-switcher-light" : "",
+    pill ? "language-switcher-pill" : "",
     open ? "language-switcher-open" : "",
     pending ? "language-switcher-pending" : "",
   ]
@@ -73,10 +76,10 @@ export function LanguageSwitcher({
           }
         }}
       >
-        <Icon name="globe" size={17} />
+        {!pill && <Icon name="globe" size={17} />}
         <span className="language-switcher-value">{localeNames[locale].short}</span>
         <span className="language-switcher-chevron">
-          <Icon name="chevronDown" size={14} />
+          <Icon name="chevronDown" size={pill ? 16 : 14} />
         </span>
       </button>
 

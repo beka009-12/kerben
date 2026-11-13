@@ -9,11 +9,8 @@ import { PlanCta } from "@/components/home/plan-cta/PlanCta";
 import { PopularDestinations } from "@/components/home/popular-destinations/PopularDestinations";
 import { Seasons } from "@/components/home/seasons/Seasons";
 import { PeopleNumbers } from "@/components/home/people-numbers/PeopleNumbers";
-import { StoryPanels } from "@/components/home/story-panels/StoryPanels";
-import { Reveal } from "@/components/ui/reveal/Reveal";
 import { siteConfig } from "@/config/site";
 import { EXPERIENCES } from "@/data/experiences";
-import { kg, pagePhoto, photos } from "@/data/images";
 import { getFaqs } from "@/utils/api/catalog";
 import { getContacts } from "@/utils/api/contacts";
 import { getTours } from "@/utils/api/tours";
@@ -21,9 +18,7 @@ import { hasLocale } from "@/utils/i18n/config";
 import { getDictionary } from "@/utils/i18n/dictionaries";
 import { inKyrgyzstan } from "@/utils/markers";
 
-const HERO = ["/images/hero/issyk-kul-hd.webp", "/images/hero/song-kul-hd.webp", "/images/hero/jeti-oguz-hd.webp", "/images/hero/ala-archa-hd.webp"];
-
-const STORY = [kg("song-kul-peaks"), kg("issyk-kul-beach"), kg("nomads"), photos.oldStreet, kg("yurts-horse")];
+const home = (name: string) => `/images/home/${name}.webp`;
 
 export default async function HomePage({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
@@ -31,7 +26,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
 
   const [dict, tours, faqs, contacts] = await Promise.all([getDictionary(lang), getTours(lang), getFaqs(lang), getContacts(lang)]);
 
-  const popular = [...tours.filter((tour) => inKyrgyzstan(tour.coords)), ...tours.filter((tour) => !inKyrgyzstan(tour.coords))].slice(0, 8);
+  const popular = [...tours.filter((tour) => inKyrgyzstan(tour.coords)), ...tours.filter((tour) => !inKyrgyzstan(tour.coords))].slice(0, 9);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -46,32 +41,21 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
-      <Hero images={HERO} />
-      <StoryPanels images={STORY} />
+      <Hero image={home("hero-lake")} locale={lang} dict={dict} />
       <PeopleNumbers dict={dict} locale={lang} stats={null} />
-      <Reveal>
-        <ExperienceGrid
-          images={EXPERIENCES.map((item) => item.image)}
-          themes={EXPERIENCES.map((item) => item.theme)}
-          locale={lang}
-          dict={dict}
-        />
-      </Reveal>
-      {popular.length > 0 && (
-        <Reveal>
-          <PopularDestinations tours={popular} locale={lang} dict={dict} />
-        </Reveal>
-      )}
+      {popular.length > 0 && <PopularDestinations tours={popular} locale={lang} dict={dict} />}
+      <ExperienceGrid
+        images={EXPERIENCES.map((item) => item.image)}
+        themes={EXPERIENCES.map((item) => item.theme)}
+        locale={lang}
+        dict={dict}
+      />
       <CentralAsia locale={lang} dict={dict} />
-      <Reveal>
-        <CustomTrip image={photos.hikers} locale={lang} dict={dict} />
-      </Reveal>
-      <Infrastructure image={kg("song-kul-yurts")} dict={dict} />
-      <Reveal>
-        <Seasons locale={lang} dict={dict} />
-      </Reveal>
+      <CustomTrip image={home("custom-trip")} locale={lang} dict={dict} />
+      <Infrastructure image={home("infrastructure")} dict={dict} />
+      <Seasons locale={lang} dict={dict} />
       <Faq locale={lang} dict={dict} items={faqs} />
-      <PlanCta image={pagePhoto("glacier-lake")} dict={dict} />
+      <PlanCta dict={dict} />
     </>
   );
 }

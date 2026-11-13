@@ -1,17 +1,17 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
+import { EmptyOffers } from "@/components/common/empty-offers/EmptyOffers";
 import { RequestTicket } from "@/components/requests/request-ticket/RequestTicket";
+import { ButtonLink } from "@/components/ui/button/Button";
 import { Icon } from "@/components/ui/icon/Icon";
 import { REQUEST_KIND_ICONS, REQUEST_STEP, REQUEST_STEP_KEYS } from "@/utils/requests/request-icons";
 import { useRequestsList } from "@/utils/requests/use-requests-list";
 import "./requests-list.css";
 
-const EMPTY_MASCOT = "/images/mascot/empty-trips.webp";
 
 export function RequestsList() {
-  const { locale, t, state, cancel, setCancel, confirmCancel, hide, date, kinds, visible, tabs, pickTab } = useRequestsList();
+  const { locale, dict, t, state, cancel, setCancel, confirmCancel, hide, date, kinds, visible, tabs, pickTab } = useRequestsList();
 
   if (state.phase === "loading") {
     return (
@@ -48,15 +48,17 @@ export function RequestsList() {
       )}
 
       {items.length === 0 ? (
-        <div className="requests-empty">
-          <Image src={EMPTY_MASCOT} alt="" width={420} height={420} className="requests-empty-image" />
-          <h2 className="requests-empty-title">{t.emptyTitle}</h2>
-          <p className="requests-empty-text">{t.emptyText}</p>
-          <Link href={`/${locale}/tours`} className="requests-empty-cta">
-            {t.browseTours}
-            <Icon name="arrowRight" size={18} />
-          </Link>
-        </div>
+        <EmptyOffers
+          icon="heart"
+          title={dict.trips.emptyTitle}
+          text={dict.trips.emptyText}
+          action={
+            <ButtonLink href={`/${locale}/tours`} size="lg">
+              {dict.hero.primary}
+              <Icon name="arrowRight" size={18} />
+            </ButtonLink>
+          }
+        />
       ) : (
         <div className="requests-layout">
           <div className="requests-main">

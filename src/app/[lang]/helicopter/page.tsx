@@ -1,17 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { EmptyOffers } from "@/components/common/empty-offers/EmptyOffers";
-import { OfferCard } from "@/components/common/offer-card/OfferCard";
-import type { OfferFact } from "@/utils/offers";
-import { PageHero } from "@/components/common/page-hero/PageHero";
-import { ButtonLink } from "@/components/ui/button/Button";
-import { Icon } from "@/components/ui/icon/Icon";
-import { Reveal } from "@/components/ui/reveal/Reveal";
-import { pagePhoto } from "@/data/images";
+import { ListingPage } from "@/components/common/listing-page/ListingPage";
 import { getHelicopterTours } from "@/utils/api/catalog";
 import { hasLocale } from "@/utils/i18n/config";
 import { getDictionary } from "@/utils/i18n/dictionaries";
-import { fill, offerPrice } from "@/utils/offers";
+import { flightItem, gridLabels } from "@/utils/listing-items";
 import { alternates } from "@/utils/seo";
 
 export async function generateMetadata({ params }: PageProps<"/[lang]/helicopter">): Promise<Metadata> {
@@ -25,50 +18,15 @@ export default async function HelicopterPage({ params }: PageProps<"/[lang]/heli
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
   const [dict, flights] = await Promise.all([getDictionary(lang), getHelicopterTours(lang)]);
-  const t = dict.helicopter;
 
   return (
-    <>
-      <PageHero title={t.title} image={pagePhoto("green-peaks-hd")} />
-      <section className="section">
-        <Reveal className="container">
-          {flights.length === 0 ? (
-            <EmptyOffers
-              icon="send"
-              title={dict.offers.emptyTitle}
-              text={dict.offers.emptyText}
-              action={
-                <ButtonLink href={`/${lang}/chat`} size="lg">
-                  <Icon name="sparkles" size={18} />
-                  {dict.offers.request}
-                </ButtonLink>
-              }
-            />
-          ) : (
-            <ul className="offer-card-grid">
-              {flights.map((flight) => {
-                const facts: OfferFact[] = [
-                  ...(flight.minutes ? [{ icon: "clock" as const, label: fill(t.minutes, flight.minutes) }] : []),
-                  ...(flight.passengers ? [{ icon: "users" as const, label: fill(t.passengers, flight.passengers) }] : []),
-                  ...(flight.route ? [{ icon: "route" as const, label: flight.route }] : []),
-                ];
-                return (
-                  <li key={flight.id}>
-                    <OfferCard
-                      image={flight.image}
-                      title={flight.title}
-                      facts={facts}
-                      text={flight.description}
-                      price={offerPrice(flight.price, flight.unit, lang, dict)}
-                      href={`/${lang}/helicopter/${flight.id}`}
-                    />
-                  </li>
-                );
-              })}
-            </ul>
-          )}
-        </Reveal>
-      </section>
-    </>
+    <ListingPage
+      hero={{ kicker: dict.offers.servicesKicker, title: dict.helicopter.title, text: dict.helicopter.text, image: "/images/pages/helicopter-hero.webp" }}
+      items={flights.map((flight) => flightItem(flight, lang, dict))}
+      labels={gridLabels(dict, dict.offers.all, dict.tours.pricePerPerson)}
+      filters={false}
+      locale={lang}
+      dict={dict}
+    />
   );
 }

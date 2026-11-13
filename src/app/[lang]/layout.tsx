@@ -26,7 +26,7 @@ const montserrat = Montserrat({
 
 const inter = Inter({
   subsets: ["latin", "cyrillic"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-inter",
   display: "swap",
 });
@@ -73,7 +73,7 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
 }
 
 export const viewport: Viewport = {
-  themeColor: "#145ff0",
+  themeColor: "#ffffff",
   width: "device-width",
   initialScale: 1,
   interactiveWidget: "resizes-content",

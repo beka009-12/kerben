@@ -43,19 +43,18 @@ async function ExperienceContent({ params }: { params: PageProps<"/[lang]/experi
   const index = THEMES.indexOf(theme);
   const item = t.items[index];
   const matched = filterTours(tours, { ...defaultFilters, theme });
-  const others = EXPERIENCES.map((experience, i) => ({ ...experience, item: t.items[i] })).filter((other) => other.theme !== theme && other.item);
+  const others = EXPERIENCES.map((experience, i) => ({ ...experience, item: t.items[i], number: i + 1 })).filter((other) => other.theme !== theme && other.item);
 
   return (
     <>
       <PageHero kicker={t.kicker} title={item.title} text={item.text} image={EXPERIENCES[index].image}>
-        <Link href={`/${lang}#experiences`} className="experience-page-back">
-          <Icon name="arrowLeft" size={18} />
-          {t.back}
+        <Link href={`/${lang}#experiences`} className="page-hero-back">
+          ← {t.back}
         </Link>
       </PageHero>
 
-      <section className="section" aria-labelledby="experience-tours">
-        <div className="container experience-page-body">
+      <section className="experience-page-section" aria-labelledby="experience-tours">
+        <div className="container">
           <div className="experience-page-head">
             <h2 id="experience-tours" className="experience-page-title">
               {t.tours}
@@ -88,20 +87,24 @@ async function ExperienceContent({ params }: { params: PageProps<"/[lang]/experi
         </div>
       </section>
 
-      <section className="section section-soft" aria-labelledby="experience-others">
+      <section className="experience-page-section experience-page-section-soft" aria-labelledby="experience-others">
         <div className="container">
-          <h2 id="experience-others" className="experience-page-title">
+          <h2 id="experience-others" className="experience-page-title experience-page-title-spaced">
             {t.others}
           </h2>
           <ul className="experience-page-others">
             {others.map((other) => (
               <li key={other.theme}>
                 <Link href={`/${lang}/experiences/${other.theme}`} className="experience-page-other">
-                  <Image src={other.image} alt="" fill sizes="(min-width: 900px) 20vw, 50vw" className="experience-page-other-image" />
+                  <Image src={other.image} alt="" fill sizes="(min-width: 1024px) 221px, 50vw" className="experience-page-other-image" />
                   <span className="experience-page-other-shade" />
-                  <span className="experience-page-other-name">
-                    {other.item.title}
-                    <Icon name="arrowRight" size={16} />
+                  <span className="experience-page-other-number">{String(other.number).padStart(2, "0")}</span>
+                  <span className="experience-page-other-body">
+                    <span className="experience-page-other-name">{other.item.title}</span>
+                    <span className="experience-page-other-cta">
+                      {other.item.cta}
+                      <Icon name="arrowRight" size={18} />
+                    </span>
                   </span>
                 </Link>
               </li>

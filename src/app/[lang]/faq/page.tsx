@@ -3,8 +3,6 @@ import { notFound } from "next/navigation";
 import { FaqHelp } from "@/components/faq/faq-help/FaqHelp";
 import { FaqList } from "@/components/faq/faq-list/FaqList";
 import { PageHero } from "@/components/common/page-hero/PageHero";
-import { Reveal } from "@/components/ui/reveal/Reveal";
-import { kg } from "@/data/images";
 import { getFaqs } from "@/utils/api/catalog";
 import { hasLocale } from "@/utils/i18n/config";
 import { getDictionary } from "@/utils/i18n/dictionaries";
@@ -38,10 +36,10 @@ export default async function FaqPage({ params }: PageProps<"/[lang]/faq">) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
-      <PageHero kicker={t.kicker} title={t.title} text={t.page.text} image={kg("ala-archa")} />
-      <section className="section">
-        <Reveal className="container faq-page">
-          <FaqList items={questions} numbered />
+      <PageHero kicker={t.kicker} title={t.title} text={t.page.text} image="/images/pages/faq-hero.webp" />
+      <section className="faq-page-section">
+        <div className="container faq-page">
+          <FaqList items={questions} numbered openFirst />
           <FaqHelp
             title={t.page.helpTitle}
             text={t.page.helpText}
@@ -50,7 +48,7 @@ export default async function FaqPage({ params }: PageProps<"/[lang]/faq">) {
             contactLabel={t.page.contact}
             contactHref={`/${lang}/contact`}
           />
-        </Reveal>
+        </div>
       </section>
     </>
   );

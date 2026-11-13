@@ -63,9 +63,9 @@
   },
   "hero": {
     "eyebrow": "Entdecken Sie die Schönheit Kirgisistans",
-    "title": "Reisen, die das Leben",
+    "title": "Wir gestalten Reisen, nicht nur Ausflüge",
     "titleAccent": "verändern",
-    "text": "Kerben Travel ist Ihr verlässlicher Reisepartner. Wir gestalten einzigartige Routen durch Kirgisistan und Zentralasien, damit Sie neue Horizonte entdecken.",
+    "text": "Kerben Travel ist ein Team von Reisenden, die Zentralasien und die ganze Welt lieben. Wir haben an jedes Detail gedacht, damit Sie einfach die Reise genießen.",
     "features": [
       "Einzigartige Routen",
       "Zuverlässiger Service",
@@ -98,7 +98,8 @@
   "popular": {
     "title": "Unsere Reisen",
     "text": "Fertige Programme in Kirgisistan und darüber hinaus — wählen Sie Ihres.",
-    "viewAll": "Alle Touren"
+    "viewAll": "Alle Touren",
+    "heading": "Touren durch Kirgistan"
   },
   "card": {
     "from": "Ab",
@@ -114,7 +115,8 @@
     "addFavorite": "Tour merken",
     "removeFavorite": "Aus Merkliste entfernen",
     "details": "Tour ansehen",
-    "more": "Details"
+    "more": "Details",
+    "oneDay": "1 Tag"
   },
   "categories": {
     "title": "Nach Kategorie entdecken",
@@ -186,14 +188,15 @@
     "experiences": "Erlebnisse",
     "centers": "Erholungszentren",
     "centralAsia": "Zentralasien",
-    "guide": "Reiseführer"
+    "guide": "Reiseführer",
+    "motto": "Kirgistan sehen. Zentralasien spüren."
   },
   "tours": {
     "kicker": "Katalog",
     "title": "Alle Touren",
     "text": "Finden Sie eine Tour nach Reiseziel, Kategorie, Preis und Gruppengröße.",
     "search": "Suche",
-    "searchPh": "Reiseziel oder Tourname",
+    "searchPh": "Wohin möchten Sie reisen?",
     "category": "Kategorie",
     "all": "Alle",
     "maxPrice": "Max. Preis",
@@ -237,7 +240,22 @@
     },
     "showMore": "Mehr anzeigen",
     "showResults": "Touren anzeigen",
-    "close": "Schließen"
+    "close": "Schließen",
+    "details": "Programm und Termine",
+    "priceFrom": "ab",
+    "groupUpTo": "Gruppe bis {n} Personen",
+    "cta": {
+      "eyebrow": "Individuelle Route",
+      "title": "Kein passendes Programm gefunden?",
+      "text": "Wir stellen eine Route speziell für Sie zusammen.",
+      "primary": "Route zusammenstellen",
+      "ask": "KI-Assistenten fragen",
+      "trust": [
+        "Ihre Termine",
+        "Jede Gruppengröße",
+        "Ihr eigenes Tempo"
+      ]
+    }
   },
   "tour": {
     "back": "Alle Touren",
@@ -338,7 +356,23 @@
     "contactMessage": "Hallo! Ich interessiere mich für die Tour „{title}“. Welche Termine sind frei und wie hoch ist der Gesamtpreis? {url}",
     "guestsUpTo": "Bis zu {n} Gäste",
     "guests": "{n} Gäste",
-    "breadcrumbs": "Brotkrümelnavigation"
+    "breadcrumbs": "Brotkrümelnavigation",
+    "category": "Kategorie",
+    "date": "Reisedatum",
+    "travellers": "Reisende",
+    "adultForms": {
+      "one": "Erwachsener",
+      "few": "Erwachsene",
+      "many": "Erwachsene",
+      "other": "Erwachsene"
+    },
+    "bookMessage": "Ich möchte buchen: {title}. {details}. Bitte helfen Sie mir mit der Anfrage.",
+    "ctaEyebrow": "Tourbuchung",
+    "ctaTrust": [
+      "Gruppen- und Privatreisen",
+      "Kirgistan · Kasachstan · Usbekistan"
+    ],
+    "datePh": "Datum wählen"
   },
   "booking": {
     "title": "Diese Tour buchen",
@@ -424,7 +458,18 @@
     "noPay": "Jetzt keine Zahlung — ein Manager bestätigt Verfügbarkeit und Preis.",
     "reply": "Antwort innerhalb eines Tages",
     "free": "Kostenlose Beratung",
-    "aboutFallback": "Ein gemütlicher Ort zum Erholen nach einer intensiven Route. Unser Manager sagt Ihnen, welche Zimmer zu Ihren Daten frei sind, und verbindet den Aufenthalt mit Kerben Travel-Touren."
+    "aboutFallback": "Ein gemütlicher Ort zum Erholen nach einer intensiven Route. Unser Manager sagt Ihnen, welche Zimmer zu Ihren Daten frei sind, und verbindet den Aufenthalt mit Kerben Travel-Touren.",
+    "tag": "Hotel",
+    "sort": "Preis pro Nacht",
+    "checkIn": "Anreise",
+    "checkOut": "Abreise",
+    "guests": "Gäste",
+    "guestForms": {
+      "one": "Gast",
+      "few": "Gäste",
+      "many": "Gäste",
+      "other": "Gäste"
+    }
   },
   "about": {
     "kicker": "Über uns",
@@ -451,7 +496,11 @@
     ],
     "storyTitle": "Unsere Geschichte",
     "story": "Wir haben mit Wochenendausflügen an den Issyk-Kul für Freunde angefangen. Heute veranstalten wir Touren in ganz Kirgisistan und zu über 150 Zielen weltweit — und planen jede noch immer wie für Freunde.",
-    "sectionsKicker": "Wer wir sind"
+    "sectionsKicker": "Wer wir sind",
+    "introTitle": "Kerben Travel ist ein Team von Profis, die das Reisen lieben.",
+    "introText": "Wir organisieren Touren durch Zentralasien und die ganze Welt und empfangen Gäste in Kirgisistan.",
+    "statsTitle": "Sechs Jahre unterwegs",
+    "ctaEyebrow": "Reisen mit Kerben Travel"
   },
   "contact": {
     "kicker": "Kontakt",
@@ -460,7 +509,7 @@
     "name": "Name",
     "email": "E-Mail",
     "message": "Nachricht",
-    "messagePh": "Wohin möchten Sie reisen?",
+    "messagePh": "Erzählen Sie, welche Reise Sie möchten: Orte, Budget, Wünsche",
     "phone": "Telefon",
     "office": "Büro",
     "officeText": "Bischkek, Kirgisistan",
@@ -469,7 +518,23 @@
     "messengerHint": "Schreiben Sie Ihre Nachricht und senden Sie sie unserem Manager per Messenger — wir antworten innerhalb eines Werktags.",
     "whatsapp": "Über WhatsApp schreiben",
     "telegram": "Über Telegram schreiben",
-    "copied": "Text kopiert — fügen Sie ihn in den Telegram-Chat ein."
+    "copied": "Text kopiert — fügen Sie ihn in den Telegram-Chat ein.",
+    "cardKicker": "Kontakt aufnehmen",
+    "cardTitle": "Wir sind erreichbar und helfen bei der Route",
+    "cardText": "Rufen Sie an oder schreiben Sie — wir finden Tour, Termine und Unterkunft nach Ihren Wünschen.",
+    "call": "Anrufen",
+    "formTitle": "Manager schreiben",
+    "formText": "Füllen Sie das Formular aus und wählen Sie einen Messenger — der Text wird automatisch eingefügt, Sie müssen nur noch auf Senden tippen.",
+    "namePh": "Wie dürfen wir Sie ansprechen",
+    "dates": "Reisedaten",
+    "datesPh": "Zum Beispiel 10.–17. Juli",
+    "people": "Wie viele Personen",
+    "peoplePh": "2 Erwachsene, 1 Kind",
+    "interests": "Interessen",
+    "interestsPh": "Berge, Seen, Kultur…",
+    "optional": "(optional)",
+    "sendVia": "Senden über",
+    "replyNote": "Antwort innerhalb eines Werktags · Mo–Sa, 9:00–19:00"
   },
   "saved": {
     "kicker": "Ihre Liste",
@@ -485,11 +550,9 @@
     "text": "Melden Sie sich an, um mit dem KI-Assistenten zu sprechen.",
     "registerTitle": "Konto erstellen",
     "registerText": "Das dauert nur eine Minute — danach steht Ihnen der KI-Assistent zur Verfügung.",
-    "name": "Name",
-    "namePh": "Wie dürfen wir Sie nennen?",
-    "phone": "Telefon / WhatsApp",
-    "phonePh": "+996 700 123 456",
-    "phoneHint": "Unter dieser Nummer bestätigt ein Manager Ihre Buchungen",
+    "login": "Benutzername",
+    "loginOrEmail": "Benutzername oder E-Mail",
+    "loginHint": "3–50 Zeichen, ohne „@“",
     "email": "E-Mail",
     "password": "Passwort",
     "passwordHint": "Mindestens 8 Zeichen",
@@ -522,9 +585,9 @@
       "required": "Pflichtfeld",
       "email": "Geben Sie eine gültige E-Mail ein",
       "short": "Mindestens 8 Zeichen",
-      "name": "Der Name muss 2–40 Zeichen lang sein",
-      "invalid": "Falsche E-Mail oder falsches Passwort",
-      "taken": "Diese E-Mail ist bereits registriert — melden Sie sich an",
+      "login": "Benutzername: 3–50 Zeichen, ohne „@“",
+      "invalid": "Falscher Benutzername oder falsches Passwort",
+      "taken": "Dieser Benutzername ist vergeben — wählen Sie einen anderen",
       "notConfirmed": "Bestätigen Sie Ihre E-Mail über den zugesandten Link",
       "badEmail": "Diese E-Mail kann nicht verwendet werden — geben Sie Ihre echte Adresse ein",
       "rateLimit": "Zu viele Versuche. Warten Sie eine Minute",
@@ -612,7 +675,8 @@
           "value": "365",
           "label": "Tage voller Reisemöglichkeiten"
         }
-      ]
+      ],
+      "kicker": "Kerben Travel in Zahlen"
     },
     "experiences": {
       "kicker": "Erlebnisse",
@@ -716,7 +780,8 @@
       ],
       "note": "Wir helfen Ihnen, mehrere Länder zu einer durchdachten Route zu verbinden.",
       "cta": "Zentralasien entdecken",
-      "ask": "Hilf mir, Kirgisistan, Kasachstan und Usbekistan in einer Reise zu verbinden. Welche Route und wie viele Tage würdest du vorschlagen?"
+      "ask": "Hilf mir, Kirgisistan, Kasachstan und Usbekistan in einer Reise zu verbinden. Welche Route und wie viele Tage würdest du vorschlagen?",
+      "banner": "Grand Tour durch Zentralasien:\ndie Große Seidenstraße auf einer Reise"
     },
     "seasons": {
       "kicker": "Jahreszeiten",
@@ -804,7 +869,6 @@
   "ai": {
     "title": "Kerben Travel KI",
     "gateTitle": "Ihr persönlicher KI-Assistent für Zentralasien",
-    "gateText": "Routen, Jahreszeiten, Budgets und Tipps in Sekunden. Registrieren Sie sich, um zu starten — es ist kostenlos.",
     "gatePoints": [
       "Eine Route Tag für Tag für Ihre Reisedaten",
       "Passende Kerben Travel-Touren mit Preisen",
@@ -960,7 +1024,9 @@
     "filterLabel": "Bewertungen anzeigen",
     "filterEmpty": "Noch keine Bewertungen mit dieser Note.",
     "showAll": "Alle Bewertungen anzeigen ({n})",
-    "showLess": "Weniger anzeigen"
+    "showLess": "Weniger anzeigen",
+    "emptyTitle": "Noch keine Bewertungen",
+    "emptyText": "Erzählen Sie als Erster von der Reise."
   },
   "units": {
     "per_person": "pro Person",
@@ -980,13 +1046,17 @@
     "back": "Alle Routen",
     "emptyTitle": "Angebote folgen in Kürze",
     "emptyText": "Wir fügen sie gerade hinzu. Senden Sie eine Anfrage — ein Manager findet eine Option und meldet sich.",
-    "note": "Jetzt keine Zahlung — zuerst bestätigt ein Manager die Details."
+    "note": "Jetzt keine Zahlung — zuerst bestätigt ein Manager die Details.",
+    "servicesKicker": "Leistungen",
+    "all": "Alle",
+    "notChosen": "nicht gewählt"
   },
   "trekking": {
     "kicker": "Wanderrouten",
     "title": "Trekking",
     "text": "Pässe, Gletscher und Bergseen des Tian Shan — Routen mit erfahrenen Guides.",
-    "days": "{n} Tage"
+    "days": "{n} Tage",
+    "heroText": "Trekking in den Bergen Kirgistans"
   },
   "transport": {
     "kicker": "Transfers und Miete",
@@ -1011,7 +1081,17 @@
     "other": "Weitere Fahrzeuge",
     "details": "Details ansehen",
     "aboutFallback": "Ein komfortables Fahrzeug für Reisen durch Kirgisistan: Abholung am Flughafen, Transfers in Städte und zu Seen, Fahrten in die Berge. Ein Manager bestätigt die Verfügbarkeit und schlägt eine Route vor.",
-    "askPrompt": "Hilf mir, eine Fahrt mit dem Fahrzeug \"{name}\" zu planen: Wohin können wir fahren, wie lange dauert die Fahrt und was lohnt sich unterwegs?"
+    "askPrompt": "Hilf mir, eine Fahrt mit dem Fahrzeug \"{name}\" zu planen: Wohin können wir fahren, wie lange dauert die Fahrt und was lohnt sich unterwegs?",
+    "sort": "Preis pro Tag",
+    "heroText": "Abholung am Flughafen, Transfers in Städte und an Seen",
+    "seatForms": {
+      "one": "{n} Sitzplatz",
+      "few": "{n} Sitzplätze",
+      "many": "{n} Sitzplätze",
+      "other": "{n} Sitzplätze"
+    },
+    "dateFrom": "Startdatum",
+    "dateTo": "Enddatum"
   },
   "helicopter": {
     "kicker": "Blick von oben",
@@ -1047,7 +1127,15 @@
     "weatherText": "Bei ungeeignetem Flugwetter meldet sich ein Manager und schlägt eine andere Zeit oder einen anderen Tag vor.",
     "photos": "Fotos vom Flug",
     "other": "Weitere Flüge",
-    "askPrompt": "Erzähl mir von der Helikoptertour „{name}“: was sieht man, wie lange dauert sie und was sollte ich mitnehmen?"
+    "askPrompt": "Erzähl mir von der Helikoptertour „{name}“: was sieht man, wie lange dauert sie und was sollte ich mitnehmen?",
+    "date": "Flugdatum",
+    "passengersField": "Passagiere",
+    "peopleForms": {
+      "one": "Person",
+      "few": "Personen",
+      "many": "Personen",
+      "other": "Personen"
+    }
   },
   "requests": {
     "toast": {
@@ -1123,8 +1211,10 @@
     "text": "Ihre Anfragen für Touren, Hotels und Autos und gespeicherte Touren — alles hier.",
     "tabs": {
       "requests": "Anfragen",
-      "saved": "Gespeichert"
-    }
+      "saved": "Gespeicherte Touren"
+    },
+    "emptyTitle": "Hier ist noch nichts",
+    "emptyText": "Fragen Sie eine Tour, ein Hotel oder ein Auto an oder speichern Sie eine Tour, die Ihnen gefällt — sie erscheint auf dieser Seite."
   },
   "trip": {
     "choose": "Auswählen",

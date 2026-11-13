@@ -1,40 +1,75 @@
 .tour-page-skeleton {
   min-height: 80vh;
-  background: linear-gradient(180deg, var(--navy) 0 60%, var(--soft) 60%);
+  background: var(--soft);
 }
 
-.tour-page-body {
+.tour-page-main {
+  padding-bottom: var(--section-pad);
+}
+
+.tour-page-layout {
   display: grid;
-  gap: 56px;
-  padding-block: 40px var(--section);
+  gap: 48px;
+  padding-top: 48px;
 }
 
-.tour-page-split {
+.tour-page-content {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  min-width: 0;
+}
+
+.tour-page-cards {
   display: grid;
-  gap: 32px;
+  gap: 24px;
 }
 
-.tour-page-related-title {
-  margin-bottom: 24px;
+.tour-page-aside {
+  min-width: 0;
 }
 
 .tour-page-related {
+  padding-block: var(--section-pad);
+}
+
+.tour-page-related-title {
+  margin-bottom: 40px;
+  font-size: var(--fs-section);
+  font-weight: var(--fw-heading);
+  line-height: var(--lh-section);
+  letter-spacing: var(--ls-heading);
+  color: var(--ink);
+}
+
+.tour-page-related-list {
   display: grid;
-  gap: 20px;
+  gap: 24px;
+}
+
+.tour-page-cta {
+  padding-bottom: var(--section-pad);
 }
 
 @media (min-width: 640px) {
-  .tour-page-related {
+  .tour-page-cards,
+  .tour-page-related-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (min-width: 1000px) {
-  .tour-page-split {
-    grid-template-columns: 1fr 1fr;
+@media (min-width: 1024px) {
+  .tour-page-layout {
+    grid-template-columns: minmax(0, 756fr) minmax(0, 396fr);
+    align-items: start;
   }
 
-  .tour-page-related {
+  .tour-page-aside {
+    position: sticky;
+    top: calc(var(--header-h) + 24px);
+  }
+
+  .tour-page-related-list {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }

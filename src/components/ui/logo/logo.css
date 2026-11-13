@@ -9,16 +9,13 @@
   user-select: none;
 }
 
-@media (min-width: 768px) {
-  .logo-image {
-    height: 56px;
-    width: auto;
-  }
+.logo-image-md {
+  height: 40px;
+  width: auto;
 }
 
-@media (max-width: 360px) {
-  .logo-image {
-    height: 40px;
-    width: auto;
+@media (min-width: 768px) {
+  .logo-image-md {
+    height: 48px;
   }
 }

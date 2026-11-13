@@ -5,6 +5,9 @@ import { requestPasswordReset, signIn, signUp, type AuthErrorCode } from "@/util
 import { useI18n } from "@/utils/i18n/I18nProvider";
 import { isEmail, isValid, validateAuth, type AuthInput, type FieldError } from "@/utils/validation";
 
+/** Порядок полей в форме: при ошибке фокус уходит на первое неверное */
+const FIELD_ORDER: (keyof AuthInput)[] = ["login", "email", "password"];
+
 type Mode = "login" | "register" | "forgot";
 
 export function useAuthForm({ initialMode = "login", onSuccess }: Pick<{
@@ -16,7 +19,7 @@ export function useAuthForm({ initialMode = "login", onSuccess }: Pick<{
   const t = dict.login;
   const uid = useId();
   const [mode, setMode] = useState<Mode>(initialMode);
-  const [values, setValues] = useState<AuthInput>({ name: "", phone: "", email: "", password: "" });
+  const [values, setValues] = useState<AuthInput>({ login: "", email: "", password: "" });
   const [errors, setErrors] = useState<Partial<Record<keyof AuthInput, FieldError>>>({});
   const [serverError, setServerError] = useState<AuthErrorCode | null>(null);
   const [showPassword, setShowPassword] = useState(false);
@@ -35,6 +38,8 @@ export function useAuthForm({ initialMode = "login", onSuccess }: Pick<{
 
   function switchMode(next: Mode) {
     setMode(next);
+    // Ввели email в поле «Логин или email» — не заставляем набирать его второй раз для восстановления
+    if (next === "forgot" && !values.email && values.login.includes("@")) setValues((prev) => ({ ...prev, email: prev.login.trim() }));
     setErrors({});
     setServerError(null);
     setResetSent(false);
@@ -58,17 +63,18 @@ export function useAuthForm({ initialMode = "login", onSuccess }: Pick<{
 
     const found = validateAuth(mode, values);
     setErrors(found);
-    if (!isValid(found)) return;
+    if (!isValid(found)) {
+      const first = FIELD_ORDER.find((key) => found[key]);
+      if (first) document.getElementById(`${uid}-${first}`)?.focus();
+      return;
+    }
 
     setBusy(true);
     setServerError(null);
-    const result = register
-      ? await signUp(values.name ?? "", values.email, values.password, values.phone)
-      : await signIn(values.email, values.password);
+    const result = register ? await signUp(values.login, values.password) : await signIn(values.login, values.password);
     setBusy(false);
 
     if (result.error) {
-      if (result.error === "taken") switchMode("login");
       setServerError(result.error);
       return;
     }
@@ -80,8 +86,7 @@ export function useAuthForm({ initialMode = "login", onSuccess }: Pick<{
   const errorText = (key: keyof AuthInput): string | null => {
     const code = errors[key];
     if (!code) return null;
-    if (key === "name" && code !== "required") return t.errors.name;
-    if (key === "phone" && code !== "required") return t.errors.phone;
+    if (key === "login" && (code === "short" || code === "tooLong")) return t.errors.login;
     return t.errors[code as "required" | "email" | "short"];
   };
 

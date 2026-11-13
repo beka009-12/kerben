@@ -180,6 +180,9 @@ const paths = {
       <path d="M8 19h7a3.5 3.5 0 0 0 0-7H9a3.5 3.5 0 0 1 0-7h7" />
     </>
   ),
+  sparkle: <path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Zm7 13 .8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8L19 16Z" />,
+  chatBubble: <path d="M21 12c0 1.36-.36 2.7-1.03 3.89a8 8 0 0 1-10.57 3.21L4 20l1-4.6a8 8 0 0 1 6.3-9.7 8 8 0 0 1 9.7 6.3Z" />,
+  telegram: <path d="M9 13.5 15 20l6-16-18 7 6 2.5Zm12-9.5L9 13.5" />,
   sparkles: <path d="M11 3.5 12.6 8a3 3 0 0 0 1.9 1.9L19 11.5l-4.5 1.6a3 3 0 0 0-1.9 1.9L11 19.5 9.4 15a3 3 0 0 0-1.9-1.9L3 11.5l4.5-1.6A3 3 0 0 0 9.4 8L11 3.5ZM18.5 3v3M17 4.5h3M19 17v3M17.5 18.5h3" />,
   pencil: <path d="M4 20h4L19.5 8.5a2.8 2.8 0 0 0-4-4L4 16v4Zm9.5-13.5 4 4" />,
   logout: <path d="M14 4h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4M10 16l-4-4 4-4M6 12h10" />,
@@ -218,7 +221,7 @@ export function Icon({ name, size = 20, filled = false, className, ...rest }: Ic
       height={size}
       fill={filled ? "currentColor" : "none"}
       stroke="currentColor"
-      strokeWidth={1.8}
+      strokeWidth={2}
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"

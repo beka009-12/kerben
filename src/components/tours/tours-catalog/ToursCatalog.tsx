@@ -1,43 +1,84 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { memo } from "react";
+import { memo, useMemo } from "react";
+import { CtaBanner, CtaBannerLink } from "@/components/common/cta-banner/CtaBanner";
 import { EmptyOffers } from "@/components/common/empty-offers/EmptyOffers";
-import { CatalogCard } from "@/components/tours/catalog-card/CatalogCard";
-import { SortMenu } from "@/components/tours/sort-menu/SortMenu";
-import { ToursFilters } from "@/components/tours/tours-filters/ToursFilters";
+import { CatalogCard, type CatalogCardLabels } from "@/components/tours/catalog-card/CatalogCard";
 import { ButtonLink } from "@/components/ui/button/Button";
-import { Icon, type IconName } from "@/components/ui/icon/Icon";
-import { ROW_THEMES, SORTS, type SortKey, type Theme } from "@/utils/tour-filters";
+import { Icon } from "@/components/ui/icon/Icon";
+import { DURATIONS, tourLocation, type DurationKey } from "@/utils/tour-filters";
 import type { Tour } from "@/types/tour";
 import { useToursCatalog } from "@/utils/tours/use-tours-catalog";
 import "./tours-catalog.css";
 
 const MemoCard = memo(CatalogCard);
 
-const THEME_ICONS: Record<Theme, IconName> = { mountain: "mountain", lake: "waves", nomad: "home", adventure: "compass", history: "landmark", winter: "mountain" };
+export const TOURS_HERO = "/images/pages/tours-hero.webp";
+export const TOURS_CTA = "/images/pages/cta-custom.webp";
 
-export const TOURS_HERO = "/images/tours/tours-hero-v2.webp";
+export function ToursHero({ kicker, title }: { kicker: string; title: string }) {
+  return (
+    <section className="tours-catalog-hero" aria-labelledby="tours-title">
+      <div className="container-wide">
+        <div className="tours-catalog-hero-card">
+          <Image src={TOURS_HERO} alt="" fill preload quality={85} sizes="(min-width: 1440px) 1360px, 100vw" className="tours-catalog-hero-image" />
+          <div className="tours-catalog-hero-shade" aria-hidden="true" />
+          <div className="tours-catalog-hero-inner">
+            <p className="tours-catalog-hero-kicker">{kicker}</p>
+            <h1 id="tours-title" className="tours-catalog-hero-title">
+              {title}
+            </h1>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function catalogLabels(dict: ReturnType<typeof useToursCatalog>["dict"]): CatalogCardLabels {
+  const t = dict.tours;
+  return {
+    from: t.priceFrom,
+    perPerson: dict.card.perPerson,
+    details: t.details,
+    days: dict.card.days,
+    durations: t.durations,
+    formats: t.formats,
+    groupUpTo: t.groupUpTo,
+  };
+}
 
 export function ToursCatalog({ tours }: { tours: Tour[] }) {
-  const { locale, dict, t, filters, ceiling, themeEmpty, results, visible, more, showMore, themeTitle, update, toggle, setPrice, reset, filtered, countLabel, resultsRef, filtersOpen, openFilters, closeFilters } =
-    useToursCatalog({ tours });
-  const labels = { from: dict.card.from, perPerson: dict.card.perPerson, more: dict.card.more, durations: t.durations, days: dict.card.days };
+  const { locale, dict, t, filters, results, visible, more, showMore, update, reset } = useToursCatalog({ tours });
+  const labels = catalogLabels(dict);
+  const places = useMemo(() => [...new Set(tours.map(tourLocation).filter(Boolean))], [tours]);
+  const duration = filters.durations[0] ?? "all";
 
-  const filtersPanel = (
-    <ToursFilters t={t} locale={locale} filters={filters} ceiling={ceiling} onPrice={setPrice} onToggle={toggle} onReset={reset} />
-  );
+  const hero = <ToursHero kicker={t.heroTitle} title={t.heroText} />;
 
-  const hero = (
-    <section className="tours-catalog-hero" aria-labelledby="tours-title">
-      <Image src={TOURS_HERO} alt="" fill priority quality={85} sizes="100vw" className="tours-catalog-hero-image" />
-      <div className="tours-catalog-hero-shade" aria-hidden="true" />
-      <div className="tours-catalog-hero-inner">
-        <h1 id="tours-title" className="tours-catalog-hero-title">
-          {t.heroTitle}
-        </h1>
-        <p className="tours-catalog-hero-text">{t.heroText}</p>
+  const cta = (
+    <section className="tours-catalog-cta">
+      <div className="container">
+        <CtaBanner
+          eyebrow={t.cta.eyebrow}
+          title={t.cta.title}
+          text={t.cta.text}
+          image={TOURS_CTA}
+          trust={t.cta.trust}
+          actions={
+            <>
+              <CtaBannerLink href={`/${locale}/chat?ask=${encodeURIComponent(dict.home.custom.ask)}`} variant="primary">
+                {t.cta.primary}
+                <Icon name="arrowRight" size={18} />
+              </CtaBannerLink>
+              <CtaBannerLink href={`/${locale}/chat`} variant="glass">
+                <Icon name="sparkle" size={18} />
+                {t.cta.ask}
+              </CtaBannerLink>
+            </>
+          }
+        />
       </div>
     </section>
   );
@@ -46,19 +87,20 @@ export function ToursCatalog({ tours }: { tours: Tour[] }) {
     return (
       <div className="tours-catalog">
         {hero}
-        <div className="tours-catalog-none">
+        <div className="container tours-catalog-none">
           <EmptyOffers
             icon="route"
             title={dict.offers.emptyTitle}
             text={dict.offers.emptyText}
             action={
               <ButtonLink href={`/${locale}/chat`} size="lg">
-                <Icon name="sparkles" size={18} />
+                <Icon name="sparkle" size={18} />
                 {dict.offers.request}
               </ButtonLink>
             }
           />
         </div>
+        {cta}
       </div>
     );
   }
@@ -67,72 +109,63 @@ export function ToursCatalog({ tours }: { tours: Tour[] }) {
     <div className="tours-catalog">
       {hero}
 
-      <div className="tours-catalog-themes" role="group" aria-label={t.themes}>
-        {(["all", ...ROW_THEMES] as const).map((theme) => (
-          <button
-            key={theme}
-            type="button"
-            className={filters.theme === theme ? "tours-catalog-theme tours-catalog-theme-active" : "tours-catalog-theme"}
-            aria-pressed={filters.theme === theme}
-            onClick={() => update("theme", theme)}
-          >
-            {theme !== "all" && <Icon name={THEME_ICONS[theme]} size={20} />}
-            {theme === "all" ? t.themeAll : themeTitle(theme)}
-          </button>
-        ))}
-      </div>
+      <section className="tours-catalog-main" aria-label={t.title}>
+        <div className="container">
+          <div className="tours-catalog-toolbar">
+            <label className="tours-catalog-search">
+              <Icon name="search" size={18} className="tours-catalog-search-icon" />
+              <span className="visually-hidden">{t.search}</span>
+              <input
+                type="search"
+                value={filters.query}
+                onChange={(event) => update("query", event.target.value)}
+                placeholder={t.searchPh}
+                className="tours-catalog-search-input"
+              />
+            </label>
 
-      <div className="tours-catalog-layout">
-        <aside className="tours-catalog-aside" aria-label={t.filters}>
-          {filtersPanel}
-        </aside>
-
-        {filtersOpen && (
-          <div className="tours-catalog-sheet" role="dialog" aria-modal="true" aria-label={t.filters}>
-            <button type="button" className="tours-catalog-sheet-backdrop" aria-label={t.close} onClick={closeFilters} />
-            <div className="tours-catalog-sheet-panel">
-              <button type="button" className="tours-catalog-sheet-close" aria-label={t.close} onClick={closeFilters}>
-                <Icon name="close" size={20} />
-              </button>
-              {filtersPanel}
-              <button type="button" className="tours-catalog-sheet-apply" onClick={closeFilters}>
-                {t.showResults} · {results.length}
-              </button>
+            <div className="tours-catalog-chips" role="group" aria-label={t.category}>
+              {["", ...places].map((place) => (
+                <button
+                  key={place || "all"}
+                  type="button"
+                  className={filters.place === place ? "tours-catalog-chip tours-catalog-chip-active" : "tours-catalog-chip"}
+                  aria-pressed={filters.place === place}
+                  onClick={() => update("place", place)}
+                >
+                  {place || t.themeAll}
+                </button>
+              ))}
             </div>
-          </div>
-        )}
 
-        <div ref={resultsRef} className="tours-catalog-results">
-          <div className="tours-catalog-bar">
-            <h2 className="tours-catalog-count" role="status">
-              {results.length} {countLabel}
-            </h2>
-            <div className="tours-catalog-tools">
-              <button type="button" className="tours-catalog-open" onClick={openFilters} aria-haspopup="dialog">
-                <Icon name="sliders" size={18} />
-                {t.filters}
-                {filtered && <span className="tours-catalog-open-dot" aria-hidden="true" />}
-              </button>
-              <SortMenu label={t.sort} options={SORTS} labels={t.sorts} value={filters.sort} onChange={(sort: SortKey) => update("sort", sort)} />
-            </div>
+            <label className="tours-catalog-duration">
+              <span className="visually-hidden">{t.duration}</span>
+              <select
+                className="tours-catalog-duration-select"
+                value={duration}
+                onChange={(event) => update("durations", event.target.value === "all" ? [] : [event.target.value as DurationKey])}
+              >
+                <option value="all">{t.duration}</option>
+                {DURATIONS.map((key) => (
+                  <option key={key} value={key}>
+                    {t.durations[key]}
+                  </option>
+                ))}
+              </select>
+              <Icon name="chevronDown" size={16} className="tours-catalog-duration-icon" />
+            </label>
           </div>
 
-          {themeEmpty && filters.theme !== "all" && (
-            <div className="tours-catalog-notice" role="status">
-              <Icon name="compass" size={20} />
-              <span className="tours-catalog-notice-text">{t.themeEmpty.replace("{theme}", themeTitle(filters.theme))}</span>
-              <Link href={`/${locale}/chat?ask=${encodeURIComponent(themeTitle(filters.theme))}`} className="tours-catalog-notice-link">
-                {t.themeAsk}
-              </Link>
-            </div>
-          )}
+          <p className="visually-hidden" role="status">
+            {results.length}
+          </p>
 
           {visible.length > 0 ? (
             <>
-              <ul className="tours-catalog-grid">
+              <ul className="tours-catalog-list">
                 {visible.map((tour, index) => (
-                  <li key={tour.slug} className="tours-catalog-item">
-                    <MemoCard tour={tour} locale={locale} labels={labels} eager={index < 3} />
+                  <li key={tour.slug}>
+                    <MemoCard tour={tour} locale={locale} labels={labels} eager={index < 2} />
                   </li>
                 ))}
               </ul>
@@ -153,7 +186,9 @@ export function ToursCatalog({ tours }: { tours: Tour[] }) {
             </div>
           )}
         </div>
-      </div>
+      </section>
+
+      {cta}
     </div>
   );
 }

@@ -2,18 +2,14 @@
   position: fixed;
   inset: 0 0 auto;
   z-index: 50;
-  padding-top: var(--header-gap);
-  color: var(--text);
-  pointer-events: none;
-  transition: transform 0.35s var(--ease);
+  border-bottom: 1px solid var(--line);
+  background: var(--white);
+  color: var(--ink);
+  transition: box-shadow 0.25s var(--ease);
 }
 
-.header-hidden {
-  transform: translateY(calc(-100% - 12px));
-}
-
-.header-hidden:focus-within {
-  transform: none;
+.header-raised {
+  box-shadow: 0 6px 20px rgb(13 26 58 / 6%);
 }
 
 .header-bar {
@@ -21,23 +17,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  height: calc(var(--header-h) - var(--header-gap));
-  padding-inline: 10px 8px;
-  border: 1px solid rgb(15 23 42 / 6%);
-  border-radius: 18px;
-  background: rgb(255 255 255 / 96%);
-  box-shadow: 0 8px 28px rgb(11 22 48 / 12%);
-  backdrop-filter: blur(12px);
-  pointer-events: auto;
-  transition: box-shadow 0.25s var(--ease);
-}
-
-.header-raised {
-  --header-shadow: 0 12px 32px rgb(11 22 48 / 18%);
-}
-
-.header-raised .header-bar {
-  box-shadow: var(--header-shadow);
+  height: calc(var(--header-h) - 1px);
 }
 
 .header-brand {
@@ -52,48 +32,94 @@
 }
 
 .header-link {
-  position: relative;
-  padding: 8px 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
   border-radius: var(--radius-full);
-  font-size: var(--fs-small);
+  font-size: 0.9375rem;
   font-weight: 500;
+  line-height: var(--lh-tight);
   white-space: nowrap;
-  opacity: 0.92;
+  color: var(--nav-text);
   transition:
-    opacity 0.2s,
+    color 0.2s,
     background-color 0.2s;
 }
 
 .header-link:hover {
-  opacity: 1;
-  background: rgb(127 127 127 / 12%);
+  background: var(--soft);
+  color: var(--ink);
 }
 
 .header-link-active {
+  background: var(--primary-soft);
   color: var(--primary);
   font-weight: 600;
-  opacity: 1;
 }
 
-.header-link-active::after {
-  content: "";
-  position: absolute;
-  right: 12px;
-  bottom: -2px;
-  left: 12px;
-  height: 2px;
-  border-radius: 2px;
-  background: var(--primary);
+.header-link-active:hover {
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
+.header-link-ai {
+  color: var(--primary);
+}
+
+.header-link-ai:hover {
+  color: var(--primary-dark);
 }
 
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 16px;
 }
 
 .header-desktop-only {
   display: none;
+}
+
+.header-mobile-only {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.header-phone {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: var(--lh-tight);
+  white-space: nowrap;
+  color: var(--ink);
+}
+
+.header-phone:hover {
+  color: var(--primary);
+}
+
+.header-cta {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--btn-h);
+  padding: 0 var(--btn-pad);
+  border-radius: var(--radius-btn);
+  background: var(--accent);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: var(--lh-tight);
+  white-space: nowrap;
+  color: var(--white);
+  transition: background-color 0.2s var(--ease);
+}
+
+.header-cta:hover {
+  background: var(--accent-dark);
 }
 
 .header-icon {
@@ -107,7 +133,7 @@
 }
 
 .header-icon:hover {
-  background: rgb(127 127 127 / 14%);
+  background: var(--soft);
 }
 
 .header-badge {
@@ -136,7 +162,7 @@
 
 .header-drawer {
   position: fixed;
-  inset: calc(var(--header-h) + 8px) 0 0;
+  inset: var(--header-h) 0 0;
   pointer-events: auto;
   overflow-y: auto;
   overscroll-behavior: contain;
@@ -312,6 +338,12 @@
   }
 }
 
+@media (min-width: 768px) {
+  .header-cta {
+    display: inline-flex;
+  }
+}
+
 @media (min-width: 1100px) {
   .header-nav,
   .header-desktop-only {
@@ -319,8 +351,15 @@
   }
 
   .header-burger,
-  .header-drawer {
+  .header-drawer,
+  .header-mobile-only {
     display: none;
+  }
+}
+
+@media (min-width: 1280px) {
+  .header-phone {
+    display: inline-flex;
   }
 }
 
@@ -329,7 +368,8 @@
     gap: 8px;
   }
 
-  .header-actions {
+  .header-actions,
+  .header-mobile-only {
     gap: 0;
   }
 
@@ -337,11 +377,5 @@
   .header-burger {
     width: 38px;
     height: 38px;
-  }
-}
-
-@media (min-width: 1440px) {
-  .header-link {
-    font-size: 0.9375rem;
   }
 }

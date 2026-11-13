@@ -1,29 +1,29 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+import { BookingCard } from "@/components/common/booking-card/BookingCard";
+import { CtaBanner, CtaBannerLink } from "@/components/common/cta-banner/CtaBanner";
+import { DetailAbout, type DetailFact } from "@/components/common/detail-about/DetailAbout";
+import { DetailSection } from "@/components/common/detail-section/DetailSection";
 import { Faq } from "@/components/home/faq/Faq";
-import { TourCta } from "@/components/tour/tour-cta/TourCta";
-import { TourHeader } from "@/components/tour/tour-header/TourHeader";
-import { TourHighlights } from "@/components/tour/tour-highlights/TourHighlights";
+import { HotelCard } from "@/components/hotels/hotel-card/HotelCard";
+import { TourHeader, type TourHeaderMeta } from "@/components/tour/tour-header/TourHeader";
 import { TourInclusions } from "@/components/tour/tour-inclusions/TourInclusions";
 import { TourItinerary } from "@/components/tour/tour-itinerary/TourItinerary";
-import { TourLocation } from "@/components/tour/tour-location/TourLocation";
-import { TourSummary } from "@/components/tour/tour-summary/TourSummary";
 import { TourReviews } from "@/components/tour/tour-reviews/TourReviews";
-import { TourTabs, type SectionId } from "@/components/tour/tour-tabs/TourTabs";
-import { TripPlanner } from "@/components/tour/trip-planner/TripPlanner";
 import { TourCard } from "@/components/tours/tour-card/TourCard";
-import { Reveal } from "@/components/ui/reveal/Reveal";
+import { Icon } from "@/components/ui/icon/Icon";
+import { PhotoGallery } from "@/components/ui/photo-gallery/PhotoGallery";
 import { siteConfig } from "@/config/site";
-import { getFaqs, getHotels, getTransports } from "@/utils/api/catalog";
+import { getFaqs, getHotels } from "@/utils/api/catalog";
 import { getTour, getTours, getTourSlugs, hasLocation } from "@/utils/api/tours";
+import { bookingLabels, countField, dateField, getBookingExtras } from "@/utils/contact/booking-extras";
+import { formatPrice, plural } from "@/utils/format";
+import { nearestHotels } from "@/utils/geo/nearest-hotels";
 import { hasLocale } from "@/utils/i18n/config";
 import { getDictionary } from "@/utils/i18n/dictionaries";
 import { alternates } from "@/utils/seo";
 import { tourLocation } from "@/utils/tour-filters";
-import { nearestHotels } from "@/utils/geo/nearest-hotels";
-import { carOffers, hotelOffers } from "@/utils/trip/trip-offers";
-import { tourPick } from "@/utils/trip/trip-picks";
 import "./tour-page.css";
 
 export async function generateStaticParams() {
@@ -56,30 +56,27 @@ async function TourContent({ params }: { params: PageProps<"/[lang]/tours/[slug]
   const { lang, slug } = await params;
   if (!hasLocale(lang)) notFound();
 
-  const [dict, tour, all, hotels, transports, faqs] = await Promise.all([
-    getDictionary(lang),
-    getTour(slug, lang),
-    getTours(lang),
-    getHotels(lang),
-    getTransports(lang),
-    getFaqs(lang),
-  ]);
+  const [dict, tour, all, hotels, faqs] = await Promise.all([getDictionary(lang), getTour(slug, lang), getTours(lang), getHotels(lang), getFaqs(lang)]);
   if (!tour) notFound();
 
-  const nearby = nearestHotels(hotels, tour.point ?? (hasLocation(tour) ? tour.coords : null));
+  const t = dict.tour;
+  const extras = await getBookingExtras(lang, dict, tour.price);
+  const nearby = nearestHotels(hotels, tour.point ?? (hasLocation(tour) ? tour.coords : null), 2).map((item) => item.hotel);
+  const related = all.filter((item) => item.slug !== tour.slug && (item.category === tour.category || item.region === tour.region)).slice(0, 3);
+  const category = tourLocation(tour);
+  const daysText = tour.days > 0 ? (tour.days === 1 ? dict.card.oneDay : `${tour.days} ${plural(tour.days, lang, t.dayForms)}`) : null;
+  const nights = tour.nights ?? null;
 
-  const showItinerary = tour.itinerary.length > 0;
-  const showLocation = hasLocation(tour);
-  const hide: SectionId[] = [
-    ...(showItinerary ? [] : (["itinerary"] as const)),
-    ...(tour.included.length + tour.excluded.length > 0 ? [] : (["inclusions"] as const)),
-    ...(showLocation ? [] : (["location"] as const)),
+  const meta: TourHeaderMeta[] = [
+    ...(daysText ? [{ icon: "clock" as const, text: daysText }] : []),
+    ...(tour.country ? [{ icon: "mapPin" as const, text: tour.country }] : []),
   ];
-
-  const teaser = tour.summary.replace(/…$/, "").trim();
-  const subtitle = teaser && !tour.overview.startsWith(teaser) ? tour.summary : tourLocation(tour);
-
-  const related = all.filter((t) => t.slug !== tour.slug && (t.category === tour.category || t.region === tour.region)).slice(0, 3);
+  const facts: DetailFact[] = [
+    ...(daysText ? [{ label: t.duration, value: daysText }] : []),
+    ...(nights !== null ? [{ label: t.nights, value: nights > 0 ? `${nights} ${plural(nights, lang, t.nightForms)}` : t.noNights }] : []),
+    ...(category ? [{ label: t.category, value: category }] : []),
+  ];
+  const question = dict.ai.askTour.replace("{title}", tour.title);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -100,43 +97,60 @@ async function TourContent({ params }: { params: PageProps<"/[lang]/tours/[slug]
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
-      <TourHeader tour={tour} subtitle={subtitle} locale={lang} dict={dict} />
-      <TourSummary tour={tour} locale={lang} dict={dict} />
-      <TourTabs hide={hide} />
+      <TourHeader title={tour.title} kicker={category} meta={meta} section={{ href: `/${lang}/tours`, label: dict.nav.tours }} locale={lang} dict={dict} />
 
-      <div className="container tour-page-body">
-        <Reveal>
-          <TourHighlights tour={tour} title={dict.tour.highlights} />
-        </Reveal>
-        {(showItinerary || showLocation) && (
-          <div className={showItinerary && showLocation ? "tour-page-split" : undefined}>
-            {showItinerary && <TourItinerary itinerary={tour.itinerary} />}
-            {showLocation && <TourLocation itinerary={tour.itinerary} />}
-          </div>
-        )}
-        <TourInclusions tour={tour} dict={dict} />
-        <Reveal>
-          <TripPlanner
-            tour={tourPick(tour, lang)}
-            hotels={hotelOffers(nearby, lang, dict, `/${lang}/tours/${tour.slug}`)}
-            cars={carOffers(transports.slice(0, 20), lang, dict, `/${lang}/tours/${tour.slug}`)}
+      <section className="tour-page-main">
+        <div className="container">
+          <PhotoGallery
+            images={[tour.image, ...tour.gallery]}
+            name={tour.title}
+            layout="mosaic"
+            labels={{ photos: dict.hotels.photos, photo: dict.hotels.photo, close: dict.a11y.close, prev: dict.a11y.prev, next: dict.a11y.next }}
           />
-        </Reveal>
-        {/^\d{1,9}$/.test(tour.slug) && <TourReviews tourSlug={tour.slug} />}
-        <Reveal>
-          <TourCta tour={tour} locale={lang} dict={dict} />
-        </Reveal>
-      </div>
+          <div className="tour-page-layout">
+            <div className="tour-page-content">
+              <DetailAbout title={t.about} text={tour.overview} facts={facts} />
+              {tour.itinerary.length > 0 && <TourItinerary itinerary={tour.itinerary} />}
+              <TourInclusions tour={tour} dict={dict} />
+              {nearby.length > 0 && (
+                <DetailSection id="hotels" title={t.hotelsTitle}>
+                  <ul className="tour-page-cards">
+                    {nearby.map((hotel) => (
+                      <li key={hotel.id}>
+                        <HotelCard hotel={hotel} locale={lang} dict={dict} sizes="(min-width: 1280px) 338px, (min-width: 700px) 45vw, 92vw" />
+                      </li>
+                    ))}
+                  </ul>
+                </DetailSection>
+              )}
+              {/^\d{1,9}$/.test(tour.slug) && <TourReviews tourSlug={tour.slug} />}
+            </div>
+            <aside className="tour-page-aside" aria-label={t.contact}>
+              <BookingCard
+                title={tour.title}
+                price={tour.price > 0 ? formatPrice(tour.price, lang) : null}
+                otherPrices={extras.otherPrices}
+                ratesNote={extras.ratesNote}
+                fields={[dateField("date", t.date), countField("guests", t.travellers, t.adultForms, lang)]}
+                contacts={extras.contacts}
+                chatHref={`/${lang}/chat`}
+                askHref={`/${lang}/chat?ask=${encodeURIComponent(question)}`}
+                labels={bookingLabels(dict, t.perPerson, { heading: t.tripKicker })}
+              />
+            </aside>
+          </div>
+        </div>
+      </section>
 
-      <Faq locale={lang} dict={dict} items={faqs.slice(0, 6)} />
+      <Faq locale={lang} dict={dict} items={faqs.slice(0, 6)} soft />
 
       {related.length > 0 && (
-        <section className="section section-soft" aria-labelledby="related-title">
+        <section className="tour-page-related" aria-labelledby="related-title">
           <div className="container">
             <h2 id="related-title" className="tour-page-related-title">
-              {dict.tour.related}
+              {t.related}
             </h2>
-            <ul className="tour-page-related">
+            <ul className="tour-page-related-list">
               {related.map((item) => (
                 <li key={item.slug}>
                   <TourCard tour={item} locale={lang} dict={dict} />
@@ -146,6 +160,30 @@ async function TourContent({ params }: { params: PageProps<"/[lang]/tours/[slug]
           </div>
         </section>
       )}
+
+      <section className="tour-page-cta">
+        <div className="container">
+          <CtaBanner
+            eyebrow={t.ctaEyebrow}
+            title={dict.cta.title}
+            text={dict.cta.tourText}
+            image="/images/pages/cta-tour.webp"
+            trust={t.ctaTrust}
+            actions={
+              <>
+                <CtaBannerLink href={`/${lang}/tours`} variant="primary">
+                  {dict.hero.primary}
+                  <Icon name="arrowRight" size={18} />
+                </CtaBannerLink>
+                <CtaBannerLink href={`/${lang}/chat?ask=${encodeURIComponent(question)}`} variant="glass">
+                  <Icon name="sparkle" size={18} />
+                  {dict.ai.tourButton}
+                </CtaBannerLink>
+              </>
+            }
+          />
+        </div>
+      </section>
     </>
   );
 }

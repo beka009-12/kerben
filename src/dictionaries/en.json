@@ -63,9 +63,9 @@
   },
   "hero": {
     "eyebrow": "Discover the beauty of Kyrgyzstan",
-    "title": "Journeys that change",
+    "title": "We create journeys, not just trips",
     "titleAccent": "your life",
-    "text": "Kerben Travel is your trusted travel partner. We craft unique routes across Kyrgyzstan and Central Asia so you can discover new horizons.",
+    "text": "Kerben Travel is a team of travellers who love Central Asia and the whole world. We have thought through every detail so you can simply enjoy the road.",
     "features": [
       "Unique routes",
       "Reliable service",
@@ -98,7 +98,8 @@
   "popular": {
     "title": "Our journeys",
     "text": "Ready-made programmes in Kyrgyzstan and beyond — pick yours.",
-    "viewAll": "All tours"
+    "viewAll": "All tours",
+    "heading": "Tours in Kyrgyzstan"
   },
   "card": {
     "from": "From",
@@ -114,7 +115,8 @@
     "addFavorite": "Save tour",
     "removeFavorite": "Remove from saved",
     "details": "View tour",
-    "more": "Details"
+    "more": "Details",
+    "oneDay": "1 day"
   },
   "categories": {
     "title": "Explore by Category",
@@ -186,14 +188,15 @@
     "experiences": "Experiences",
     "centers": "Retreat centres",
     "centralAsia": "Central Asia",
-    "guide": "Travel guide"
+    "guide": "Travel guide",
+    "motto": "See Kyrgyzstan. Feel Central Asia."
   },
   "tours": {
     "kicker": "Catalogue",
     "title": "All Tours",
     "text": "Find a tour by destination, category, price and group size.",
     "search": "Search",
-    "searchPh": "Destination or tour name",
+    "searchPh": "Where do you want to go?",
     "category": "Category",
     "all": "All",
     "maxPrice": "Max price",
@@ -237,7 +240,22 @@
     },
     "showMore": "Show more",
     "showResults": "Show tours",
-    "close": "Close"
+    "close": "Close",
+    "details": "Itinerary and dates",
+    "priceFrom": "from",
+    "groupUpTo": "Group up to {n} people",
+    "cta": {
+      "eyebrow": "Custom route",
+      "title": "Didn't find the right programme?",
+      "text": "We will create a route just for you.",
+      "primary": "Build a route",
+      "ask": "Ask the AI assistant",
+      "trust": [
+        "Your dates",
+        "Any group size",
+        "Your own pace"
+      ]
+    }
   },
   "tour": {
     "back": "All tours",
@@ -338,7 +356,23 @@
     "contactMessage": "Hello! I'm interested in the “{title}” tour. Could you tell me the available dates and the total price? {url}",
     "guestsUpTo": "Up to {n} guests",
     "guests": "{n} guests",
-    "breadcrumbs": "Breadcrumbs"
+    "breadcrumbs": "Breadcrumbs",
+    "category": "Category",
+    "date": "Trip date",
+    "travellers": "Travellers",
+    "adultForms": {
+      "one": "adult",
+      "few": "adults",
+      "many": "adults",
+      "other": "adults"
+    },
+    "bookMessage": "I'd like to book: {title}. {details}. Please help me place a request.",
+    "ctaEyebrow": "Tour booking",
+    "ctaTrust": [
+      "Groups and private trips",
+      "Kyrgyzstan · Kazakhstan · Uzbekistan"
+    ],
+    "datePh": "Choose a date"
   },
   "booking": {
     "title": "Book this tour",
@@ -424,7 +458,18 @@
     "noPay": "No payment now — a manager will confirm availability and price.",
     "reply": "We reply within a day",
     "free": "Free consultation",
-    "aboutFallback": "A cosy place to rest after a busy route. Our manager will tell you which rooms are free on your dates and help you combine your stay with Kerben Travel tours."
+    "aboutFallback": "A cosy place to rest after a busy route. Our manager will tell you which rooms are free on your dates and help you combine your stay with Kerben Travel tours.",
+    "tag": "Hotel",
+    "sort": "Price per night",
+    "checkIn": "Check-in",
+    "checkOut": "Check-out",
+    "guests": "Guests",
+    "guestForms": {
+      "one": "guest",
+      "few": "guests",
+      "many": "guests",
+      "other": "guests"
+    }
   },
   "about": {
     "kicker": "About us",
@@ -451,7 +496,11 @@
     ],
     "storyTitle": "Our story",
     "story": "We started with weekend trips to Issyk-Kul for friends. Today we run tours across Kyrgyzstan and to 150+ destinations worldwide — but we still plan each one as if for friends.",
-    "sectionsKicker": "Who we are"
+    "sectionsKicker": "Who we are",
+    "introTitle": "Kerben Travel is a team of professionals in love with travel.",
+    "introText": "We run tours across Central Asia and around the world, and we welcome guests to Kyrgyzstan.",
+    "statsTitle": "Six years on the road",
+    "ctaEyebrow": "Travel with Kerben Travel"
   },
   "contact": {
     "kicker": "Contact",
@@ -460,7 +509,7 @@
     "name": "Name",
     "email": "Email",
     "message": "Message",
-    "messagePh": "Where would you like to go?",
+    "messagePh": "Tell us about the trip you want: places, budget, wishes",
     "phone": "Phone",
     "office": "Office",
     "officeText": "Bishkek, Kyrgyzstan",
@@ -469,7 +518,23 @@
     "messengerHint": "Write your message and send it to our manager in a messenger — we reply within one business day.",
     "whatsapp": "Message on WhatsApp",
     "telegram": "Message on Telegram",
-    "copied": "Text copied — paste it into the Telegram chat."
+    "copied": "Text copied — paste it into the Telegram chat.",
+    "cardKicker": "Get in touch",
+    "cardTitle": "We're here to help with your route",
+    "cardText": "Call or message us — we'll match a tour, dates and accommodation to your request.",
+    "call": "Call",
+    "formTitle": "Message a manager",
+    "formText": "Fill in the form and choose a messenger — the message text is filled in for you, just press Send.",
+    "namePh": "How should we address you",
+    "dates": "Trip dates",
+    "datesPh": "For example, 10–17 July",
+    "people": "How many people",
+    "peoplePh": "2 adults, 1 child",
+    "interests": "Interests",
+    "interestsPh": "Mountains, lakes, culture…",
+    "optional": "(optional)",
+    "sendVia": "Send via",
+    "replyNote": "We reply within one working day · Mon–Sat, 9:00–19:00"
   },
   "saved": {
     "kicker": "Your list",
@@ -485,11 +550,9 @@
     "text": "Log in to talk to the AI assistant.",
     "registerTitle": "Create an account",
     "registerText": "It takes a minute — and the AI assistant is yours.",
-    "name": "Name",
-    "namePh": "What should we call you?",
-    "phone": "Phone / WhatsApp",
-    "phonePh": "+996 700 123 456",
-    "phoneHint": "A manager calls this number to confirm bookings",
+    "login": "Username",
+    "loginOrEmail": "Username or email",
+    "loginHint": "3–50 characters, no “@”",
     "email": "Email",
     "password": "Password",
     "passwordHint": "At least 8 characters",
@@ -522,9 +585,9 @@
       "required": "Required field",
       "email": "Enter a valid email",
       "short": "At least 8 characters",
-      "name": "Name must be 2–40 characters",
-      "invalid": "Wrong email or password",
-      "taken": "This email is already registered — log in instead",
+      "login": "Username: 3–50 characters, no “@”",
+      "invalid": "Wrong username or password",
+      "taken": "This username is taken — choose another one",
       "notConfirmed": "Confirm your email using the link we sent",
       "badEmail": "This email can't be used — enter your real address",
       "rateLimit": "Too many attempts. Wait a minute",
@@ -612,7 +675,8 @@
           "value": "365",
           "label": "days of travel opportunities"
         }
-      ]
+      ],
+      "kicker": "Kerben Travel in numbers"
     },
     "experiences": {
       "kicker": "Experiences",
@@ -716,7 +780,8 @@
       ],
       "note": "We will help you combine several countries into one well-planned route.",
       "cta": "Discover Central Asia",
-      "ask": "Help me combine Kyrgyzstan, Kazakhstan and Uzbekistan into one trip. What route and how many days would you suggest?"
+      "ask": "Help me combine Kyrgyzstan, Kazakhstan and Uzbekistan into one trip. What route and how many days would you suggest?",
+      "banner": "Grand tour of Central Asia:\nthe Great Silk Road in one journey"
     },
     "seasons": {
       "kicker": "Seasons",
@@ -804,7 +869,6 @@
   "ai": {
     "title": "Kerben Travel AI",
     "gateTitle": "Your personal AI assistant to Central Asia",
-    "gateText": "Routes, seasons, budgets and tips in seconds. Sign up to start — it's free.",
     "gatePoints": [
       "A day-by-day route for your dates",
       "Matches Kerben Travel tours with prices",
@@ -960,7 +1024,9 @@
     "filterLabel": "Show reviews",
     "filterEmpty": "No reviews with this rating yet.",
     "showAll": "Show all reviews ({n})",
-    "showLess": "Show less"
+    "showLess": "Show less",
+    "emptyTitle": "No reviews yet",
+    "emptyText": "Be the first to tell others about the trip."
   },
   "units": {
     "per_person": "per person",
@@ -980,13 +1046,17 @@
     "back": "All routes",
     "emptyTitle": "Offers are coming soon",
     "emptyText": "We are adding them right now. Send a request — a manager will find an option and get in touch.",
-    "note": "No payment now — a manager will confirm the details first."
+    "note": "No payment now — a manager will confirm the details first.",
+    "servicesKicker": "Services",
+    "all": "All",
+    "notChosen": "not chosen"
   },
   "trekking": {
     "kicker": "Hiking routes",
     "title": "Trekking",
     "text": "Passes, glaciers and alpine lakes of the Tian Shan — routes with experienced guides.",
-    "days": "{n} days"
+    "days": "{n} days",
+    "heroText": "Trekking in the mountains of Kyrgyzstan"
   },
   "transport": {
     "kicker": "Transfers and rental",
@@ -1011,7 +1081,17 @@
     "other": "Other vehicles",
     "details": "View details",
     "aboutFallback": "A comfortable vehicle for travelling around Kyrgyzstan: airport pick-ups, transfers to cities and lakes, trips to the mountains. A manager will confirm availability for your dates and suggest a route.",
-    "askPrompt": "Help me plan a trip with the vehicle \"{name}\": where can we go, how long is the drive and what is worth seeing on the way?"
+    "askPrompt": "Help me plan a trip with the vehicle \"{name}\": where can we go, how long is the drive and what is worth seeing on the way?",
+    "sort": "Price per day",
+    "heroText": "Airport pickup and transfers to cities and lakes",
+    "seatForms": {
+      "one": "{n} seat",
+      "few": "{n} seats",
+      "many": "{n} seats",
+      "other": "{n} seats"
+    },
+    "dateFrom": "Start date",
+    "dateTo": "End date"
   },
   "helicopter": {
     "kicker": "View from above",
@@ -1047,7 +1127,15 @@
     "weatherText": "If the weather is not suitable for flying, a manager will contact you and offer another time or day.",
     "photos": "Flight photos",
     "other": "Other flights",
-    "askPrompt": "Tell me about the helicopter tour “{name}”: what can I see, how long is it and what should I bring?"
+    "askPrompt": "Tell me about the helicopter tour “{name}”: what can I see, how long is it and what should I bring?",
+    "date": "Flight date",
+    "passengersField": "Passengers",
+    "peopleForms": {
+      "one": "person",
+      "few": "people",
+      "many": "people",
+      "other": "people"
+    }
   },
   "requests": {
     "toast": {
@@ -1123,8 +1211,10 @@
     "text": "Your requests for tours, hotels and cars, and your saved tours — all here.",
     "tabs": {
       "requests": "Requests",
-      "saved": "Saved"
-    }
+      "saved": "Saved tours"
+    },
+    "emptyTitle": "Nothing here yet",
+    "emptyText": "Request a tour, hotel or car, or save a tour you like — it will appear on this page."
   },
   "trip": {
     "choose": "Choose",

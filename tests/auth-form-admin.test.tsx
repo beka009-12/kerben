@@ -19,17 +19,18 @@ afterEach(() => {
 });
 
 describe("форма ИИ-ассистента", () => {
-  it("только email и пароль — обычные ошибки, никакого входа в админку", async () => {
+  it("email админа и короткий пароль — обычные ошибки, никакого входа в админку", async () => {
     const fetchSpy = vi.spyOn(globalThis, "fetch");
     render(
       <I18nProvider locale="ru" dict={ru as unknown as Dictionary}>
         <AuthForm initialMode="register" showLogo={false} />
       </I18nProvider>,
     );
-    fireEvent.change(screen.getByLabelText(ru.login.email), { target: { value: "boss@kg.kg" } });
+    fireEvent.change(screen.getByLabelText(ru.login.login), { target: { value: "boss@kg.kg" } });
     fireEvent.change(screen.getByLabelText(ru.login.password), { target: { value: "secret1" } });
     fireEvent.click(screen.getByRole("button", { name: ru.login.register }));
-    await waitFor(() => expect(screen.getAllByText(ru.login.errors.required)).toHaveLength(2));
+    await waitFor(() => expect(screen.getByText(ru.login.errors.login)).toBeTruthy());
+    expect(screen.getByText(ru.login.errors.short)).toBeTruthy();
     expect(push).not.toHaveBeenCalled();
     expect(signUp).not.toHaveBeenCalled();
     expect(fetchSpy).not.toHaveBeenCalled();

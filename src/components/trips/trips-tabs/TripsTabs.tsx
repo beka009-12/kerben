@@ -2,9 +2,8 @@
 
 import { RequestsList } from "@/components/requests/requests-list/RequestsList";
 import { SavedList } from "@/components/saved/saved-list/SavedList";
-import { Icon } from "@/components/ui/icon/Icon";
 import type { Tour } from "@/types/tour";
-import { TABS, TRIPS_TAB_ICONS, useTripsTabs } from "@/utils/trips/use-trips-tabs";
+import { TABS, useTripsTabs } from "@/utils/trips/use-trips-tabs";
 import "./trips-tabs.css";
 
 export function TripsTabs({ tours }: { tours: Tour[] }) {
@@ -25,9 +24,8 @@ export function TripsTabs({ tours }: { tours: Tour[] }) {
             className={tab === key ? "trips-tabs-tab trips-tabs-tab-active" : "trips-tabs-tab"}
             onClick={() => select(key)}
           >
-            <Icon name={TRIPS_TAB_ICONS[key]} size={18} filled={key === "saved" && tab === key} />
             {t.tabs[key]}
-            {counts[key] > 0 && <span className="trips-tabs-count">{counts[key]}</span>}
+            <span className={tab === key ? "trips-tabs-count trips-tabs-count-active" : "trips-tabs-count"}>{counts[key]}</span>
           </button>
         ))}
       </div>

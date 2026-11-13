@@ -36,7 +36,12 @@ export function TourReviews({ tourSlug }: { tourSlug: string }) {
         </p>
       )}
 
-      {reviews !== null && count === 0 && !loadError && <p className="tour-reviews-note">{t.empty}</p>}
+      {reviews !== null && count === 0 && !loadError && (
+        <div className="tour-reviews-empty">
+          <p className="tour-reviews-empty-title">{t.emptyTitle}</p>
+          <p className="tour-reviews-empty-text">{t.emptyText}</p>
+        </div>
+      )}
 
       {count > 0 && (
         <div className="tour-reviews-filters" role="group" aria-label={t.filterLabel}>

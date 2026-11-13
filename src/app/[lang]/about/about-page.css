@@ -1,6 +1,107 @@
-.about-page-note {
-  max-width: 600px;
-  font-size: clamp(0.9375rem, 0.88rem + 0.25vw, 1.0625rem);
+.about-page-intro {
+  padding-block: var(--section-pad);
+}
+
+.about-page-intro-inner {
+  display: grid;
+  gap: 24px;
+}
+
+.about-page-intro-title {
+  font-size: var(--fs-section);
+  font-weight: var(--fw-heading);
+  line-height: var(--lh-section);
+  letter-spacing: var(--ls-heading);
+  color: var(--ink);
+}
+
+.about-page-intro-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.about-page-intro-text {
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
+  color: var(--body);
+}
+
+.about-page-numbers {
+  padding-block: var(--section-pad);
+  background: var(--soft);
+}
+
+.about-page-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 12px 0 24px;
+}
+
+.about-page-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-height: 133px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--white);
+}
+
+.about-page-stat-value {
+  font-family: var(--font-heading);
+  font-size: 2.125rem;
+  font-weight: 800;
+  line-height: var(--lh-tight);
+  letter-spacing: -0.02em;
+  color: var(--primary);
+}
+
+.about-page-stat-label {
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: var(--body);
+}
+
+.about-page-story {
+  padding-block: var(--section-pad);
+}
+
+.about-page-story-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0 48px;
+}
+
+.about-page-story-text {
+  max-width: 520px;
+  margin-bottom: 40px;
+  font-size: 1rem;
   line-height: 1.6;
-  color: rgb(255 255 255 / 80%);
+  color: var(--body);
+}
+
+.about-page-cta {
+  padding-bottom: var(--section-pad);
+}
+
+@media (min-width: 640px) {
+  .about-page-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-page-intro-inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 64px;
+  }
+
+  .about-page-stats {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
 }

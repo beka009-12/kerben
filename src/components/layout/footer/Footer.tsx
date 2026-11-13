@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { Icon, type IconName } from "@/components/ui/icon/Icon";
 import { Logo } from "@/components/ui/logo/Logo";
 import { siteConfig } from "@/config/site";
@@ -7,27 +8,57 @@ import type { Locale } from "@/utils/i18n/config";
 import type { Dictionary } from "@/utils/i18n/dictionaries";
 import "./footer.css";
 
+interface FooterLink {
+  href: string;
+  label: string;
+}
+
+interface SocialLink {
+  name: string;
+  icon: IconName;
+  href: string;
+}
+
+function FooterColumn({ id, title, links, children }: { id: string; title: string; links: FooterLink[]; children?: ReactNode }) {
+  return (
+    <nav className="footer-column" aria-labelledby={id}>
+      <h2 id={id} className="footer-title">
+        {title}
+      </h2>
+      <ul className="footer-list">
+        {links.map((link) => (
+          <li key={link.href + link.label}>
+            <Link className="footer-link" href={link.href}>
+              {link.label}
+            </Link>
+          </li>
+        ))}
+        {children}
+      </ul>
+    </nav>
+  );
+}
+
 export function Footer({ locale, dict, contacts }: { locale: Locale; dict: Dictionary; contacts: SiteContacts }) {
   const base = `/${locale}`;
   const t = dict.footer;
 
-  const links: { name: string; icon: IconName; href: string | null }[] = [
+  const candidates: { name: string; icon: IconName; href: string | null }[] = [
+    { name: "WhatsApp", icon: "chatBubble", href: contacts.whatsappHref },
+    { name: "Telegram", icon: "telegram", href: contacts.telegramHref },
     { name: "Instagram", icon: "instagram", href: contacts.instagramHref },
-    { name: "WhatsApp", icon: "whatsapp", href: contacts.whatsappHref },
-    { name: "Telegram", icon: "send", href: contacts.telegramHref },
     { name: "Facebook", icon: "facebook", href: contacts.facebookHref },
-    { name: "Email", icon: "mail", href: contacts.email ? `mailto:${contacts.email}` : null },
   ];
-  const socials = links.filter((item): item is { name: string; icon: IconName; href: string } => Boolean(item.href));
+  const socials = candidates.filter((item): item is SocialLink => Boolean(item.href));
 
-  const company = [
+  const company: FooterLink[] = [
     { href: `${base}/about`, label: t.aboutLink },
     { href: `${base}/tours`, label: dict.nav.tours },
     { href: `${base}/destinations`, label: dict.nav.destinations },
     { href: `${base}/trips`, label: dict.nav.trips },
   ];
 
-  const travel = [
+  const travel: FooterLink[] = [
     { href: `${base}#custom`, label: t.custom },
     { href: `${base}#experiences`, label: t.experiences },
     { href: `${base}/hotels`, label: t.centers },
@@ -35,67 +66,29 @@ export function Footer({ locale, dict, contacts }: { locale: Locale; dict: Dicti
     { href: `${base}/transport`, label: dict.nav.transport },
     { href: `${base}/helicopter`, label: dict.nav.helicopter },
     { href: `${base}#central-asia`, label: t.centralAsia },
-    { href: `${base}/chat`, label: t.guide },
+  ];
+
+  const guide: FooterLink[] = [
     { href: `${base}/faq`, label: t.faq },
+    { href: `${base}/contact`, label: dict.nav.contact },
   ];
 
   return (
     <footer className="footer">
-      <div className="container footer-grid">
-        <div className="footer-brand">
-          <Logo light />
-          <p className="footer-tagline">{t.tagline}</p>
-          <p className="footer-countries">{t.countries}</p>
-          <ul className="footer-socials">
-            {socials.map((social) => (
-              <li key={social.name}>
-                <a
-                  href={social.href}
-                  target={social.icon === "mail" ? undefined : "_blank"}
-                  rel="noopener noreferrer"
-                  className="footer-social"
-                >
-                  <Icon name={social.icon} size={18} />
-                  {social.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
+      <div className="container">
+        <div className="footer-grid">
+          <div className="footer-brand">
+            <span className="footer-logo">
+              <Logo light size="lg" />
+            </span>
+            <p className="footer-motto">{t.motto}</p>
+            <p className="footer-note">{t.tagline}</p>
+            <p className="footer-note">{t.countries}</p>
+          </div>
 
-        <nav className="footer-column" aria-labelledby="footer-company">
-          <h2 id="footer-company" className="footer-title">
-            {t.company}
-          </h2>
-          <ul className="footer-list">
-            {company.map((link) => (
-              <li key={link.href}>
-                <Link className="footer-link" href={link.href}>
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        <nav className="footer-column" aria-labelledby="footer-travel">
-          <h2 id="footer-travel" className="footer-title">
-            {t.travel}
-          </h2>
-          <ul className="footer-list">
-            {travel.map((link) => (
-              <li key={link.href}>
-                <Link className="footer-link" href={link.href}>
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        <div className="footer-column">
-          <h2 className="footer-title">{dict.nav.contact}</h2>
-          <ul className="footer-list">
+          <FooterColumn id="footer-company" title={t.company} links={company} />
+          <FooterColumn id="footer-travel" title={t.travel} links={travel} />
+          <FooterColumn id="footer-guide" title={t.guide} links={guide}>
             {contacts.phone && contacts.phoneHref && (
               <li>
                 <a className="footer-link" href={contacts.phoneHref}>
@@ -103,47 +96,46 @@ export function Footer({ locale, dict, contacts }: { locale: Locale; dict: Dicti
                 </a>
               </li>
             )}
-            {contacts.email && (
-              <li>
-                <a className="footer-link" href={`mailto:${contacts.email}`}>
-                  {contacts.email}
-                </a>
+            <li>
+              <Link className="footer-link" href={`${base}/chat`}>
+                {dict.nav.chat}
+              </Link>
+            </li>
+            {socials.length > 0 && (
+              <li className="footer-socials">
+                {socials.map((social) => (
+                  <a key={social.name} href={social.href} target="_blank" rel="noopener noreferrer" className="footer-social" aria-label={social.name}>
+                    <Icon name={social.icon} size={24} />
+                  </a>
+                ))}
               </li>
             )}
+          </FooterColumn>
+        </div>
+
+        <div className="footer-bottom">
+          <span>
+            © {siteConfig.year} {siteConfig.name}
+          </span>
+          <ul className="footer-legal">
+            <li>
+              <Link className="footer-legal-link" href={`${base}/about`}>
+                {t.privacy}
+              </Link>
+            </li>
+            <li>
+              <Link className="footer-legal-link" href={`${base}/about`}>
+                {t.terms}
+              </Link>
+            </li>
+            <li>
+              <Link className="footer-legal-link" href={`${base}/credits`}>
+                {t.credits}
+              </Link>
+            </li>
           </ul>
-          <Link href={`${base}/chat`} className="footer-cta">
-            <Icon name="chat" size={18} />
-            {dict.nav.chat}
-          </Link>
         </div>
       </div>
-
-      <div className="container footer-bottom">
-        <span>
-          © {siteConfig.year} {siteConfig.name}
-        </span>
-        <ul className="footer-legal">
-          <li>
-            <Link className="footer-link" href={`${base}/about`}>
-              {t.privacy}
-            </Link>
-          </li>
-          <li>
-            <Link className="footer-link" href={`${base}/about`}>
-              {t.terms}
-            </Link>
-          </li>
-          <li>
-            <Link className="footer-link" href={`${base}/credits`}>
-              {t.credits}
-            </Link>
-          </li>
-        </ul>
-      </div>
-
-      <p className="footer-wordmark" aria-hidden="true">
-        {siteConfig.name}
-      </p>
     </footer>
   );
 }

@@ -1,45 +1,161 @@
 .cta-banner {
   position: relative;
-  display: grid;
-  gap: 20px;
-  justify-items: start;
-  align-items: center;
-  padding: clamp(28px, 4vw, 48px);
   overflow: hidden;
-  border-radius: var(--radius-lg);
-  color: var(--white);
+  border: 1px solid rgb(255 255 255 / 8%);
+  border-radius: 32px;
   background: var(--navy);
+  box-shadow: 0 24px 56px -12px rgb(9 15 38 / 22%);
+  color: var(--white);
   isolation: isolate;
 }
 
 .cta-banner-image {
-  object-fit: cover;
   z-index: -2;
+  object-fit: cover;
 }
 
 .cta-banner-shade {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(90deg, rgb(8 18 40 / 88%) 0%, rgb(8 18 40 / 50%) 100%);
+  background:
+    linear-gradient(180deg, rgb(9 15 38 / 0%) 0%, rgb(9 15 38 / 35%) 100%),
+    linear-gradient(90deg, rgb(9 15 38 / 94%) 0%, rgb(9 15 38 / 78%) 45%, rgb(9 15 38 / 12%) 100%);
 }
 
 .cta-banner-body {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 32px;
+  min-height: 440px;
+  padding: 51px 39px;
+}
+
+.cta-banner-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  max-width: 600px;
+}
+
+.cta-banner-eyebrow {
+  display: inline-flex;
+  align-items: center;
   gap: 8px;
-  max-width: 560px;
+  padding: 7px 14px 7px 12px;
+  border: 1px solid rgb(255 255 255 / 22%);
+  border-radius: var(--radius-full);
+  background: rgb(255 255 255 / 10%);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: var(--lh-tight);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.cta-banner-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
 }
 
 .cta-banner-title {
-  color: var(--white);
+  font-size: clamp(2rem, 1.4rem + 1.8vw, 2.875rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
 }
 
 .cta-banner-text {
-  color: rgb(255 255 255 / 80%);
+  max-width: 540px;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: rgb(255 255 255 / 82%);
 }
 
-@media (min-width: 900px) {
+.cta-banner-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.cta-banner-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: var(--btn-h-lg);
+  padding: 0 var(--btn-pad-lg);
+  border: 1px solid transparent;
+  border-radius: var(--radius-btn-lg);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: var(--lh-tight);
+  color: var(--white);
+  transition: background-color 0.2s var(--ease);
+}
+
+.cta-banner-button-primary {
+  background: var(--accent);
+  box-shadow: 0 10px 28px -6px rgb(242 135 5 / 40%);
+}
+
+.cta-banner-button-primary:hover {
+  background: var(--accent-dark);
+}
+
+.cta-banner-button-glass {
+  border-color: rgb(255 255 255 / 32%);
+  background: rgb(255 255 255 / 12%);
+  backdrop-filter: blur(16px);
+}
+
+.cta-banner-button-glass:hover {
+  background: rgb(255 255 255 / 22%);
+}
+
+.cta-banner-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+}
+
+.cta-banner-trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: var(--lh-tight);
+  color: rgb(255 255 255 / 78%);
+}
+
+.cta-banner-check {
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid var(--accent);
+  border-radius: 50%;
+  background: rgb(242 135 5 / 25%);
+}
+
+@media (max-width: 767px) {
   .cta-banner {
-    grid-template-columns: 1fr auto;
+    border-radius: 24px;
+  }
+
+  .cta-banner-body {
+    min-height: 0;
+    padding: 32px 20px;
+  }
+
+  .cta-banner-shade {
+    background: linear-gradient(0deg, rgb(9 15 38 / 94%) 0%, rgb(9 15 38 / 70%) 100%);
+  }
+
+  .cta-banner-button {
+    width: 100%;
   }
 }

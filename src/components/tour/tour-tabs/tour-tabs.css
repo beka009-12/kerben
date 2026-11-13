@@ -1,7 +1,6 @@
 .tour-tabs {
   position: sticky;
-  top: var(--header-offset, var(--header-h));
-  transition: top 0.35s var(--ease);
+  top: var(--header-h);
   z-index: 20;
   background: rgb(255 255 255 / 96%);
   border-bottom: 1px solid var(--line);

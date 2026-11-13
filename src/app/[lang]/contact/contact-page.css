@@ -1,12 +1,15 @@
+.contact-page-section {
+  padding-block: var(--section-pad);
+}
+
 .contact-page-grid {
   display: grid;
   gap: 24px;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1024px) {
   .contact-page-grid {
-    grid-template-columns: 340px 1fr;
-    align-items: start;
+    grid-template-columns: minmax(0, 440fr) minmax(0, 728fr);
     gap: 32px;
   }
 }

@@ -63,9 +63,9 @@
   },
   "hero": {
     "eyebrow": "探索吉尔吉斯斯坦之美",
-    "title": "改变人生的",
+    "title": "我们打造旅程，而不只是出行",
     "titleAccent": "旅行",
-    "text": "Kerben Travel 是您值得信赖的旅行伙伴。我们为您打造吉尔吉斯斯坦和中亚的独特路线，带您发现新的视野。",
+    "text": "Kerben Travel 是一支热爱中亚和整个世界的旅行者团队。我们考虑好了每一个细节，您只需尽情享受旅途。",
     "features": [
       "独特路线",
       "可靠服务",
@@ -98,7 +98,8 @@
   "popular": {
     "title": "我们的旅程",
     "text": "吉尔吉斯斯坦及更多目的地的精选线路——挑选属于你的那一条。",
-    "viewAll": "全部线路"
+    "viewAll": "全部线路",
+    "heading": "吉尔吉斯斯坦旅游线路"
   },
   "card": {
     "from": "起价",
@@ -114,7 +115,8 @@
     "addFavorite": "收藏线路",
     "removeFavorite": "取消收藏",
     "details": "查看线路",
-    "more": "查看详情"
+    "more": "查看详情",
+    "oneDay": "1 天"
   },
   "categories": {
     "title": "按类别探索",
@@ -186,14 +188,15 @@
     "experiences": "特色体验",
     "centers": "度假中心",
     "centralAsia": "中亚",
-    "guide": "旅行指南"
+    "guide": "旅行指南",
+    "motto": "看见吉尔吉斯斯坦，感受中亚。"
   },
   "tours": {
     "kicker": "线路目录",
     "title": "全部线路",
     "text": "按目的地、类别、价格和人数查找线路。",
     "search": "搜索",
-    "searchPh": "目的地或线路名称",
+    "searchPh": "您想去哪里？",
     "category": "类别",
     "all": "全部",
     "maxPrice": "最高价格",
@@ -237,7 +240,22 @@
     },
     "showMore": "显示更多",
     "showResults": "查看行程",
-    "close": "关闭"
+    "close": "关闭",
+    "details": "行程与日期",
+    "priceFrom": "起价",
+    "groupUpTo": "最多 {n} 人成团",
+    "cta": {
+      "eyebrow": "定制路线",
+      "title": "没有找到合适的行程？",
+      "text": "我们将为您量身定制路线。",
+      "primary": "定制路线",
+      "ask": "询问 AI 助手",
+      "trust": [
+        "您定日期",
+        "任意团队规模",
+        "按您的节奏"
+      ]
+    }
   },
   "tour": {
     "back": "全部线路",
@@ -338,7 +356,23 @@
     "contactMessage": "您好！我对“{title}”这条线路感兴趣。请告诉我可选日期和总价。{url}",
     "guestsUpTo": "最多 {n} 位客人",
     "guests": "{n} 位客人",
-    "breadcrumbs": "导航路径"
+    "breadcrumbs": "导航路径",
+    "category": "类别",
+    "date": "出行日期",
+    "travellers": "出行人数",
+    "adultForms": {
+      "one": "位成人",
+      "few": "位成人",
+      "many": "位成人",
+      "other": "位成人"
+    },
+    "bookMessage": "我想预订：{title}。{details}。请帮我提交申请。",
+    "ctaEyebrow": "预订行程",
+    "ctaTrust": [
+      "拼团与私人定制",
+      "吉尔吉斯斯坦 · 哈萨克斯坦 · 乌兹别克斯坦"
+    ],
+    "datePh": "选择日期"
   },
   "booking": {
     "title": "预订此线路",
@@ -424,7 +458,18 @@
     "noPay": "现在无需付款——客户经理会确认空房和价格。",
     "reply": "一天内回复",
     "free": "免费咨询",
-    "aboutFallback": "紧凑行程后的舒适休憩之所。我们的客户经理会告诉您所选日期的空房情况，并帮您把住宿与 Kerben Travel 线路结合起来。"
+    "aboutFallback": "紧凑行程后的舒适休憩之所。我们的客户经理会告诉您所选日期的空房情况，并帮您把住宿与 Kerben Travel 线路结合起来。",
+    "tag": "酒店",
+    "sort": "每晚价格",
+    "checkIn": "入住",
+    "checkOut": "退房",
+    "guests": "入住人数",
+    "guestForms": {
+      "one": "位客人",
+      "few": "位客人",
+      "many": "位客人",
+      "other": "位客人"
+    }
   },
   "about": {
     "kicker": "关于我们",
@@ -451,7 +496,11 @@
     ],
     "storyTitle": "我们的故事",
     "story": "我们最初只是带朋友周末去伊塞克湖。如今我们的线路遍布吉尔吉斯斯坦，并覆盖全球 150 多个目的地——但每一条线路仍像为朋友规划一样用心。",
-    "sectionsKicker": "关于我们"
+    "sectionsKicker": "关于我们",
+    "introTitle": "Kerben Travel 是一支热爱旅行的专业团队。",
+    "introText": "我们组织中亚及世界各地的旅行，也在吉尔吉斯斯坦接待各地游客。",
+    "statsTitle": "六年旅途",
+    "ctaEyebrow": "与 Kerben Travel 同行"
   },
   "contact": {
     "kicker": "联系我们",
@@ -460,7 +509,7 @@
     "name": "姓名",
     "email": "邮箱",
     "message": "留言",
-    "messagePh": "你想去哪里？",
+    "messagePh": "告诉我们您想要的旅行：地点、预算、需求",
     "phone": "电话",
     "office": "办公室",
     "officeText": "吉尔吉斯斯坦，比什凯克",
@@ -469,7 +518,23 @@
     "messengerHint": "写下您的留言，通过即时通讯发送给我们的经理——我们会在一个工作日内回复。",
     "whatsapp": "通过 WhatsApp 联系",
     "telegram": "通过 Telegram 联系",
-    "copied": "文字已复制——请粘贴到 Telegram 聊天中。"
+    "copied": "文字已复制——请粘贴到 Telegram 聊天中。",
+    "cardKicker": "联系我们",
+    "cardTitle": "我们随时在线，帮您规划路线",
+    "cardText": "来电或留言——我们按您的需求挑选行程、日期和住宿。",
+    "call": "拨打电话",
+    "formTitle": "联系客户经理",
+    "formText": "填写表单并选择通讯软件——消息内容会自动填好，只需点击发送。",
+    "namePh": "如何称呼您",
+    "dates": "出行日期",
+    "datesPh": "例如：7月10日–17日",
+    "people": "出行人数",
+    "peoplePh": "2 位成人，1 位儿童",
+    "interests": "兴趣",
+    "interestsPh": "山脉、湖泊、文化……",
+    "optional": "（可选）",
+    "sendVia": "通过以下方式发送",
+    "replyNote": "一个工作日内回复 · 周一至周六 9:00–19:00"
   },
   "saved": {
     "kicker": "你的清单",
@@ -485,11 +550,9 @@
     "text": "登录后即可与 AI 助手对话。",
     "registerTitle": "创建账户",
     "registerText": "只需一分钟——注册后即可使用 AI 助手。",
-    "name": "名字",
-    "namePh": "我们该怎么称呼你？",
-    "phone": "电话 / WhatsApp",
-    "phonePh": "+996 700 123 456",
-    "phoneHint": "经理会拨打此号码确认预订",
+    "login": "用户名",
+    "loginOrEmail": "用户名或邮箱",
+    "loginHint": "3–50 个字符，不含“@”",
     "email": "邮箱",
     "password": "密码",
     "passwordHint": "至少 8 个字符",
@@ -522,9 +585,9 @@
       "required": "必填项",
       "email": "请输入有效的邮箱",
       "short": "至少 8 个字符",
-      "name": "名字长度为 2–40 个字符",
-      "invalid": "邮箱或密码错误",
-      "taken": "该邮箱已注册——请直接登录",
+      "login": "用户名需为 3–50 个字符，且不含“@”",
+      "invalid": "用户名或密码错误",
+      "taken": "该用户名已被占用，请换一个",
       "notConfirmed": "请通过我们发送的链接确认邮箱",
       "badEmail": "该邮箱无法使用——请输入真实地址",
       "rateLimit": "尝试次数过多，请稍等一分钟",
@@ -612,7 +675,8 @@
           "value": "365",
           "label": "天随时可以出发"
         }
-      ]
+      ],
+      "kicker": "Kerben Travel 数据一览"
     },
     "experiences": {
       "kicker": "特色体验",
@@ -716,7 +780,8 @@
       ],
       "note": "我们帮你把多个国家串联成一条精心规划的路线。",
       "cta": "探索中亚",
-      "ask": "帮我把吉尔吉斯斯坦、哈萨克斯坦和乌兹别克斯坦安排进一次旅行。你建议怎样的路线、需要几天？"
+      "ask": "帮我把吉尔吉斯斯坦、哈萨克斯坦和乌兹别克斯坦安排进一次旅行。你建议怎样的路线、需要几天？",
+      "banner": "中亚大环游：\n一次旅程走遍伟大的丝绸之路"
     },
     "seasons": {
       "kicker": "季节",
@@ -804,7 +869,6 @@
   "ai": {
     "title": "Kerben Travel AI",
     "gateTitle": "你的中亚私人 AI 助手",
-    "gateText": "几秒钟内获得路线、季节、预算和实用建议。注册即可开始——完全免费。",
     "gatePoints": [
       "按你的日期生成逐日行程",
       "推荐带价格的 Kerben Travel 线路",
@@ -960,7 +1024,9 @@
     "filterLabel": "显示评价",
     "filterEmpty": "暂无此类评价。",
     "showAll": "显示全部评价（{n}）",
-    "showLess": "收起"
+    "showLess": "收起",
+    "emptyTitle": "暂无评价",
+    "emptyText": "成为第一个分享这次旅行的人。"
   },
   "units": {
     "per_person": "每人",
@@ -980,13 +1046,17 @@
     "back": "全部路线",
     "emptyTitle": "即将上线",
     "emptyText": "我们正在添加中。提交申请，经理会为您挑选方案并与您联系。",
-    "note": "现在无需付款——经理会先确认细节。"
+    "note": "现在无需付款——经理会先确认细节。",
+    "servicesKicker": "服务",
+    "all": "全部",
+    "notChosen": "未选择"
   },
   "trekking": {
     "kicker": "徒步路线",
     "title": "徒步",
     "text": "天山的山口、冰川与高山湖泊——由经验丰富的向导带领。",
-    "days": "{n} 天"
+    "days": "{n} 天",
+    "heroText": "吉尔吉斯斯坦山地徒步"
   },
   "transport": {
     "kicker": "接送与租车",
@@ -1011,7 +1081,17 @@
     "other": "其他车辆",
     "details": "查看详情",
     "aboutFallback": "适合在吉尔吉斯斯坦出行的舒适车辆：机场接机、前往城市和湖泊的接送、进山游览。客户经理会确认您日期的可用情况并推荐路线。",
-    "askPrompt": "帮我规划乘坐「{name}」的行程：可以去哪里、路上需要多久、沿途有什么值得看？"
+    "askPrompt": "帮我规划乘坐「{name}」的行程：可以去哪里、路上需要多久、沿途有什么值得看？",
+    "sort": "每日价格",
+    "heroText": "机场接机，前往城市和湖泊的接送服务",
+    "seatForms": {
+      "one": "{n} 座",
+      "few": "{n} 座",
+      "many": "{n} 座",
+      "other": "{n} 座"
+    },
+    "dateFrom": "开始日期",
+    "dateTo": "结束日期"
   },
   "helicopter": {
     "kicker": "空中视角",
@@ -1047,7 +1127,15 @@
     "weatherText": "如遇不宜飞行的天气，经理会联系您并安排其他时间或日期。",
     "photos": "飞行照片",
     "other": "其他飞行",
-    "askPrompt": "介绍一下直升机之旅“{name}”：能看到什么、飞多久、需要带什么？"
+    "askPrompt": "介绍一下直升机之旅“{name}”：能看到什么、飞多久、需要带什么？",
+    "date": "飞行日期",
+    "passengersField": "乘客",
+    "peopleForms": {
+      "one": "人",
+      "few": "人",
+      "many": "人",
+      "other": "人"
+    }
   },
   "requests": {
     "toast": {
@@ -1123,8 +1211,10 @@
     "text": "旅游、酒店和用车的申请，以及收藏的线路——都在这里。",
     "tabs": {
       "requests": "申请",
-      "saved": "收藏"
-    }
+      "saved": "收藏的行程"
+    },
+    "emptyTitle": "这里还是空的",
+    "emptyText": "提交行程、酒店或车辆申请，或收藏喜欢的行程——它们会显示在此页面。"
   },
   "trip": {
     "choose": "选择",

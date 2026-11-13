@@ -1,0 +1,14 @@
+.detail-section {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  scroll-margin-top: calc(var(--header-h) + 24px);
+}
+
+.detail-section-title {
+  font-size: 1.625rem;
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}

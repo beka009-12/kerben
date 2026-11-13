@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import { PageHero } from "@/components/common/page-hero/PageHero";
 import { ContactForm } from "@/components/contact/contact-form/ContactForm";
 import { ContactInfo } from "@/components/contact/contact-info/ContactInfo";
-import { kg } from "@/data/images";
 import { getContacts } from "@/utils/api/contacts";
 import { hasLocale } from "@/utils/i18n/config";
 import { getDictionary } from "@/utils/i18n/dictionaries";
@@ -25,8 +24,8 @@ export default async function ContactPage({ params }: PageProps<"/[lang]/contact
 
   return (
     <>
-      <PageHero kicker={t.kicker} title={t.title} text={t.text} image={kg("ala-archa")} />
-      <section className="section section-soft">
+      <PageHero kicker={t.kicker} title={t.title} text={t.text} image="/images/pages/faq-hero.webp" />
+      <section className="contact-page-section">
         <div className="container contact-page-grid">
           <ContactInfo dict={dict} contacts={contacts} />
           <ContactForm contacts={{ whatsappHref: contacts.whatsappHref, telegramHref: contacts.telegramHref }} />

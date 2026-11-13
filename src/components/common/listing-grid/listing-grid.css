@@ -1,0 +1,104 @@
+.listing-grid-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.listing-grid-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.listing-grid-chip {
+  padding: 10px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-full);
+  background: var(--white);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: var(--lh-tight);
+  color: var(--nav-text);
+  white-space: nowrap;
+  transition:
+    border-color 0.2s var(--ease),
+    background-color 0.2s var(--ease),
+    color 0.2s var(--ease);
+}
+
+.listing-grid-chip:hover {
+  border-color: var(--line-strong);
+  color: var(--ink);
+}
+
+.listing-grid-chip-active,
+.listing-grid-chip-active:hover {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: var(--white);
+}
+
+.listing-grid-sort {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.listing-grid-sort-select {
+  height: 39px;
+  padding: 0 38px 0 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-btn);
+  background: var(--white);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: var(--lh-tight);
+  color: var(--ink);
+  cursor: pointer;
+  appearance: none;
+}
+
+.listing-grid-sort-select:hover {
+  border-color: var(--line-strong);
+}
+
+.listing-grid-sort-icon {
+  position: absolute;
+  right: 14px;
+  pointer-events: none;
+}
+
+.listing-grid {
+  display: grid;
+  gap: 24px;
+}
+
+.listing-grid-item {
+  min-width: 0;
+}
+
+@media (min-width: 640px) {
+  .listing-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .listing-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .listing-grid-chips {
+    flex-wrap: nowrap;
+    width: calc(100% + var(--gutter) * 2);
+    margin-inline: calc(var(--gutter) * -1);
+    padding-inline: var(--gutter);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+}
