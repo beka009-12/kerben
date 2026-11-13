@@ -344,7 +344,8 @@
   }
 }
 
-@media (min-width: 1100px) {
+/* Полное меню влезает только с 1280px: на 1100–1279 немецкая и русская шапки переполнялись */
+@media (min-width: 1280px) {
   .header-nav,
   .header-desktop-only {
     display: flex;
@@ -357,7 +358,7 @@
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1440px) {
   .header-phone {
     display: inline-flex;
   }
