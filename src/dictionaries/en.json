@@ -26,7 +26,9 @@
     "requestsTitle": "My requests",
     "faqTitle": "Frequently asked questions",
     "faqDescription": "Answers to common questions about travelling in Kyrgyzstan: visas, seasons, payment, gear and safety.",
-    "tripsTitle": "My trips"
+    "tripsTitle": "My trips",
+    "attractionsTitle": "Sights of Kyrgyzstan",
+    "attractionsDescription": "Burana Tower, Ala-Archa, Tash-Rabat, Sulaiman-Too, Jeti-Oguz, Sary-Chelek and other places worth seeing in Kyrgyzstan."
   },
   "a11y": {
     "skip": "Skip to content",
@@ -61,13 +63,15 @@
     "helicopter": "Helicopter tours",
     "requests": "My requests",
     "trips": "My trips",
-    "tripsShort": "Trips"
+    "tripsShort": "Trips",
+    "attractions": "Sights",
+    "faq": "FAQ"
   },
   "hero": {
-    "eyebrow": "Discover the beauty of Kyrgyzstan",
-    "title": "We create journeys, not just trips",
+    "eyebrow": "Discover Kyrgyzstan with us!",
+    "title": "Trips across Kyrgyzstan and Central Asia with a local tour operator",
     "titleAccent": "your life",
-    "text": "Kerben Travel is a team of travellers who love Central Asia and the whole world. We have thought through every detail so you can simply enjoy the road.",
+    "text": "We create journeys that bring together nature, culture, comfort and real experiences.",
     "features": [
       "Unique routes",
       "Reliable service",
@@ -745,9 +749,8 @@
       "text": "Kerben Travel develops its own tourist infrastructure in Kyrgyzstan. Here travellers stay in the middle of nature, rest after a busy route and feel the spirit of the country."
     },
     "centralAsia": {
-      "kicker": "Central Asia in one trip",
+      "kicker": "Three countries. One adventure.",
       "title": "Grand tour of Central Asia",
-      "subtitle": "The Great Silk Road",
       "text": "Start your journey in Kyrgyzstan and continue it in the neighbouring countries.",
       "countries": [
         {
@@ -1245,5 +1248,144 @@
     "chatShow": "Show booking",
     "chatHide": "Collapse",
     "chatCount": "{count} in booking"
+  },
+  "attractions": {
+    "title": "Sights of Kyrgyzstan",
+    "text": "Silk Road towers and caravanserais, sacred mountains, gorges and lakes of the Tian Shan — the places worth coming to Kyrgyzstan for.",
+    "indexLabel": "Places on this page",
+    "plan": "Plan a trip",
+    "planAsk": "How do I plan a trip to {name}?",
+    "ctaTitle": "Want to see these places?",
+    "ctaText": "Pick a ready-made tour or ask the AI assistant to build a route around the sights you like.",
+    "items": {
+      "burana": {
+        "name": "Burana Tower",
+        "region": "Chuy Region",
+        "facts": [
+          "80 km from Bishkek",
+          "Great Silk Road"
+        ],
+        "text": [
+          "Burana Tower is one of the few historical landmarks in Kyrgyzstan. It served as a minaret for local people and as a landmark for caravans on the Great Silk Road.",
+          "The ancient city of Balasagun, which stood until the 14th century, is believed to have surrounded the tower. At its foot you can still see stone statues known as balbals and other artefacts showing that people lived here as early as the 2nd century.",
+          "Burana Tower lies 80 km east of Bishkek and is part of many cultural tours of Kyrgyzstan."
+        ]
+      },
+      "ala-archa": {
+        "name": "Ala-Archa National Park",
+        "region": "Chuy Region",
+        "facts": [
+          "40 km from Bishkek",
+          "Ak-Sai waterfall, 2,900 m",
+          "Semenov-Tian-Shansky Peak, 4,875 m"
+        ],
+        "text": [
+          "Ala-Archa is the easiest nature trip for anyone who has just landed in Kyrgyzstan. The national park lies only 40 km south of Bishkek, in the gorge of the same name.",
+          "It offers plenty of trekking routes and climbs to the surrounding peaks. A popular trail leads to the Ak-Sai waterfall (2,900 m), and the best-known summits are Semenov-Tian-Shansky Peak (4,875 m) and Korona Peak (4,860 m)."
+        ]
+      },
+      "tash-rabat": {
+        "name": "Tash-Rabat Caravanserai",
+        "region": "Naryn Region",
+        "facts": [
+          "15th-century building",
+          "90 km from the Chinese border"
+        ],
+        "text": [
+          "Tash-Rabat is one of the highest Silk Road monuments in Central Asia. Nobody knows exactly when the caravanserai appeared: it probably stood here as early as the 10th century, while the current building dates from the 15th century and, for reasons unknown, was never finished.",
+          "Today Tash-Rabat is mostly visited on longer tours of the country, as it sits in a remote mountain area just 90 km from the Chinese border."
+        ]
+      },
+      "sulaiman-too": {
+        "name": "Sulaiman-Too Mountain",
+        "region": "Osh",
+        "facts": [
+          "UNESCO World Heritage since 2009",
+          "Seven sacred caves"
+        ],
+        "text": [
+          "Sulaiman-Too means “Solomon's Mountain” in Kyrgyz. It rises in the centre of Osh and has seven caves that are considered sacred, like the mountain itself.",
+          "There are mosques on the mountain and at its foot, and one of the caves houses a large museum of history and ethnography about medieval and earlier Osh. In 2009 Sulaiman-Too was added to the UNESCO World Heritage List."
+        ]
+      },
+      "jeti-oguz": {
+        "name": "Jeti-Oguz Gorge",
+        "region": "Issyk-Kul Region",
+        "facts": [
+          "30 km from Karakol",
+          "Broken Heart rock"
+        ],
+        "text": [
+          "Jeti-Oguz is one of the symbols of Kyrgyzstan: a vivid gorge of red rocks 30 km south-west of Karakol. Its name means “Seven Bulls” in Kyrgyz, after the seven rocks standing in a row.",
+          "There is also the Broken Heart rock, resort areas and yurt camps, and several popular mountain trails run through the gorge."
+        ]
+      },
+      "altyn-arashan": {
+        "name": "Altyn-Arashan Gorge",
+        "region": "Issyk-Kul Region",
+        "facts": [
+          "25 km from Karakol",
+          "Above 2,600 m",
+          "Springs at 35–41 °C"
+        ],
+        "text": [
+          "Altyn-Arashan, meaning “Golden Spring”, is one of the most scenic gorges in Kyrgyzstan. It lies 25 km south-east of the resort town of Karakol, more than 2,600 metres above sea level.",
+          "Hot springs are scattered among dense conifer forests. Their healing water is rich in radon and hydrogen sulphide, with temperatures from 35 to 41 °C."
+        ]
+      },
+      "safed-bulan": {
+        "name": "Safed-Bulan",
+        "region": "Jalal-Abad Region",
+        "facts": [
+          "7th-century legend",
+          "Place of pilgrimage"
+        ],
+        "text": [
+          "An ancient settlement in the south of Kyrgyzstan, linked to one of the country's best-known legends."
+        ],
+        "points": [
+          {
+            "title": "Origin of the name",
+            "text": "In ancient times the settlement was called Dolona-Shahar, from the Turkic “dolona” (hawthorn) and the Persian “shahar” (city). Later the name Safed-Bulan, or Safid-Bulend, took hold. It means “the white (or beautiful) maid”."
+          },
+          {
+            "title": "The Arab campaign",
+            "text": "According to legend, in the 7th century Arab troops led by Shah Jarir, a grandson of the Prophet Muhammad, came to these lands, then Zoroastrian, to spread Islam."
+          },
+          {
+            "title": "The fallen warriors",
+            "text": "The locals accepted the new faith only in words. They secretly gathered an army and, during Friday prayer, treacherously killed about 2,700 (or 2,772) Arab warriors."
+          },
+          {
+            "title": "The legend of Bulan",
+            "text": "Only a dark-skinned maid named Bulan survived; for her righteousness she became known as Safed-Bulan. Risking her life, she searched for the fallen at night, washed their severed heads in a local stream and buried them."
+          }
+        ]
+      },
+      "manas-ordo": {
+        "name": "Manas Ordo",
+        "region": "Talas Region",
+        "facts": [
+          "Around 1334",
+          "The Manas epic"
+        ],
+        "text": [
+          "Manas Ordo is a memorial complex honouring Manas, the national hero who defended and united the Kyrgyz people in the epic of the same name. The mausoleum was built in the Chagatai era, around 1334, and according to tradition holds the hero's remains.",
+          "The location is no accident: legend has it that Manas and his army kept their main camp in the Talas Valley."
+        ]
+      },
+      "sary-chelek": {
+        "name": "Sary-Chelek Lake",
+        "region": "Jalal-Abad Region",
+        "facts": [
+          "Western Tian Shan",
+          "Biosphere reserve"
+        ],
+        "text": [
+          "Sary-Chelek is a gem of Kyrgyz nature and one of the most scenic places in the country, hidden among the mountains of the Western Tian Shan. The crystal-clear lake is surrounded by thick forests and high mountain slopes.",
+          "At dawn the peaks are reflected in the still water, and the silence and fresh mountain air make city life feel far away. It is a place to see Kyrgyzstan's wild nature, enjoy the quiet and come away with memories that last."
+        ]
+      }
+    }
   }
 }

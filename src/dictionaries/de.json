@@ -26,7 +26,9 @@
     "requestsTitle": "Meine Anfragen",
     "faqTitle": "Häufig gestellte Fragen",
     "faqDescription": "Antworten auf häufige Fragen zu Reisen in Kirgisistan: Visa, Reisezeit, Bezahlung, Ausrüstung und Sicherheit.",
-    "tripsTitle": "Meine Reisen"
+    "tripsTitle": "Meine Reisen",
+    "attractionsTitle": "Sehenswürdigkeiten Kirgisistans",
+    "attractionsDescription": "Burana-Turm, Ala-Artscha, Tasch-Rabat, Sulaiman-Too, Dschety-Ögüz, Sary-Tschelek und weitere Orte, die man in Kirgisistan gesehen haben sollte."
   },
   "a11y": {
     "skip": "Zum Inhalt springen",
@@ -61,13 +63,15 @@
     "helicopter": "Helikopter-Touren",
     "requests": "Meine Anfragen",
     "trips": "Meine Reisen",
-    "tripsShort": "Reisen"
+    "tripsShort": "Reisen",
+    "attractions": "Sehenswürdigkeiten",
+    "faq": "Häufige Fragen"
   },
   "hero": {
-    "eyebrow": "Entdecken Sie die Schönheit Kirgisistans",
-    "title": "Wir gestalten Reisen, nicht nur Ausflüge",
+    "eyebrow": "Entdecken Sie Kirgisistan mit uns!",
+    "title": "Reisen durch Kirgisistan und Zentralasien mit einem lokalen Reiseveranstalter",
     "titleAccent": "verändern",
-    "text": "Kerben Travel ist ein Team von Reisenden, die Zentralasien und die ganze Welt lieben. Wir haben an jedes Detail gedacht, damit Sie einfach die Reise genießen.",
+    "text": "Wir gestalten Reisen, die Natur, Kultur, Komfort und echte Erlebnisse verbinden.",
     "features": [
       "Einzigartige Routen",
       "Zuverlässiger Service",
@@ -745,9 +749,8 @@
       "text": "Kerben Travel entwickelt eigene touristische Infrastruktur in Kirgisistan. Hier wohnen Reisende mitten in der Natur, erholen sich nach einer intensiven Route und spüren den Geist des Landes."
     },
     "centralAsia": {
-      "kicker": "Zentralasien auf einer Reise",
+      "kicker": "Drei Länder. Ein Abenteuer.",
       "title": "Grand Tour durch Zentralasien",
-      "subtitle": "Die Große Seidenstraße",
       "text": "Beginnen Sie Ihre Reise in Kirgisistan und setzen Sie sie in den Nachbarländern fort.",
       "countries": [
         {
@@ -1245,5 +1248,144 @@
     "chatShow": "Buchung zeigen",
     "chatHide": "Einklappen",
     "chatCount": "{count} in der Buchung"
+  },
+  "attractions": {
+    "title": "Sehens­würdigkeiten Kirgisistans",
+    "text": "Türme und Karawansereien der Seidenstraße, heilige Berge, Schluchten und Seen des Tian Shan – Orte, für die sich die Reise nach Kirgisistan lohnt.",
+    "indexLabel": "Orte auf dieser Seite",
+    "plan": "Reise planen",
+    "planAsk": "Reiseidee: {name}. Welche Tour passt dazu?",
+    "ctaTitle": "Möchten Sie diese Orte sehen?",
+    "ctaText": "Wählen Sie eine fertige Tour oder lassen Sie den KI-Assistenten eine Route zu Ihren Wunschorten zusammenstellen.",
+    "items": {
+      "burana": {
+        "name": "Burana-Turm",
+        "region": "Gebiet Tschüi",
+        "facts": [
+          "80 km von Bischkek",
+          "Große Seidenstraße"
+        ],
+        "text": [
+          "Der Burana-Turm ist eines der wenigen historischen Wahrzeichen Kirgisistans. Er diente den Einheimischen als Minarett und den Karawanen der Großen Seidenstraße als Orientierungspunkt.",
+          "Man nimmt an, dass rund um den Turm die antike Stadt Balasagun lag, die bis ins 14. Jahrhundert bestand. Am Fuß des Turms sind noch heute Steinfiguren – sogenannte Balbals – und andere Artefakte zu sehen, die belegen, dass hier schon im 2. Jahrhundert Menschen siedelten.",
+          "Der Burana-Turm liegt 80 km östlich von Bischkek und gehört zum Programm vieler Kulturreisen durch Kirgisistan."
+        ]
+      },
+      "ala-archa": {
+        "name": "Nationalpark Ala-Artscha",
+        "region": "Gebiet Tschüi",
+        "facts": [
+          "40 km von Bischkek",
+          "Ak-Sai-Wasserfall, 2900 m",
+          "Pik Semjonow-Tjan-Schanski, 4875 m"
+        ],
+        "text": [
+          "Ala-Artscha ist das am leichtesten erreichbare Naturziel Kirgisistans für alle, die gerade angekommen sind. Der Nationalpark liegt nur 40 km südlich von Bischkek in der gleichnamigen Schlucht.",
+          "Hier gibt es zahlreiche Trekkingrouten und Aufstiege zu den umliegenden Gipfeln. Ein beliebter Pfad führt zum Ak-Sai-Wasserfall (2900 m), die bekanntesten Berge sind der Pik Semjonow-Tjan-Schanski (4875 m) und der Pik Korona (4860 m)."
+        ]
+      },
+      "tash-rabat": {
+        "name": "Karawanserei Tasch-Rabat",
+        "region": "Gebiet Naryn",
+        "facts": [
+          "Gebäude aus dem 15. Jahrhundert",
+          "90 km von der Grenze zu China"
+        ],
+        "text": [
+          "Tasch-Rabat ist eines der höchstgelegenen Denkmäler der Großen Seidenstraße in Zentralasien. Wann die Karawanserei entstand, ist nicht genau bekannt: Vermutlich gab es sie schon im 10. Jahrhundert, das heutige Gebäude wurde im 15. Jahrhundert errichtet, aus unbekannten Gründen aber nie vollendet.",
+          "Heute besucht man Tasch-Rabat meist im Rahmen längerer Rundreisen, denn es liegt in einer menschenleeren Berggegend, nur 90 km von der chinesischen Grenze entfernt."
+        ]
+      },
+      "sulaiman-too": {
+        "name": "Berg Sulaiman-Too",
+        "region": "Osch",
+        "facts": [
+          "UNESCO-Welterbe seit 2009",
+          "Sieben heilige Höhlen"
+        ],
+        "text": [
+          "Sulaiman-Too bedeutet auf Kirgisisch „Berg Salomos“. Der Berg erhebt sich mitten in der Stadt Osch und hat sieben Höhlen, die – wie der Berg selbst – als heilig gelten.",
+          "Auf dem Berg und an seinem Fuß stehen Moscheen, und in einer der Höhlen befindet sich ein großes historisch-ethnografisches Museum zur mittelalterlichen und älteren Geschichte von Osch. 2009 wurde Sulaiman-Too in die UNESCO-Welterbeliste aufgenommen."
+        ]
+      },
+      "jeti-oguz": {
+        "name": "Schlucht Dschety-Ögüz",
+        "region": "Gebiet Issyk-Kul",
+        "facts": [
+          "30 km von Karakol",
+          "Felsen „Gebrochenes Herz“"
+        ],
+        "text": [
+          "Dschety-Ögüz ist eines der Symbole Kirgisistans: eine farbenprächtige Schlucht mit roten Felsen, 30 km südwestlich von Karakol. Der Name bedeutet auf Kirgisisch „Sieben Stiere“ – nach den sieben Felsen, die in einer Reihe stehen.",
+          "Außerdem gibt es hier den Felsen „Gebrochenes Herz“, Erholungsgebiete und Jurtencamps, und durch die Schlucht führen mehrere beliebte Bergpfade."
+        ]
+      },
+      "altyn-arashan": {
+        "name": "Schlucht Altyn-Arashan",
+        "region": "Gebiet Issyk-Kul",
+        "facts": [
+          "25 km von Karakol",
+          "Über 2600 m",
+          "Quellen mit 35–41 °C"
+        ],
+        "text": [
+          "Altyn-Arashan, übersetzt „Goldene Quelle“, ist eine der malerischsten Schluchten Kirgisistans. Sie liegt 25 km südöstlich des Kurorts Karakol auf über 2600 Metern Höhe.",
+          "Zwischen dichten Nadelwäldern verteilen sich heiße Quellen. Ihr heilkräftiges Wasser ist reich an Radon und Schwefelwasserstoff, die Temperatur liegt zwischen 35 und 41 °C."
+        ]
+      },
+      "safed-bulan": {
+        "name": "Safed-Bulan",
+        "region": "Gebiet Dschalal-Abad",
+        "facts": [
+          "Legende aus dem 7. Jahrhundert",
+          "Pilgerort"
+        ],
+        "text": [
+          "Eine alte Siedlung im Süden Kirgisistans, mit der eine der bekanntesten Legenden des Landes verbunden ist."
+        ],
+        "points": [
+          {
+            "title": "Herkunft des Namens",
+            "text": "In alter Zeit hieß die Siedlung Dolona-Schahar – aus dem turksprachigen „dolona“ (Weißdorn) und dem persischen „schahar“ (Stadt). Später setzte sich der Name Safed-Bulan oder Safid-Bulend durch, was „weiße (oder schöne) Dienerin“ bedeutet."
+          },
+          {
+            "title": "Der Feldzug der Araber",
+            "text": "Der Überlieferung nach kamen im 7. Jahrhundert arabische Truppen unter Schah Dscharir, einem Enkel des Propheten Mohammed, in diese damals zoroastrischen Lande, um den Islam zu verbreiten."
+          },
+          {
+            "title": "Der Tod der Krieger",
+            "text": "Die Einheimischen nahmen den neuen Glauben nur zum Schein an, stellten heimlich ein Heer auf und töteten während des Freitagsgebets heimtückisch etwa 2700 (oder 2772) arabische Krieger."
+          },
+          {
+            "title": "Die Legende von Bulan",
+            "text": "Überlebt hat nur eine dunkelhäutige Dienerin namens Bulan, die wegen ihrer Frömmigkeit Safed-Bulan genannt wurde. Unter Lebensgefahr suchte sie nachts die gefallenen Krieger, wusch ihre abgeschlagenen Köpfe in einem Bach und bestattete sie."
+          }
+        ]
+      },
+      "manas-ordo": {
+        "name": "Manas Ordo",
+        "region": "Gebiet Talas",
+        "facts": [
+          "Um 1334",
+          "Manas-Epos"
+        ],
+        "text": [
+          "Manas Ordo ist eine Gedenkstätte für den Nationalhelden Manas, der im gleichnamigen Epos die Kirgisen verteidigte und einte. Das Mausoleum entstand in der Tschagatai-Zeit um 1334 und birgt der Überlieferung nach die Gebeine des Helden.",
+          "Der Ort ist kein Zufall: Der Legende nach lag im Talas-Tal das Hauptlager von Manas und seinem Heer."
+        ]
+      },
+      "sary-chelek": {
+        "name": "Sary-Tschelek-See",
+        "region": "Gebiet Dschalal-Abad",
+        "facts": [
+          "Westlicher Tian Shan",
+          "Biosphärenreservat"
+        ],
+        "text": [
+          "Sary-Tschelek ist eine Perle der kirgisischen Natur und einer der malerischsten Orte des Landes, verborgen zwischen den Bergen des westlichen Tian Shan. Der kristallklare See ist von dichten Wäldern und hohen Berghängen umgeben.",
+          "Im Morgenlicht spiegeln sich die Gipfel im glatten Wasser, und Stille und frische Bergluft lassen den Alltag schnell vergessen. Hier erleben Sie die wilde Natur Kirgisistans, finden Ruhe und sammeln unvergessliche Eindrücke."
+        ]
+      }
+    }
   }
 }
