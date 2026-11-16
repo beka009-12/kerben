@@ -12,8 +12,21 @@ import { useHeader } from "@/utils/layout/use-header";
 import type { SearchItem } from "@/utils/search";
 import "./header.css";
 
+const step = (i: number) => ({ "--i": i }) as CSSProperties;
+
+/**
+ * Мобильное меню появляется по шагам сверху вниз: заголовок группы, её карточка с пунктами по одному, следующая группа.
+ * Возвращает номер первого шага каждой группы; последний элемент — шаг подвала (язык, контакты).
+ */
+function stepStarts(groups: readonly { items: readonly unknown[] }[]): number[] {
+  const starts = [0];
+  for (const group of groups) starts.push((starts.at(-1) ?? 0) + group.items.length + 1);
+  return starts;
+}
+
 export function Header({ searchItems, contacts }: { searchItems: SearchItem[]; contacts: SiteContacts }) {
   const { burgerRef, dict, ...h } = useHeader();
+  const drawerSteps = stepStarts(h.drawerGroups);
 
   return (
     <header className={h.headerClass}>
@@ -107,10 +120,12 @@ export function Header({ searchItems, contacts }: { searchItems: SearchItem[]; c
           <div className="header-drawer-groups">
             {h.drawerGroups.map((group, g) => (
               <section key={group.title} className="header-drawer-group" aria-label={group.title}>
-                <p className="header-drawer-title">{group.title}</p>
-                <ul className="header-drawer-list">
+                <p className="header-drawer-title" style={step(drawerSteps[g] ?? 0)}>
+                  {group.title}
+                </p>
+                <ul className="header-drawer-list" style={step((drawerSteps[g] ?? 0) + 1)}>
                   {group.items.map((link, i) => (
-                    <li key={link.href} className="header-drawer-item" style={{ "--i": g * 5 + i } as CSSProperties}>
+                    <li key={link.href} className="header-drawer-item" style={step((drawerSteps[g] ?? 0) + 1 + i)}>
                       <Link
                         href={link.href}
                         className={h.isActive(link.href) ? "header-drawer-link header-drawer-link-active" : "header-drawer-link"}
@@ -130,12 +145,12 @@ export function Header({ searchItems, contacts }: { searchItems: SearchItem[]; c
             ))}
           </div>
 
-          <div className="header-drawer-footer">
+          <div className="header-drawer-footer" style={step(drawerSteps.at(-1) ?? 0)}>
             <LanguageSwitcher id="lang-mobile" variant="inline" />
           </div>
 
           {(contacts.phoneHref || contacts.whatsappHref || contacts.instagramHref) && (
-            <div className="header-drawer-contacts">
+            <div className="header-drawer-contacts" style={step((drawerSteps.at(-1) ?? 0) + 1)}>
               {contacts.phone && contacts.phoneHref && (
                 <a href={contacts.phoneHref} className="header-drawer-contact">
                   <Icon name="phone" size={18} />
