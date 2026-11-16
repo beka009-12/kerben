@@ -72,20 +72,6 @@
   background: var(--white);
 }
 
-.numbers-view-wrap {
-  display: grid;
-  gap: clamp(24px, 3vw, 40px);
-}
-
-.numbers-view-heading {
-  font-family: var(--font-manrope), system-ui, sans-serif;
-  font-size: clamp(2rem, 1.2rem + 2.2vw, 3rem);
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.01em;
-  color: var(--ink);
-}
-
 .numbers-view-cards {
   display: grid;
   grid-template-columns: 1fr;

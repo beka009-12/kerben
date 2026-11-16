@@ -3,6 +3,7 @@ import type { CompanyStats } from "@/utils/api/about";
 import { formatNumber } from "@/utils/format";
 import type { Locale } from "@/utils/i18n/config";
 import type { Dictionary } from "@/utils/i18n/dictionaries";
+import { SectionHeader } from "@/components/ui/section-header/SectionHeader";
 import "./people-numbers.css";
 
 interface PeopleNumbersProps {
@@ -44,10 +45,8 @@ export function PeopleNumbers({ dict, locale, stats }: PeopleNumbersProps) {
   return (
     <>
       <section className="numbers-view" aria-labelledby="numbers-title">
-        <div className="container numbers-view-wrap">
-          <h2 id="numbers-title" className="numbers-view-heading">
-            {plain(t.title)}
-          </h2>
+        <div className="container">
+          <SectionHeader id="numbers-title" title={plain(t.title)} />
           <NumbersCards items={items} />
         </div>
       </section>
