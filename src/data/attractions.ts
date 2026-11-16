@@ -12,14 +12,14 @@ export interface Attraction {
 
 const photo = (name: string) => `/images/attractions/${name}.webp`;
 
-/** Порядок — как в путеводителе. Фото Джети-Огуза и Алтын-Арашана — Wikimedia Commons, авторы в data/credits.ts */
+/** Порядок — как в путеводителе */
 export const ATTRACTIONS: Attraction[] = [
   { slug: "burana", image: photo("burana"), portrait: true },
   { slug: "ala-archa", image: photo("ala-archa"), portrait: true },
   { slug: "tash-rabat", image: photo("tash-rabat") },
   { slug: "sulaiman-too", image: photo("sulaiman-too") },
-  { slug: "jeti-oguz", image: "/images/kg/jeti-oguz-rocks.jpg" },
-  { slug: "altyn-arashan", image: "/images/kg/horses.jpg" },
+  { slug: "jeti-oguz", image: photo("jeti-oguz"), portrait: true },
+  { slug: "altyn-arashan", image: photo("altyn-arashan") },
   { slug: "safed-bulan" },
   { slug: "manas-ordo" },
   { slug: "sary-chelek" },

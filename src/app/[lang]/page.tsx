@@ -52,7 +52,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
         dict={dict}
       />
       <CustomTrip image={home("custom-trip")} locale={lang} dict={dict} />
-      <Infrastructure image={home("infrastructure")} dict={dict} />
+      <Infrastructure image={home("infrastructure-yurt-camp")} dict={dict} />
       <Seasons locale={lang} dict={dict} />
       <Faq locale={lang} dict={dict} items={faqs} />
       <PlanCta dict={dict} />
