@@ -208,10 +208,6 @@
   padding-block: var(--section-pad);
 }
 
-.tours-catalog-cta {
-  padding-bottom: var(--section-pad);
-}
-
 @media (max-width: 1099px) {
   .tours-catalog-hero-inner {
     padding: 40px;

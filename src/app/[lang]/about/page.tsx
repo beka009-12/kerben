@@ -28,7 +28,7 @@ export default async function AboutPage({ params }: PageProps<"/[lang]/about">) 
 
   return (
     <>
-      <PageHero kicker={t.kicker} title={t.title} image="/images/home/infrastructure.webp" />
+      <PageHero kicker={t.kicker} title={t.title} image="/images/home/infrastructure-yurt-camp.webp" />
 
       <section className="about-page-intro">
         <div className="container about-page-intro-inner">

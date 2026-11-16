@@ -215,18 +215,37 @@
 
 .header-drawer-item {
   border-top: 1px solid var(--line);
-  animation: header-drawer-item 0.4s var(--ease) both;
-  animation-delay: calc(var(--i, 0) * 35ms + 60ms);
 }
 
 .header-drawer-item:first-child {
   border-top: 0;
 }
 
-@keyframes header-drawer-item {
+/* Появление по шагам: --i — номер шага из Header.tsx, только opacity и transform — дёшево и на слабых телефонах */
+.header-drawer-title,
+.header-drawer-list,
+.header-drawer-item,
+.header-drawer-footer,
+.header-drawer-contacts {
+  animation: header-drawer-step 0.45s var(--ease) both;
+  animation-delay: calc(var(--i, 0) * 32ms + 50ms);
+}
+
+.header-drawer-list {
+  animation-name: header-drawer-card;
+}
+
+@keyframes header-drawer-step {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(14px);
+  }
+}
+
+@keyframes header-drawer-card {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
   }
 }
 
@@ -333,7 +352,11 @@
   }
 
   .header-drawer,
-  .header-drawer-item {
+  .header-drawer-title,
+  .header-drawer-list,
+  .header-drawer-item,
+  .header-drawer-footer,
+  .header-drawer-contacts {
     animation: none;
   }
 }

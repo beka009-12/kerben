@@ -42,16 +42,13 @@
   gap: 24px;
 }
 
+/* Все снимки одного формата, чтобы ряды не прыгали по высоте */
 .attraction-media {
   position: relative;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 4 / 5;
   overflow: hidden;
   border-radius: var(--radius-photo);
   background: var(--photo-bg);
-}
-
-.attraction-media-portrait {
-  aspect-ratio: 4 / 5;
 }
 
 .attraction-image {
@@ -186,8 +183,8 @@
   }
 
   .attraction {
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-    align-items: center;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: start;
     gap: 72px;
   }
 
@@ -195,12 +192,18 @@
     order: 2;
   }
 
-  .attraction-media {
-    aspect-ratio: 5 / 4;
+  /*
+   * Обе колонки липкие: прилипает та, что короче. Длинный текст — фото держится рядом, пока его читают;
+   * короткий текст — он держится рядом со снимком. Фото не выше экрана, поэтому липкий текст всегда виден целиком.
+   */
+  .attraction-media,
+  .attraction-body {
+    position: sticky;
+    top: calc(var(--header-h) + 24px);
   }
 
-  .attraction-media-portrait {
-    aspect-ratio: 4 / 5;
+  .attraction-media {
+    max-height: calc(100svh - var(--header-h) - 48px);
   }
 
   .attraction-solo {
