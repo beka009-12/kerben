@@ -29,7 +29,6 @@ export function CentralAsia({ locale, dict }: { locale: Locale; dict: Dictionary
             fill
             sizes="100vw"
             quality={85}
-            loading="eager"
             style={{ "--fx": FLAG_FOCUS[i]?.[0] ?? 0.5, "--fy": FLAG_FOCUS[i]?.[1] ?? 0.5 } as CSSProperties}
             className={i === active ? "central-asia-flag central-asia-flag-active" : "central-asia-flag"}
           />
