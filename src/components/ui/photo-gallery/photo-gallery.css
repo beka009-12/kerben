@@ -445,3 +445,9 @@ html:has(.photo-viewer[open]) {
     animation: none;
   }
 }
+
+/* Размытые копии фото за кадром — самый дорогой фильтр галереи; на слабых устройствах остаётся ровный фон */
+.lite .photo-gallery-backdrop,
+.lite .photo-viewer-ambient {
+  display: none;
+}
