@@ -4,8 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import { Icon } from "@/components/ui/icon/Icon";
 
 const VIDEO_SRC = "/videos/hero-kerben-hd.mp4";
-/** Первый кадр ролика — виден до загрузки, при «меньше движения» и в режиме экономии трафика */
-const POSTER = "/images/hero/hero-poster.webp";
+/** На вертикальном экране 16:9 обрезается до узкой полосы — там играет отдельный вертикальный ролик */
+const MOBILE_VIDEO_SRC = "/videos/hero-kel-suu-mobile.mp4";
+/** Тот же запрос — в hero.css для постера: первый кадр нужного ролика виден до загрузки и при «меньше движения» */
+const MOBILE_MEDIA = "(max-width: 767px) and (orientation: portrait)";
 
 interface NetworkInfo {
   saveData?: boolean;
@@ -48,8 +50,6 @@ export function HeroVideo({ pauseLabel, playLabel }: HeroVideoProps) {
       <video
         ref={videoRef}
         className="hero-video"
-        src={VIDEO_SRC}
-        poster={POSTER}
         muted
         loop
         playsInline
@@ -58,7 +58,10 @@ export function HeroVideo({ pauseLabel, playLabel }: HeroVideoProps) {
         tabIndex={-1}
         onPlay={() => setPlaying(true)}
         onPause={() => setPlaying(false)}
-      />
+      >
+        <source src={MOBILE_VIDEO_SRC} type="video/mp4" media={MOBILE_MEDIA} />
+        <source src={VIDEO_SRC} type="video/mp4" />
+      </video>
       {/* WCAG 2.2.2: движение дольше 5 секунд — с видимой паузой */}
       <button
         type="button"

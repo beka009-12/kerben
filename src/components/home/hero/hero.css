@@ -5,9 +5,16 @@
   min-height: 100svh;
   padding-top: var(--header-h);
   overflow: hidden;
-  background: var(--photo-bg);
+  /* Постер — фоном, а не атрибутом poster: у <video> он один, а ролика два (см. HeroVideo) */
+  background: var(--photo-bg) url("/images/hero/hero-poster.webp") center / cover no-repeat;
   color: var(--white);
   isolation: isolate;
+}
+
+@media (max-width: 767px) and (orientation: portrait) {
+  .hero {
+    background-image: url("/images/hero/hero-poster-mobile.webp");
+  }
 }
 
 .hero-video {
