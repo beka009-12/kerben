@@ -14,12 +14,12 @@ const step = (i: number) => ({ "--d": i }) as CSSProperties;
 
 export function CentralAsia({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const t = dict.home.centralAsia;
-  const { active, select, onKeyDown } = useCentralAsia(t.countries.length);
   const { ref, visible } = useReveal();
+  const { active, select, onKeyDown, hoverProps, focusProps } = useCentralAsia(t.countries.length, visible);
   const item = (base: string) => (visible ? `${base} central-asia-in` : base);
 
   return (
-    <section id="central-asia" className="central-asia" aria-labelledby="central-asia-title">
+    <section id="central-asia" className="central-asia" aria-labelledby="central-asia-title" {...focusProps}>
       <div className="central-asia-flags" aria-hidden="true">
         {t.countries.map((country, i) => (
           <Image
@@ -49,7 +49,7 @@ export function CentralAsia({ locale, dict }: { locale: Locale; dict: Dictionary
           ))}
         </h2>
 
-        <div className={item("central-asia-switch")} style={step(2)} role="tablist" aria-label={t.kicker}>
+        <div className={item("central-asia-switch")} style={step(2)} role="tablist" aria-label={t.kicker} {...hoverProps}>
           {t.countries.map((country, i) => (
             <button
               key={country.name}
@@ -70,9 +70,14 @@ export function CentralAsia({ locale, dict }: { locale: Locale; dict: Dictionary
 
         <div id="central-asia-places" role="tabpanel" aria-labelledby={`central-asia-tab-${active}`} className={item("central-asia-places")} style={step(3)}>
           {t.countries.map((country, i) => (
-            <p key={country.name} className={i === active ? "central-asia-line central-asia-line-active" : "central-asia-line"} aria-hidden={i !== active}>
-              {country.places.join(" · ")}
-            </p>
+            <ul key={country.name} className={i === active ? "central-asia-pills central-asia-pills-active" : "central-asia-pills"} aria-hidden={i !== active}>
+              {country.places.map((place, j) => (
+                <li key={place} className="central-asia-pill" style={{ "--i": j } as CSSProperties}>
+                  <Icon name="mapPin" size={15} className="central-asia-pill-icon" />
+                  {place}
+                </li>
+              ))}
+            </ul>
           ))}
         </div>
 

@@ -87,13 +87,13 @@
   color: var(--cream);
 }
 
+/* Шрифт и кегль — как у остальных заголовков секций */
 .central-asia-title {
-  margin-top: clamp(14px, 1.6vw, 24px);
-  font-family: var(--font-manrope), system-ui, sans-serif;
-  font-size: clamp(2.25rem, 1rem + 3.4vw, 4.75rem);
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
+  margin-top: clamp(12px, 1.2vw, 16px);
+  font-size: var(--fs-section);
+  font-weight: var(--fw-heading);
+  line-height: var(--lh-section);
+  letter-spacing: var(--ls-heading);
   text-wrap: balance;
   color: var(--cream);
 }
@@ -106,15 +106,16 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 8px clamp(16px, 3.2vw, 64px);
-  margin-top: clamp(28px, 3.6vw, 56px);
+  gap: 8px clamp(20px, 3vw, 40px);
+  margin-top: clamp(24px, 3vw, 40px);
 }
 
 .central-asia-option {
   position: relative;
-  padding: 6px 2px 12px;
+  min-height: 44px;
+  padding: 8px 2px 12px;
   font-family: var(--font-manrope), system-ui, sans-serif;
-  font-size: clamp(1.0625rem, 0.5rem + 1.5vw, 2.25rem);
+  font-size: clamp(1rem, 0.85rem + 0.5vw, 1.375rem);
   font-weight: 600;
   white-space: nowrap;
   color: rgb(246 235 216 / 55%);
@@ -135,8 +136,10 @@
   transition: transform 0.35s var(--ease);
 }
 
-.central-asia-option:hover {
-  color: rgb(246 235 216 / 85%);
+@media (hover: hover) {
+  .central-asia-option:hover {
+    color: rgb(246 235 216 / 85%);
+  }
 }
 
 .central-asia-option:focus-visible {
@@ -156,44 +159,71 @@
 
 .central-asia-places {
   display: grid;
-  margin-top: clamp(18px, 2vw, 32px);
+  max-width: 640px;
+  margin-top: clamp(16px, 1.6vw, 24px);
 }
 
-.central-asia-line {
+.central-asia-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
   grid-area: 1 / 1;
-  font-size: clamp(1rem, 0.5rem + 1.1vw, 1.75rem);
-  font-weight: 400;
-  line-height: 1.4;
-  color: rgb(246 235 216 / 88%);
-  opacity: 0;
-  transform: translate3d(0, 8px, 0);
-  transition:
-    opacity 0.45s var(--ease),
-    transform 0.45s var(--ease);
 }
 
-.central-asia-line-active {
+/* Места страны: золотая метка в цвет подчёркивания вкладок; при смене страны пилюли выходят по очереди */
+.central-asia-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 8px 18px 8px 14px;
+  border: 1px solid rgb(221 187 104 / 40%);
+  border-radius: var(--radius-full);
+  background: rgb(8 10 18 / 62%);
+  font-size: clamp(0.875rem, 0.8rem + 0.25vw, 1rem);
+  font-weight: 500;
+  line-height: 1.3;
+  white-space: nowrap;
+  color: var(--cream);
+  opacity: 0;
+  transform: translate3d(0, 6px, 0);
+  transition:
+    opacity 0.2s var(--ease),
+    transform 0.2s var(--ease);
+}
+
+.central-asia-pills-active .central-asia-pill {
   opacity: 1;
   transform: none;
+  transition-duration: 0.35s;
+  transition-delay: calc(var(--i, 0) * 40ms);
+}
+
+.central-asia-pill-icon {
+  flex: none;
+  color: var(--gold);
 }
 
 .central-asia-footer {
-  margin-top: clamp(32px, 4vw, 64px);
+  margin-top: clamp(28px, 3vw, 40px);
 }
 
+/* Размер и скругление — как у больших кнопок сайта (.button-lg) */
 .central-asia-cta {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  min-height: 56px;
-  padding: 0 32px;
+  gap: 10px;
+  min-height: var(--btn-h-lg);
+  padding: 0 var(--btn-pad-lg);
   border: 1px solid rgb(246 235 216 / 55%);
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-btn-lg);
   background: rgb(6 10 22 / 42%);
   color: var(--cream);
-  font-family: var(--font-manrope), system-ui, sans-serif;
-  font-size: clamp(0.9375rem, 0.8rem + 0.3vw, 1.125rem);
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
   font-weight: 600;
+  line-height: var(--lh-tight);
   backdrop-filter: blur(8px);
   transition:
     background-color 0.25s,
@@ -201,10 +231,12 @@
     gap 0.25s var(--ease);
 }
 
-.central-asia-cta:hover {
-  gap: 16px;
-  border-color: var(--cream);
-  background: rgb(6 10 22 / 62%);
+@media (hover: hover) {
+  .central-asia-cta:hover {
+    gap: 14px;
+    border-color: var(--cream);
+    background: rgb(6 10 22 / 62%);
+  }
 }
 
 .central-asia-cta:focus-visible {
@@ -229,15 +261,6 @@
   .central-asia-option {
     padding-bottom: 9px;
   }
-
-  .central-asia-line {
-    max-width: 30ch;
-    margin-inline: auto;
-  }
-
-  .central-asia-cta {
-    padding: 0 24px;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -246,9 +269,14 @@
   }
 
   .central-asia-flag,
-  .central-asia-line,
   .central-asia-option::after {
     transition: none;
+  }
+
+  .central-asia-pill,
+  .central-asia-pills-active .central-asia-pill {
+    transform: none;
+    transition: opacity 0.2s linear;
   }
 
   .central-asia-kicker,
