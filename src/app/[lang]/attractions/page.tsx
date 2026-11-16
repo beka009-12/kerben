@@ -66,7 +66,7 @@ export default async function AttractionsPage({ params }: PageProps<"/[lang]/att
         {places.map((place, i) => (
           <article key={place.slug} id={place.slug} className={articleClass(Boolean(place.image), i)} aria-labelledby={`${place.slug}-name`}>
             {place.image && (
-              <div className={place.portrait ? "attraction-media attraction-media-portrait" : "attraction-media"}>
+              <div className="attraction-media">
                 <Image src={place.image} alt={place.name} fill sizes="(min-width: 1024px) 600px, 100vw" className="attraction-image" />
               </div>
             )}
