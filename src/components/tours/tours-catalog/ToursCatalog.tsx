@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import { memo, useMemo } from "react";
-import { CtaBanner, CtaBannerLink } from "@/components/common/cta-banner/CtaBanner";
 import { EmptyOffers } from "@/components/common/empty-offers/EmptyOffers";
+import { RouteCta } from "@/components/common/route-cta/RouteCta";
 import { CatalogCard, type CatalogCardLabels } from "@/components/tours/catalog-card/CatalogCard";
 import { ButtonLink } from "@/components/ui/button/Button";
 import { Icon } from "@/components/ui/icon/Icon";
@@ -15,7 +15,6 @@ import "./tours-catalog.css";
 const MemoCard = memo(CatalogCard);
 
 export const TOURS_HERO = "/images/pages/tours-hero.webp";
-export const TOURS_CTA = "/images/pages/cta-custom.webp";
 
 export function ToursHero({ kicker, title }: { kicker: string; title: string }) {
   return (
@@ -57,31 +56,7 @@ export function ToursCatalog({ tours }: { tours: Tour[] }) {
 
   const hero = <ToursHero kicker={t.heroTitle} title={t.heroText} />;
 
-  const cta = (
-    <section className="tours-catalog-cta">
-      <div className="container">
-        <CtaBanner
-          eyebrow={t.cta.eyebrow}
-          title={t.cta.title}
-          text={t.cta.text}
-          image={TOURS_CTA}
-          trust={t.cta.trust}
-          actions={
-            <>
-              <CtaBannerLink href={`/${locale}/chat?ask=${encodeURIComponent(dict.home.custom.ask)}`} variant="primary">
-                {t.cta.primary}
-                <Icon name="arrowRight" size={18} />
-              </CtaBannerLink>
-              <CtaBannerLink href={`/${locale}/chat`} variant="glass">
-                <Icon name="sparkle" size={18} />
-                {t.cta.ask}
-              </CtaBannerLink>
-            </>
-          }
-        />
-      </div>
-    </section>
-  );
+  const cta = <RouteCta locale={locale} dict={dict} />;
 
   if (tours.length === 0) {
     return (

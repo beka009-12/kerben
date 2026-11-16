@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { EmptyOffers } from "@/components/common/empty-offers/EmptyOffers";
 import { ListingGrid, type ListingGridItem, type ListingGridLabels } from "@/components/common/listing-grid/ListingGrid";
 import { PageHero } from "@/components/common/page-hero/PageHero";
+import { RouteCta } from "@/components/common/route-cta/RouteCta";
 import { ButtonLink } from "@/components/ui/button/Button";
 import { Icon } from "@/components/ui/icon/Icon";
 import type { Locale } from "@/utils/i18n/config";
@@ -47,6 +48,7 @@ export function ListingPage({
           {children}
         </div>
       </section>
+      <RouteCta locale={locale} dict={dict} />
     </>
   );
 }
