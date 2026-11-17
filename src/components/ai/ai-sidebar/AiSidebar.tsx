@@ -5,6 +5,7 @@ import { Icon } from "@/components/ui/icon/Icon";
 import type { AiConversation } from "@/utils/hooks/useAssistant";
 import type { AuthUser } from "@/utils/store/auth";
 import { useAiSidebar } from "@/utils/ai/use-ai-sidebar";
+import { useBackdropDismiss } from "@/utils/ui/use-backdrop-dismiss";
 import { useModal } from "@/utils/ui/use-modal";
 import "./ai-sidebar.css";
 
@@ -49,6 +50,7 @@ export function AiSidebar({
 }) {
   const { sheet, setSheet, suppressClick, cancelPress, openChatSheet, onPointerDown, onPointerMove, confirm } = useAiSidebar({ onDelete, onClear });
   const dialogRef = useModal(sheet !== null);
+  const backdrop = useBackdropDismiss(() => setSheet(null));
 
   return (
     <>
@@ -136,9 +138,7 @@ export function AiSidebar({
           event.preventDefault();
           setSheet(null);
         }}
-        onClick={(event) => {
-          if (event.target === event.currentTarget) setSheet(null);
-        }}
+        {...backdrop}
       >
         {sheet && (
           <div className="ai-confirm-body">
