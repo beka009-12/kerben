@@ -860,6 +860,7 @@
     "newChat": "New chat",
     "history": "History",
     "emptyHistory": "Your chats will appear here",
+    "deleteTitle": "Delete chat?",
     "deleteChat": "Delete chat",
     "deleteConfirm": "This chat will be deleted for good.",
     "openHistory": "Open history",
@@ -935,7 +936,9 @@
       }
     ],
     "clearHistory": "Clear",
-    "clearConfirm": "Delete all chats? This cannot be undone.",
+    "clearTitle": "Delete all chats?",
+    "clearAll": "Delete all",
+    "clearConfirm": "Your whole chat history will be deleted for good.",
     "cancel": "Cancel",
     "booking": {
       "start": "I'd like to book: {title}. Please help me with the request.",

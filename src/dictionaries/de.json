@@ -860,6 +860,7 @@
     "newChat": "Neuer Chat",
     "history": "Verlauf",
     "emptyHistory": "Ihre Chats erscheinen hier",
+    "deleteTitle": "Chat löschen?",
     "deleteChat": "Chat löschen",
     "deleteConfirm": "Dieser Chat wird endgültig gelöscht.",
     "openHistory": "Verlauf öffnen",
@@ -935,7 +936,9 @@
       }
     ],
     "clearHistory": "Leeren",
-    "clearConfirm": "Alle Chats löschen? Das kann nicht rückgängig gemacht werden.",
+    "clearTitle": "Alle Chats löschen?",
+    "clearAll": "Alle löschen",
+    "clearConfirm": "Der gesamte Verlauf wird endgültig gelöscht.",
     "cancel": "Abbrechen",
     "booking": {
       "start": "Ich möchte buchen: {title}. Bitte helfen Sie mir mit der Anfrage.",

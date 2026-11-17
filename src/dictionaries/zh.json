@@ -860,6 +860,7 @@
     "newChat": "新对话",
     "history": "历史记录",
     "emptyHistory": "你的对话会显示在这里",
+    "deleteTitle": "删除对话？",
     "deleteChat": "删除对话",
     "deleteConfirm": "此对话将被永久删除。",
     "openHistory": "打开历史记录",
@@ -935,7 +936,9 @@
       }
     ],
     "clearHistory": "清空",
-    "clearConfirm": "删除所有对话？此操作无法撤销。",
+    "clearTitle": "删除所有对话？",
+    "clearAll": "全部删除",
+    "clearConfirm": "全部历史记录将被永久删除。",
     "cancel": "取消",
     "booking": {
       "start": "我想预订：{title}。请帮我提交申请。",
