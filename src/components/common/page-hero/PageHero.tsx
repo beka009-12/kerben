@@ -7,19 +7,30 @@ export function PageHero({
   title,
   text,
   image,
+  imagePosition,
   children,
 }: {
   kicker?: string;
   title: string;
   text?: string;
   image: string;
+  imagePosition?: string;
   children?: ReactNode;
 }) {
   return (
     <section className="page-hero">
       <div className="container-wide">
         <div className="page-hero-card">
-          <Image src={image} alt="" fill preload quality={85} sizes="(min-width: 1440px) 1360px, 100vw" className="page-hero-image" />
+          <Image
+            src={image}
+            alt=""
+            fill
+            preload
+            quality={85}
+            sizes="(min-width: 1440px) 1360px, 100vw"
+            className="page-hero-image"
+            style={imagePosition ? { objectPosition: imagePosition } : undefined}
+          />
           <div className="page-hero-shade" />
           <div className="page-hero-inner">
             {children}

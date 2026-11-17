@@ -13,9 +13,11 @@
   isolation: isolate;
 }
 
+/* Юрты и озеро у нижнего края фото: в широкой карточке обрезаем небо, а не их */
 .tours-catalog-hero-image {
   z-index: -2;
   object-fit: cover;
+  object-position: center 80%;
 }
 
 .tours-catalog-hero-shade {

@@ -14,7 +14,7 @@ import "./tours-catalog.css";
 
 const MemoCard = memo(CatalogCard);
 
-export const TOURS_HERO = "/images/pages/tours-hero.webp";
+export const TOURS_HERO = "/images/pages/tours-hero-yurts.webp";
 
 export function ToursHero({ kicker, title }: { kicker: string; title: string }) {
   return (

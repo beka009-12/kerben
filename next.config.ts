@@ -1,6 +1,10 @@
 import type { NextConfig } from "next";
 
-const backend = new URL(process.env.KERBEN_API_URL || process.env.KYRGYZGO_API_URL || "https://13.49.104.87");
+const backend = new URL(
+  process.env.KERBEN_API_URL ||
+    process.env.KYRGYZGO_API_URL ||
+    "https://13.49.104.87",
+);
 
 const backendSocket = `${backend.protocol === "https:" ? "wss" : "ws"}://${backend.host}`;
 const dev = process.env.NODE_ENV !== "production";
@@ -35,7 +39,11 @@ const nextConfig: NextConfig = {
   },
   images: {
     remotePatterns: [
-      { protocol: backend.protocol.replace(":", "") as "http" | "https", hostname: backend.hostname, port: backend.port },
+      {
+        protocol: backend.protocol.replace(":", "") as "http" | "https",
+        hostname: backend.hostname,
+        port: backend.port,
+      },
       { protocol: "https", hostname: "images.unsplash.com" },
       { protocol: "https", hostname: "upload.wikimedia.org" },
     ],
@@ -46,9 +54,21 @@ const nextConfig: NextConfig = {
   async redirects() {
     const lang = ":lang(en|ru|de|zh)";
     return [
-      { source: `/${lang}/login`, destination: "/:lang/chat", permanent: false },
-      { source: `/${lang}/saved`, destination: "/:lang/trips?tab=saved", permanent: false },
-      { source: `/${lang}/requests`, destination: "/:lang/trips", permanent: false },
+      {
+        source: `/${lang}/login`,
+        destination: "/:lang/chat",
+        permanent: false,
+      },
+      {
+        source: `/${lang}/saved`,
+        destination: "/:lang/trips?tab=saved",
+        permanent: false,
+      },
+      {
+        source: `/${lang}/requests`,
+        destination: "/:lang/trips",
+        permanent: false,
+      },
     ];
   },
   async headers() {
@@ -59,9 +79,19 @@ const nextConfig: NextConfig = {
           { key: "X-Content-Type-Options", value: "nosniff" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           { key: "X-Frame-Options", value: "SAMEORIGIN" },
-          { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(self)" },
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=(self)",
+          },
           { key: "Content-Security-Policy", value: csp },
-          ...(dev ? [] : [{ key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains" }]),
+          ...(dev
+            ? []
+            : [
+                {
+                  key: "Strict-Transport-Security",
+                  value: "max-age=63072000; includeSubDomains",
+                },
+              ]),
         ],
       },
     ];

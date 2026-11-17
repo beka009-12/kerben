@@ -1,7 +1,7 @@
 "use client";
 
 import { AdminChildren } from "@/components/admin/admin-children/AdminChildren";
-import { AdminConfirm } from "@/components/admin/admin-confirm/AdminConfirm";
+import { ConfirmDialog } from "@/components/ui/confirm-dialog/ConfirmDialog";
 import { AdminField } from "@/components/admin/admin-field/AdminField";
 import { AdminGallery } from "@/components/admin/admin-gallery/AdminGallery";
 import { SESSION_EXPIRED } from "@/components/admin/admin-result";
@@ -148,7 +148,10 @@ export function AdminEditor({
         )}
       </form>
 
-      <AdminConfirm
+      <ConfirmDialog
+        cancelLabel="Отмена"
+        confirmLabel="Да, удалить"
+        busyLabel="Удаляем…"
         open={confirm}
         title={`Удалить «${title}»?`}
         text="Запись пропадёт с сайта. Отменить это нельзя."

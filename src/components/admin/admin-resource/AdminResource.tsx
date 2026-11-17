@@ -1,6 +1,6 @@
 "use client";
 
-import { AdminConfirm } from "@/components/admin/admin-confirm/AdminConfirm";
+import { ConfirmDialog } from "@/components/ui/confirm-dialog/ConfirmDialog";
 import { AdminEditor } from "@/components/admin/admin-editor/AdminEditor";
 import { Icon } from "@/components/ui/icon/Icon";
 import { type AdminRecord, type ColumnDef, type ResourceKey } from "@/utils/admin/resources";
@@ -264,7 +264,10 @@ export function AdminResource({
         </button>
       )}
 
-      <AdminConfirm
+      <ConfirmDialog
+        cancelLabel="Отмена"
+        confirmLabel="Да, удалить"
+        busyLabel="Удаляем…"
         open={pick.confirm}
         title={`Удалить выбранное: ${pick.selected.size}?`}
         text="Записи удалятся с сайта навсегда. Отменить это нельзя."
