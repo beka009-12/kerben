@@ -11,7 +11,7 @@ export function useMobileNav() {
   const items: { href: string; label: string; icon: IconName }[] = [
     { href: base, label: dict.nav.home, icon: "home" },
     { href: `${base}/tours`, label: dict.nav.tours, icon: "route" },
-    { href: `${base}/chat`, label: dict.nav.chat, icon: "chat" },
+    { href: `${base}/chat`, label: dict.nav.chatShort, icon: "sparkles" },
     { href: `${base}/hotels`, label: dict.nav.hotels, icon: "bed" },
     { href: `${base}/trips`, label: dict.nav.tripsShort, icon: "suitcase" },
   ];
