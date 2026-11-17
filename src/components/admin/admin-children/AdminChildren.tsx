@@ -1,6 +1,6 @@
 "use client";
 
-import { AdminConfirm } from "@/components/admin/admin-confirm/AdminConfirm";
+import { ConfirmDialog } from "@/components/ui/confirm-dialog/ConfirmDialog";
 import { AdminField } from "@/components/admin/admin-field/AdminField";
 import { Icon } from "@/components/ui/icon/Icon";
 import { type AdminRecord, type ChildDef } from "@/utils/admin/resources";
@@ -95,7 +95,10 @@ function ChildItem({
           </button>
         )}
       </div>
-      <AdminConfirm
+      <ConfirmDialog
+        cancelLabel="Отмена"
+        confirmLabel="Да, удалить"
+        busyLabel="Удаляем…"
         open={confirm}
         title={child.tab === "Фото" ? "Удалить фото?" : "Удалить день программы?"}
         text="Запись удалится с сайта. Отменить это нельзя."

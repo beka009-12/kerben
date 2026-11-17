@@ -1,0 +1,161 @@
+/* Подтверждение опасного действия: на телефоне прижато к низу (под палец), с 640px — по центру */
+.confirm-dialog {
+  width: min(100% - 24px, 400px);
+  max-width: none;
+  max-height: none;
+  margin: auto auto max(12px, env(safe-area-inset-bottom));
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: var(--radius-card);
+  background: var(--white);
+  color: var(--ink);
+  box-shadow: var(--shadow-lg);
+  overscroll-behavior: contain;
+}
+
+.confirm-dialog::backdrop {
+  background: rgb(6 12 28 / 50%);
+}
+
+.confirm-dialog-body {
+  display: grid;
+  gap: 8px;
+  padding: 24px;
+}
+
+.confirm-dialog-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: var(--lh-tight);
+  color: var(--ink);
+}
+
+.confirm-dialog-subject {
+  display: -webkit-box;
+  overflow: hidden;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.confirm-dialog-text {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--body);
+}
+
+.confirm-dialog-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.confirm-dialog-cancel,
+.confirm-dialog-danger {
+  flex: 1;
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: var(--radius-btn);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: var(--lh-tight);
+  -webkit-tap-highlight-color: transparent;
+  transition-property: background-color, scale;
+  transition-duration: 0.15s;
+  transition-timing-function: ease-out;
+}
+
+.confirm-dialog-cancel {
+  background: var(--chip-bg);
+  color: var(--ink);
+}
+
+.confirm-dialog-danger {
+  background: var(--danger-text);
+  color: var(--white);
+}
+
+.confirm-dialog-cancel:active,
+.confirm-dialog-danger:active {
+  scale: 0.96;
+}
+
+.confirm-dialog-danger:disabled {
+  opacity: 0.7;
+  cursor: progress;
+  scale: none;
+}
+
+@media (hover: hover) {
+  .confirm-dialog-cancel:hover {
+    background: var(--line);
+  }
+
+  .confirm-dialog-danger:hover {
+    background: color-mix(in srgb, var(--danger-text) 88%, black);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .confirm-dialog[open] {
+    animation: confirm-dialog-up 0.28s var(--ease) both;
+  }
+
+  .confirm-dialog[open]::backdrop {
+    animation: confirm-dialog-fade 0.2s ease-out both;
+  }
+}
+
+@media (min-width: 640px) {
+  .confirm-dialog {
+    margin: auto;
+  }
+
+  .confirm-dialog-actions {
+    justify-content: flex-end;
+  }
+
+  .confirm-dialog-cancel,
+  .confirm-dialog-danger {
+    flex: 0 0 auto;
+  }
+}
+
+@media (min-width: 640px) and (prefers-reduced-motion: no-preference) {
+  .confirm-dialog[open] {
+    animation-name: confirm-dialog-in;
+    animation-duration: 0.2s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .confirm-dialog[open],
+  .confirm-dialog[open]::backdrop {
+    animation: confirm-dialog-fade 0.2s ease-out both;
+  }
+}
+
+@keyframes confirm-dialog-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+
+@keyframes confirm-dialog-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+
+@keyframes confirm-dialog-fade {
+  from {
+    opacity: 0;
+  }
+}

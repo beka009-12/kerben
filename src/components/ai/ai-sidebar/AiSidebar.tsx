@@ -1,12 +1,11 @@
 "use client";
 
 import { Avatar } from "@/components/ui/avatar/Avatar";
+import { ConfirmDialog } from "@/components/ui/confirm-dialog/ConfirmDialog";
 import { Icon } from "@/components/ui/icon/Icon";
 import type { AiConversation } from "@/utils/hooks/useAssistant";
 import type { AuthUser } from "@/utils/store/auth";
 import { useAiSidebar } from "@/utils/ai/use-ai-sidebar";
-import { useBackdropDismiss } from "@/utils/ui/use-backdrop-dismiss";
-import { useModal } from "@/utils/ui/use-modal";
 import "./ai-sidebar.css";
 
 export function AiSidebar({
@@ -49,8 +48,7 @@ export function AiSidebar({
   onLogout: () => void;
 }) {
   const { sheet, setSheet, suppressClick, cancelPress, openChatSheet, onPointerDown, onPointerMove, confirm } = useAiSidebar({ onDelete, onClear });
-  const dialogRef = useModal(sheet !== null);
-  const backdrop = useBackdropDismiss(() => setSheet(null));
+  const chatSheet = sheet?.kind === "chat" ? sheet : null;
 
   return (
     <>
@@ -129,41 +127,16 @@ export function AiSidebar({
       {open && <button type="button" className="ai-sidebar-backdrop" onClick={onClose} aria-label={labels.close} />}
 
       {/* Вне aside: свёрнутая история прячется через visibility, а dialog наследует её даже в top layer */}
-      <dialog
-        ref={dialogRef}
-        className="ai-confirm"
-        aria-labelledby="ai-confirm-title"
-        aria-describedby="ai-confirm-text"
-        onCancel={(event) => {
-          event.preventDefault();
-          setSheet(null);
-        }}
-        {...backdrop}
-      >
-        {sheet && (
-          <div className="ai-confirm-body">
-            <h2 id="ai-confirm-title" className="ai-confirm-title">
-              {sheet.kind === "chat" ? labels.deleteTitle : labels.clearTitle}
-            </h2>
-            {sheet.kind === "chat" && (
-              <p className="ai-confirm-subject">
-                <q>{sheet.title}</q>
-              </p>
-            )}
-            <p id="ai-confirm-text" className="ai-confirm-text">
-              {sheet.kind === "chat" ? labels.deleteConfirm : labels.clearConfirm}
-            </p>
-            <div className="ai-confirm-actions">
-              <button type="button" className="ai-confirm-cancel" onClick={() => setSheet(null)}>
-                {labels.cancel}
-              </button>
-              <button type="button" className="ai-confirm-danger" onClick={confirm}>
-                {sheet.kind === "chat" ? labels.deleteChat : labels.clearAll}
-              </button>
-            </div>
-          </div>
-        )}
-      </dialog>
+      <ConfirmDialog
+        open={sheet !== null}
+        title={chatSheet ? labels.deleteTitle : labels.clearTitle}
+        subject={chatSheet?.title}
+        text={chatSheet ? labels.deleteConfirm : labels.clearConfirm}
+        cancelLabel={labels.cancel}
+        confirmLabel={chatSheet ? labels.deleteChat : labels.clearAll}
+        onConfirm={confirm}
+        onCancel={() => setSheet(null)}
+      />
     </>
   );
 }

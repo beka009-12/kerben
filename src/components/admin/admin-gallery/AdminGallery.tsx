@@ -1,6 +1,6 @@
 "use client";
 
-import { AdminConfirm } from "@/components/admin/admin-confirm/AdminConfirm";
+import { ConfirmDialog } from "@/components/ui/confirm-dialog/ConfirmDialog";
 import { Icon } from "@/components/ui/icon/Icon";
 import type { AdminRecord, ChildDef } from "@/utils/admin/resources";
 import { ACCEPT } from "@/utils/admin/upload";
@@ -82,7 +82,10 @@ export function AdminGallery({ child, parentId, rows }: { child: ChildDef; paren
         </ul>
       )}
 
-      <AdminConfirm
+      <ConfirmDialog
+        cancelLabel="Отмена"
+        confirmLabel="Да, удалить"
+        busyLabel="Удаляем…"
         open={g.removing !== null}
         title="Удалить фото?"
         text="Фото пропадёт с сайта. Отменить это нельзя."
