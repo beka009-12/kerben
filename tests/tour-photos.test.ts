@@ -28,16 +28,16 @@ describe("фото тура приходят из backend", () => {
   it("главное фото и галерея — ровно то, что прислал backend, по порядку", () => {
     const result = fromBackendTour(
       tour({
-        main_image: "https://13.49.104.87/media/main.jpg",
+        main_image: "https://api.kerben-travel.com/media/main.jpg",
         images: [
-          { id: 2, tour_id: 3, image: "https://13.49.104.87/media/b.jpg", order: 2 },
-          { id: 1, tour_id: 3, image: "https://13.49.104.87/media/a.jpg", order: 1 },
+          { id: 2, tour_id: 3, image: "https://api.kerben-travel.com/media/b.jpg", order: 2 },
+          { id: 1, tour_id: 3, image: "https://api.kerben-travel.com/media/a.jpg", order: 1 },
         ],
       }),
       "ru",
     );
-    expect(result.image).toBe("https://13.49.104.87/media/main.jpg");
-    expect(result.gallery).toEqual(["https://13.49.104.87/media/a.jpg", "https://13.49.104.87/media/b.jpg"]);
+    expect(result.image).toBe("https://api.kerben-travel.com/media/main.jpg");
+    expect(result.gallery).toEqual(["https://api.kerben-travel.com/media/a.jpg", "https://api.kerben-travel.com/media/b.jpg"]);
   });
 
   it("без фото на backend — одна нейтральная заглушка, без подбора своих снимков", () => {

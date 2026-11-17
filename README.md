@@ -1,7 +1,7 @@
 # Kerben Travel — сайт туристического агентства
 
 Frontend проекта **Kerben Travel**: туры по Кыргызстану и миру, карта направлений, отели, бронирование.
-Данные идут из backend Kerben Travel (FastAPI, документация — https://13.49.104.87/docs).
+Данные идут из backend Kerben Travel (FastAPI, документация — https://api.kerben-travel.com/docs).
 
 ## Стек
 
@@ -75,7 +75,7 @@ scripts/                      seed API, копирование worker'а кар�
 
 ## API (backend Kerben Travel)
 
-Адрес backend — `KERBEN_API_URL` (по умолчанию `https://13.49.104.87`), код — `src/utils/api/backend.ts`.
+Адрес backend — `KERBEN_API_URL` (по умолчанию `https://api.kerben-travel.com`), код — `src/utils/api/backend.ts`.
 Backend вызывается **только с сервера Next.js** (страницы и маршруты `/api/*`), чтобы адрес и ключи не попадали в браузер,
 а фото из backend раздаёт `next/image` с домена сайта.
 

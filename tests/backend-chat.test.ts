@@ -44,7 +44,7 @@ describe("websocket чата backend", () => {
     const socket = new ChatSocket("abc", { onEvent: (e) => events.push(e), onReconnect: vi.fn(), onFail: vi.fn() });
     await flush();
     const ws = FakeSocket.all[0];
-    expect(ws.url).toBe("wss://13.49.104.87/ws/chat/abc");
+    expect(ws.url).toBe("wss://api.kerben-travel.com/ws/chat/abc");
     ws.onopen?.();
     expect(JSON.parse(ws.sent[0])).toEqual({ type: "auth", token: "client-token" });
 

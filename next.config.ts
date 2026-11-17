@@ -3,7 +3,7 @@ import type { NextConfig } from "next";
 const backend = new URL(
   process.env.KERBEN_API_URL ||
     process.env.KYRGYZGO_API_URL ||
-    "https://13.49.104.87",
+    "https://api.kerben-travel.com",
 );
 
 const backendSocket = `${backend.protocol === "https:" ? "wss" : "ws"}://${backend.host}`;
