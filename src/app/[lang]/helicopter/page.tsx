@@ -5,13 +5,13 @@ import { getHelicopterTours } from "@/utils/api/catalog";
 import { hasLocale } from "@/utils/i18n/config";
 import { getDictionary } from "@/utils/i18n/dictionaries";
 import { flightItem, gridLabels } from "@/utils/listing-items";
-import { alternates } from "@/utils/seo";
+import { pageMetadata } from "@/utils/seo";
 
 export async function generateMetadata({ params }: PageProps<"/[lang]/helicopter">): Promise<Metadata> {
   const { lang } = await params;
   if (!hasLocale(lang)) return {};
   const dict = await getDictionary(lang);
-  return { title: dict.meta.helicopterTitle, description: dict.meta.helicopterDescription, alternates: alternates(lang, "/helicopter") };
+  return pageMetadata({ locale: lang, path: "/helicopter", title: dict.meta.helicopterTitle, description: dict.meta.helicopterDescription });
 }
 
 export default async function HelicopterPage({ params }: PageProps<"/[lang]/helicopter">) {

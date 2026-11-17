@@ -9,7 +9,7 @@ import { Icon } from "@/components/ui/icon/Icon";
 import { ATTRACTIONS } from "@/data/attractions";
 import { hasLocale } from "@/utils/i18n/config";
 import { getDictionary } from "@/utils/i18n/dictionaries";
-import { alternates } from "@/utils/seo";
+import { pageMetadata } from "@/utils/seo";
 import "./attractions-page.css";
 
 /** Без фото место занимает всю ширину; с фото — ряды чередуют сторону снимка */
@@ -32,11 +32,7 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/attraction
   const { lang } = await params;
   if (!hasLocale(lang)) return {};
   const dict = await getDictionary(lang);
-  return {
-    title: dict.meta.attractionsTitle,
-    description: dict.meta.attractionsDescription,
-    alternates: alternates(lang, "/attractions"),
-  };
+  return pageMetadata({ locale: lang, path: "/attractions", title: dict.meta.attractionsTitle, description: dict.meta.attractionsDescription });
 }
 
 export default async function AttractionsPage({ params }: PageProps<"/[lang]/attractions">) {

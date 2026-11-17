@@ -14,7 +14,7 @@ import { getTours } from "@/utils/api/tours";
 import { hasLocale, localeNames, locales } from "@/utils/i18n/config";
 import { getDictionary } from "@/utils/i18n/dictionaries";
 import { toSearchItem } from "@/utils/search";
-import { alternates } from "@/utils/seo";
+import { pageMetadata } from "@/utils/seo";
 import "../globals.css";
 
 const montserrat = Montserrat({
@@ -52,23 +52,22 @@ export async function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
 }
 
-export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: LayoutProps<"/[lang]">): Promise<Metadata> {
   const { lang } = await params;
   if (!hasLocale(lang)) return {};
   const dict = await getDictionary(lang);
   return {
-    metadataBase: new URL(siteConfig.url),
-    title: { default: dict.meta.title, template: `%s — ${siteConfig.name}` },
-    description: dict.meta.description,
-    applicationName: siteConfig.name,
-    alternates: alternates(lang, ""),
-    openGraph: {
-      type: "website",
-      siteName: siteConfig.name,
+    ...pageMetadata({
+      locale: lang,
+      path: "",
       title: dict.meta.title,
       description: dict.meta.description,
-      locale: localeNames[lang].intl.replace("-", "_"),
-    },
+    }),
+    metadataBase: new URL(siteConfig.url),
+    title: { default: dict.meta.title, template: `%s — ${siteConfig.name}` },
+    applicationName: siteConfig.name,
   };
 }
 
@@ -79,10 +78,17 @@ export const viewport: Viewport = {
   interactiveWidget: "resizes-content",
 };
 
-export default async function RootLayout({ children, params }: LayoutProps<"/[lang]">) {
+export default async function RootLayout({
+  children,
+  params,
+}: LayoutProps<"/[lang]">) {
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
-  const [dict, tours, contacts] = await Promise.all([getDictionary(lang), getTours(lang), getContacts(lang)]);
+  const [dict, tours, contacts] = await Promise.all([
+    getDictionary(lang),
+    getTours(lang),
+    getContacts(lang),
+  ]);
   const searchItems = tours.map(toSearchItem);
 
   return (

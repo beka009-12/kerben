@@ -5,13 +5,13 @@ import { getHotels } from "@/utils/api/catalog";
 import { hasLocale } from "@/utils/i18n/config";
 import { getDictionary } from "@/utils/i18n/dictionaries";
 import { gridLabels, hotelItem } from "@/utils/listing-items";
-import { alternates } from "@/utils/seo";
+import { pageMetadata } from "@/utils/seo";
 
 export async function generateMetadata({ params }: PageProps<"/[lang]/hotels">): Promise<Metadata> {
   const { lang } = await params;
   if (!hasLocale(lang)) return {};
   const dict = await getDictionary(lang);
-  return { title: dict.meta.hotelsTitle, description: dict.meta.hotelsDescription, alternates: alternates(lang, "/hotels") };
+  return pageMetadata({ locale: lang, path: "/hotels", title: dict.meta.hotelsTitle, description: dict.meta.hotelsDescription });
 }
 
 export default async function HotelsPage({ params }: PageProps<"/[lang]/hotels">) {

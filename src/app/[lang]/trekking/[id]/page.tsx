@@ -12,7 +12,7 @@ import { getTrekking, getTrekkings } from "@/utils/api/catalog";
 import { hasLocale } from "@/utils/i18n/config";
 import { getDictionary } from "@/utils/i18n/dictionaries";
 import { fill, offerPrice } from "@/utils/offers";
-import { alternates } from "@/utils/seo";
+import { metaDescription, pageMetadata } from "@/utils/seo";
 import "./trekking-page.css";
 
 type Params = PageProps<"/[lang]/trekking/[id]">["params"];
@@ -25,14 +25,15 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps<"/[lang]/trekking/[id]">): Promise<Metadata> {
   const { lang, id } = await params;
   if (!hasLocale(lang)) return {};
-  const trek = await getTrekking(Number(id), lang);
+  const [trek, dict] = await Promise.all([getTrekking(Number(id), lang), getDictionary(lang)]);
   if (!trek) return {};
-  return {
+  return pageMetadata({
+    locale: lang,
+    path: `/trekking/${id}`,
     title: trek.title,
-    description: trek.description.slice(0, 160),
-    alternates: alternates(lang, `/trekking/${id}`),
-    openGraph: { title: trek.title, images: [{ url: trek.image }] },
-  };
+    description: metaDescription(trek.description, dict.meta.trekkingDescription),
+    image: trek.image,
+  });
 }
 
 export default function TrekkingRoutePage({ params }: PageProps<"/[lang]/trekking/[id]">) {

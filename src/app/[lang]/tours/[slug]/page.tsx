@@ -22,7 +22,7 @@ import { formatPrice, plural } from "@/utils/format";
 import { nearestHotels } from "@/utils/geo/nearest-hotels";
 import { hasLocale } from "@/utils/i18n/config";
 import { getDictionary } from "@/utils/i18n/dictionaries";
-import { alternates } from "@/utils/seo";
+import { metaDescription, pageMetadata } from "@/utils/seo";
 import { tourLocation } from "@/utils/tour-filters";
 import "./tour-page.css";
 
@@ -34,14 +34,15 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps<"/[lang]/tours/[slug]">): Promise<Metadata> {
   const { lang, slug } = await params;
   if (!hasLocale(lang)) return {};
-  const tour = await getTour(slug, lang);
+  const [tour, dict] = await Promise.all([getTour(slug, lang), getDictionary(lang)]);
   if (!tour) return {};
-  return {
+  return pageMetadata({
+    locale: lang,
+    path: `/tours/${slug}`,
     title: tour.title,
-    description: tour.summary,
-    alternates: alternates(lang, `/tours/${slug}`),
-    openGraph: { title: tour.title, description: tour.summary, images: [{ url: tour.image }] },
-  };
+    description: metaDescription(tour.summary, dict.meta.toursDescription),
+    image: tour.image,
+  });
 }
 
 export default function TourPage({ params }: PageProps<"/[lang]/tours/[slug]">) {
