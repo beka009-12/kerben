@@ -4,7 +4,7 @@ import { useSyncExternalStore } from "react";
 
 const KEY = "kerben-ai-sidebar-collapsed";
 const listeners = new Set<() => void>();
-/** Значение в памяти — на случай, если localStorage недоступен (приватный режим) */
+/** Значение в памяти — только если localStorage не дал записать (приватный режим); иначе источник — хранилище */
 let memory: boolean | null = null;
 
 function read(): boolean {
@@ -36,10 +36,12 @@ export function useSidebarCollapsed() {
   const collapsed = useSyncExternalStore(subscribe, read, () => false);
 
   const toggle = () => {
-    memory = !collapsed;
+    const next = !collapsed;
     try {
-      window.localStorage.setItem(KEY, memory ? "1" : "0");
+      window.localStorage.setItem(KEY, next ? "1" : "0");
+      memory = null;
     } catch {
+      memory = next;
     }
     listeners.forEach((listener) => listener());
   };
