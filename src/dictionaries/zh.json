@@ -4,8 +4,6 @@
     "description": "吉尔吉斯斯坦、哈萨克斯坦和乌兹别克斯坦的本地旅行社。雪山、湖泊、游牧文化与丝绸之路。",
     "toursTitle": "全部线路",
     "toursDescription": "按目的地、类别、价格和人数查找线路。",
-    "destinationsTitle": "探索目的地",
-    "destinationsDescription": "在互动地图上找到你的下一次冒险。",
     "hotelsTitle": "住宿",
     "hotelsDescription": "为每一次旅行精选的酒店、山间小屋和毡房营地。",
     "aboutTitle": "关于我们",
@@ -46,7 +44,6 @@
   },
   "nav": {
     "home": "首页",
-    "destinations": "目的地",
     "tours": "线路",
     "hotels": "住宿",
     "about": "关于我们",
@@ -155,20 +152,6 @@
     }
   },
   "explore": {
-    "title": "探索目的地",
-    "text": "在互动地图上找到你的下一次冒险。",
-    "destinations": "个目的地",
-    "regions": {
-      "asia": "亚洲",
-      "europe": "欧洲",
-      "africa": "非洲",
-      "northAmerica": "北美洲",
-      "southAmerica": "南美洲",
-      "oceania": "大洋洲"
-    },
-    "world": "全世界",
-    "tours": "条线路",
-    "soon": "更多地区即将上线",
     "loading": "地图加载中…",
     "error": "地图加载失败，请检查网络连接。"
   },
@@ -425,12 +408,6 @@
       "summaryDriver": "带司机",
       "summarySelf": "租车"
     }
-  },
-  "destinations": {
-    "kicker": "地图",
-    "title": "探索目的地",
-    "text": "在地图上选择地区，或在下方浏览全部目的地。",
-    "all": "全部目的地"
   },
   "hotels": {
     "kicker": "住宿",

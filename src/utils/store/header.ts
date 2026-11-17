@@ -23,7 +23,7 @@ export function useAdminChrome() {
   }, []);
 }
 
-const HERO_SECTIONS = new Set(["tours", "destinations", "hotels", "about", "contact", "saved", "trekking", "transport", "helicopter", "requests", "faq", "trips"]);
+const HERO_SECTIONS = new Set(["tours", "hotels", "about", "contact", "saved", "trekking", "transport", "helicopter", "requests", "faq", "trips"]);
 
 export function hasHeroImage(pathname: string, base: string): boolean {
   const segments = pathname.slice(base.length).split("/").filter(Boolean);

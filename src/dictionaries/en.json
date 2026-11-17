@@ -4,8 +4,6 @@
     "description": "A local tour operator for Kyrgyzstan, Kazakhstan and Uzbekistan. Mountains, lakes, nomadic culture and the Silk Road.",
     "toursTitle": "All Tours",
     "toursDescription": "Find a tour by destination, category, price and group size.",
-    "destinationsTitle": "Explore Destinations",
-    "destinationsDescription": "Find your next adventure on the interactive map.",
     "hotelsTitle": "Hotels",
     "hotelsDescription": "Handpicked hotels, lodges and yurt camps for every trip.",
     "aboutTitle": "About Us",
@@ -46,7 +44,6 @@
   },
   "nav": {
     "home": "Home",
-    "destinations": "Destinations",
     "tours": "Tours",
     "hotels": "Hotels",
     "about": "About",
@@ -155,20 +152,6 @@
     }
   },
   "explore": {
-    "title": "Explore Destinations",
-    "text": "Find your next adventure on the interactive map.",
-    "destinations": "destinations",
-    "regions": {
-      "asia": "Asia",
-      "europe": "Europe",
-      "africa": "Africa",
-      "northAmerica": "North America",
-      "southAmerica": "South America",
-      "oceania": "Oceania"
-    },
-    "world": "Whole world",
-    "tours": "tours",
-    "soon": "More regions are coming soon",
     "loading": "Loading map…",
     "error": "The map could not be loaded. Check your connection."
   },
@@ -425,12 +408,6 @@
       "summaryDriver": "with driver",
       "summarySelf": "rental"
     }
-  },
-  "destinations": {
-    "kicker": "Map",
-    "title": "Explore Destinations",
-    "text": "Pick a region on the map or browse all destinations below.",
-    "all": "All destinations"
   },
   "hotels": {
     "kicker": "Stay",

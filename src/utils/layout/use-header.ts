@@ -51,7 +51,6 @@ export function useHeader() {
       title: dict.footer.travel,
       items: [
         { href: base, label: dict.nav.home, icon: "home" },
-        { href: `${base}/destinations`, label: dict.nav.destinations, icon: "compass" },
         { href: `${base}/tours`, label: dict.nav.tours, icon: "route" },
         { href: `${base}/attractions`, label: dict.nav.attractions, icon: "landmark" },
         { href: `${base}/hotels`, label: dict.nav.hotels, icon: "bed" },

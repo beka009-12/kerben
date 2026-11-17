@@ -4,8 +4,6 @@
     "description": "Ein lokaler Reiseveranstalter für Kirgisistan, Kasachstan und Usbekistan. Berge, Seen, Nomadenkultur und die Seidenstraße.",
     "toursTitle": "Alle Touren",
     "toursDescription": "Finden Sie eine Tour nach Reiseziel, Kategorie, Preis und Gruppengröße.",
-    "destinationsTitle": "Reiseziele entdecken",
-    "destinationsDescription": "Finden Sie Ihr nächstes Abenteuer auf der interaktiven Karte.",
     "hotelsTitle": "Unterkünfte",
     "hotelsDescription": "Ausgewählte Hotels, Lodges und Jurtencamps für jede Reise.",
     "aboutTitle": "Über uns",
@@ -46,7 +44,6 @@
   },
   "nav": {
     "home": "Start",
-    "destinations": "Reiseziele",
     "tours": "Touren",
     "hotels": "Unterkünfte",
     "about": "Über uns",
@@ -155,20 +152,6 @@
     }
   },
   "explore": {
-    "title": "Reiseziele entdecken",
-    "text": "Finden Sie Ihr nächstes Abenteuer auf der interaktiven Karte.",
-    "destinations": "Reiseziele",
-    "regions": {
-      "asia": "Asien",
-      "europe": "Europa",
-      "africa": "Afrika",
-      "northAmerica": "Nordamerika",
-      "southAmerica": "Südamerika",
-      "oceania": "Ozeanien"
-    },
-    "world": "Ganze Welt",
-    "tours": "Touren",
-    "soon": "Weitere Regionen folgen bald",
     "loading": "Karte wird geladen…",
     "error": "Die Karte konnte nicht geladen werden. Prüfen Sie Ihre Verbindung."
   },
@@ -425,12 +408,6 @@
       "summaryDriver": "mit Fahrer",
       "summarySelf": "Miete"
     }
-  },
-  "destinations": {
-    "kicker": "Karte",
-    "title": "Reiseziele entdecken",
-    "text": "Wählen Sie eine Region auf der Karte oder sehen Sie sich unten alle Reiseziele an.",
-    "all": "Alle Reiseziele"
   },
   "hotels": {
     "kicker": "Übernachten",
