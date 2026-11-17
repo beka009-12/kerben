@@ -28,13 +28,17 @@
 }
 
 .about-page-numbers {
-  padding-block: var(--section-pad);
-  background: var(--soft);
+  padding-bottom: var(--section-pad);
 }
 
-/* Сетку и вид карточек задаёт NumbersCards, здесь только отступы внутри секции */
+/* Сетку и вид карточек задаёт NumbersCards, здесь только отступ под заголовком */
 .about-page-stats {
-  margin: 12px 0 20px;
+  margin-top: 12px;
+}
+
+.about-page-values {
+  padding-block: var(--section-pad);
+  background: var(--soft);
 }
 
 .about-page-story {

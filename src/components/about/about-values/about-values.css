@@ -1,51 +1,73 @@
 .about-values {
   display: grid;
-  gap: 14px;
+  gap: 12px;
 }
 
-/* Та же поверхность, что у карточек с цифрами выше */
+/* Светлая поверхность, чтобы ценности не сливались с тёмными карточками цифр */
 .about-values-card {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: clamp(20px, 2vw, 28px);
-  border: 1px solid var(--stat-card-border);
-  border-radius: 20px;
-  background: var(--stat-card-bg);
-  box-shadow: var(--stat-card-shadow);
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  grid-template-areas:
+    "icon name"
+    "icon text";
+  align-content: start;
+  gap: 4px 16px;
+  padding: 20px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-card);
+  background: var(--white);
+  box-shadow: var(--card-shadow);
 }
 
 .about-values-icon {
+  grid-area: icon;
   display: grid;
   place-items: center;
   width: 44px;
   height: 44px;
-  margin-bottom: 12px;
   border-radius: 12px;
-  background: color-mix(in srgb, var(--cream) 12%, transparent);
-  color: var(--cream);
+  background: var(--primary-soft);
+  color: var(--primary);
 }
 
 .about-values-name {
-  font-family: var(--font-manrope), system-ui, sans-serif;
-  font-size: 1.375rem;
+  grid-area: name;
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
   font-weight: 800;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-  color: var(--cream);
+  line-height: var(--lh-tight);
+  color: var(--ink);
 }
 
 .about-values-text {
-  font-family: var(--font-manrope), system-ui, sans-serif;
-  font-size: 1rem;
-  line-height: 1.45;
-  color: var(--cream-soft);
+  grid-area: text;
+  font-size: var(--fs-body);
+  line-height: 1.5;
+  color: var(--body);
 }
 
 @media (min-width: 640px) {
   .about-values {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
+  }
+
+  .about-values-card {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "icon"
+      "name"
+      "text";
+    gap: 8px;
+    padding: 28px;
+  }
+
+  .about-values-icon {
+    margin-bottom: 16px;
+  }
+
+  .about-values-name {
+    font-size: 1.25rem;
   }
 }
 
