@@ -129,8 +129,8 @@ Backend вызывается **только с сервера Next.js** (стр�
 
 - Аккаунт клиента — в backend (`/account/*`); браузер ходит туда через прокси `/api/chat/…` (`src/app/api/chat/[...path]/route.ts`).
 - Токен входа и профиль хранятся в браузере (`localStorage`, ключ `kerben-session`) — `src/utils/store/auth.ts`, `src/utils/auth.ts`.
-- ИИ-чат — websocket backend `wss://…/ws/chat/{id}`. Токен чата выдаёт `/api/chat/token`: если чат принимает токен аккаунта,
-  берётся он; иначе сервер заводит отдельный аккаунт чата (пароль выводится из `CHAT_ACCOUNT_SECRET`).
+- ИИ-чат — websocket backend `wss://…/ws/chat/{id}`. Токен чата выдаёт `/api/chat/token`: это тот же токен аккаунта,
+  сервер только проверяет его через `/account/me`.
 - Websocket backend принимает Origin только `http://localhost:3000` и боевой домен — локально запускайте на порту 3000.
 - Сброс пароля: backend шлёт письмо со ссылкой; страница `/{язык}/reset-password` берёт токен из `?token=…`.
 

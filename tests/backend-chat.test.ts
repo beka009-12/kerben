@@ -4,7 +4,6 @@ vi.mock("@/utils/store/auth", () => ({ sessionToken: () => "site-token" }));
 
 import { ChatSocket, forgetChatToken, type ChatEvent } from "@/utils/ai/backend-chat";
 import { chatErrorCode } from "@/utils/assistant";
-import { chatCredentials } from "@/utils/api/chat-accounts";
 import { GET, POST } from "@/app/api/chat/[...path]/route";
 
 class FakeSocket {
@@ -92,17 +91,6 @@ describe("websocket чата backend", () => {
     expect(chatErrorCode("ai_busy")).toBe("busy");
     expect(chatErrorCode("ai_unavailable")).toBe("notConfigured");
     expect(chatErrorCode("что-то новое")).toBe("server");
-  });
-});
-
-describe("аккаунт чата на backend", () => {
-  it("логин и пароль одинаковы для одного пользователя и разные для разных", () => {
-    const a = chatCredentials("user-1", "secret");
-    expect(chatCredentials("user-1", "secret")).toEqual(a);
-    expect(chatCredentials("user-2", "secret").username).not.toBe(a.username);
-    expect(chatCredentials("user-1", "other").password).not.toBe(a.password);
-    expect(a.username).toMatch(/^[a-z0-9_]{3,50}$/);
-    expect(a.password.length).toBeGreaterThanOrEqual(8);
   });
 });
 
