@@ -76,7 +76,7 @@ export function AiChat({ user, tours }: { user: AuthUser; tours: ComposerTour[] 
             <span className="ai-chat-badge">AI</span>
           </span>
           <button type="button" className="ai-chat-new" onClick={startNew} aria-label={t.newChat} title={t.newChat}>
-            <Icon name="chat" size={18} />
+            <Icon name="compose" size={20} />
           </button>
           <button type="button" className="ai-chat-menu" onClick={() => setSidebarOpen(true)} aria-label={t.openHistory}>
             <Icon name="menu" size={20} />

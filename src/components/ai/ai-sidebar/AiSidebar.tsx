@@ -50,7 +50,7 @@ export function AiSidebar({
       <aside className={open ? "ai-sidebar ai-sidebar-open" : "ai-sidebar"}>
         <div className="ai-sidebar-top">
           <button type="button" className="ai-sidebar-new" onClick={onNew}>
-            <Icon name="chat" size={18} />
+            <Icon name="compose" size={18} />
             {labels.newChat}
           </button>
           <button type="button" className="ai-sidebar-close" onClick={onClose} aria-label={labels.close}>
