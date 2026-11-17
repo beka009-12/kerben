@@ -123,47 +123,47 @@ export function AiSidebar({
             {labels.logout}
           </button>
         </div>
-
-        {/* Нативный dialog: поверх всей страницы, держит фокус внутри, Esc закрывает, фокус возвращается на кнопку */}
-        <dialog
-          ref={dialogRef}
-          className="ai-confirm"
-          aria-labelledby="ai-confirm-title"
-          aria-describedby="ai-confirm-text"
-          onCancel={(event) => {
-            event.preventDefault();
-            setSheet(null);
-          }}
-          onClick={(event) => {
-            if (event.target === event.currentTarget) setSheet(null);
-          }}
-        >
-          {sheet && (
-            <div className="ai-confirm-body">
-              <h2 id="ai-confirm-title" className="ai-confirm-title">
-                {sheet.kind === "chat" ? labels.deleteTitle : labels.clearTitle}
-              </h2>
-              {sheet.kind === "chat" && (
-                <p className="ai-confirm-subject">
-                  <q>{sheet.title}</q>
-                </p>
-              )}
-              <p id="ai-confirm-text" className="ai-confirm-text">
-                {sheet.kind === "chat" ? labels.deleteConfirm : labels.clearConfirm}
-              </p>
-              <div className="ai-confirm-actions">
-                <button type="button" className="ai-confirm-cancel" onClick={() => setSheet(null)}>
-                  {labels.cancel}
-                </button>
-                <button type="button" className="ai-confirm-danger" onClick={confirm}>
-                  {sheet.kind === "chat" ? labels.deleteChat : labels.clearAll}
-                </button>
-              </div>
-            </div>
-          )}
-        </dialog>
       </aside>
       {open && <button type="button" className="ai-sidebar-backdrop" onClick={onClose} aria-label={labels.close} />}
+
+      {/* Вне aside: свёрнутая история прячется через visibility, а dialog наследует её даже в top layer */}
+      <dialog
+        ref={dialogRef}
+        className="ai-confirm"
+        aria-labelledby="ai-confirm-title"
+        aria-describedby="ai-confirm-text"
+        onCancel={(event) => {
+          event.preventDefault();
+          setSheet(null);
+        }}
+        onClick={(event) => {
+          if (event.target === event.currentTarget) setSheet(null);
+        }}
+      >
+        {sheet && (
+          <div className="ai-confirm-body">
+            <h2 id="ai-confirm-title" className="ai-confirm-title">
+              {sheet.kind === "chat" ? labels.deleteTitle : labels.clearTitle}
+            </h2>
+            {sheet.kind === "chat" && (
+              <p className="ai-confirm-subject">
+                <q>{sheet.title}</q>
+              </p>
+            )}
+            <p id="ai-confirm-text" className="ai-confirm-text">
+              {sheet.kind === "chat" ? labels.deleteConfirm : labels.clearConfirm}
+            </p>
+            <div className="ai-confirm-actions">
+              <button type="button" className="ai-confirm-cancel" onClick={() => setSheet(null)}>
+                {labels.cancel}
+              </button>
+              <button type="button" className="ai-confirm-danger" onClick={confirm}>
+                {sheet.kind === "chat" ? labels.deleteChat : labels.clearAll}
+              </button>
+            </div>
+          </div>
+        )}
+      </dialog>
     </>
   );
 }
