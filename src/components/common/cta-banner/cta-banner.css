@@ -51,7 +51,7 @@
   font-size: 0.75rem;
   font-weight: 600;
   line-height: var(--lh-tight);
-  letter-spacing: 0.12em;
+  letter-spacing: var(--ls-eyebrow);
   text-transform: uppercase;
 }
 

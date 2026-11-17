@@ -28,6 +28,7 @@
   line-height: var(--lh-section);
   letter-spacing: var(--ls-heading);
   color: var(--ink);
+  text-wrap: balance;
 }
 
 .section-header-title-light {

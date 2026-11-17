@@ -175,6 +175,13 @@
   gap: 20px;
 }
 
+@media (min-width: 600px) and (max-width: 899px) {
+  .tours-catalog-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
 .tours-catalog-more {
   display: flex;
   align-items: center;

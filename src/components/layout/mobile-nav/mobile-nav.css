@@ -21,6 +21,10 @@
   -webkit-backdrop-filter: saturate(180%) blur(18px);
   backdrop-filter: saturate(180%) blur(18px);
   pointer-events: auto;
+  /* Панель — поверхность для жеста: палец ведёт пилюлю, страница под ней не скроллится */
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .mobile-nav-pill {
@@ -32,7 +36,17 @@
   border-radius: 999px;
   background: var(--primary-soft);
   transform: translateX(calc(100% * var(--nav-index)));
-  transition: transform 0.35s var(--ease);
+  transition:
+    transform 0.35s var(--ease),
+    scale 0.2s var(--ease),
+    box-shadow 0.2s var(--ease);
+}
+
+.mobile-nav-bar[data-dragging] .mobile-nav-pill {
+  transform: translateX(var(--pill-x));
+  box-shadow: 0 6px 16px rgb(20 95 240 / 18%);
+  transition-duration: 0.12s, 0.2s, 0.2s;
+  transition-timing-function: ease-out, var(--ease), var(--ease);
 }
 
 .mobile-nav-item {
@@ -45,6 +59,7 @@
   border-radius: 999px;
   color: var(--muted);
   -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
   transition:
     color 0.2s,
     transform 0.2s var(--ease);
@@ -52,6 +67,10 @@
 
 .mobile-nav-item:active {
   transform: scale(0.92);
+}
+
+.mobile-nav-bar[data-dragging] .mobile-nav-item {
+  transform: none;
 }
 
 .mobile-nav-item:focus-visible {
@@ -88,8 +107,15 @@
   font-weight: 700;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  .mobile-nav-bar[data-dragging] .mobile-nav-pill {
+    scale: 1.06;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .mobile-nav-pill,
+  .mobile-nav-bar[data-dragging] .mobile-nav-pill,
   .mobile-nav-icon {
     transition: none;
   }

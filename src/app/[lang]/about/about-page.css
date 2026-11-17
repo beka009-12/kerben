@@ -13,6 +13,7 @@
   line-height: var(--lh-section);
   letter-spacing: var(--ls-heading);
   color: var(--ink);
+  text-wrap: balance;
 }
 
 .about-page-intro-copy {
@@ -22,19 +23,24 @@
 }
 
 .about-page-intro-text {
+  max-width: 65ch;
   font-size: var(--fs-lead);
   line-height: var(--lh-lead);
   color: var(--body);
 }
 
 .about-page-numbers {
-  padding-block: var(--section-pad);
-  background: var(--soft);
+  padding-bottom: var(--section-pad);
 }
 
-/* Сетку и вид карточек задаёт NumbersCards, здесь только отступы внутри секции */
+/* Сетку и вид карточек задаёт NumbersCards, здесь только отступ под заголовком */
 .about-page-stats {
-  margin: 12px 0 20px;
+  margin-top: 12px;
+}
+
+.about-page-values {
+  padding-block: var(--section-pad);
+  background: var(--soft);
 }
 
 .about-page-story {

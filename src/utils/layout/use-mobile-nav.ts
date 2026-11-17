@@ -12,7 +12,7 @@ export function useMobileNav() {
     { href: base, label: dict.nav.home, icon: "home" },
     { href: `${base}/tours`, label: dict.nav.tours, icon: "route" },
     { href: `${base}/chat`, label: dict.nav.chat, icon: "chat" },
-    { href: `${base}/destinations`, label: dict.nav.destinations, icon: "compass" },
+    { href: `${base}/about`, label: dict.nav.about, icon: "users" },
     { href: `${base}/trips`, label: dict.nav.tripsShort, icon: "suitcase" },
   ];
   const list = items.map((item) => ({

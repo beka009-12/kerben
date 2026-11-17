@@ -4,8 +4,6 @@
     "description": "Ein lokaler Reiseveranstalter für Kirgisistan, Kasachstan und Usbekistan. Berge, Seen, Nomadenkultur und die Seidenstraße.",
     "toursTitle": "Alle Touren",
     "toursDescription": "Finden Sie eine Tour nach Reiseziel, Kategorie, Preis und Gruppengröße.",
-    "destinationsTitle": "Reiseziele entdecken",
-    "destinationsDescription": "Finden Sie Ihr nächstes Abenteuer auf der interaktiven Karte.",
     "hotelsTitle": "Unterkünfte",
     "hotelsDescription": "Ausgewählte Hotels, Lodges und Jurtencamps für jede Reise.",
     "aboutTitle": "Über uns",
@@ -46,7 +44,6 @@
   },
   "nav": {
     "home": "Start",
-    "destinations": "Reiseziele",
     "tours": "Touren",
     "hotels": "Unterkünfte",
     "about": "Über uns",
@@ -105,7 +102,7 @@
     "title": "Unsere Reisen",
     "text": "Fertige Programme in Kirgisistan und darüber hinaus — wählen Sie Ihres.",
     "viewAll": "Alle Touren",
-    "heading": "Touren durch Kirgistan"
+    "heading": "Touren durch Kirgisistan"
   },
   "card": {
     "from": "Ab",
@@ -155,20 +152,6 @@
     }
   },
   "explore": {
-    "title": "Reiseziele entdecken",
-    "text": "Finden Sie Ihr nächstes Abenteuer auf der interaktiven Karte.",
-    "destinations": "Reiseziele",
-    "regions": {
-      "asia": "Asien",
-      "europe": "Europa",
-      "africa": "Afrika",
-      "northAmerica": "Nordamerika",
-      "southAmerica": "Südamerika",
-      "oceania": "Ozeanien"
-    },
-    "world": "Ganze Welt",
-    "tours": "Touren",
-    "soon": "Weitere Regionen folgen bald",
     "loading": "Karte wird geladen…",
     "error": "Die Karte konnte nicht geladen werden. Prüfen Sie Ihre Verbindung."
   },
@@ -195,7 +178,7 @@
     "centers": "Erholungszentren",
     "centralAsia": "Zentralasien",
     "guide": "Reiseführer",
-    "motto": "Kirgistan sehen. Zentralasien spüren."
+    "motto": "Kirgisistan sehen. Zentralasien spüren."
   },
   "tours": {
     "kicker": "Katalog",
@@ -376,7 +359,7 @@
     "ctaEyebrow": "Tourbuchung",
     "ctaTrust": [
       "Gruppen- und Privatreisen",
-      "Kirgistan · Kasachstan · Usbekistan"
+      "Kirgisistan · Kasachstan · Usbekistan"
     ],
     "datePh": "Datum wählen"
   },
@@ -425,12 +408,6 @@
       "summaryDriver": "mit Fahrer",
       "summarySelf": "Miete"
     }
-  },
-  "destinations": {
-    "kicker": "Karte",
-    "title": "Reiseziele entdecken",
-    "text": "Wählen Sie eine Region auf der Karte oder sehen Sie sich unten alle Reiseziele an.",
-    "all": "Alle Reiseziele"
   },
   "hotels": {
     "kicker": "Übernachten",
@@ -482,6 +459,7 @@
     "title": "Wir gestalten Reisen, die die Welt verbinden.",
     "text": "Kerben Travel ist ein Team von Profis, die das Reisen lieben. Wir organisieren Touren durch Zentralasien und die ganze Welt und empfangen Gäste in Kirgisistan.",
     "note": "Von der ersten Anfrage bis zur Rückkehr nach Hause planen wir jedes Detail: Transfers, Unterkunft, Verpflegung und Ausflüge. Sie genießen die Reise — um alles andere kümmern wir uns.",
+    "valuesTitle": "Warum mit uns reisen",
     "values": [
       {
         "title": "Lokale Experten",
@@ -1061,7 +1039,7 @@
     "title": "Trekking",
     "text": "Pässe, Gletscher und Bergseen des Tian Shan — Routen mit erfahrenen Guides.",
     "days": "{n} Tage",
-    "heroText": "Trekking in den Bergen Kirgistans"
+    "heroText": "Trekking in den Bergen Kirgisistans"
   },
   "transport": {
     "kicker": "Transfers und Miete",

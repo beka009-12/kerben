@@ -4,11 +4,9 @@
     "description": "A local tour operator for Kyrgyzstan, Kazakhstan and Uzbekistan. Mountains, lakes, nomadic culture and the Silk Road.",
     "toursTitle": "All Tours",
     "toursDescription": "Find a tour by destination, category, price and group size.",
-    "destinationsTitle": "Explore Destinations",
-    "destinationsDescription": "Find your next adventure on the interactive map.",
     "hotelsTitle": "Hotels",
     "hotelsDescription": "Handpicked hotels, lodges and yurt camps for every trip.",
-    "aboutTitle": "About Us",
+    "aboutTitle": "About us",
     "aboutDescription": "Who we are and why travellers trust us.",
     "contactTitle": "Contact",
     "contactDescription": "Ask us anything about your next trip.",
@@ -46,7 +44,6 @@
   },
   "nav": {
     "home": "Home",
-    "destinations": "Destinations",
     "tours": "Tours",
     "hotels": "Hotels",
     "about": "About",
@@ -155,29 +152,15 @@
     }
   },
   "explore": {
-    "title": "Explore Destinations",
-    "text": "Find your next adventure on the interactive map.",
-    "destinations": "destinations",
-    "regions": {
-      "asia": "Asia",
-      "europe": "Europe",
-      "africa": "Africa",
-      "northAmerica": "North America",
-      "southAmerica": "South America",
-      "oceania": "Oceania"
-    },
-    "world": "Whole world",
-    "tours": "tours",
-    "soon": "More regions are coming soon",
     "loading": "Loading map…",
     "error": "The map could not be loaded. Check your connection."
   },
   "cta": {
-    "title": "Ready for Your Next Adventure?",
+    "title": "Ready for your next adventure?",
     "text": "Book now and create memories that will last a lifetime.",
-    "book": "Book This Tour",
-    "browse": "Browse Tours",
-    "video": "Watch Video",
+    "book": "Book this tour",
+    "browse": "Browse tours",
+    "video": "Watch video",
     "tourText": "Book a seat in a minute — or ask the AI assistant about the season, gear and getting there."
   },
   "footer": {
@@ -426,12 +409,6 @@
       "summarySelf": "rental"
     }
   },
-  "destinations": {
-    "kicker": "Map",
-    "title": "Explore Destinations",
-    "text": "Pick a region on the map or browse all destinations below.",
-    "all": "All destinations"
-  },
   "hotels": {
     "kicker": "Stay",
     "title": "Hotels & Stays",
@@ -482,6 +459,7 @@
     "title": "We create journeys that bring the world together.",
     "text": "Kerben Travel is a team of professionals in love with travel. We run tours across Central Asia and around the world, and we welcome guests to Kyrgyzstan.",
     "note": "From your first message to your return home, we plan every detail: transfers, accommodation, meals and excursions. You enjoy the journey — we take care of everything else.",
+    "valuesTitle": "Why travel with us",
     "values": [
       {
         "title": "Local experts",
@@ -489,7 +467,7 @@
       },
       {
         "title": "Fair prices",
-        "text": "No hidden fees — everything is in the program."
+        "text": "No hidden fees — everything is in the programme."
       },
       {
         "title": "Safety first",

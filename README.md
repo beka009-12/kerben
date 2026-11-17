@@ -39,7 +39,7 @@ src/
 │  ├─ [lang]/                 страницы (en, ru, de, zh)
 │  │  ├─ page.tsx             главная
 │  │  ├─ tours/               каталог и страница тура tours/[slug]
-│  │  ├─ destinations/ hotels/ chat/ faq/ about/ contact/ trips/ credits/
+│  │  ├─ hotels/ chat/ faq/ about/ contact/ trips/ credits/
 │  │  ├─ trips/               «Мои поездки»: вкладки «Заявки» и «Избранное» (старые /saved, /requests, /login — редиректы в next.config.ts)
 │  │  ├─ admin/               админка (скрытая): обзор, заявки, разделы backend; actions.ts — серверные действия
 │  │  ├─ not-found.tsx, error.tsx

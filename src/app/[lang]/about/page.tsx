@@ -44,6 +44,12 @@ export default async function AboutPage({ params }: PageProps<"/[lang]/about">) 
         <div className="container">
           <SectionHeader id="about-stats" title={dict.home.stats.kicker} />
           <NumbersCards items={dict.home.stats.items} className="about-page-stats" />
+        </div>
+      </section>
+
+      <section className="about-page-values" aria-labelledby="about-values">
+        <div className="container">
+          <SectionHeader id="about-values" title={t.valuesTitle} />
           <AboutValues dict={dict} />
         </div>
       </section>
