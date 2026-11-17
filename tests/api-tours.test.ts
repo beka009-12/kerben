@@ -36,7 +36,7 @@ describe("тур из backend", () => {
     is_active: true,
     created_at: "2026-10-01T00:00:00Z",
     updated_at: "2026-10-01T00:00:00Z",
-    images: [{ id: 1, tour_id: 12, image: "https://13.49.104.87/media/2.jpg", order: 1 }],
+    images: [{ id: 1, tour_id: 12, image: "https://api.kerben-travel.com/media/2.jpg", order: 1 }],
     programs: [
       { id: 2, tour_id: 12, day_number: 2, title: "Озеро", description: null, start_time: null, end_time: null },
       { id: 1, tour_id: 12, day_number: 1, title: "Бишкек → Кочкор", description: "Выезд утром", start_time: "09:00:00", end_time: null },
@@ -51,7 +51,7 @@ describe("тур из backend", () => {
     expect(tour.groupSize).toBe("2–8");
     expect(tour.category).toBe("adventure");
     expect(tour.image).toMatch(/^https?:\/\/.+\/media\/tours\/son-kul\.jpg$/);
-    expect(tour.gallery).toEqual(["https://13.49.104.87/media/2.jpg"]);
+    expect(tour.gallery).toEqual(["https://api.kerben-travel.com/media/2.jpg"]);
     expect(tour.itinerary.map((s) => s.day)).toEqual(["1 · 09:00", "2"]);
     expect(tour.included).toEqual(["Проживание в юрте", "Питание", "Гид"]);
     expect(tour.reviews).toBe(0);

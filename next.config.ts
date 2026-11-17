@@ -3,7 +3,7 @@ import type { NextConfig } from "next";
 const backend = new URL(
   process.env.KERBEN_API_URL ||
     process.env.KYRGYZGO_API_URL ||
-    "https://13.49.104.87",
+    "https://api.kerben-travel.com",
 );
 
 const backendSocket = `${backend.protocol === "https:" ? "wss" : "ws"}://${backend.host}`;
@@ -25,10 +25,17 @@ const csp = [
   "object-src 'none'",
 ].join("; ");
 
+// Стандартный список Next 16 + Googlebot, AI-поисковики и Telegram. Им отдаётся полностью
+// отрендеренный HTML: из кэша Vercel они получали prerender-оболочку без контента (H1, JSON-LD).
+// Задание htmlLimitedBots заменяет стандартный список целиком, поэтому он скопирован.
+const HTML_LIMITED_BOTS =
+  /Googlebot|[\w-]+-Google|Google-[\w-]+|Chrome-Lighthouse|Slurp|DuckDuckBot|baiduspider|yandex|sogou|bitlybot|tumblr|vkShare|quora link preview|redditbot|ia_archiver|Bingbot|BingPreview|applebot|facebookexternalhit|facebookcatalog|Twitterbot|LinkedInBot|Slackbot|Discordbot|WhatsApp|TelegramBot|SkypeUriPreview|Yeti|googleweblight|GPTBot|OAI-SearchBot|ChatGPT-User|ClaudeBot|Claude-User|Claude-SearchBot|PerplexityBot|Perplexity-User/i;
+
 const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
   poweredByHeader: false,
+  htmlLimitedBots: HTML_LIMITED_BOTS,
   logging: { serverFunctions: false },
   allowedDevOrigins: ["192.168.*.*", "10.*.*.*"],
   experimental: {

@@ -12,7 +12,7 @@ import { hasLocale } from "@/utils/i18n/config";
 import { getDictionary } from "@/utils/i18n/dictionaries";
 import { flightItem } from "@/utils/listing-items";
 import { fill } from "@/utils/offers";
-import { alternates } from "@/utils/seo";
+import { metaDescription, pageMetadata } from "@/utils/seo";
 import "./helicopter-page.css";
 
 type Params = PageProps<"/[lang]/helicopter/[id]">["params"];
@@ -25,14 +25,15 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps<"/[lang]/helicopter/[id]">): Promise<Metadata> {
   const { lang, id } = await params;
   if (!hasLocale(lang)) return {};
-  const flight = await getHelicopterTour(lang, Number(id));
+  const [flight, dict] = await Promise.all([getHelicopterTour(lang, Number(id)), getDictionary(lang)]);
   if (!flight) return {};
-  return {
+  return pageMetadata({
+    locale: lang,
+    path: `/helicopter/${id}`,
     title: flight.title,
-    description: (flight.description || flight.route).slice(0, 160),
-    alternates: alternates(lang, `/helicopter/${id}`),
-    openGraph: { title: flight.title, images: [{ url: flight.image }] },
-  };
+    description: metaDescription(flight.description || flight.route, dict.meta.helicopterDescription),
+    image: flight.image,
+  });
 }
 
 export default function HelicopterDetailPage({ params }: PageProps<"/[lang]/helicopter/[id]">) {

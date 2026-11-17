@@ -10,14 +10,14 @@ import { SectionHeader } from "@/components/ui/section-header/SectionHeader";
 import { getAboutSections } from "@/utils/api/catalog";
 import { hasLocale } from "@/utils/i18n/config";
 import { getDictionary } from "@/utils/i18n/dictionaries";
-import { alternates } from "@/utils/seo";
+import { pageMetadata } from "@/utils/seo";
 import "./about-page.css";
 
 export async function generateMetadata({ params }: PageProps<"/[lang]/about">): Promise<Metadata> {
   const { lang } = await params;
   if (!hasLocale(lang)) return {};
   const dict = await getDictionary(lang);
-  return { title: dict.meta.aboutTitle, description: dict.meta.aboutDescription, alternates: alternates(lang, "/about") };
+  return pageMetadata({ locale: lang, path: "/about", title: dict.meta.aboutTitle, description: dict.meta.aboutDescription });
 }
 
 export default async function AboutPage({ params }: PageProps<"/[lang]/about">) {

@@ -6,14 +6,14 @@ import { ContactInfo } from "@/components/contact/contact-info/ContactInfo";
 import { getContacts } from "@/utils/api/contacts";
 import { hasLocale } from "@/utils/i18n/config";
 import { getDictionary } from "@/utils/i18n/dictionaries";
-import { alternates } from "@/utils/seo";
+import { pageMetadata } from "@/utils/seo";
 import "./contact-page.css";
 
 export async function generateMetadata({ params }: PageProps<"/[lang]/contact">): Promise<Metadata> {
   const { lang } = await params;
   if (!hasLocale(lang)) return {};
   const dict = await getDictionary(lang);
-  return { title: dict.meta.contactTitle, description: dict.meta.contactDescription, alternates: alternates(lang, "/contact") };
+  return pageMetadata({ locale: lang, path: "/contact", title: dict.meta.contactTitle, description: dict.meta.contactDescription });
 }
 
 export default async function ContactPage({ params }: PageProps<"/[lang]/contact">) {

@@ -12,7 +12,7 @@ import { formatPrice } from "@/utils/format";
 import { hasLocale } from "@/utils/i18n/config";
 import { getDictionary } from "@/utils/i18n/dictionaries";
 import { carItem, seatsLabel } from "@/utils/listing-items";
-import { alternates } from "@/utils/seo";
+import { metaDescription, pageMetadata } from "@/utils/seo";
 import "./transport-page.css";
 
 export async function generateStaticParams() {
@@ -23,14 +23,16 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps<"/[lang]/transport/[id]">): Promise<Metadata> {
   const { lang, id } = await params;
   if (!hasLocale(lang)) return {};
-  const car = (await getTransports(lang)).find((c) => c.id === Number(id));
+  const [cars, dict] = await Promise.all([getTransports(lang), getDictionary(lang)]);
+  const car = cars.find((c) => c.id === Number(id));
   if (!car) return {};
-  return {
+  return pageMetadata({
+    locale: lang,
+    path: `/transport/${id}`,
     title: car.name,
-    description: (car.description || car.subtitle).slice(0, 160),
-    alternates: alternates(lang, `/transport/${id}`),
-    openGraph: { title: car.name, images: [{ url: car.image }] },
-  };
+    description: metaDescription(car.description || car.subtitle, dict.meta.transportDescription),
+    image: car.image,
+  });
 }
 
 export default function TransportDetailPage({ params }: PageProps<"/[lang]/transport/[id]">) {

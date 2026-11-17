@@ -2,7 +2,7 @@ import "server-only";
 import { ApiError, apiFetch } from "./client";
 import { dedupe } from "./dedupe";
 
-export const BACKEND_URL = (process.env.KERBEN_API_URL || process.env.KYRGYZGO_API_URL || "https://13.49.104.87").replace(/\/+$/, "");
+export const BACKEND_URL = (process.env.KERBEN_API_URL || process.env.KYRGYZGO_API_URL || "https://api.kerben-travel.com").replace(/\/+$/, "");
 
 // Старые имена KYRGYZGO_* тоже работают, чтобы не ломать уже настроенные окружения
 const SITE_EMAIL = (process.env.KERBEN_SITE_EMAIL || process.env.KYRGYZGO_SITE_EMAIL)?.trim();

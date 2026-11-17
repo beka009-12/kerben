@@ -5,13 +5,13 @@ import { getTrekkings } from "@/utils/api/catalog";
 import { hasLocale } from "@/utils/i18n/config";
 import { getDictionary } from "@/utils/i18n/dictionaries";
 import { gridLabels, trekItem } from "@/utils/listing-items";
-import { alternates } from "@/utils/seo";
+import { pageMetadata } from "@/utils/seo";
 
 export async function generateMetadata({ params }: PageProps<"/[lang]/trekking">): Promise<Metadata> {
   const { lang } = await params;
   if (!hasLocale(lang)) return {};
   const dict = await getDictionary(lang);
-  return { title: dict.meta.trekkingTitle, description: dict.meta.trekkingDescription, alternates: alternates(lang, "/trekking") };
+  return pageMetadata({ locale: lang, path: "/trekking", title: dict.meta.trekkingTitle, description: dict.meta.trekkingDescription });
 }
 
 export default async function TrekkingPage({ params }: PageProps<"/[lang]/trekking">) {

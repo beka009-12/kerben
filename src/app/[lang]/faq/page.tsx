@@ -6,14 +6,14 @@ import { PageHero } from "@/components/common/page-hero/PageHero";
 import { getFaqs } from "@/utils/api/catalog";
 import { hasLocale } from "@/utils/i18n/config";
 import { getDictionary } from "@/utils/i18n/dictionaries";
-import { alternates } from "@/utils/seo";
+import { pageMetadata } from "@/utils/seo";
 import "./faq-page.css";
 
 export async function generateMetadata({ params }: PageProps<"/[lang]/faq">): Promise<Metadata> {
   const { lang } = await params;
   if (!hasLocale(lang)) return {};
   const dict = await getDictionary(lang);
-  return { title: dict.meta.faqTitle, description: dict.meta.faqDescription, alternates: alternates(lang, "/faq") };
+  return pageMetadata({ locale: lang, path: "/faq", title: dict.meta.faqTitle, description: dict.meta.faqDescription });
 }
 
 export default async function FaqPage({ params }: PageProps<"/[lang]/faq">) {

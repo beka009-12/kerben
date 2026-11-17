@@ -1,7 +1,7 @@
 # Kerben Travel — сайт туристического агентства
 
 Frontend проекта **Kerben Travel**: туры по Кыргызстану и миру, карта направлений, отели, бронирование.
-Данные идут из backend Kerben Travel (FastAPI, документация — https://13.49.104.87/docs).
+Данные идут из backend Kerben Travel (FastAPI, документация — https://api.kerben-travel.com/docs).
 
 ## Стек
 
@@ -75,7 +75,7 @@ scripts/                      seed API, копирование worker'а кар�
 
 ## API (backend Kerben Travel)
 
-Адрес backend — `KERBEN_API_URL` (по умолчанию `https://13.49.104.87`), код — `src/utils/api/backend.ts`.
+Адрес backend — `KERBEN_API_URL` (по умолчанию `https://api.kerben-travel.com`), код — `src/utils/api/backend.ts`.
 Backend вызывается **только с сервера Next.js** (страницы и маршруты `/api/*`), чтобы адрес и ключи не попадали в браузер,
 а фото из backend раздаёт `next/image` с домена сайта.
 
@@ -129,8 +129,8 @@ Backend вызывается **только с сервера Next.js** (стр�
 
 - Аккаунт клиента — в backend (`/account/*`); браузер ходит туда через прокси `/api/chat/…` (`src/app/api/chat/[...path]/route.ts`).
 - Токен входа и профиль хранятся в браузере (`localStorage`, ключ `kerben-session`) — `src/utils/store/auth.ts`, `src/utils/auth.ts`.
-- ИИ-чат — websocket backend `wss://…/ws/chat/{id}`. Токен чата выдаёт `/api/chat/token`: если чат принимает токен аккаунта,
-  берётся он; иначе сервер заводит отдельный аккаунт чата (пароль выводится из `CHAT_ACCOUNT_SECRET`).
+- ИИ-чат — websocket backend `wss://…/ws/chat/{id}`. Токен чата выдаёт `/api/chat/token`: это тот же токен аккаунта,
+  сервер только проверяет его через `/account/me`.
 - Websocket backend принимает Origin только `http://localhost:3000` и боевой домен — локально запускайте на порту 3000.
 - Сброс пароля: backend шлёт письмо со ссылкой; страница `/{язык}/reset-password` берёт токен из `?token=…`.
 

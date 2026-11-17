@@ -12,7 +12,7 @@ import { AMENITY_ICONS } from "@/utils/hotels/amenity-icons";
 import { hasLocale } from "@/utils/i18n/config";
 import { getDictionary } from "@/utils/i18n/dictionaries";
 import { hotelItem } from "@/utils/listing-items";
-import { alternates } from "@/utils/seo";
+import { metaDescription, pageMetadata } from "@/utils/seo";
 import "./hotel-page.css";
 
 export async function generateStaticParams() {
@@ -23,14 +23,15 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps<"/[lang]/hotels/[id]">): Promise<Metadata> {
   const { lang, id } = await params;
   if (!hasLocale(lang)) return {};
-  const hotel = await getHotel(lang, id);
+  const [hotel, dict] = await Promise.all([getHotel(lang, id), getDictionary(lang)]);
   if (!hotel) return {};
-  return {
+  return pageMetadata({
+    locale: lang,
+    path: `/hotels/${id}`,
     title: hotel.name,
-    description: hotel.description || hotel.location,
-    alternates: alternates(lang, `/hotels/${id}`),
-    openGraph: { title: hotel.name, images: [{ url: hotel.image }] },
-  };
+    description: metaDescription(hotel.description || hotel.location, dict.meta.hotelsDescription),
+    image: hotel.image,
+  });
 }
 
 export default function HotelPage({ params }: PageProps<"/[lang]/hotels/[id]">) {

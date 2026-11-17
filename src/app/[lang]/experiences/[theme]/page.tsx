@@ -10,7 +10,7 @@ import { EXPERIENCES } from "@/data/experiences";
 import { getTours } from "@/utils/api/tours";
 import { hasLocale } from "@/utils/i18n/config";
 import { getDictionary } from "@/utils/i18n/dictionaries";
-import { alternates } from "@/utils/seo";
+import { metaDescription, pageMetadata } from "@/utils/seo";
 import { defaultFilters, filterTours, THEMES, type Theme } from "@/utils/tour-filters";
 import "./experience-page.css";
 
@@ -23,8 +23,15 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps<"/[lang]/experiences/[theme]">): Promise<Metadata> {
   const { lang, theme } = await params;
   if (!hasLocale(lang) || !isTheme(theme)) return {};
-  const item = (await getDictionary(lang)).home.experiences.items[THEMES.indexOf(theme)];
-  return item ? { title: item.title, description: item.text, alternates: alternates(lang, `/experiences/${theme}`) } : {};
+  const dict = await getDictionary(lang);
+  const item = dict.home.experiences.items[THEMES.indexOf(theme)];
+  if (!item) return {};
+  return pageMetadata({
+    locale: lang,
+    path: `/experiences/${theme}`,
+    title: item.title,
+    description: metaDescription(item.text, dict.meta.description),
+  });
 }
 
 export default function ExperiencePage({ params }: PageProps<"/[lang]/experiences/[theme]">) {

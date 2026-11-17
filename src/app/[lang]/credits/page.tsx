@@ -4,14 +4,14 @@ import { notFound } from "next/navigation";
 import { photoCredits } from "@/data/credits";
 import { hasLocale } from "@/utils/i18n/config";
 import { getDictionary } from "@/utils/i18n/dictionaries";
-import { alternates } from "@/utils/seo";
+import { pageMetadata } from "@/utils/seo";
 import "./credits-page.css";
 
 export async function generateMetadata({ params }: PageProps<"/[lang]/credits">): Promise<Metadata> {
   const { lang } = await params;
   if (!hasLocale(lang)) return {};
   const dict = await getDictionary(lang);
-  return { title: dict.meta.creditsTitle, alternates: alternates(lang, "/credits") };
+  return pageMetadata({ locale: lang, path: "/credits", title: dict.meta.creditsTitle, description: dict.meta.creditsDescription });
 }
 
 export default async function CreditsPage({ params }: PageProps<"/[lang]/credits">) {

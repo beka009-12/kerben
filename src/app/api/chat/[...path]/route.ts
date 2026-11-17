@@ -9,7 +9,6 @@ const ROUTES: { method: string; path: RegExp; slash?: boolean; open?: boolean }[
   { method: "POST", path: /^booking\/preview$/ },
   { method: "POST", path: /^booking\/confirm$/ },
   { method: "DELETE", path: /^chat\/[\w-]{1,64}\/services\/(hotel|transport)$/ },
-  { method: "GET", path: /^auth\/me$/ },
   { method: "POST", path: /^account\/(login|register|forgot-password|reset-password)$/, open: true },
   { method: "GET", path: /^account\/me$/ },
   { method: "GET", path: /^tours\/\d{1,9}\/reviews$/, slash: true, open: true },
