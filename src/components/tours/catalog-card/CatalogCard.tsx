@@ -36,7 +36,7 @@ export function CatalogCard({ tour, locale, labels, eager = false }: { tour: Tou
           fill
           quality={85}
           loading={eager ? "eager" : "lazy"}
-          sizes="(min-width: 900px) 340px, 100vw"
+          sizes="(min-width: 900px) 340px, (min-width: 600px) 50vw, 100vw"
           className="catalog-card-image"
         />
         {tour.days > 0 && <span className="catalog-card-days">{duration}</span>}
