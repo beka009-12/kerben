@@ -18,7 +18,7 @@ export function ListingPage({
   dict,
   children,
 }: {
-  hero: { kicker?: string; title: string; text?: string; image: string };
+  hero: { kicker?: string; title: string; text?: string; image: string; imagePosition?: string };
   items: ListingGridItem[];
   labels: ListingGridLabels;
   filters?: boolean;
@@ -28,7 +28,7 @@ export function ListingPage({
 }) {
   return (
     <>
-      <PageHero kicker={hero.kicker} title={hero.title} text={hero.text} image={hero.image} />
+      <PageHero kicker={hero.kicker} title={hero.title} text={hero.text} image={hero.image} imagePosition={hero.imagePosition} />
       <section className="listing-page" aria-label={hero.title}>
         <div className="container">
           {items.length === 0 ? (

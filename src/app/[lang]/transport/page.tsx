@@ -22,7 +22,7 @@ export default async function TransportPage({ params }: PageProps<"/[lang]/trans
 
   return (
     <ListingPage
-      hero={{ kicker: dict.offers.servicesKicker, title: dict.transport.title, text: dict.transport.heroText, image: "/images/pages/transport-hero.webp" }}
+      hero={{ kicker: dict.offers.servicesKicker, title: dict.transport.title, text: dict.transport.heroText, image: "/images/pages/transport-hero-riders.webp", imagePosition: "center 62%" }}
       items={items}
       labels={gridLabels(dict, dict.transport.back, dict.transport.sort)}
       locale={lang}
