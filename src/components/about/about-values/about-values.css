@@ -37,6 +37,7 @@
   font-weight: 800;
   line-height: var(--lh-tight);
   color: var(--ink);
+  text-wrap: balance;
 }
 
 .about-values-text {

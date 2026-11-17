@@ -6,7 +6,7 @@
     "toursDescription": "Find a tour by destination, category, price and group size.",
     "hotelsTitle": "Hotels",
     "hotelsDescription": "Handpicked hotels, lodges and yurt camps for every trip.",
-    "aboutTitle": "About Us",
+    "aboutTitle": "About us",
     "aboutDescription": "Who we are and why travellers trust us.",
     "contactTitle": "Contact",
     "contactDescription": "Ask us anything about your next trip.",
@@ -156,11 +156,11 @@
     "error": "The map could not be loaded. Check your connection."
   },
   "cta": {
-    "title": "Ready for Your Next Adventure?",
+    "title": "Ready for your next adventure?",
     "text": "Book now and create memories that will last a lifetime.",
-    "book": "Book This Tour",
-    "browse": "Browse Tours",
-    "video": "Watch Video",
+    "book": "Book this tour",
+    "browse": "Browse tours",
+    "video": "Watch video",
     "tourText": "Book a seat in a minute — or ask the AI assistant about the season, gear and getting there."
   },
   "footer": {
@@ -467,7 +467,7 @@
       },
       {
         "title": "Fair prices",
-        "text": "No hidden fees — everything is in the program."
+        "text": "No hidden fees — everything is in the programme."
       },
       {
         "title": "Safety first",

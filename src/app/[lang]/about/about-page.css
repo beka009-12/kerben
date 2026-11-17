@@ -13,6 +13,7 @@
   line-height: var(--lh-section);
   letter-spacing: var(--ls-heading);
   color: var(--ink);
+  text-wrap: balance;
 }
 
 .about-page-intro-copy {
@@ -22,6 +23,7 @@
 }
 
 .about-page-intro-text {
+  max-width: 65ch;
   font-size: var(--fs-lead);
   line-height: var(--lh-lead);
   color: var(--body);
