@@ -1,4 +1,6 @@
 .ai-chat {
+  --ai-sidebar-w: 280px;
+
   position: fixed;
   top: var(--app-top, 0);
   left: 0;
@@ -28,6 +30,7 @@
 }
 
 .ai-chat-home,
+.ai-chat-panel,
 .ai-chat-menu,
 .ai-chat-new {
   display: grid;
@@ -40,9 +43,15 @@
 }
 
 .ai-chat-home:hover,
+.ai-chat-panel:hover,
 .ai-chat-menu:hover,
 .ai-chat-new:hover {
   background: var(--soft);
+}
+
+/* Сворачивание истории есть только на десктопе; на телефоне история — выезжающая панель */
+.ai-chat-panel {
+  display: none;
 }
 
 .ai-chat-name {
@@ -156,11 +165,37 @@
     display: none;
   }
 
+  .ai-chat-panel {
+    display: grid;
+  }
+
+  .ai-chat .ai-sidebar {
+    transition:
+      margin-left 0.3s var(--ease),
+      visibility 0s;
+  }
+
+  /* visibility прячет свёрнутую историю от Tab и скринридеров, но только после того, как она уехала */
+  .ai-chat-collapsed .ai-sidebar {
+    margin-left: calc(var(--ai-sidebar-w) * -1);
+    visibility: hidden;
+    transition:
+      margin-left 0.3s var(--ease),
+      visibility 0s 0.3s;
+  }
+
   .ai-chat-bar {
     padding-inline: 24px;
   }
 
   .ai-chat-scroll {
     padding: 32px 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ai-chat .ai-sidebar,
+  .ai-chat-collapsed .ai-sidebar {
+    transition: none;
   }
 }

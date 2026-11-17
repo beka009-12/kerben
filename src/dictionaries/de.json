@@ -863,6 +863,7 @@
     "deleteChat": "Chat löschen",
     "deleteConfirm": "Dieser Chat wird endgültig gelöscht.",
     "openHistory": "Verlauf öffnen",
+    "hideHistory": "Verlauf ausblenden",
     "welcomeTitle": "Wohin soll die Reise gehen?",
     "welcomeText": "Fragen Sie alles über Reisen in Kirgisistan und Zentralasien.",
     "suggestions": [

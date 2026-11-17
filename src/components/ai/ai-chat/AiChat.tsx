@@ -12,6 +12,7 @@ import { signOut } from "@/utils/auth";
 import type { AuthUser } from "@/utils/store/auth";
 import type { ComposerTour } from "@/utils/ai/use-ai-composer";
 import { useAiChat } from "@/utils/ai/use-ai-chat";
+import { useSidebarCollapsed } from "@/utils/ai/use-sidebar-collapsed";
 import { previewDraft } from "@/utils/ai/use-ai-booking-card";
 import { useReturnHref } from "@/utils/layout/return-path";
 import "./ai-chat.css";
@@ -19,6 +20,7 @@ import "./ai-chat.css";
 export function AiChat({ user, tours }: { user: AuthUser; tours: ComposerTour[] }) {
   const { locale, dict, t, kinds, trip, booking, confirm, setBooking, conversations, activeId, messages, streaming, error, truncated, remove, removeAll, sidebarOpen, setSidebarOpen, atBottom, rootRef, listRef, openThread, startNew, sendMessage, scrollToBottom, empty, stop, ask, onListScroll } = useAiChat();
   const backHref = useReturnHref(`/${locale}`);
+  const { collapsed, toggle: toggleSidebar } = useSidebarCollapsed();
 
   const composer = (
     <AiComposer
@@ -37,7 +39,7 @@ export function AiChat({ user, tours }: { user: AuthUser; tours: ComposerTour[] 
   );
 
   return (
-    <div ref={rootRef} className="ai-chat">
+    <div ref={rootRef} className={collapsed ? "ai-chat ai-chat-collapsed" : "ai-chat"}>
       <AiSidebar
         conversations={conversations}
         activeId={activeId}
@@ -68,6 +70,17 @@ export function AiChat({ user, tours }: { user: AuthUser; tours: ComposerTour[] 
 
       <section className="ai-chat-main" aria-label={t.title}>
         <header className="ai-chat-bar">
+          <button
+            type="button"
+            className="ai-chat-panel"
+            onClick={toggleSidebar}
+            aria-controls="ai-sidebar"
+            aria-expanded={!collapsed}
+            aria-label={collapsed ? t.openHistory : t.hideHistory}
+            title={collapsed ? t.openHistory : t.hideHistory}
+          >
+            <Icon name="panelLeft" size={20} />
+          </button>
           <Link href={backHref} className="ai-chat-home" aria-label={t.back} title={t.back}>
             <Icon name="arrowLeft" size={20} />
           </Link>

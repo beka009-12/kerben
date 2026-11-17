@@ -863,6 +863,7 @@
     "deleteChat": "Delete chat",
     "deleteConfirm": "This chat will be deleted for good.",
     "openHistory": "Open history",
+    "hideHistory": "Hide history",
     "welcomeTitle": "Where shall we go?",
     "welcomeText": "Ask anything about travelling in Kyrgyzstan and Central Asia.",
     "suggestions": [

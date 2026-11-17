@@ -47,7 +47,7 @@ export function AiSidebar({
 
   return (
     <>
-      <aside className={open ? "ai-sidebar ai-sidebar-open" : "ai-sidebar"}>
+      <aside id="ai-sidebar" className={open ? "ai-sidebar ai-sidebar-open" : "ai-sidebar"}>
         <div className="ai-sidebar-top">
           <button type="button" className="ai-sidebar-new" onClick={onNew}>
             <Icon name="compose" size={18} />

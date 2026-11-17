@@ -310,7 +310,7 @@
 @media (min-width: 900px) {
   .ai-sidebar {
     position: relative;
-    width: 280px;
+    width: var(--ai-sidebar-w);
     transform: none;
   }
 
