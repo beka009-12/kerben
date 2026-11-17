@@ -873,14 +873,6 @@
       {
         "title": "Beste Reisezeit",
         "prompt": "Wann ist die beste Zeit, den Issyk-Kul und den Song-Kul zu besuchen?"
-      },
-      {
-        "title": "Drei Länder",
-        "prompt": "Wie kann ich Kirgisistan, Kasachstan und Usbekistan in einer 12-tägigen Reise verbinden?"
-      },
-      {
-        "title": "Was einpacken",
-        "prompt": "Was sollte ich für einen Reittrek zum Song-Kul einpacken?"
       }
     ],
     "placeholder": "Kerben Travel AI fragen…",

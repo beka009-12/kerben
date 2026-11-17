@@ -873,14 +873,6 @@
       {
         "title": "Best time to go",
         "prompt": "When is the best time to visit Issyk-Kul and Song-Kul?"
-      },
-      {
-        "title": "Three countries",
-        "prompt": "How can I combine Kyrgyzstan, Kazakhstan and Uzbekistan into one 12-day trip?"
-      },
-      {
-        "title": "What to pack",
-        "prompt": "What should I pack for a horse trek to Song-Kul?"
       }
     ],
     "placeholder": "Ask Kerben Travel AI…",
