@@ -55,6 +55,22 @@ export function useNavDrag(items: NavDragItem[], activeIndex: number) {
     setDragIndex(null);
   };
 
+  /** Пилюля встаёт на вкладку сразу, не дожидаясь ответа сервера; откатится сама, если переход сорвётся */
+  const goTo = (index: number) => {
+    const target = items[index];
+    if (!target || index === activeIndex) return;
+    startTransition(() => {
+      setSelectedIndex(index);
+      router.push(target.href);
+    });
+  };
+
+  const onNavigate = (index: number) => (event: { preventDefault: () => void }) => {
+    if (index === activeIndex) return;
+    event.preventDefault();
+    goTo(index);
+  };
+
   const onPointerDown = (event: PointerEvent<HTMLDivElement>) => {
     if (event.pointerType === "mouse" && event.button !== 0) return;
     suppressClick.current = false;
@@ -83,12 +99,7 @@ export function useNavDrag(items: NavDragItem[], activeIndex: number) {
     reset();
     if (!slot) return;
     suppressClick.current = true;
-    const target = items[slot.index];
-    if (!target || slot.index === activeIndex) return;
-    startTransition(() => {
-      setSelectedIndex(slot.index);
-      router.push(target.href);
-    });
+    goTo(slot.index);
   };
 
   const onClickCapture = (event: MouseEvent<HTMLDivElement>) => {
@@ -105,6 +116,7 @@ export function useNavDrag(items: NavDragItem[], activeIndex: number) {
     barRef,
     dragging: dragIndex !== null,
     highlightIndex: dragIndex ?? selectedIndex,
+    onNavigate,
     handlers: { onPointerDown, onPointerMove, onPointerUp, onPointerCancel: reset, onClickCapture, onContextMenu },
   };
 }

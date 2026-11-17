@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 32px;
+  gap: 24px;
   width: min(100%, 960px);
   min-height: 100%;
   margin-inline: auto;
@@ -44,56 +44,42 @@
 }
 
 .ai-welcome-suggestions {
-  display: grid;
-  gap: 24px;
-  width: 100%;
-}
-
-.ai-welcome-suggestion {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-  width: 100%;
-  height: 100%;
-  padding: 22px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Компактные вопросы-подсказки: одна строка текста, без иконок и описаний */
+.ai-welcome-suggestion {
+  min-height: 40px;
+  padding: 8px 16px;
   border: 1px solid var(--line);
-  border-radius: 20px;
+  border-radius: var(--radius-full);
   background: var(--white);
-  text-align: left;
-  transition: border-color 0.2s var(--ease);
-}
-
-.ai-welcome-suggestion:hover {
-  border-color: var(--primary);
-}
-
-.ai-welcome-icon {
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
-  background: var(--primary-soft);
-  color: var(--primary);
-}
-
-.ai-welcome-suggestion-title {
-  font-family: var(--font-heading);
-  font-size: 1.1875rem;
-  font-weight: 700;
-  line-height: 1.25;
-  color: var(--ink);
-}
-
-.ai-welcome-suggestion-text {
   font-size: 0.875rem;
-  line-height: 1.55;
-  color: var(--body);
+  font-weight: 600;
+  line-height: var(--lh-tight);
+  color: var(--ink);
+  -webkit-tap-highlight-color: transparent;
+  transition-property: border-color, color, scale;
+  transition-duration: 0.15s;
+  transition-timing-function: ease-out;
 }
 
-@media (min-width: 700px) {
-  .ai-welcome-suggestions {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+.ai-welcome-suggestion:active {
+  scale: 0.96;
+}
+
+@media (hover: hover) {
+  .ai-welcome-suggestion:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ai-welcome-suggestion:active {
+    scale: none;
   }
 }

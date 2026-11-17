@@ -52,7 +52,7 @@
     "saved": "Saved",
     "explore": "Explore",
     "profile": "Profile",
-    "chat": "AI Assistant",
+    "chat": "Assistant",
     "aiHint": "Ask about any trip",
     "services": "Services",
     "trekking": "Trekking",
@@ -860,9 +860,11 @@
     "newChat": "New chat",
     "history": "History",
     "emptyHistory": "Your chats will appear here",
+    "deleteTitle": "Delete chat?",
     "deleteChat": "Delete chat",
     "deleteConfirm": "This chat will be deleted for good.",
     "openHistory": "Open history",
+    "hideHistory": "Hide history",
     "welcomeTitle": "Where shall we go?",
     "welcomeText": "Ask anything about travelling in Kyrgyzstan and Central Asia.",
     "suggestions": [
@@ -873,14 +875,6 @@
       {
         "title": "Best time to go",
         "prompt": "When is the best time to visit Issyk-Kul and Song-Kul?"
-      },
-      {
-        "title": "Three countries",
-        "prompt": "How can I combine Kyrgyzstan, Kazakhstan and Uzbekistan into one 12-day trip?"
-      },
-      {
-        "title": "What to pack",
-        "prompt": "What should I pack for a horse trek to Song-Kul?"
       }
     ],
     "placeholder": "Ask Kerben Travel AI…",
@@ -942,7 +936,9 @@
       }
     ],
     "clearHistory": "Clear",
-    "clearConfirm": "Delete all chats? This cannot be undone.",
+    "clearTitle": "Delete all chats?",
+    "clearAll": "Delete all",
+    "clearConfirm": "Your whole chat history will be deleted for good.",
     "cancel": "Cancel",
     "booking": {
       "start": "I'd like to book: {title}. Please help me with the request.",

@@ -45,8 +45,8 @@
 .mobile-nav-bar[data-dragging] .mobile-nav-pill {
   transform: translateX(var(--pill-x));
   box-shadow: 0 6px 16px rgb(20 95 240 / 18%);
-  transition-duration: 0.12s, 0.2s, 0.2s;
-  transition-timing-function: ease-out, var(--ease), var(--ease);
+  /* Пилюля идёт за пальцем без сглаживания, иначе отстаёт от него на каждом кадре */
+  transition-duration: 0s, 0.2s, 0.2s;
 }
 
 .mobile-nav-item {

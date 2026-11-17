@@ -52,7 +52,7 @@
     "saved": "Gemerkt",
     "explore": "Entdecken",
     "profile": "Profil",
-    "chat": "KI-Assistent",
+    "chat": "Assistent",
     "aiHint": "Fragen Sie zu jeder Reise",
     "services": "Leistungen",
     "trekking": "Trekking",
@@ -860,9 +860,11 @@
     "newChat": "Neuer Chat",
     "history": "Verlauf",
     "emptyHistory": "Ihre Chats erscheinen hier",
+    "deleteTitle": "Chat löschen?",
     "deleteChat": "Chat löschen",
     "deleteConfirm": "Dieser Chat wird endgültig gelöscht.",
     "openHistory": "Verlauf öffnen",
+    "hideHistory": "Verlauf ausblenden",
     "welcomeTitle": "Wohin soll die Reise gehen?",
     "welcomeText": "Fragen Sie alles über Reisen in Kirgisistan und Zentralasien.",
     "suggestions": [
@@ -873,14 +875,6 @@
       {
         "title": "Beste Reisezeit",
         "prompt": "Wann ist die beste Zeit, den Issyk-Kul und den Song-Kul zu besuchen?"
-      },
-      {
-        "title": "Drei Länder",
-        "prompt": "Wie kann ich Kirgisistan, Kasachstan und Usbekistan in einer 12-tägigen Reise verbinden?"
-      },
-      {
-        "title": "Was einpacken",
-        "prompt": "Was sollte ich für einen Reittrek zum Song-Kul einpacken?"
       }
     ],
     "placeholder": "Kerben Travel AI fragen…",
@@ -942,7 +936,9 @@
       }
     ],
     "clearHistory": "Leeren",
-    "clearConfirm": "Alle Chats löschen? Das kann nicht rückgängig gemacht werden.",
+    "clearTitle": "Alle Chats löschen?",
+    "clearAll": "Alle löschen",
+    "clearConfirm": "Der gesamte Verlauf wird endgültig gelöscht.",
     "cancel": "Abbrechen",
     "booking": {
       "start": "Ich möchte buchen: {title}. Bitte helfen Sie mir mit der Anfrage.",

@@ -44,13 +44,6 @@ export function useAiSidebar({ onDelete, onClear }: Pick<{
     [],
   );
 
-  useEffect(() => {
-    if (!sheet) return;
-    const onKey = (event: KeyboardEvent) => event.key === "Escape" && setSheet(null);
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [sheet]);
-
   function cancelPress() {
     if (timer.current !== null) window.clearTimeout(timer.current);
     timer.current = null;

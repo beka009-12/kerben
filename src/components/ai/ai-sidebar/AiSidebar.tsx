@@ -5,6 +5,7 @@ import { Icon } from "@/components/ui/icon/Icon";
 import type { AiConversation } from "@/utils/hooks/useAssistant";
 import type { AuthUser } from "@/utils/store/auth";
 import { useAiSidebar } from "@/utils/ai/use-ai-sidebar";
+import { useModal } from "@/utils/ui/use-modal";
 import "./ai-sidebar.css";
 
 export function AiSidebar({
@@ -29,8 +30,11 @@ export function AiSidebar({
     history: string;
     empty: string;
     deleteChat: string;
+    deleteTitle: string;
     deleteConfirm: string;
     clear: string;
+    clearTitle: string;
+    clearAll: string;
     clearConfirm: string;
     cancel: string;
     logout: string;
@@ -44,13 +48,14 @@ export function AiSidebar({
   onLogout: () => void;
 }) {
   const { sheet, setSheet, suppressClick, cancelPress, openChatSheet, onPointerDown, onPointerMove, confirm } = useAiSidebar({ onDelete, onClear });
+  const dialogRef = useModal(sheet !== null);
 
   return (
     <>
-      <aside className={open ? "ai-sidebar ai-sidebar-open" : "ai-sidebar"}>
+      <aside id="ai-sidebar" className={open ? "ai-sidebar ai-sidebar-open" : "ai-sidebar"}>
         <div className="ai-sidebar-top">
           <button type="button" className="ai-sidebar-new" onClick={onNew}>
-            <Icon name="chat" size={18} />
+            <Icon name="compose" size={18} />
             {labels.newChat}
           </button>
           <button type="button" className="ai-sidebar-close" onClick={onClose} aria-label={labels.close}>
@@ -119,25 +124,44 @@ export function AiSidebar({
           </button>
         </div>
 
-        {sheet && (
-          <div className="ai-sheet-layer">
-            <button type="button" className="ai-sheet-backdrop" onClick={() => setSheet(null)} aria-label={labels.cancel} />
-            <div className="ai-sheet" role="alertdialog" aria-modal="true" aria-labelledby="ai-sheet-title">
-              <span className="ai-sheet-grip" aria-hidden="true" />
-              <p id="ai-sheet-title" className="ai-sheet-title">
-                {sheet.kind === "chat" ? sheet.title : labels.clear}
+        {/* Нативный dialog: поверх всей страницы, держит фокус внутри, Esc закрывает, фокус возвращается на кнопку */}
+        <dialog
+          ref={dialogRef}
+          className="ai-confirm"
+          aria-labelledby="ai-confirm-title"
+          aria-describedby="ai-confirm-text"
+          onCancel={(event) => {
+            event.preventDefault();
+            setSheet(null);
+          }}
+          onClick={(event) => {
+            if (event.target === event.currentTarget) setSheet(null);
+          }}
+        >
+          {sheet && (
+            <div className="ai-confirm-body">
+              <h2 id="ai-confirm-title" className="ai-confirm-title">
+                {sheet.kind === "chat" ? labels.deleteTitle : labels.clearTitle}
+              </h2>
+              {sheet.kind === "chat" && (
+                <p className="ai-confirm-subject">
+                  <q>{sheet.title}</q>
+                </p>
+              )}
+              <p id="ai-confirm-text" className="ai-confirm-text">
+                {sheet.kind === "chat" ? labels.deleteConfirm : labels.clearConfirm}
               </p>
-              <p className="ai-sheet-text">{sheet.kind === "chat" ? labels.deleteConfirm : labels.clearConfirm}</p>
-              <button type="button" className="ai-sheet-danger" onClick={confirm} autoFocus>
-                <Icon name="trash" size={18} />
-                {sheet.kind === "chat" ? labels.deleteChat : labels.clear}
-              </button>
-              <button type="button" className="ai-sheet-cancel" onClick={() => setSheet(null)}>
-                {labels.cancel}
-              </button>
+              <div className="ai-confirm-actions">
+                <button type="button" className="ai-confirm-cancel" onClick={() => setSheet(null)}>
+                  {labels.cancel}
+                </button>
+                <button type="button" className="ai-confirm-danger" onClick={confirm}>
+                  {sheet.kind === "chat" ? labels.deleteChat : labels.clearAll}
+                </button>
+              </div>
             </div>
-          </div>
-        )}
+          )}
+        </dialog>
       </aside>
       {open && <button type="button" className="ai-sidebar-backdrop" onClick={onClose} aria-label={labels.close} />}
     </>

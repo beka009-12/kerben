@@ -204,104 +204,157 @@
   }
 }
 
-.ai-sheet-layer {
-  position: absolute;
-  inset: 0;
-  z-index: 5;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+/* Подтверждение удаления: на телефоне прижато к низу (под палец), с 640px — по центру */
+.ai-confirm {
+  width: min(100% - 24px, 400px);
+  max-width: none;
+  max-height: none;
+  margin: auto auto max(12px, env(safe-area-inset-bottom));
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: var(--radius-card);
+  background: var(--white);
+  color: var(--ink);
+  box-shadow: var(--shadow-lg);
+  overscroll-behavior: contain;
 }
 
-.ai-sheet-backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgb(3 7 18 / 55%);
-  animation: ai-sheet-fade 0.2s ease both;
+.ai-confirm::backdrop {
+  background: rgb(6 12 28 / 50%);
 }
 
-.ai-sheet {
-  position: relative;
+.ai-confirm-body {
   display: grid;
-  gap: 10px;
-  margin: 10px;
-  padding: 10px 16px max(16px, env(safe-area-inset-bottom));
-  border: 1px solid rgb(255 255 255 / 10%);
-  border-radius: 22px;
-  background: #16244a;
-  box-shadow: 0 -20px 50px rgb(0 0 0 / 35%);
-  animation: ai-sheet-up 0.28s var(--ease) both;
+  gap: 8px;
+  padding: 24px;
 }
 
-.ai-sheet-grip {
-  justify-self: center;
-  width: 36px;
-  height: 4px;
-  margin-bottom: 6px;
-  border-radius: 4px;
-  background: rgb(255 255 255 / 25%);
+.ai-confirm-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: var(--lh-tight);
+  color: var(--ink);
 }
 
-.ai-sheet-title {
+.ai-confirm-subject {
   display: -webkit-box;
   overflow: hidden;
-  font-weight: 700;
-  color: var(--white);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--ink);
+  overflow-wrap: anywhere;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 }
 
-.ai-sheet-text {
-  margin-bottom: 4px;
-  font-size: var(--fs-small);
-  color: rgb(255 255 255 / 60%);
+.ai-confirm-text {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--body);
 }
 
-.ai-sheet-danger,
-.ai-sheet-cancel {
+.ai-confirm-actions {
   display: flex;
-  align-items: center;
-  justify-content: center;
   gap: 8px;
-  min-height: 48px;
-  border-radius: 14px;
-  font-weight: 700;
-  transition:
-    background-color 0.2s,
-    transform 0.15s;
+  margin-top: 12px;
 }
 
-.ai-sheet-danger {
-  background: #e5484d;
+.ai-confirm-cancel,
+.ai-confirm-danger {
+  flex: 1;
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: var(--radius-btn);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: var(--lh-tight);
+  -webkit-tap-highlight-color: transparent;
+  transition-property: background-color, scale;
+  transition-duration: 0.15s;
+  transition-timing-function: ease-out;
+}
+
+.ai-confirm-cancel {
+  background: var(--chip-bg);
+  color: var(--ink);
+}
+
+.ai-confirm-danger {
+  background: var(--danger-text);
   color: var(--white);
 }
 
-.ai-sheet-danger:hover {
-  background: #d13a3f;
+.ai-confirm-cancel:active,
+.ai-confirm-danger:active {
+  scale: 0.96;
 }
 
-.ai-sheet-cancel {
-  background: rgb(255 255 255 / 8%);
-  color: var(--white);
+@media (hover: hover) {
+  .ai-confirm-cancel:hover {
+    background: var(--line);
+  }
+
+  .ai-confirm-danger:hover {
+    background: color-mix(in srgb, var(--danger-text) 88%, black);
+  }
 }
 
-.ai-sheet-cancel:hover {
-  background: rgb(255 255 255 / 14%);
+@media (prefers-reduced-motion: no-preference) {
+  .ai-confirm[open] {
+    animation: ai-confirm-up 0.28s var(--ease) both;
+  }
+
+  .ai-confirm[open]::backdrop {
+    animation: ai-confirm-fade 0.2s ease-out both;
+  }
 }
 
-.ai-sheet-danger:active,
-.ai-sheet-cancel:active {
-  transform: scale(0.98);
+@media (min-width: 640px) {
+  .ai-confirm {
+    margin: auto;
+  }
+
+  .ai-confirm-actions {
+    justify-content: flex-end;
+  }
+
+  .ai-confirm-cancel,
+  .ai-confirm-danger {
+    flex: 0 0 auto;
+  }
 }
 
-@keyframes ai-sheet-up {
+@media (min-width: 640px) and (prefers-reduced-motion: no-preference) {
+  .ai-confirm[open] {
+    animation-name: ai-confirm-in;
+    animation-duration: 0.2s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ai-confirm[open],
+  .ai-confirm[open]::backdrop {
+    animation: ai-confirm-fade 0.2s ease-out both;
+  }
+}
+
+@keyframes ai-confirm-up {
   from {
     opacity: 0;
     transform: translateY(24px);
   }
 }
 
-@keyframes ai-sheet-fade {
+@keyframes ai-confirm-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+
+@keyframes ai-confirm-fade {
   from {
     opacity: 0;
   }
@@ -310,7 +363,7 @@
 @media (min-width: 900px) {
   .ai-sidebar {
     position: relative;
-    width: 280px;
+    width: var(--ai-sidebar-w);
     transform: none;
   }
 

@@ -52,7 +52,7 @@
     "saved": "收藏",
     "explore": "探索",
     "profile": "个人中心",
-    "chat": "AI 助手",
+    "chat": "助手",
     "aiHint": "随时咨询任何行程",
     "services": "服务",
     "trekking": "徒步",
@@ -860,9 +860,11 @@
     "newChat": "新对话",
     "history": "历史记录",
     "emptyHistory": "你的对话会显示在这里",
+    "deleteTitle": "删除对话？",
     "deleteChat": "删除对话",
     "deleteConfirm": "此对话将被永久删除。",
     "openHistory": "打开历史记录",
+    "hideHistory": "隐藏历史记录",
     "welcomeTitle": "我们去哪儿？",
     "welcomeText": "关于吉尔吉斯斯坦和中亚旅行的任何问题都可以问我。",
     "suggestions": [
@@ -873,14 +875,6 @@
       {
         "title": "最佳季节",
         "prompt": "什么时候去伊塞克湖和松湖最好？"
-      },
-      {
-        "title": "三国联游",
-        "prompt": "如何在 12 天内游览吉尔吉斯斯坦、哈萨克斯坦和乌兹别克斯坦？"
-      },
-      {
-        "title": "行李清单",
-        "prompt": "骑马去松湖需要带些什么？"
       }
     ],
     "placeholder": "向 Kerben Travel AI 提问…",
@@ -942,7 +936,9 @@
       }
     ],
     "clearHistory": "清空",
-    "clearConfirm": "删除所有对话？此操作无法撤销。",
+    "clearTitle": "删除所有对话？",
+    "clearAll": "全部删除",
+    "clearConfirm": "全部历史记录将被永久删除。",
     "cancel": "取消",
     "booking": {
       "start": "我想预订：{title}。请帮我提交申请。",

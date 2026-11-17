@@ -54,7 +54,7 @@ export function useHeader() {
         { href: `${base}/tours`, label: dict.nav.tours, icon: "route" },
         { href: `${base}/attractions`, label: dict.nav.attractions, icon: "landmark" },
         { href: `${base}/hotels`, label: dict.nav.hotels, icon: "bed" },
-        { href: `${base}/chat`, label: dict.nav.chat, icon: "chat" },
+        { href: `${base}/chat`, label: dict.nav.chat, icon: "sparkles" },
       ],
     },
     {
