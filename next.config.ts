@@ -30,7 +30,7 @@ const nextConfig: NextConfig = {
   partialPrefetching: true,
   poweredByHeader: false,
   logging: { serverFunctions: false },
-  allowedDevOrigins: ["192.168.0.2"],
+  allowedDevOrigins: ["192.168.*.*", "10.*.*.*"],
   experimental: {
     serverActions: { bodySizeLimit: "5mb" },
     cpus: 2,
