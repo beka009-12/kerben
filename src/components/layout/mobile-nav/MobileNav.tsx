@@ -9,7 +9,7 @@ import "./mobile-nav.css";
 
 export function MobileNav() {
   const { items, activeIndex } = useMobileNav();
-  const { barRef, dragging, highlightIndex, handlers } = useNavDrag(items, activeIndex);
+  const { barRef, dragging, highlightIndex, onNavigate, handlers } = useNavDrag(items, activeIndex);
 
   return (
     <nav className="mobile-nav" aria-label="Bottom">
@@ -28,6 +28,7 @@ export function MobileNav() {
               key={item.href}
               href={item.href}
               draggable={false}
+              onNavigate={onNavigate(i)}
               className={lit ? "mobile-nav-item mobile-nav-item-active" : "mobile-nav-item"}
               aria-current={item.active ? "page" : undefined}
             >
