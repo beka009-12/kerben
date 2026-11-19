@@ -3,7 +3,7 @@ import { NO_PHOTO } from "@/data/images";
 import type { Tour } from "@/types/tour";
 import type { HotelItem } from "@/utils/api/catalog";
 import type { SiteContacts } from "@/utils/api/contacts";
-import type { Locale } from "@/utils/i18n/config";
+import { localeNames, type Locale } from "@/utils/i18n/config";
 
 type JsonValue = string | number | boolean | null | JsonValue[] | { [key: string]: JsonValue };
 export type JsonLdNode = { [key: string]: JsonValue };
@@ -174,23 +174,42 @@ export function hotelJsonLd({ hotel, locale, labels, amenities, priceRange }: Ho
   };
 }
 
-interface OrganizationJsonLdInput {
+interface HomeJsonLdInput {
   locale: Locale;
   contacts: Pick<SiteContacts, "email" | "phone" | "instagramHref" | "facebookHref">;
 }
 
-/** Компания для главной: тот же @id, что у provider в турах; sameAs отличает её от тёзок с другими сайтами */
-export function organizationJsonLd({ locale, contacts }: OrganizationJsonLdInput): JsonLdNode {
+/**
+ * Главная: компания и сайт одним графом. alternateName — как бренд пишут в поиске на разных языках;
+ * WebSite с name/alternateName Google берёт для названия сайта в выдаче.
+ * sameAs со своими соцсетями отличает компанию от тёзок с другими сайтами.
+ */
+export function homeJsonLd({ locale, contacts }: HomeJsonLdInput): JsonLdNode {
+  const alternateName = [...siteConfig.alternateNames];
   const sameAs = [contacts.instagramHref, contacts.facebookHref, siteConfig.telegramChannel].filter((href): href is string => Boolean(href));
   return {
     "@context": "https://schema.org",
-    "@type": "TravelAgency",
-    "@id": ORGANIZATION_ID,
-    name: siteConfig.name,
-    url: absoluteUrl(`/${locale}`),
-    ...(contacts.email ? { email: contacts.email } : {}),
-    ...(contacts.phone ? { telephone: contacts.phone } : {}),
-    areaServed: ["Kyrgyzstan", "Kazakhstan", "Uzbekistan"],
-    ...(sameAs.length > 0 ? { sameAs } : {}),
+    "@graph": [
+      {
+        "@type": "TravelAgency",
+        "@id": ORGANIZATION_ID,
+        name: siteConfig.name,
+        alternateName,
+        url: absoluteUrl(`/${locale}`),
+        ...(contacts.email ? { email: contacts.email } : {}),
+        ...(contacts.phone ? { telephone: contacts.phone } : {}),
+        areaServed: ["Kyrgyzstan", "Kazakhstan", "Uzbekistan"],
+        ...(sameAs.length > 0 ? { sameAs } : {}),
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${siteConfig.url}/#website`,
+        name: siteConfig.name,
+        alternateName,
+        url: `${siteConfig.url}/`,
+        inLanguage: localeNames[locale].htmlLang,
+        publisher: { "@id": ORGANIZATION_ID },
+      },
+    ],
   };
 }
