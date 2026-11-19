@@ -186,7 +186,7 @@ interface HomeJsonLdInput {
  */
 export function homeJsonLd({ locale, contacts }: HomeJsonLdInput): JsonLdNode {
   const alternateName = [...siteConfig.alternateNames];
-  const sameAs = [contacts.instagramHref, contacts.facebookHref, siteConfig.telegramChannel].filter((href): href is string => Boolean(href));
+  const sameAs = [contacts.instagramHref, contacts.facebookHref, siteConfig.telegramChannel, siteConfig.twoGis.url].filter((href): href is string => Boolean(href));
   return {
     "@context": "https://schema.org",
     "@graph": [

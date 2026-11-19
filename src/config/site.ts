@@ -8,6 +8,11 @@ export const siteConfig = {
   alternateNames: ["Kerben Travels", "KerbenTravel", "Кербен Тревел", "凯尔本旅行"],
   /** Канал из Taplink в шапке Instagram. В backend есть только чат по номеру, отдельного поля под канал нет */
   telegramChannel: process.env.NEXT_PUBLIC_TELEGRAM_CHANNEL?.trim() || "https://t.me/kerben_travels",
+  /** Карточка в 2ГИС для sameAs и ссылки на отзывы. Рейтинг обновлять вручную: 20.11.2026 — 4.9 из 159 оценок */
+  twoGis: {
+    url: "https://2gis.kg/bishkek/firm/70000001086785636",
+    rating: 4.9,
+  },
   manager: {
     whatsapp: process.env.NEXT_PUBLIC_MANAGER_WHATSAPP ?? "",
     telegram: process.env.NEXT_PUBLIC_MANAGER_TELEGRAM ?? "",

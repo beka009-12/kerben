@@ -519,7 +519,9 @@
     "interestsPh": "Berge, Seen, Kultur…",
     "optional": "(optional)",
     "sendVia": "Senden über",
-    "replyNote": "Antwort innerhalb eines Werktags · Mo–Sa, 9:00–19:00"
+    "replyNote": "Antwort innerhalb eines Werktags · Mo–Sa, 9:00–19:00",
+    "twoGis": "{rating} auf 2GIS",
+    "twoGisLabel": "Bewertung {rating} von 5 auf 2GIS, Bewertungen öffnen"
   },
   "saved": {
     "kicker": "Ihre Liste",

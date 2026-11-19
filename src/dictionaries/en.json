@@ -519,7 +519,9 @@
     "interestsPh": "Mountains, lakes, culture…",
     "optional": "(optional)",
     "sendVia": "Send via",
-    "replyNote": "We reply within one working day · Mon–Sat, 9:00–19:00"
+    "replyNote": "We reply within one working day · Mon–Sat, 9:00–19:00",
+    "twoGis": "{rating} on 2GIS",
+    "twoGisLabel": "Rated {rating} out of 5 on 2GIS, open reviews"
   },
   "saved": {
     "kicker": "Your list",

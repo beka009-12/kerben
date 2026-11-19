@@ -216,7 +216,12 @@ describe("JSON-LD главной: компания и сайт", () => {
       email: "kerbentravels@gmail.com",
       telephone: "+996 705 120169",
       areaServed: ["Kyrgyzstan", "Kazakhstan", "Uzbekistan"],
-      sameAs: ["https://www.instagram.com/kerben_travels", "https://www.facebook.com/profile.php?id=61553855528333", "https://t.me/kerben_travels"],
+      sameAs: [
+        "https://www.instagram.com/kerben_travels",
+        "https://www.facebook.com/profile.php?id=61553855528333",
+        "https://t.me/kerben_travels",
+        "https://2gis.kg/bishkek/firm/70000001086785636",
+      ],
     });
   });
 
@@ -233,9 +238,9 @@ describe("JSON-LD главной: компания и сайт", () => {
     });
   });
 
-  it("без контактов из backend остаются имя, сайт, регион и Telegram-канал", () => {
+  it("без контактов из backend остаются имя, сайт, регион, Telegram-канал и 2ГИС", () => {
     const [agency] = nodes(homeJsonLd({ locale: "en", contacts: { email: null, phone: null, instagramHref: null, facebookHref: null } }));
     expect(Object.keys(agency).sort()).toEqual(["@id", "@type", "alternateName", "areaServed", "name", "sameAs", "url"]);
-    expect(agency.sameAs).toEqual(["https://t.me/kerben_travels"]);
+    expect(agency.sameAs).toEqual(["https://t.me/kerben_travels", "https://2gis.kg/bishkek/firm/70000001086785636"]);
   });
 });

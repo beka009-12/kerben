@@ -27,7 +27,7 @@ export default async function ContactPage({ params }: PageProps<"/[lang]/contact
       <PageHero kicker={t.kicker} title={t.title} text={t.text} image="/images/pages/faq-hero.webp" />
       <section className="contact-page-section">
         <div className="container contact-page-grid">
-          <ContactInfo dict={dict} contacts={contacts} />
+          <ContactInfo dict={dict} contacts={contacts} locale={lang} />
           <ContactForm contacts={{ whatsappHref: contacts.whatsappHref, telegramHref: contacts.telegramHref }} />
         </div>
       </section>
