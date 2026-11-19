@@ -54,14 +54,11 @@ export function ToursCatalog({ tours }: { tours: Tour[] }) {
   const places = useMemo(() => [...new Set(tours.map(tourLocation).filter(Boolean))], [tours]);
   const duration = filters.durations[0] ?? "all";
 
-  const hero = <ToursHero kicker={t.heroTitle} title={t.heroText} />;
-
   const cta = <RouteCta locale={locale} dict={dict} />;
 
   if (tours.length === 0) {
     return (
       <div className="tours-catalog">
-        {hero}
         <div className="container tours-catalog-none">
           <EmptyOffers
             icon="route"
@@ -82,8 +79,6 @@ export function ToursCatalog({ tours }: { tours: Tour[] }) {
 
   return (
     <div className="tours-catalog">
-      {hero}
-
       <section className="tours-catalog-main" aria-label={t.title}>
         <div className="container">
           <div className="tours-catalog-toolbar">
