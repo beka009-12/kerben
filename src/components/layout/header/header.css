@@ -17,7 +17,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  height: calc(var(--header-h) - 1px);
+  height: calc(var(--header-bar-h) - 1px);
 }
 
 .header-brand {
@@ -85,21 +85,6 @@
   display: flex;
   align-items: center;
   gap: 4px;
-}
-
-.header-phone {
-  display: none;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.9375rem;
-  font-weight: 600;
-  line-height: var(--lh-tight);
-  white-space: nowrap;
-  color: var(--ink);
-}
-
-.header-phone:hover {
-  color: var(--primary);
 }
 
 .header-cta {
@@ -378,12 +363,6 @@
   .header-drawer,
   .header-mobile-only {
     display: none;
-  }
-}
-
-@media (min-width: 1440px) {
-  .header-phone {
-    display: inline-flex;
   }
 }
 

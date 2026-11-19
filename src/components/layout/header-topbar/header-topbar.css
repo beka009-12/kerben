@@ -1,0 +1,63 @@
+/* Полоса видна с 1024px; её высоту держит --topbar-h, на телефонах она 0 и место не занимает */
+.header-topbar {
+  display: none;
+  background: var(--navy);
+  color: rgb(255 255 255 / 82%);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: var(--lh-tight);
+}
+
+.header-topbar-inner {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 24px;
+  height: var(--topbar-h);
+}
+
+.header-topbar-list,
+.header-topbar-side {
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+  list-style: none;
+}
+
+.header-topbar-item {
+  display: flex;
+}
+
+.header-topbar-link,
+.header-topbar-hours {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.header-topbar-link {
+  color: inherit;
+  transition: color 0.15s var(--ease);
+}
+
+.header-topbar-link .icon,
+.header-topbar-hours .icon {
+  color: var(--accent);
+}
+
+.header-topbar-phone {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (hover: hover) {
+  .header-topbar-link:hover {
+    color: var(--white);
+  }
+}
+
+@media (min-width: 1024px) {
+  .header-topbar {
+    display: block;
+  }
+}

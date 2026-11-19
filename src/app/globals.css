@@ -116,7 +116,10 @@
   --container-wide: 1360px;
   --gutter: 16px;
   --section-pad: 96px;
-  --header-h: 64px;
+  /* Шапка = полоса контактов (только с 1024px) + строка меню; от --header-h отступают все страницы */
+  --topbar-h: 0px;
+  --header-bar-h: 64px;
+  --header-h: calc(var(--topbar-h) + var(--header-bar-h));
   --header-gap: 8px;
   --mobile-nav-bar: 62px;
   --mobile-nav-gap: 10px;
@@ -138,15 +141,21 @@
 @media (min-width: 768px) {
   :root {
     --gutter: 32px;
-    --header-h: 72px;
+    --header-bar-h: 72px;
     --header-gap: 14px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --topbar-h: 36px;
   }
 }
 
 @media (min-width: 1100px) {
   :root {
     --gutter: 40px;
-    --header-h: 85px;
+    --header-bar-h: 85px;
   }
 }
 
