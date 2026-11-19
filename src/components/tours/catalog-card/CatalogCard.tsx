@@ -32,7 +32,7 @@ export function CatalogCard({ tour, locale, labels, eager = false }: { tour: Tou
       <div className="catalog-card-media">
         <Image
           src={tour.image}
-          alt=""
+          alt={tour.title}
           fill
           quality={85}
           loading={eager ? "eager" : "lazy"}

@@ -38,7 +38,7 @@ export function ListingCard({
   return (
     <article className="listing-card">
       <div className="listing-card-media">
-        <Image src={image} alt="" fill quality={85} loading={eager ? "eager" : "lazy"} sizes={sizes} className="listing-card-image" />
+        <Image src={image} alt={title} fill quality={85} loading={eager ? "eager" : "lazy"} sizes={sizes} className="listing-card-image" />
         {tag && <span className="listing-card-tag">{tag}</span>}
         {action && <span className="listing-card-action">{action}</span>}
       </div>

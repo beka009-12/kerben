@@ -720,12 +720,14 @@
         "Alleinreisende"
       ],
       "cta": "Route erstellen",
-      "ask": "Ich möchte eine individuelle Reise nach Kirgisistan. Hilf mir bei der Planung: Frag mich nach Reisedaten, Budget, Hotelniveau und Interessen."
+      "ask": "Ich möchte eine individuelle Reise nach Kirgisistan. Hilf mir bei der Planung: Frag mich nach Reisedaten, Budget, Hotelniveau und Interessen.",
+      "imageAlt": "Zwei Wanderer mit Rucksäcken auf einem Bergpfad"
     },
     "infrastructure": {
       "kicker": "Kerben Travel — mehr als Tourismus",
       "title": "Wir schaffen Orte,\nan die man\nzurückkehren möchte",
-      "text": "Kerben Travel entwickelt eigene touristische Infrastruktur in Kirgisistan. Hier wohnen Reisende mitten in der Natur, erholen sich nach einer intensiven Route und spüren den Geist des Landes."
+      "text": "Kerben Travel entwickelt eigene touristische Infrastruktur in Kirgisistan. Hier wohnen Reisende mitten in der Natur, erholen sich nach einer intensiven Route und spüren den Geist des Landes.",
+      "imageAlt": "Jurtencamp in einem Bergtal in Kirgisistan"
     },
     "centralAsia": {
       "kicker": "Drei Länder. Ein Abenteuer.",

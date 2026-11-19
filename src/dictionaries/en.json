@@ -720,12 +720,14 @@
         "Solo travellers"
       ],
       "cta": "Create your route",
-      "ask": "I want a tailor-made trip to Kyrgyzstan. Help me plan it: ask me about dates, budget, hotel level and interests."
+      "ask": "I want a tailor-made trip to Kyrgyzstan. Help me plan it: ask me about dates, budget, hotel level and interests.",
+      "imageAlt": "Two hikers with backpacks on a mountain trail"
     },
     "infrastructure": {
       "kicker": "Kerben Travel — more than tourism",
       "title": "We create places\nyou want to\ncome back to",
-      "text": "Kerben Travel develops its own tourist infrastructure in Kyrgyzstan. Here travellers stay in the middle of nature, rest after a busy route and feel the spirit of the country."
+      "text": "Kerben Travel develops its own tourist infrastructure in Kyrgyzstan. Here travellers stay in the middle of nature, rest after a busy route and feel the spirit of the country.",
+      "imageAlt": "Yurt camp in a mountain valley in Kyrgyzstan"
     },
     "centralAsia": {
       "kicker": "Three countries. One adventure.",

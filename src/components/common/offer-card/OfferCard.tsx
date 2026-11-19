@@ -27,7 +27,7 @@ export function OfferCard({
   return (
     <article className="offer-card">
       <div className="offer-card-media">
-        <Image src={image} alt="" fill sizes="(min-width: 1100px) 380px, (min-width: 640px) 50vw, 100vw" className="offer-card-image" />
+        <Image src={image} alt={title} fill sizes="(min-width: 1100px) 380px, (min-width: 640px) 50vw, 100vw" className="offer-card-image" />
       </div>
       <div className="offer-card-body">
         {subtitle && <p className="offer-card-subtitle">{subtitle}</p>}
