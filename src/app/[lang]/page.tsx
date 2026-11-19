@@ -17,6 +17,7 @@ import { getTours } from "@/utils/api/tours";
 import { hasLocale } from "@/utils/i18n/config";
 import { getDictionary } from "@/utils/i18n/dictionaries";
 import { inKyrgyzstan } from "@/utils/markers";
+import { ORGANIZATION_ID } from "@/utils/structured-data";
 
 const home = (name: string) => `/images/home/${name}.webp`;
 
@@ -31,6 +32,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "TravelAgency",
+    "@id": ORGANIZATION_ID,
     name: siteConfig.name,
     url: `${siteConfig.url}/${lang}`,
     ...(contacts.email ? { email: contacts.email } : {}),
