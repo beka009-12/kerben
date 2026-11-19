@@ -63,6 +63,13 @@ describe("тур из backend", () => {
     expect(isBackendTour({ id: "x", title: "" })).toBe(false);
   });
 
+  it("краткое описание не обрывается на порядковом числительном «15.»", () => {
+    const de = fromBackendTour({ ...raw, description: "Eine steinerne Karawanserei aus dem 15. Jahrhundert in Naryn. Nacht in der Jurte." }, "de");
+    expect(de.summary).toBe("Eine steinerne Karawanserei aus dem 15. Jahrhundert in Naryn.");
+    const ru = fromBackendTour({ ...raw, description: "Построен в 1995. Ночь в юрте." }, "ru");
+    expect(ru.summary).toBe("Построен в 1995.");
+  });
+
   it("splitList не режет числа с запятой", () => {
     expect(splitList("Трансфер, ужин, 1,5 л воды")).toEqual(["Трансфер", "ужин", "1,5 л воды"]);
   });
