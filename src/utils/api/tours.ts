@@ -43,8 +43,11 @@ export function splitList(text: string | null | undefined): string[] {
     .filter(Boolean);
 }
 
+// Точка после одно-двузначного числа — немецкий порядковый («aus dem 15. Jahrhundert»), а не конец предложения
+const SENTENCE_END = /(?<=(?<!\b\d{1,2})[.!?])\s/;
+
 function shorten(text: string, max = 160): string {
-  const first = text.split(/(?<=[.!?])\s/)[0] ?? text;
+  const first = text.split(SENTENCE_END)[0] ?? text;
   const base = first.length <= max ? first : text;
   return base.length <= max ? base : `${base.slice(0, max).replace(/\s+\S*$/, "")}…`;
 }

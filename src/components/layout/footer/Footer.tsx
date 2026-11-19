@@ -44,8 +44,9 @@ export function Footer({ locale, dict, contacts }: { locale: Locale; dict: Dicti
   const t = dict.footer;
 
   const candidates: { name: string; icon: IconName; href: string | null }[] = [
-    { name: "WhatsApp", icon: "chatBubble", href: contacts.whatsappHref },
-    { name: "Telegram", icon: "telegram", href: contacts.telegramHref },
+    { name: "WhatsApp", icon: "whatsapp", href: contacts.whatsappHref },
+    // Здесь соцсети, поэтому канал; написать менеджеру в Telegram можно из карточки тура и со страницы контактов
+    { name: "Telegram", icon: "telegram", href: siteConfig.telegramChannel || contacts.telegramHref },
     { name: "Instagram", icon: "instagram", href: contacts.instagramHref },
     { name: "Facebook", icon: "facebook", href: contacts.facebookHref },
   ];

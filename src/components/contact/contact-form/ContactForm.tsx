@@ -52,7 +52,7 @@ export function ContactForm({ contacts }: { contacts: Pick<SiteContacts, "whatsa
           <div className="contact-form-row">
             {f.whatsappHref && (
               <a href={f.whatsappHref} target="_blank" rel="noopener noreferrer" className="contact-form-messenger contact-form-messenger-whatsapp">
-                <Icon name="chatBubble" size={20} />
+                <Icon name="whatsapp" size={20} />
                 WhatsApp
               </a>
             )}

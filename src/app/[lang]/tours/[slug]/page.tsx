@@ -14,7 +14,6 @@ import { TourReviews } from "@/components/tour/tour-reviews/TourReviews";
 import { TourCard } from "@/components/tours/tour-card/TourCard";
 import { Icon } from "@/components/ui/icon/Icon";
 import { PhotoGallery } from "@/components/ui/photo-gallery/PhotoGallery";
-import { siteConfig } from "@/config/site";
 import { getFaqs, getHotels } from "@/utils/api/catalog";
 import { getTour, getTours, getTourSlugs, hasLocation } from "@/utils/api/tours";
 import { bookingLabels, countField, dateField, getBookingExtras } from "@/utils/contact/booking-extras";
@@ -23,6 +22,7 @@ import { nearestHotels } from "@/utils/geo/nearest-hotels";
 import { hasLocale } from "@/utils/i18n/config";
 import { getDictionary } from "@/utils/i18n/dictionaries";
 import { metaDescription, pageMetadata } from "@/utils/seo";
+import { serializeJsonLd, tourJsonLd } from "@/utils/structured-data";
 import { tourLocation } from "@/utils/tour-filters";
 import "./tour-page.css";
 
@@ -78,26 +78,11 @@ async function TourContent({ params }: { params: PageProps<"/[lang]/tours/[slug]
     ...(category ? [{ label: t.category, value: category }] : []),
   ];
   const question = dict.ai.askTour.replace("{title}", tour.title);
-
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "TouristTrip",
-    name: tour.title,
-    description: tour.summary,
-    image: tour.image.startsWith("http") ? tour.image : `${siteConfig.url}${tour.image}`,
-    offers: { "@type": "Offer", price: tour.price, priceCurrency: "USD" },
-    ...(tour.reviews > 0 && {
-      aggregateRating: { "@type": "AggregateRating", ratingValue: tour.rating, reviewCount: tour.reviews },
-    }),
-    itinerary: {
-      "@type": "ItemList",
-      itemListElement: tour.itinerary.map((stage, i) => ({ "@type": "ListItem", position: i + 1, name: stage.title })),
-    },
-  };
+  const jsonLd = tourJsonLd({ tour, locale: lang, labels: { home: dict.nav.home, tours: dict.nav.tours } });
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }} />
       <TourHeader title={tour.title} kicker={category} meta={meta} section={{ href: `/${lang}/tours`, label: dict.nav.tours }} locale={lang} dict={dict} />
 
       <section className="tour-page-main">

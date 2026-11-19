@@ -30,6 +30,8 @@ export function PhotoGallery({
 
   if (count === 0) return null;
 
+  const altOf = (i: number) => (i === 0 ? name : `${name} — ${labels.photo} ${i + 1}`);
+
   const openAt = (i: number) => {
     setIndex(i);
     setViewer(true);
@@ -45,7 +47,7 @@ export function PhotoGallery({
             <button key={src} type="button" className="photo-gallery-tile" onClick={() => openAt(i)} aria-label={`${labels.photo} ${i + 1} / ${count}`}>
               <Image
                 src={src}
-                alt={i === 0 ? name : ""}
+                alt={altOf(i)}
                 fill
                 sizes={i === 0 ? "(min-width: 1024px) 820px, 100vw" : "(min-width: 1024px) 400px, 50vw"}
                 quality={85}
@@ -80,7 +82,7 @@ export function PhotoGallery({
               <Image
                 key={images[index]}
                 src={images[index]}
-                alt={index === 0 ? name : ""}
+                alt={altOf(index)}
                 fill
                 sizes={MAIN_SIZES}
                 quality={MAIN_QUALITY}
@@ -116,7 +118,7 @@ export function PhotoGallery({
                   className={i === index ? "photo-gallery-thumb photo-gallery-thumb-active" : "photo-gallery-thumb"}
                   onClick={() => setIndex(i)}
                 >
-                  <Image src={src} alt="" fill sizes={THUMB_SIZES} loading="lazy" className="photo-gallery-image" />
+                  <Image src={src} alt={altOf(i)} fill sizes={THUMB_SIZES} loading="lazy" className="photo-gallery-image" />
                 </button>
               ))}
             </div>

@@ -9,7 +9,6 @@ import { PlanCta } from "@/components/home/plan-cta/PlanCta";
 import { PopularDestinations } from "@/components/home/popular-destinations/PopularDestinations";
 import { Seasons } from "@/components/home/seasons/Seasons";
 import { PeopleNumbers } from "@/components/home/people-numbers/PeopleNumbers";
-import { siteConfig } from "@/config/site";
 import { EXPERIENCES } from "@/data/experiences";
 import { getFaqs } from "@/utils/api/catalog";
 import { getContacts } from "@/utils/api/contacts";
@@ -17,6 +16,7 @@ import { getTours } from "@/utils/api/tours";
 import { hasLocale } from "@/utils/i18n/config";
 import { getDictionary } from "@/utils/i18n/dictionaries";
 import { inKyrgyzstan } from "@/utils/markers";
+import { organizationJsonLd, serializeJsonLd } from "@/utils/structured-data";
 
 const home = (name: string) => `/images/home/${name}.webp`;
 
@@ -28,19 +28,11 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
 
   const popular = [...tours.filter((tour) => inKyrgyzstan(tour.coords)), ...tours.filter((tour) => !inKyrgyzstan(tour.coords))].slice(0, 9);
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "TravelAgency",
-    name: siteConfig.name,
-    url: `${siteConfig.url}/${lang}`,
-    ...(contacts.email ? { email: contacts.email } : {}),
-    ...(contacts.phone ? { telephone: contacts.phone } : {}),
-    areaServed: ["Kyrgyzstan", "Kazakhstan", "Uzbekistan"],
-  };
+  const jsonLd = organizationJsonLd({ locale: lang, contacts });
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }} />
       <Hero locale={lang} dict={dict} />
       <PeopleNumbers dict={dict} locale={lang} stats={null} />
       {popular.length > 0 && <PopularDestinations tours={popular} locale={lang} dict={dict} />}

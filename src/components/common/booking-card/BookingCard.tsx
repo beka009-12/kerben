@@ -133,7 +133,7 @@ export function BookingCard({
       </Link>
       {whatsappHref && (
         <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="booking-card-button booking-card-button-whatsapp">
-          <Icon name="chatBubble" size={18} />
+          <Icon name="whatsapp" size={18} />
           {labels.whatsapp}
         </a>
       )}

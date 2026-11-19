@@ -15,7 +15,7 @@ export function Infrastructure({ image, dict }: { image: string; dict: Dictionar
           <p className="infrastructure-text">{t.text}</p>
         </div>
         <div className="infrastructure-media">
-          <Image src={image} alt="" fill sizes="(min-width: 1024px) 568px, 100vw" className="infrastructure-image" />
+          <Image src={image} alt={t.imageAlt} fill sizes="(min-width: 1024px) 568px, 100vw" className="infrastructure-image" />
         </div>
       </div>
     </section>
