@@ -2,7 +2,8 @@ import { describe, expect, it } from "vitest";
 import { siteConfig } from "@/config/site";
 import { NO_PHOTO } from "@/data/images";
 import type { Tour } from "@/types/tour";
-import { ORGANIZATION_ID, serializeJsonLd, tourJsonLd } from "@/utils/structured-data";
+import type { HotelItem } from "@/utils/api/catalog";
+import { hotelJsonLd, ORGANIZATION_ID, serializeJsonLd, tourJsonLd } from "@/utils/structured-data";
 
 const base = siteConfig.url;
 
@@ -128,5 +129,69 @@ describe("JSON-LD страницы тура", () => {
     const html = serializeJsonLd({ "@context": "https://schema.org", name: "</script><script>alert(1)</script>" });
     expect(html).not.toContain("<");
     expect(JSON.parse(html)).toEqual({ "@context": "https://schema.org", name: "</script><script>alert(1)</script>" });
+  });
+});
+
+const hotel: HotelItem = {
+  id: "52",
+  name: "Jannat Resort Osh",
+  location: "Ош, Ошская область, Кыргызстан",
+  description: "Курортный отель у подножия Сулайман-Тоо.",
+  image: "https://api.kerben-travel.com/media/jannat.webp",
+  gallery: ["https://api.kerben-travel.com/media/jannat-2.webp"],
+  address: "ул. Айтиева, 1",
+  phone: "+996 555 000 000",
+  coords: [72.79, 40.53],
+  price: 120,
+  unit: "per_night",
+  stars: 4,
+  amenities: ["wifi", "pool"],
+  rating: 0,
+  reviews: 0,
+};
+
+const hotelLabels = { home: "Главная", hotels: "Отели" };
+
+function hotelNodes(data: ReturnType<typeof hotelJsonLd>) {
+  const graph = data["@graph"] as Record<string, unknown>[];
+  return {
+    lodging: graph.find((node) => node["@type"] === "LodgingBusiness") ?? {},
+    crumbs: graph.find((node) => node["@type"] === "BreadcrumbList") ?? {},
+  };
+}
+
+describe("JSON-LD страницы отеля", () => {
+  it("отель — LodgingBusiness с адресом, координатами, фото и ценой с карточки бронирования", () => {
+    const { lodging } = hotelNodes(hotelJsonLd({ hotel, locale: "ru", labels: hotelLabels, amenities: ["Wi-Fi", "Бассейн"], priceRange: "120 $ за ночь" }));
+    expect(lodging).toEqual({
+      "@type": "LodgingBusiness",
+      "@id": `${base}/ru/hotels/52#lodging`,
+      name: "Jannat Resort Osh",
+      url: `${base}/ru/hotels/52`,
+      description: "Курортный отель у подножия Сулайман-Тоо.",
+      image: ["https://api.kerben-travel.com/media/jannat.webp", "https://api.kerben-travel.com/media/jannat-2.webp"],
+      address: { "@type": "PostalAddress", streetAddress: "ул. Айтиева, 1", addressLocality: "Ош, Ошская область, Кыргызстан" },
+      geo: { "@type": "GeoCoordinates", latitude: 40.53, longitude: 72.79 },
+      priceRange: "120 $ за ночь",
+      amenityFeature: [
+        { "@type": "LocationFeatureSpecification", name: "Wi-Fi", value: true },
+        { "@type": "LocationFeatureSpecification", name: "Бассейн", value: true },
+      ],
+    });
+  });
+
+  it("пустые поля не попадают в разметку", () => {
+    const bare = { ...hotel, description: " ", address: "", location: "", coords: null, image: NO_PHOTO, gallery: [] };
+    const { lodging } = hotelNodes(hotelJsonLd({ hotel: bare, locale: "en", labels: hotelLabels, amenities: [] }));
+    expect(Object.keys(lodging).sort()).toEqual(["@id", "@type", "name", "url"]);
+  });
+
+  it("хлебные крошки: Главная → Отели → отель", () => {
+    const { crumbs } = hotelNodes(hotelJsonLd({ hotel, locale: "en", labels: { home: "Home", hotels: "Hotels" }, amenities: [] }));
+    expect(crumbs.itemListElement).toEqual([
+      { "@type": "ListItem", position: 1, name: "Home", item: `${base}/en` },
+      { "@type": "ListItem", position: 2, name: "Hotels", item: `${base}/en/hotels` },
+      { "@type": "ListItem", position: 3, name: "Jannat Resort Osh", item: `${base}/en/hotels/52` },
+    ]);
   });
 });

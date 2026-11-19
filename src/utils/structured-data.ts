@@ -1,6 +1,7 @@
 import { siteConfig } from "@/config/site";
 import { NO_PHOTO } from "@/data/images";
 import type { Tour } from "@/types/tour";
+import type { HotelItem } from "@/utils/api/catalog";
 import type { Locale } from "@/utils/i18n/config";
 
 type JsonValue = string | number | boolean | null | JsonValue[] | { [key: string]: JsonValue };
@@ -14,6 +15,10 @@ export const absoluteUrl = (src: string): string =>
 
 /** Как в документации Next: `<` экранируется, иначе строка из backend может закрыть <script> */
 export const serializeJsonLd = (data: JsonLdNode): string => JSON.stringify(data).replace(/</g, "\\u003c");
+
+/** Только настоящие фото: без заглушки и повторов, с абсолютными адресами */
+const photos = (main: string, gallery: string[]): string[] =>
+  [...new Set([main, ...gallery])].filter((src) => src && src !== NO_PHOTO).map(absoluteUrl);
 
 interface Crumb {
   name: string;
@@ -45,7 +50,7 @@ interface TourJsonLdInput {
 export function tourJsonLd({ tour, locale, labels }: TourJsonLdInput): JsonLdNode {
   const path = `/${locale}/tours/${tour.slug}`;
   const url = absoluteUrl(path);
-  const images = [...new Set([tour.image, ...tour.gallery])].filter((src) => src && src !== NO_PHOTO).map(absoluteUrl);
+  const images = photos(tour.image, tour.gallery);
   const stages = tour.itinerary.filter((stage) => stage.title.trim());
 
   const trip: JsonLdNode = {
@@ -105,6 +110,64 @@ export function tourJsonLd({ tour, locale, labels }: TourJsonLdInput): JsonLdNod
         { name: labels.home, path: `/${locale}` },
         { name: labels.tours, path: `/${locale}/tours` },
         { name: tour.title, path },
+      ]),
+    ],
+  };
+}
+
+interface HotelJsonLdInput {
+  hotel: HotelItem;
+  locale: Locale;
+  labels: { home: string; hotels: string };
+  /** Удобства теми же словами, что и на странице */
+  amenities: string[];
+  /** Цена так, как её видит гость в карточке бронирования */
+  priceRange?: string;
+}
+
+/**
+ * LodgingBusiness, а не Hotel: в каталоге рядом с отелями стоят лоджи и юрточные лагеря.
+ * Звёзды не размечаем — на странице отеля их не показывают.
+ */
+export function hotelJsonLd({ hotel, locale, labels, amenities, priceRange }: HotelJsonLdInput): JsonLdNode {
+  const path = `/${locale}/hotels/${hotel.id}`;
+  const url = absoluteUrl(path);
+  const images = photos(hotel.image, hotel.gallery);
+  const description = hotel.description.trim();
+  const street = hotel.address.trim();
+  const locality = hotel.location.trim();
+
+  const lodging: JsonLdNode = {
+    "@type": "LodgingBusiness",
+    "@id": `${url}#lodging`,
+    name: hotel.name,
+    url,
+    ...(description ? { description } : {}),
+    ...(images.length > 0 ? { image: images } : {}),
+    ...(street || locality
+      ? {
+          address: {
+            "@type": "PostalAddress",
+            ...(street ? { streetAddress: street } : {}),
+            ...(locality ? { addressLocality: locality } : {}),
+          },
+        }
+      : {}),
+    ...(hotel.coords ? { geo: { "@type": "GeoCoordinates", latitude: hotel.coords[1], longitude: hotel.coords[0] } } : {}),
+    ...(priceRange ? { priceRange } : {}),
+    ...(amenities.length > 0
+      ? { amenityFeature: amenities.map((name) => ({ "@type": "LocationFeatureSpecification", name, value: true })) }
+      : {}),
+  };
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      lodging,
+      breadcrumbList([
+        { name: labels.home, path: `/${locale}` },
+        { name: labels.hotels, path: `/${locale}/hotels` },
+        { name: hotel.name, path },
       ]),
     ],
   };
