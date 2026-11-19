@@ -44,7 +44,7 @@ export function Footer({ locale, dict, contacts }: { locale: Locale; dict: Dicti
   const t = dict.footer;
 
   const candidates: { name: string; icon: IconName; href: string | null }[] = [
-    { name: "WhatsApp", icon: "chatBubble", href: contacts.whatsappHref },
+    { name: "WhatsApp", icon: "whatsapp", href: contacts.whatsappHref },
     { name: "Telegram", icon: "telegram", href: contacts.telegramHref },
     { name: "Instagram", icon: "instagram", href: contacts.instagramHref },
     { name: "Facebook", icon: "facebook", href: contacts.facebookHref },
