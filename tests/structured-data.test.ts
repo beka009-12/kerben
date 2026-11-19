@@ -216,12 +216,13 @@ describe("JSON-LD компании", () => {
       email: "kerbentravels@gmail.com",
       telephone: "+996 705 120169",
       areaServed: ["Kyrgyzstan", "Kazakhstan", "Uzbekistan"],
-      sameAs: ["https://www.instagram.com/kerben_travels", "https://www.facebook.com/profile.php?id=61553855528333"],
+      sameAs: ["https://www.instagram.com/kerben_travels", "https://www.facebook.com/profile.php?id=61553855528333", "https://t.me/kerben_travels"],
     });
   });
 
-  it("без контактов — только имя, адрес сайта и регион", () => {
+  it("без контактов из backend остаются имя, сайт, регион и Telegram-канал", () => {
     const data = organizationJsonLd({ locale: "en", contacts: { email: null, phone: null, instagramHref: null, facebookHref: null } });
-    expect(Object.keys(data).sort()).toEqual(["@context", "@id", "@type", "areaServed", "name", "url"]);
+    expect(Object.keys(data).sort()).toEqual(["@context", "@id", "@type", "areaServed", "name", "sameAs", "url"]);
+    expect(data.sameAs).toEqual(["https://t.me/kerben_travels"]);
   });
 });

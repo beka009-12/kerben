@@ -181,7 +181,7 @@ interface OrganizationJsonLdInput {
 
 /** Компания для главной: тот же @id, что у provider в турах; sameAs отличает её от тёзок с другими сайтами */
 export function organizationJsonLd({ locale, contacts }: OrganizationJsonLdInput): JsonLdNode {
-  const sameAs = [contacts.instagramHref, contacts.facebookHref].filter((href): href is string => Boolean(href));
+  const sameAs = [contacts.instagramHref, contacts.facebookHref, siteConfig.telegramChannel].filter((href): href is string => Boolean(href));
   return {
     "@context": "https://schema.org",
     "@type": "TravelAgency",
