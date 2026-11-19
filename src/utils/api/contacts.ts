@@ -35,10 +35,26 @@ function whatsappLink(value: string): string {
   return `https://wa.me/${value.replace(/\D/g, "")}`;
 }
 
+/** Метки, которые соцсети дописывают при «Поделиться»: страницу они не меняют, только следят за переходом */
+const TRACKING = /^(utm_\w+|dmpr|igsh|igshid|mibextid|rdid|share_url|fbclid|si)$/i;
+
+export function cleanLink(value: string): string {
+  let url: URL;
+  try {
+    url = new URL(value);
+  } catch {
+    return value;
+  }
+  for (const key of [...url.searchParams.keys()]) {
+    if (TRACKING.test(key)) url.searchParams.delete(key);
+  }
+  return url.toString();
+}
+
 function socialLink(value: string | null | undefined, base: string): string | null {
   const v = value?.trim();
   if (!v) return null;
-  if (/^https?:\/\//i.test(v)) return v;
+  if (/^https?:\/\//i.test(v)) return cleanLink(v);
   return `${base}${v.replace(/^@/, "")}`;
 }
 
