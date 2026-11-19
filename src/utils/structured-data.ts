@@ -2,6 +2,7 @@ import { siteConfig } from "@/config/site";
 import { NO_PHOTO } from "@/data/images";
 import type { Tour } from "@/types/tour";
 import type { HotelItem } from "@/utils/api/catalog";
+import type { SiteContacts } from "@/utils/api/contacts";
 import type { Locale } from "@/utils/i18n/config";
 
 type JsonValue = string | number | boolean | null | JsonValue[] | { [key: string]: JsonValue };
@@ -170,5 +171,26 @@ export function hotelJsonLd({ hotel, locale, labels, amenities, priceRange }: Ho
         { name: hotel.name, path },
       ]),
     ],
+  };
+}
+
+interface OrganizationJsonLdInput {
+  locale: Locale;
+  contacts: Pick<SiteContacts, "email" | "phone" | "instagramHref" | "facebookHref">;
+}
+
+/** Компания для главной: тот же @id, что у provider в турах; sameAs отличает её от тёзок с другими сайтами */
+export function organizationJsonLd({ locale, contacts }: OrganizationJsonLdInput): JsonLdNode {
+  const sameAs = [contacts.instagramHref, contacts.facebookHref].filter((href): href is string => Boolean(href));
+  return {
+    "@context": "https://schema.org",
+    "@type": "TravelAgency",
+    "@id": ORGANIZATION_ID,
+    name: siteConfig.name,
+    url: absoluteUrl(`/${locale}`),
+    ...(contacts.email ? { email: contacts.email } : {}),
+    ...(contacts.phone ? { telephone: contacts.phone } : {}),
+    areaServed: ["Kyrgyzstan", "Kazakhstan", "Uzbekistan"],
+    ...(sameAs.length > 0 ? { sameAs } : {}),
   };
 }

@@ -3,7 +3,7 @@ import { siteConfig } from "@/config/site";
 import { NO_PHOTO } from "@/data/images";
 import type { Tour } from "@/types/tour";
 import type { HotelItem } from "@/utils/api/catalog";
-import { hotelJsonLd, ORGANIZATION_ID, serializeJsonLd, tourJsonLd } from "@/utils/structured-data";
+import { hotelJsonLd, ORGANIZATION_ID, organizationJsonLd, serializeJsonLd, tourJsonLd } from "@/utils/structured-data";
 
 const base = siteConfig.url;
 
@@ -193,5 +193,35 @@ describe("JSON-LD страницы отеля", () => {
       { "@type": "ListItem", position: 2, name: "Hotels", item: `${base}/en/hotels` },
       { "@type": "ListItem", position: 3, name: "Jannat Resort Osh", item: `${base}/en/hotels/52` },
     ]);
+  });
+});
+
+describe("JSON-LD компании", () => {
+  it("TravelAgency связана со своими соцсетями через sameAs — так Google не путает её с тёзками", () => {
+    const data = organizationJsonLd({
+      locale: "ru",
+      contacts: {
+        email: "kerbentravels@gmail.com",
+        phone: "+996 705 120169",
+        instagramHref: "https://www.instagram.com/kerben_travels",
+        facebookHref: "https://www.facebook.com/profile.php?id=61553855528333",
+      },
+    });
+    expect(data).toEqual({
+      "@context": "https://schema.org",
+      "@type": "TravelAgency",
+      "@id": ORGANIZATION_ID,
+      name: siteConfig.name,
+      url: `${base}/ru`,
+      email: "kerbentravels@gmail.com",
+      telephone: "+996 705 120169",
+      areaServed: ["Kyrgyzstan", "Kazakhstan", "Uzbekistan"],
+      sameAs: ["https://www.instagram.com/kerben_travels", "https://www.facebook.com/profile.php?id=61553855528333"],
+    });
+  });
+
+  it("без контактов — только имя, адрес сайта и регион", () => {
+    const data = organizationJsonLd({ locale: "en", contacts: { email: null, phone: null, instagramHref: null, facebookHref: null } });
+    expect(Object.keys(data).sort()).toEqual(["@context", "@id", "@type", "areaServed", "name", "url"]);
   });
 });
