@@ -499,7 +499,7 @@
     "office": "办公室",
     "officeText": "吉尔吉斯斯坦，比什凯克",
     "hours": "营业时间",
-    "hoursText": "周一至周六 9:00–19:00",
+    "hoursText": "周一至周六 11:00–20:00",
     "messengerHint": "写下您的留言，通过即时通讯发送给我们的经理——我们会在一个工作日内回复。",
     "whatsapp": "通过 WhatsApp 联系",
     "telegram": "通过 Telegram 联系",
@@ -519,7 +519,7 @@
     "interestsPh": "山脉、湖泊、文化……",
     "optional": "（可选）",
     "sendVia": "通过以下方式发送",
-    "replyNote": "一个工作日内回复 · 周一至周六 9:00–19:00",
+    "replyNote": "一个工作日内回复 · 周一至周六 11:00–20:00",
     "twoGis": "2GIS 评分 {rating}",
     "twoGisLabel": "2GIS 评分 {rating}（满分 5 分），查看评价"
   },
