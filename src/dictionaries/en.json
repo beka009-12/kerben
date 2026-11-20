@@ -499,7 +499,7 @@
     "office": "Office",
     "officeText": "Bishkek, Kyrgyzstan",
     "hours": "Hours",
-    "hoursText": "Mon–Sat, 9:00–19:00",
+    "hoursText": "Mon–Sat, 11:00–20:00",
     "messengerHint": "Write your message and send it to our manager in a messenger — we reply within one business day.",
     "whatsapp": "Message on WhatsApp",
     "telegram": "Message on Telegram",
@@ -519,7 +519,7 @@
     "interestsPh": "Mountains, lakes, culture…",
     "optional": "(optional)",
     "sendVia": "Send via",
-    "replyNote": "We reply within one working day · Mon–Sat, 9:00–19:00",
+    "replyNote": "We reply within one working day · Mon–Sat, 11:00–20:00",
     "twoGis": "{rating} on 2GIS",
     "twoGisLabel": "Rated {rating} out of 5 on 2GIS, open reviews"
   },
@@ -593,7 +593,9 @@
   "notFound": {
     "title": "Page not found",
     "text": "This trail leads nowhere. Let's get you back on track.",
-    "home": "Back to home"
+    "home": "Back to home",
+    "ways": "Where to go next",
+    "youAreHere": "You are here"
   },
   "error": {
     "title": "Something went wrong",

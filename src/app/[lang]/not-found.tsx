@@ -1,17 +1,9 @@
 "use client";
 
-import { StatusScreen } from "@/components/common/status-screen/StatusScreen";
-import { ButtonLink } from "@/components/ui/button/Button";
+import { NotFoundScreen } from "@/components/common/not-found-screen/NotFoundScreen";
 import { useNotFoundPage } from "@/utils/layout/use-not-found-page";
 
 export default function NotFound() {
-  const { dict, homeHref, toursHref } = useNotFoundPage();
-  return (
-    <StatusScreen code="404" title={dict.notFound.title} text={dict.notFound.text}>
-      <ButtonLink href={homeHref}>{dict.notFound.home}</ButtonLink>
-      <ButtonLink href={toursHref} variant="outline">
-        {dict.cta.browse}
-      </ButtonLink>
-    </StatusScreen>
-  );
+  const { locale, dict } = useNotFoundPage();
+  return <NotFoundScreen locale={locale} dict={dict} />;
 }

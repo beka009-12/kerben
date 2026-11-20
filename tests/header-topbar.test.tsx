@@ -31,7 +31,7 @@ describe("полоса контактов над шапкой", () => {
       ["WhatsApp", "https://wa.me/996705120169"],
       ["Telegram", "https://t.me/+996705120169"],
     ]);
-    expect(screen.getByText("Пн–Сб, 9:00–19:00")).toBeTruthy();
+    expect(screen.getByText("Пн–Сб, 11:00–20:00")).toBeTruthy();
     expect(screen.getByRole("link", { name: "Instagram" }).getAttribute("href")).toBe("https://www.instagram.com/kerben_travels");
   });
 
@@ -49,6 +49,6 @@ describe("полоса контактов над шапкой", () => {
     const { container } = render(<HeaderTopbar contacts={NO_CONTACTS} labels={labels} />);
     expect(container.querySelector(".header-topbar")).toBeTruthy();
     expect(screen.queryAllByRole("link")).toHaveLength(0);
-    expect(screen.getByText("Пн–Сб, 9:00–19:00")).toBeTruthy();
+    expect(screen.getByText("Пн–Сб, 11:00–20:00")).toBeTruthy();
   });
 });

@@ -13,6 +13,12 @@ export const siteConfig = {
     url: "https://2gis.kg/bishkek/firm/70000001086785636",
     rating: 4.9,
   },
+  /** Часы офиса, как в карточке 2ГИС. Текст на сайте — contact.hoursText в словарях, тест следит, чтобы совпадал */
+  openingHours: {
+    days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    opens: "11:00",
+    closes: "20:00",
+  },
   manager: {
     whatsapp: process.env.NEXT_PUBLIC_MANAGER_WHATSAPP ?? "",
     telegram: process.env.NEXT_PUBLIC_MANAGER_TELEGRAM ?? "",

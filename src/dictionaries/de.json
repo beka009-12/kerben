@@ -499,7 +499,7 @@
     "office": "Büro",
     "officeText": "Bischkek, Kirgisistan",
     "hours": "Öffnungszeiten",
-    "hoursText": "Mo–Sa, 9:00–19:00",
+    "hoursText": "Mo–Sa, 11:00–20:00",
     "messengerHint": "Schreiben Sie Ihre Nachricht und senden Sie sie unserem Manager per Messenger — wir antworten innerhalb eines Werktags.",
     "whatsapp": "Über WhatsApp schreiben",
     "telegram": "Über Telegram schreiben",
@@ -519,7 +519,7 @@
     "interestsPh": "Berge, Seen, Kultur…",
     "optional": "(optional)",
     "sendVia": "Senden über",
-    "replyNote": "Antwort innerhalb eines Werktags · Mo–Sa, 9:00–19:00",
+    "replyNote": "Antwort innerhalb eines Werktags · Mo–Sa, 11:00–20:00",
     "twoGis": "{rating} auf 2GIS",
     "twoGisLabel": "Bewertung {rating} von 5 auf 2GIS, Bewertungen öffnen"
   },
@@ -593,7 +593,9 @@
   "notFound": {
     "title": "Seite nicht gefunden",
     "text": "Dieser Pfad führt ins Nichts. Wir bringen Sie zurück auf den richtigen Weg.",
-    "home": "Zur Startseite"
+    "home": "Zur Startseite",
+    "ways": "Wohin als Nächstes",
+    "youAreHere": "Sie sind hier"
   },
   "error": {
     "title": "Etwas ist schiefgelaufen",

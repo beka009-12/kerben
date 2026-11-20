@@ -199,6 +199,12 @@ export function homeJsonLd({ locale, contacts }: HomeJsonLdInput): JsonLdNode {
         ...(contacts.email ? { email: contacts.email } : {}),
         ...(contacts.phone ? { telephone: contacts.phone } : {}),
         areaServed: ["Kyrgyzstan", "Kazakhstan", "Uzbekistan"],
+        openingHoursSpecification: {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: [...siteConfig.openingHours.days],
+          opens: siteConfig.openingHours.opens,
+          closes: siteConfig.openingHours.closes,
+        },
         ...(sameAs.length > 0 ? { sameAs } : {}),
       },
       {

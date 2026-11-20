@@ -1,0 +1,211 @@
+/* 404 — на весь экран, без шапки, подвала и нижнего меню. :has срабатывает уже на HTML с сервера,
+   поэтому шапка не мелькает, как было бы при скрытии из useEffect.
+   После перехода Next держит прошлую 404 в DOM через React <Activity> со style="display: none" — её не считаем */
+body:has(.not-found:not([style*="display"])) .header,
+body:has(.not-found:not([style*="display"])) .footer,
+body:has(.not-found:not([style*="display"])) .mobile-nav {
+  display: none;
+}
+
+.not-found {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 24px;
+  min-height: 100svh;
+  padding-block: 20px 56px;
+  background: var(--soft);
+}
+
+.not-found-brand {
+  display: inline-flex;
+}
+
+.not-found-inner {
+  display: grid;
+  align-self: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.not-found-title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h1);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+.not-found-text {
+  max-width: 44ch;
+  margin-top: 12px;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.not-found-ways {
+  max-width: 440px;
+  margin-top: 28px;
+  border-top: 1px solid var(--line);
+  list-style: none;
+}
+
+.not-found-way {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 56px;
+  padding: 8px 4px;
+  border-bottom: 1px solid var(--line);
+  font-weight: 600;
+  color: var(--ink);
+  transition: color 0.15s ease-out;
+}
+
+.not-found-way-icon {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--primary);
+}
+
+.not-found-way-arrow {
+  margin-left: auto;
+  color: var(--muted);
+  transition:
+    translate 0.15s ease-out,
+    color 0.15s ease-out;
+}
+
+@media (hover: hover) {
+  .not-found-way:hover {
+    color: var(--primary);
+  }
+
+  .not-found-way:hover .not-found-way-arrow {
+    color: var(--accent);
+  }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .not-found-way:hover .not-found-way-arrow {
+    translate: 4px 0;
+  }
+}
+
+/* Карта: на телефоне сверху и пониже, на десктопе справа */
+.not-found-map {
+  order: -1;
+  width: 100%;
+  max-height: 240px;
+}
+
+.not-found-contour {
+  fill: none;
+  stroke: rgb(13 26 58 / 12%);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.not-found-contour-index {
+  stroke: rgb(13 26 58 / 24%);
+  stroke-width: 1.6;
+}
+
+.not-found-trail {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 1 11;
+}
+
+.not-found-trail-reveal {
+  fill: none;
+  stroke: var(--white);
+  stroke-width: 12;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+
+.not-found-summit {
+  fill: var(--ink);
+}
+
+.not-found-code {
+  font-family: var(--font-heading);
+  font-size: 72px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  paint-order: stroke;
+  stroke: var(--soft);
+  stroke-width: 10px;
+  stroke-linejoin: round;
+}
+
+.not-found-cross {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.not-found-here {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  fill: var(--ink);
+  paint-order: stroke;
+  stroke: var(--soft);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+}
+
+/* Одно движение на странице: тропа прорисовывается, потом появляется отметка «Вы здесь» */
+@media (prefers-reduced-motion: no-preference) {
+  .not-found-trail-reveal {
+    animation: not-found-trail 1.2s cubic-bezier(0.2, 0, 0, 1) 0.2s both;
+  }
+
+  .not-found-end {
+    animation: not-found-end 0.3s ease-out 1.3s both;
+  }
+}
+
+@keyframes not-found-trail {
+  from {
+    stroke-dashoffset: 1;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes not-found-end {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (min-width: 900px) {
+  .not-found-inner {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 48px;
+  }
+
+  .not-found-map {
+    order: 0;
+    max-height: none;
+  }
+}
