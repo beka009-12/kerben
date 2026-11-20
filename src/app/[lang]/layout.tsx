@@ -16,6 +16,10 @@ import { getDictionary } from "@/utils/i18n/dictionaries";
 import { toSearchItem } from "@/utils/search";
 import { pageMetadata } from "@/utils/seo";
 import "../globals.css";
+// Стили экранов ошибки и 404 входят в общий CSS: отдельными чанками Next грузил их на каждой странице «на всякий случай»,
+// и Chrome предупреждал «preloaded but not used»
+import "@/components/ui/button/button.css";
+import "@/components/common/status-screen/status-screen.css";
 
 const montserrat = Montserrat({
   subsets: ["latin", "cyrillic"],
