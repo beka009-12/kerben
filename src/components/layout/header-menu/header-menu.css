@@ -6,7 +6,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 10px 14px;
+  padding: 8px 12px;
   border-radius: var(--radius-full);
   font-size: 0.9375rem;
   font-weight: 500;

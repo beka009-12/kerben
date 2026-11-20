@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { CSSProperties } from "react";
 import { HeaderMenu } from "@/components/layout/header-menu/HeaderMenu";
 import { HeaderSearch } from "@/components/layout/header-search/HeaderSearch";
+import { HeaderTopbar } from "@/components/layout/header-topbar/HeaderTopbar";
 import { LanguageSwitcher } from "@/components/layout/language-switcher/LanguageSwitcher";
 import { Icon } from "@/components/ui/icon/Icon";
 import { Logo } from "@/components/ui/logo/Logo";
@@ -30,6 +31,7 @@ export function Header({ searchItems, contacts }: { searchItems: SearchItem[]; c
 
   return (
     <header className={h.headerClass}>
+      <HeaderTopbar contacts={contacts} labels={{ contacts: dict.nav.contact, hours: dict.contact.hours, hoursText: dict.contact.hoursText }} />
       <div className="container-wide header-bar">
         <Link href={h.base} className="header-brand" aria-label={dict.a11y.home} onNavigate={h.close}>
           <Logo />
@@ -79,12 +81,6 @@ export function Header({ searchItems, contacts }: { searchItems: SearchItem[]; c
           <div className="header-desktop-only">
             <LanguageSwitcher id="lang-desktop" pill />
           </div>
-          {contacts.phone && contacts.phoneHref && (
-            <a href={contacts.phoneHref} className="header-phone">
-              <Icon name="phone" size={16} />
-              {contacts.phone}
-            </a>
-          )}
           <Link href={`${h.base}/tours`} className="header-cta" onNavigate={h.close}>
             {dict.hero.primary}
           </Link>

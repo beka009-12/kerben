@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { TwoGisLink } from "@/components/common/two-gis-link/TwoGisLink";
 import { Icon, type IconName } from "@/components/ui/icon/Icon";
 import { Logo } from "@/components/ui/logo/Logo";
 import { siteConfig } from "@/config/site";
@@ -97,6 +98,9 @@ export function Footer({ locale, dict, contacts }: { locale: Locale; dict: Dicti
                 </a>
               </li>
             )}
+            <li>
+              <TwoGisLink locale={locale} labels={{ text: dict.contact.twoGis, label: dict.contact.twoGisLabel }} className="footer-2gis" />
+            </li>
             <li>
               <Link className="footer-link" href={`${base}/chat`}>
                 {dict.nav.chat}

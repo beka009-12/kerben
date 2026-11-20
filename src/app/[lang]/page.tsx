@@ -16,7 +16,7 @@ import { getTours } from "@/utils/api/tours";
 import { hasLocale } from "@/utils/i18n/config";
 import { getDictionary } from "@/utils/i18n/dictionaries";
 import { inKyrgyzstan } from "@/utils/markers";
-import { organizationJsonLd, serializeJsonLd } from "@/utils/structured-data";
+import { homeJsonLd, serializeJsonLd } from "@/utils/structured-data";
 
 const home = (name: string) => `/images/home/${name}.webp`;
 
@@ -28,7 +28,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
 
   const popular = [...tours.filter((tour) => inKyrgyzstan(tour.coords)), ...tours.filter((tour) => !inKyrgyzstan(tour.coords))].slice(0, 9);
 
-  const jsonLd = organizationJsonLd({ locale: lang, contacts });
+  const jsonLd = homeJsonLd({ locale: lang, contacts });
 
   return (
     <>

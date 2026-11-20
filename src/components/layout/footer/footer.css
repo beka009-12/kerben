@@ -125,3 +125,14 @@
     width: 380px;
   }
 }
+
+.footer-2gis {
+  font-size: 0.9375rem;
+  color: var(--on-dark);
+}
+
+@media (hover: hover) {
+  .footer-2gis:hover {
+    color: var(--white);
+  }
+}

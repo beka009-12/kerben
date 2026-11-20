@@ -1,0 +1,16 @@
+/* Цвет и наведение задаёт место, где стоит ссылка: футер и карточка контактов тёмные */
+.two-gis-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: var(--lh-tight);
+  font-variant-numeric: tabular-nums;
+  color: inherit;
+  transition: color 0.15s var(--ease);
+}
+
+.two-gis-link-star {
+  color: var(--accent);
+}

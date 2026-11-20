@@ -116,3 +116,15 @@
     border-radius: 22px;
   }
 }
+
+.contact-info-2gis {
+  align-self: flex-start;
+  margin-top: 4px;
+  color: var(--on-dark);
+}
+
+@media (hover: hover) {
+  .contact-info-2gis:hover {
+    color: var(--white);
+  }
+}

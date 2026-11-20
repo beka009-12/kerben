@@ -17,7 +17,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  height: calc(var(--header-h) - 1px);
+  height: calc(var(--header-bar-h) - 1px);
 }
 
 .header-brand {
@@ -28,14 +28,14 @@
 .header-nav {
   display: none;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
 }
 
 .header-link {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 10px 14px;
+  padding: 8px 12px;
   border-radius: var(--radius-full);
   font-size: 0.9375rem;
   font-weight: 500;
@@ -74,7 +74,7 @@
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
 }
 
 .header-desktop-only {
@@ -85,21 +85,6 @@
   display: flex;
   align-items: center;
   gap: 4px;
-}
-
-.header-phone {
-  display: none;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.9375rem;
-  font-weight: 600;
-  line-height: var(--lh-tight);
-  white-space: nowrap;
-  color: var(--ink);
-}
-
-.header-phone:hover {
-  color: var(--primary);
 }
 
 .header-cta {
@@ -378,12 +363,6 @@
   .header-drawer,
   .header-mobile-only {
     display: none;
-  }
-}
-
-@media (min-width: 1440px) {
-  .header-phone {
-    display: inline-flex;
   }
 }
 

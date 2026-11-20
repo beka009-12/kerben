@@ -20,9 +20,13 @@ export default async function ToursPage({ params }: PageProps<"/[lang]/tours">) 
   if (!hasLocale(lang)) notFound();
   const [dict, tours] = await Promise.all([getDictionary(lang), getTours(lang)]);
 
+  // H1 только здесь, вне Suspense: каталог (useSearchParams) стримится отдельно, и hero в fallback и в каталоге давал две H1
   return (
-    <Suspense fallback={<ToursHero kicker={dict.tours.heroTitle} title={dict.tours.heroText} />}>
-      <ToursCatalog tours={tours} />
-    </Suspense>
+    <>
+      <ToursHero kicker={dict.tours.heroTitle} title={dict.tours.heroText} />
+      <Suspense fallback={null}>
+        <ToursCatalog tours={tours} />
+      </Suspense>
+    </>
   );
 }

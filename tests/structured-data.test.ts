@@ -3,7 +3,7 @@ import { siteConfig } from "@/config/site";
 import { NO_PHOTO } from "@/data/images";
 import type { Tour } from "@/types/tour";
 import type { HotelItem } from "@/utils/api/catalog";
-import { hotelJsonLd, ORGANIZATION_ID, organizationJsonLd, serializeJsonLd, tourJsonLd } from "@/utils/structured-data";
+import { homeJsonLd, hotelJsonLd, ORGANIZATION_ID, serializeJsonLd, tourJsonLd } from "@/utils/structured-data";
 
 const base = siteConfig.url;
 
@@ -196,33 +196,51 @@ describe("JSON-LD страницы отеля", () => {
   });
 });
 
-describe("JSON-LD компании", () => {
-  it("TravelAgency связана со своими соцсетями через sameAs — так Google не путает её с тёзками", () => {
-    const data = organizationJsonLd({
-      locale: "ru",
-      contacts: {
-        email: "kerbentravels@gmail.com",
-        phone: "+996 705 120169",
-        instagramHref: "https://www.instagram.com/kerben_travels",
-        facebookHref: "https://www.facebook.com/profile.php?id=61553855528333",
-      },
-    });
-    expect(data).toEqual({
-      "@context": "https://schema.org",
+describe("JSON-LD главной: компания и сайт", () => {
+  const contacts = {
+    email: "kerbentravels@gmail.com",
+    phone: "+996 705 120169",
+    instagramHref: "https://www.instagram.com/kerben_travels",
+    facebookHref: "https://www.facebook.com/profile.php?id=61553855528333",
+  };
+  const nodes = (data: ReturnType<typeof homeJsonLd>) => data["@graph"] as Record<string, unknown>[];
+
+  it("TravelAgency: соцсети в sameAs и все написания бренда в alternateName", () => {
+    const [agency] = nodes(homeJsonLd({ locale: "ru", contacts }));
+    expect(agency).toEqual({
       "@type": "TravelAgency",
       "@id": ORGANIZATION_ID,
-      name: siteConfig.name,
+      name: "Kerben Travel",
+      alternateName: ["Kerben Travels", "KerbenTravel", "Кербен Тревел", "凯尔本旅行"],
       url: `${base}/ru`,
       email: "kerbentravels@gmail.com",
       telephone: "+996 705 120169",
       areaServed: ["Kyrgyzstan", "Kazakhstan", "Uzbekistan"],
-      sameAs: ["https://www.instagram.com/kerben_travels", "https://www.facebook.com/profile.php?id=61553855528333", "https://t.me/kerben_travels"],
+      sameAs: [
+        "https://www.instagram.com/kerben_travels",
+        "https://www.facebook.com/profile.php?id=61553855528333",
+        "https://t.me/kerben_travels",
+        "https://2gis.kg/bishkek/firm/70000001086785636",
+      ],
     });
   });
 
-  it("без контактов из backend остаются имя, сайт, регион и Telegram-канал", () => {
-    const data = organizationJsonLd({ locale: "en", contacts: { email: null, phone: null, instagramHref: null, facebookHref: null } });
-    expect(Object.keys(data).sort()).toEqual(["@context", "@id", "@type", "areaServed", "name", "sameAs", "url"]);
-    expect(data.sameAs).toEqual(["https://t.me/kerben_travels"]);
+  it("WebSite даёт Google название сайта и его варианты", () => {
+    const [, site] = nodes(homeJsonLd({ locale: "zh", contacts }));
+    expect(site).toEqual({
+      "@type": "WebSite",
+      "@id": `${base}/#website`,
+      name: "Kerben Travel",
+      alternateName: ["Kerben Travels", "KerbenTravel", "Кербен Тревел", "凯尔本旅行"],
+      url: `${base}/`,
+      inLanguage: "zh-CN",
+      publisher: { "@id": ORGANIZATION_ID },
+    });
+  });
+
+  it("без контактов из backend остаются имя, сайт, регион, Telegram-канал и 2ГИС", () => {
+    const [agency] = nodes(homeJsonLd({ locale: "en", contacts: { email: null, phone: null, instagramHref: null, facebookHref: null } }));
+    expect(Object.keys(agency).sort()).toEqual(["@id", "@type", "alternateName", "areaServed", "name", "sameAs", "url"]);
+    expect(agency.sameAs).toEqual(["https://t.me/kerben_travels", "https://2gis.kg/bishkek/firm/70000001086785636"]);
   });
 });
