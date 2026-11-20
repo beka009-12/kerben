@@ -1,9 +1,11 @@
 import { cleanup, render, screen, within } from "@testing-library/react";
-import { afterEach, describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { NotFoundScreen } from "@/components/common/not-found-screen/NotFoundScreen";
 import de from "@/dictionaries/de.json";
 import ru from "@/dictionaries/ru.json";
 import type { Dictionary } from "@/utils/i18n/dictionaries";
+
+vi.mock("next/image", () => ({ default: () => null }));
 
 afterEach(cleanup);
 
@@ -22,6 +24,11 @@ describe("страница 404", () => {
       ["Контакты", "/ru/contact"],
       ["Помощник", "/ru/chat"],
     ]);
+  });
+
+  it("без шапки сайта логотип ведёт на главную", () => {
+    render(<NotFoundScreen locale="ru" dict={ru as unknown as Dictionary} />);
+    expect(screen.getByRole("link", { name: "Kerben Travel — на главную" }).getAttribute("href")).toBe("/ru");
   });
 
   it("карта — украшение: скрыта от скринридера, но с отметкой 404 и подписью «Вы здесь»", () => {

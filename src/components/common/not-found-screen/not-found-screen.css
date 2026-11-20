@@ -1,13 +1,28 @@
+/* 404 — на весь экран, без шапки, подвала и нижнего меню. :has срабатывает уже на HTML с сервера,
+   поэтому шапка не мелькает, как было бы при скрытии из useEffect.
+   После перехода Next держит прошлую 404 в DOM через React <Activity> со style="display: none" — её не считаем */
+body:has(.not-found:not([style*="display"])) .header,
+body:has(.not-found:not([style*="display"])) .footer,
+body:has(.not-found:not([style*="display"])) .mobile-nav {
+  display: none;
+}
+
 .not-found {
-  display: flex;
-  align-items: center;
-  min-height: 80svh;
-  padding: calc(var(--header-h) + 40px) 0 72px;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 24px;
+  min-height: 100svh;
+  padding-block: 20px 56px;
   background: var(--soft);
+}
+
+.not-found-brand {
+  display: inline-flex;
 }
 
 .not-found-inner {
   display: grid;
+  align-self: center;
   align-items: center;
   gap: 24px;
 }

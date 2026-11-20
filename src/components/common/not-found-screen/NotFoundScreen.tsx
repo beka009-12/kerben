@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Icon, type IconName } from "@/components/ui/icon/Icon";
+import { Logo } from "@/components/ui/logo/Logo";
 import type { Locale } from "@/utils/i18n/config";
 import type { Dictionary } from "@/utils/i18n/dictionaries";
 
@@ -81,6 +82,11 @@ export function NotFoundScreen({ locale, dict }: { locale: Locale; dict: Diction
 
   return (
     <section className="not-found">
+      <div className="container not-found-top">
+        <Link href={base} className="not-found-brand" aria-label={dict.a11y.home}>
+          <Logo />
+        </Link>
+      </div>
       <div className="container not-found-inner">
         <div className="not-found-copy">
           <h1 className="not-found-title">{t.title}</h1>
