@@ -593,7 +593,9 @@
   "notFound": {
     "title": "Seite nicht gefunden",
     "text": "Dieser Pfad führt ins Nichts. Wir bringen Sie zurück auf den richtigen Weg.",
-    "home": "Zur Startseite"
+    "home": "Zur Startseite",
+    "ways": "Wohin als Nächstes",
+    "youAreHere": "Sie sind hier"
   },
   "error": {
     "title": "Etwas ist schiefgelaufen",

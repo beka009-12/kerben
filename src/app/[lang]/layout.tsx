@@ -20,6 +20,7 @@ import "../globals.css";
 // и Chrome предупреждал «preloaded but not used»
 import "@/components/ui/button/button.css";
 import "@/components/common/status-screen/status-screen.css";
+import "@/components/common/not-found-screen/not-found-screen.css";
 
 const montserrat = Montserrat({
   subsets: ["latin", "cyrillic"],

@@ -6,5 +6,5 @@ import { useSolidHeader } from "@/utils/store/header";
 export function useNotFoundPage() {
   const { locale, dict } = useI18n();
   useSolidHeader();
-  return { dict, homeHref: `/${locale}`, toursHref: `/${locale}/tours` };
+  return { locale, dict };
 }

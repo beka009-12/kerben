@@ -593,7 +593,9 @@
   "notFound": {
     "title": "Page not found",
     "text": "This trail leads nowhere. Let's get you back on track.",
-    "home": "Back to home"
+    "home": "Back to home",
+    "ways": "Where to go next",
+    "youAreHere": "You are here"
   },
   "error": {
     "title": "Something went wrong",
