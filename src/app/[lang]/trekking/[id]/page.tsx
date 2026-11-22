@@ -13,6 +13,7 @@ import { hasLocale } from "@/utils/i18n/config";
 import { getDictionary } from "@/utils/i18n/dictionaries";
 import { fill, offerPrice } from "@/utils/offers";
 import { metaDescription, pageMetadata } from "@/utils/seo";
+import { crumbsJsonLd, serializeJsonLd } from "@/utils/structured-data";
 import "./trekking-page.css";
 
 type Params = PageProps<"/[lang]/trekking/[id]">["params"];
@@ -54,6 +55,7 @@ async function TrekkingContent({ params }: { params: Params }) {
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(crumbsJsonLd({ locale: lang, home: dict.nav.home, section: { name: dict.nav.trekking, path: "/trekking" }, name: trek.title, path: `/trekking/${trek.id}` })) }} />
       <PageHero kicker={t.title} title={trek.title} image={trek.image} />
       <div className="container trekking-page">
         <div className="trekking-page-main">

@@ -14,6 +14,7 @@ import { flightItem } from "@/utils/listing-items";
 import { fill } from "@/utils/offers";
 import { flightSeo } from "@/utils/detail-seo";
 import { pageMetadata } from "@/utils/seo";
+import { flightJsonLd, serializeJsonLd } from "@/utils/structured-data";
 import "./helicopter-page.css";
 
 type Params = PageProps<"/[lang]/helicopter/[id]">["params"];
@@ -56,55 +57,58 @@ async function HelicopterContent({ params }: { params: Params }) {
   ];
 
   return (
-    <DetailLayout
-      header={{ title: flight.title, kicker: t.title, meta, section: { href: `/${lang}/helicopter`, label: t.title } }}
-      images={[flight.image, ...flight.gallery]}
-      caption={t.photos}
-      aside={
-        <BookingCard
-          title={flight.title}
-          price={flight.price > 0 ? formatPrice(flight.price, lang) : null}
-          meta={minutes ? { icon: "clock", text: minutes } : undefined}
-          fields={[dateField("date", t.date), countField("passengers", t.passengersField, t.peopleForms, lang)]}
-          contacts={extras.contacts}
-          chatHref={`/${lang}/chat`}
-          askHref={`/${lang}/chat?ask=${encodeURIComponent(t.askPrompt.replace("{name}", flight.title))}`}
-          labels={bookingLabels(dict, dict.units[flight.unit], { book: dict.offers.request, notes: true })}
-        />
-      }
-      others={{
-        title: t.other,
-        link: { href: `/${lang}/helicopter`, label: t.back },
-        items: flights
-          .filter((item) => item.id !== flight.id)
-          .slice(0, 3)
-          .map((item) => flightItem(item, lang, dict)),
-      }}
-      locale={lang}
-      dict={dict}
-    >
-      <DetailSection id="about" title={t.about}>
-        <p className="helicopter-page-text">{flight.description || t.aboutFallback}</p>
-      </DetailSection>
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(flightJsonLd({ flight, locale: lang, labels: { home: dict.nav.home, helicopter: dict.nav.helicopter } })) }} />
+      <DetailLayout
+        header={{ title: flight.title, kicker: t.title, meta, section: { href: `/${lang}/helicopter`, label: t.title } }}
+        images={[flight.image, ...flight.gallery]}
+        caption={t.photos}
+        aside={
+          <BookingCard
+            title={flight.title}
+            price={flight.price > 0 ? formatPrice(flight.price, lang) : null}
+            meta={minutes ? { icon: "clock", text: minutes } : undefined}
+            fields={[dateField("date", t.date), countField("passengers", t.passengersField, t.peopleForms, lang)]}
+            contacts={extras.contacts}
+            chatHref={`/${lang}/chat`}
+            askHref={`/${lang}/chat?ask=${encodeURIComponent(t.askPrompt.replace("{name}", flight.title))}`}
+            labels={bookingLabels(dict, dict.units[flight.unit], { book: dict.offers.request, notes: true })}
+          />
+        }
+        others={{
+          title: t.other,
+          link: { href: `/${lang}/helicopter`, label: t.back },
+          items: flights
+            .filter((item) => item.id !== flight.id)
+            .slice(0, 3)
+            .map((item) => flightItem(item, lang, dict)),
+        }}
+        locale={lang}
+        dict={dict}
+      >
+        <DetailSection id="about" title={t.about}>
+          <p className="helicopter-page-text">{flight.description || t.aboutFallback}</p>
+        </DetailSection>
 
-      <DetailSection id="steps" title={t.stepsTitle}>
-        <ol className="helicopter-steps">
-          {t.steps.map((step, i) => (
-            <li key={step.title} className="helicopter-step">
-              <span className="helicopter-step-number">{String(i + 1).padStart(2, "0")}</span>
-              <span className="helicopter-step-copy">
-                <span className="helicopter-step-title">{step.title}</span>
-                <span className="helicopter-step-text">{step.text}</span>
-              </span>
-            </li>
-          ))}
-        </ol>
-      </DetailSection>
+        <DetailSection id="steps" title={t.stepsTitle}>
+          <ol className="helicopter-steps">
+            {t.steps.map((step, i) => (
+              <li key={step.title} className="helicopter-step">
+                <span className="helicopter-step-number">{String(i + 1).padStart(2, "0")}</span>
+                <span className="helicopter-step-copy">
+                  <span className="helicopter-step-title">{step.title}</span>
+                  <span className="helicopter-step-text">{step.text}</span>
+                </span>
+              </li>
+            ))}
+          </ol>
+        </DetailSection>
 
-      <aside className="helicopter-weather">
-        <p className="helicopter-weather-title">{t.weatherTitle}</p>
-        <p className="helicopter-weather-text">{t.weatherText}</p>
-      </aside>
-    </DetailLayout>
+        <aside className="helicopter-weather">
+          <p className="helicopter-weather-title">{t.weatherTitle}</p>
+          <p className="helicopter-weather-text">{t.weatherText}</p>
+        </aside>
+      </DetailLayout>
+    </>
   );
 }

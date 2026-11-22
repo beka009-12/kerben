@@ -3,7 +3,8 @@ import { siteConfig } from "@/config/site";
 import { NO_PHOTO } from "@/data/images";
 import type { Tour } from "@/types/tour";
 import type { HotelItem } from "@/utils/api/catalog";
-import { homeJsonLd, hotelJsonLd, ORGANIZATION_ID, serializeJsonLd, tourJsonLd } from "@/utils/structured-data";
+import { crumbsJsonLd, flightJsonLd, homeJsonLd, hotelJsonLd, ORGANIZATION_ID, serializeJsonLd, tourJsonLd } from "@/utils/structured-data";
+import type { HelicopterItem } from "@/utils/api/catalog";
 
 const base = siteConfig.url;
 
@@ -213,6 +214,9 @@ describe("JSON-LD главной: компания и сайт", () => {
       name: "Kerben Travel",
       alternateName: ["Kerben Travels", "KerbenTravel", "Кербен Тревел", "凯尔本旅行"],
       url: `${base}/ru`,
+      logo: `${base}/icon.png`,
+      image: `${base}/images/og/kerben-travel-og.jpg`,
+      address: { "@type": "PostalAddress", addressLocality: "Bishkek", addressCountry: "KG" },
       email: "kerbentravels@gmail.com",
       telephone: "+996 705 120169",
       areaServed: ["Kyrgyzstan", "Kazakhstan", "Uzbekistan"],
@@ -246,7 +250,47 @@ describe("JSON-LD главной: компания и сайт", () => {
 
   it("без контактов из backend остаются имя, сайт, регион, Telegram-канал и 2ГИС", () => {
     const [agency] = nodes(homeJsonLd({ locale: "en", contacts: { email: null, phone: null, instagramHref: null, facebookHref: null } }));
-    expect(Object.keys(agency).sort()).toEqual(["@id", "@type", "alternateName", "areaServed", "name", "openingHoursSpecification", "sameAs", "url"]);
+    expect(Object.keys(agency).sort()).toEqual(["@id", "@type", "address", "alternateName", "areaServed", "image", "logo", "name", "openingHoursSpecification", "sameAs", "url"]);
     expect(agency.sameAs).toEqual(["https://t.me/kerben_travels", "https://2gis.kg/bishkek/firm/70000001086785636"]);
+  });
+});
+
+describe("JSON-LD вертолётного тура и хлебные крошки каталога", () => {
+  const flight: HelicopterItem = {
+    id: 45,
+    title: "Marry me",
+    description: "",
+    image: "https://api.kerben-travel.com/media/h.webp",
+    gallery: [],
+    price: 1800,
+    unit: "per_trip",
+    minutes: 30,
+    passengers: 2,
+    route: "Ala-Archa",
+  };
+
+  it("вертолётный тур — TouristTrip и Product с ценой в USD и крошками", () => {
+    const graph = flightJsonLd({ flight, locale: "en", labels: { home: "Home", helicopter: "Helicopter tours" } })["@graph"] as Record<string, unknown>[];
+    const [trip, crumbs] = graph;
+    expect(trip).toMatchObject({
+      "@type": ["TouristTrip", "Product"],
+      "@id": `${base}/en/helicopter/45#flight`,
+      name: "Marry me",
+      description: "Ala-Archa",
+      offers: { "@type": "Offer", price: 1800, priceCurrency: "USD", url: `${base}/en/helicopter/45` },
+    });
+    expect((crumbs.itemListElement as { item: string }[]).map((crumb) => crumb.item)).toEqual([`${base}/en`, `${base}/en/helicopter`, `${base}/en/helicopter/45`]);
+    const free = flightJsonLd({ flight: { ...flight, price: 0 }, locale: "en", labels: { home: "Home", helicopter: "Helicopter tours" } })["@graph"] as Record<string, unknown>[];
+    expect(free[0]).not.toHaveProperty("offers");
+  });
+
+  it("машина: только крошки Главная → Транспорт → машина", () => {
+    const data = crumbsJsonLd({ locale: "ru", home: "Главная", section: { name: "Транспорт", path: "/transport" }, name: "Toyota RAV4", path: "/transport/42" });
+    expect(data).toMatchObject({ "@context": "https://schema.org", "@type": "BreadcrumbList" });
+    expect(data.itemListElement).toEqual([
+      { "@type": "ListItem", position: 1, name: "Главная", item: `${base}/ru` },
+      { "@type": "ListItem", position: 2, name: "Транспорт", item: `${base}/ru/transport` },
+      { "@type": "ListItem", position: 3, name: "Toyota RAV4", item: `${base}/ru/transport/42` },
+    ]);
   });
 });

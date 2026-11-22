@@ -1,9 +1,10 @@
 import { siteConfig } from "@/config/site";
 import { NO_PHOTO } from "@/data/images";
 import type { Tour } from "@/types/tour";
-import type { HotelItem } from "@/utils/api/catalog";
+import type { HelicopterItem, HotelItem } from "@/utils/api/catalog";
 import type { SiteContacts } from "@/utils/api/contacts";
 import { localeNames, type Locale } from "@/utils/i18n/config";
+import { DEFAULT_OG_IMAGE } from "@/utils/seo";
 
 type JsonValue = string | number | boolean | null | JsonValue[] | { [key: string]: JsonValue };
 export type JsonLdNode = { [key: string]: JsonValue };
@@ -196,6 +197,10 @@ export function homeJsonLd({ locale, contacts }: HomeJsonLdInput): JsonLdNode {
         name: siteConfig.name,
         alternateName,
         url: absoluteUrl(`/${locale}`),
+        logo: absoluteUrl("/icon.png"),
+        image: absoluteUrl(DEFAULT_OG_IMAGE.url),
+        // Улицы на сайте нет (в контактах только «Бишкек»), поэтому в адресе только город и страна
+        address: { "@type": "PostalAddress", addressLocality: "Bishkek", addressCountry: "KG" },
         ...(contacts.email ? { email: contacts.email } : {}),
         ...(contacts.phone ? { telephone: contacts.phone } : {}),
         areaServed: ["Kyrgyzstan", "Kazakhstan", "Uzbekistan"],
@@ -216,6 +221,74 @@ export function homeJsonLd({ locale, contacts }: HomeJsonLdInput): JsonLdNode {
         inLanguage: localeNames[locale].htmlLang,
         publisher: { "@id": ORGANIZATION_ID },
       },
+    ],
+  };
+}
+
+interface CrumbsInput {
+  locale: Locale;
+  /** Раздел каталога: /transport, /helicopter, /trekking */
+  section: { name: string; path: string };
+  name: string;
+  path: string;
+  home: string;
+}
+
+/** Только хлебные крошки — для страниц, где нет подходящего типа под расширенный сниппет (машины, трекинг) */
+export function crumbsJsonLd({ locale, section, name, path, home }: CrumbsInput): JsonLdNode {
+  return {
+    "@context": "https://schema.org",
+    ...breadcrumbList([
+      { name: home, path: `/${locale}` },
+      { name: section.name, path: `/${locale}${section.path}` },
+      { name, path: `/${locale}${path}` },
+    ]),
+  };
+}
+
+interface FlightJsonLdInput {
+  flight: HelicopterItem;
+  locale: Locale;
+  labels: { home: string; helicopter: string };
+}
+
+/** Вертолётный тур — та же пара TouristTrip + Product, что у туров: цена на странице видна, бронируется заявкой */
+export function flightJsonLd({ flight, locale, labels }: FlightJsonLdInput): JsonLdNode {
+  const path = `/${locale}/helicopter/${flight.id}`;
+  const url = absoluteUrl(path);
+  const images = photos(flight.image, flight.gallery);
+  const description = flight.description.trim() || flight.route.trim();
+  const trip: JsonLdNode = {
+    "@type": ["TouristTrip", "Product"],
+    "@id": `${url}#flight`,
+    name: flight.title,
+    url,
+    ...(description ? { description } : {}),
+    ...(images.length > 0 ? { image: images } : {}),
+    brand: { "@type": "Brand", name: siteConfig.name },
+    provider: { "@type": "Organization", "@id": ORGANIZATION_ID, name: siteConfig.name, url: siteConfig.url },
+    ...(flight.price > 0
+      ? {
+          offers: {
+            "@type": "Offer",
+            url,
+            price: flight.price,
+            priceCurrency: "USD",
+            availability: "https://schema.org/InStock",
+            seller: { "@id": ORGANIZATION_ID },
+          },
+        }
+      : {}),
+  };
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      trip,
+      breadcrumbList([
+        { name: labels.home, path: `/${locale}` },
+        { name: labels.helicopter, path: `/${locale}/helicopter` },
+        { name: flight.title, path },
+      ]),
     ],
   };
 }
