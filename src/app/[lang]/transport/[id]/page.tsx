@@ -12,7 +12,8 @@ import { formatPrice } from "@/utils/format";
 import { hasLocale } from "@/utils/i18n/config";
 import { getDictionary } from "@/utils/i18n/dictionaries";
 import { carItem, seatsLabel } from "@/utils/listing-items";
-import { metaDescription, pageMetadata } from "@/utils/seo";
+import { carSeo } from "@/utils/detail-seo";
+import { pageMetadata } from "@/utils/seo";
 import "./transport-page.css";
 
 export async function generateStaticParams() {
@@ -26,13 +27,7 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/transport/
   const [cars, dict] = await Promise.all([getTransports(lang), getDictionary(lang)]);
   const car = cars.find((c) => c.id === Number(id));
   if (!car) return {};
-  return pageMetadata({
-    locale: lang,
-    path: `/transport/${id}`,
-    title: car.name,
-    description: metaDescription(car.description || car.subtitle, dict.meta.transportDescription),
-    image: car.image,
-  });
+  return pageMetadata({ locale: lang, path: `/transport/${id}`, ...carSeo(car, lang, dict), image: car.image });
 }
 
 export default function TransportDetailPage({ params }: PageProps<"/[lang]/transport/[id]">) {

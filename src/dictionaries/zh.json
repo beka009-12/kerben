@@ -1,15 +1,15 @@
 {
   "meta": {
-    "title": "Kerben Travel — 吉尔吉斯斯坦与中亚旅行",
+    "title": "Kerben Travel（凯尔本旅行）— 比什凯克的吉尔吉斯斯坦本地旅行社",
     "description": "Kerben Travel（凯尔本旅行）是比什凯克的本地旅行社：吉尔吉斯斯坦、哈萨克斯坦和乌兹别克斯坦旅游。雪山、湖泊、游牧文化与丝绸之路。",
-    "toursTitle": "全部线路",
-    "toursDescription": "按目的地、类别、价格和人数查找线路。",
-    "hotelsTitle": "住宿",
-    "hotelsDescription": "为每一次旅行精选的酒店、山间小屋和毡房营地。",
-    "aboutTitle": "关于我们",
+    "toursTitle": "吉尔吉斯斯坦旅游线路：价格与行程",
+    "toursDescription": "比什凯克本地旅行社的吉尔吉斯斯坦旅游线路：比什凯克出发一日游、伊塞克湖、松湖、萨雷切列克湖、塔什拉巴特等。行程详情，价格以美元计。",
+    "hotelsTitle": "吉尔吉斯斯坦酒店：比什凯克、伊塞克湖、卡拉科尔、奥什",
+    "hotelsDescription": "凯尔本旅行精选的比什凯克、伊塞克湖、卡拉科尔和奥什酒店。经理会按你的日期确认空房，并与旅游线路一起安排。",
+    "aboutTitle": "关于凯尔本旅行（Kerben Travel）：比什凯克旅行社",
     "aboutDescription": "凯尔本旅行（Kerben Travel）是比什凯克的旅行社。我们是谁，以及旅行者为什么信任我们。",
-    "contactTitle": "联系我们",
-    "contactDescription": "关于下一次旅行的任何问题都可以问我们。",
+    "contactTitle": "联系凯尔本旅行（比什凯克）",
+    "contactDescription": "联系比什凯克旅行社 Kerben Travel（凯尔本旅行）：电话及 WhatsApp {phone}、Telegram 和电子邮件。营业时间：{hours}。",
     "savedTitle": "收藏的线路",
     "loginTitle": "登录",
     "creditsTitle": "图片来源",
@@ -18,16 +18,19 @@
     "chatDescription": "你的私人 AI 旅行顾问：中亚的路线、季节和实用建议。",
     "trekkingTitle": "吉尔吉斯斯坦山地徒步",
     "trekkingDescription": "天山徒步路线：每日行程、价格与在线申请。",
-    "transportTitle": "交通与接送",
-    "transportDescription": "带司机的车辆，提供接送及吉尔吉斯斯坦境内出行。",
-    "helicopterTitle": "直升机游览",
-    "helicopterDescription": "飞越吉尔吉斯斯坦的群山、湖泊与冰川。",
+    "transportTitle": "吉尔吉斯斯坦包车（带司机）：接送机与租车",
+    "transportDescription": "吉尔吉斯斯坦带司机用车：玛纳斯机场接机、前往伊塞克湖和山区的接送、全国出行。可选轿车、SUV 和商务车。",
+    "helicopterTitle": "吉尔吉斯斯坦直升机游览",
+    "helicopterDescription": "乘直升机俯瞰吉尔吉斯斯坦的雪山、冰川和湖泊。每条航线都标明飞行时间、座位和价格。",
     "requestsTitle": "我的申请",
     "faqTitle": "常见问题",
     "faqDescription": "关于吉尔吉斯斯坦旅行的常见问题解答：签证、季节、付款、装备与安全。",
     "tripsTitle": "我的行程",
     "attractionsTitle": "吉尔吉斯斯坦景点",
-    "attractionsDescription": "布拉纳塔、阿拉阿查、塔什拉巴特、苏莱曼山、七牛岩、萨雷切列克湖等吉尔吉斯斯坦值得一看的地方。"
+    "attractionsDescription": "布拉纳塔、阿拉阿查、塔什拉巴特、苏莱曼山、七牛岩、萨雷切列克湖等吉尔吉斯斯坦值得一看的地方。",
+    "hotelTitle": "{name}，{city}",
+    "carTitle": "{name} 带司机包车（吉尔吉斯斯坦）",
+    "carTitleSelf": "{name} 租车（吉尔吉斯斯坦）"
   },
   "a11y": {
     "skip": "跳到主要内容",
@@ -681,32 +684,44 @@
         {
           "title": "雪山",
           "text": "天山、峡谷、冰川、高山垭口，以及为探险爱好者准备的路线。",
-          "cta": "探索雪山"
+          "cta": "探索雪山",
+          "seoTitle": "吉尔吉斯斯坦雪山线路：天山峡谷与山口",
+          "seoDescription": "吉尔吉斯斯坦雪山旅游线路：比什凯克本地旅行社带你走天山峡谷、冰川和高山垭口。行程详情，价格以美元计。"
         },
         {
           "title": "湖泊",
           "text": "伊塞克湖、松湖、克尔苏湖以及吉尔吉斯斯坦的其他自然瑰宝。",
-          "cta": "欣赏湖泊"
+          "cta": "欣赏湖泊",
+          "seoTitle": "吉尔吉斯斯坦湖泊线路：伊塞克湖、松湖、克尔苏湖",
+          "seoDescription": "吉尔吉斯斯坦湖泊旅游线路：伊塞克湖、松湖、克尔苏湖和萨雷切列克湖。行程、毡房住宿与美元价格。"
         },
         {
           "title": "游牧文化",
           "text": "毡房、骏马、民族美食、传统习俗和游牧生活方式。",
-          "cta": "了解文化"
+          "cta": "了解文化",
+          "seoTitle": "吉尔吉斯斯坦游牧文化线路：毡房与骑马",
+          "seoDescription": "吉尔吉斯斯坦游牧文化之旅：住毡房、骑马、品尝民族美食、了解传统。行程详情，价格以美元计。"
         },
         {
           "title": "探险",
           "text": "骑马、徒步、漂流、鹰猎等多种体验。",
-          "cta": "寻找冒险"
+          "cta": "寻找冒险",
+          "seoTitle": "吉尔吉斯斯坦探险线路：骑马与徒步",
+          "seoDescription": "吉尔吉斯斯坦探险旅游：骑马穿越、徒步、越野等户外线路。行程详情，价格以美元计。"
         },
         {
           "title": "历史",
           "text": "布拉纳塔、伟大丝绸之路上的城市、古老路线和文化遗产。",
-          "cta": "穿越历史"
+          "cta": "穿越历史",
+          "seoTitle": "吉尔吉斯斯坦丝绸之路与历史线路",
+          "seoDescription": "吉尔吉斯斯坦历史文化线路：布拉纳塔、塔什拉巴特商队驿站等伟大丝绸之路遗迹。行程详情，价格以美元计。"
         },
         {
           "title": "冬季吉尔吉斯斯坦",
           "text": "白雪、山峦、滑雪、冬季度假村和寒冷季节的独特氛围。",
-          "cta": "发现冬季"
+          "cta": "发现冬季",
+          "seoTitle": "吉尔吉斯斯坦冬季线路：雪山与滑雪",
+          "seoDescription": "吉尔吉斯斯坦冬季旅行：雪山、滑雪场和安静的淡季。行程详情，价格以美元计。"
         }
       ]
     },

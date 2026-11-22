@@ -1,15 +1,15 @@
 {
   "meta": {
-    "title": "Kerben Travel — Reisen in Kirgisistan und Zentralasien",
+    "title": "Kerben Travel — Reiseveranstalter für Kirgistan aus Bischkek",
     "description": "Kerben Travel, Reiseveranstalter aus Bischkek: Reisen nach Kirgisistan (Kirgistan), Kasachstan und Usbekistan. Berge, Seen, Nomadenkultur, Seidenstraße.",
-    "toursTitle": "Alle Touren",
-    "toursDescription": "Finden Sie eine Tour nach Reiseziel, Kategorie, Preis und Gruppengröße.",
-    "hotelsTitle": "Unterkünfte",
-    "hotelsDescription": "Ausgewählte Hotels, Lodges und Jurtencamps für jede Reise.",
-    "aboutTitle": "Über uns",
+    "toursTitle": "Kirgistan Reisen: Rundreisen, Preise und Programme",
+    "toursDescription": "Rundreisen und Tagesausflüge in Kirgistan vom lokalen Veranstalter: Issyk-Kul, Song-Kul, Sary-Tschelek, Tasch-Rabat und Touren ab Bischkek. Preise in US-Dollar.",
+    "hotelsTitle": "Hotels in Kirgistan: Bischkek, Issyk-Kul, Karakol, Osch",
+    "hotelsDescription": "Ausgewählte Hotels in Bischkek, am Issyk-Kul, in Karakol und Osch. Ein Manager prüft freie Zimmer für Ihre Reisedaten und verbindet den Aufenthalt mit Ihrer Tour.",
+    "aboutTitle": "Über Kerben Travel – Reiseveranstalter in Bischkek",
     "aboutDescription": "Kerben Travel ist ein Reiseveranstalter aus Bischkek für Kirgistan und Zentralasien. Wer wir sind und warum Reisende uns vertrauen.",
-    "contactTitle": "Kontakt",
-    "contactDescription": "Fragen Sie uns alles zu Ihrer nächsten Reise.",
+    "contactTitle": "Kontakt zu Kerben Travel in Bischkek",
+    "contactDescription": "Kontakt zum Reiseveranstalter Kerben Travel in Bischkek: Telefon und WhatsApp {phone}, Telegram und E-Mail. Öffnungszeiten: {hours}.",
     "savedTitle": "Gespeicherte Touren",
     "loginTitle": "Anmelden",
     "creditsTitle": "Bildnachweise",
@@ -18,16 +18,19 @@
     "chatDescription": "Ihr persönlicher KI-Assistent: Routen, Jahreszeiten und Tipps für Zentralasien.",
     "trekkingTitle": "Trekking in den Bergen Kirgisistans",
     "trekkingDescription": "Wanderrouten im Tian Shan: Tagesprogramm, Preise und Online-Anfrage.",
-    "transportTitle": "Transport und Transfers",
-    "transportDescription": "Autos mit Fahrer für Transfers und Reisen durch Kirgisistan.",
-    "helicopterTitle": "Helikopter-Touren",
-    "helicopterDescription": "Flüge über die Berge, Seen und Gletscher Kirgisistans.",
+    "transportTitle": "Auto mit Fahrer in Kirgistan: Transfers und Mietwagen",
+    "transportDescription": "Autos mit Fahrer in Kirgisistan: Abholung am Flughafen Manas, Transfers zum Issyk-Kul und in die Berge, Fahrten durchs Land. Limousinen, SUVs und Minivans.",
+    "helicopterTitle": "Helikopterflüge in Kirgistan",
+    "helicopterDescription": "Rundflüge mit dem Helikopter über Berge, Gletscher und Seen Kirgisistans. Für jede Route sind Flugzeit, Plätze und Preis angegeben.",
     "requestsTitle": "Meine Anfragen",
     "faqTitle": "Häufig gestellte Fragen",
     "faqDescription": "Antworten auf häufige Fragen zu Reisen in Kirgisistan: Visa, Reisezeit, Bezahlung, Ausrüstung und Sicherheit.",
     "tripsTitle": "Meine Reisen",
     "attractionsTitle": "Sehenswürdigkeiten Kirgisistans",
-    "attractionsDescription": "Burana-Turm, Ala-Artscha, Tasch-Rabat, Sulaiman-Too, Dschety-Ögüz, Sary-Tschelek und weitere Orte, die man in Kirgisistan gesehen haben sollte."
+    "attractionsDescription": "Burana-Turm, Ala-Artscha, Tasch-Rabat, Sulaiman-Too, Dschety-Ögüz, Sary-Tschelek und weitere Orte, die man in Kirgisistan gesehen haben sollte.",
+    "hotelTitle": "{name}, {city}",
+    "carTitle": "{name} mit Fahrer in Kirgistan",
+    "carTitleSelf": "{name} mieten in Kirgistan"
   },
   "a11y": {
     "skip": "Zum Inhalt springen",
@@ -681,32 +684,44 @@
         {
           "title": "Berge",
           "text": "Der Tian Shan, Schluchten, Gletscher, Hochpässe und Routen für Abenteuerlustige.",
-          "cta": "Berge entdecken"
+          "cta": "Berge entdecken",
+          "seoTitle": "Bergtouren in Kirgistan: Schluchten und Pässe des Tian Shan",
+          "seoDescription": "Bergtouren in Kirgistan: Schluchten, Gletscher und Hochpässe des Tian Shan mit einem lokalen Veranstalter aus Bischkek. Programme und Preise in US-Dollar."
         },
         {
           "title": "Seen",
           "text": "Issyk-Kul, Song-Kul, Kel-Suu und weitere Naturjuwelen Kirgisistans.",
-          "cta": "Seen ansehen"
+          "cta": "Seen ansehen",
+          "seoTitle": "Seen in Kirgistan: Touren zum Issyk-Kul, Song-Kul, Kel-Suu",
+          "seoDescription": "Touren zu den Seen Kirgistans: Issyk-Kul, Song-Kul, Kel-Suu und Sary-Tschelek. Programme, Nächte in der Jurte und Preise in US-Dollar."
         },
         {
           "title": "Nomadenkultur",
           "text": "Jurten, Pferde, Nationalküche, Traditionen und das Leben der Nomaden.",
-          "cta": "Kultur kennenlernen"
+          "cta": "Kultur kennenlernen",
+          "seoTitle": "Nomadenkultur in Kirgistan: Touren mit Jurte und Pferden",
+          "seoDescription": "Touren in die Nomadenkultur Kirgistans: Nächte in der Jurte, Reiten, Nationalküche und Traditionen. Programme und Preise in US-Dollar."
         },
         {
           "title": "Abenteuer",
           "text": "Reittouren, Trekking, Rafting, Adlerjagd und weitere Erlebnisse.",
-          "cta": "Abenteuer finden"
+          "cta": "Abenteuer finden",
+          "seoTitle": "Abenteuerreisen in Kirgistan: Reittouren und Trekking",
+          "seoDescription": "Abenteuerreisen in Kirgistan: Reittouren, Trekking, Offroad-Fahrten und weitere aktive Routen. Programme und Preise in US-Dollar."
         },
         {
           "title": "Geschichte",
           "text": "Burana, Städte der Großen Seidenstraße, alte Routen und kulturelles Erbe.",
-          "cta": "Reise in die Geschichte"
+          "cta": "Reise in die Geschichte",
+          "seoTitle": "Seidenstraße und Geschichte: Kulturreisen in Kirgistan",
+          "seoDescription": "Kulturreisen in Kirgistan: Burana-Turm, Karawanserei Tasch-Rabat und weitere Orte der Großen Seidenstraße. Programme und Preise in US-Dollar."
         },
         {
           "title": "Winterliches Kirgisistan",
           "text": "Schnee, Berge, Skifahren, Winterresorts und die besondere Stimmung der kalten Jahreszeit.",
-          "cta": "Winter entdecken"
+          "cta": "Winter entdecken",
+          "seoTitle": "Winterreisen in Kirgistan: Schnee, Berge und Skifahren",
+          "seoDescription": "Winterreisen in Kirgistan: verschneite Berge, Skigebiete und die ruhige Saison. Programme und Preise in US-Dollar."
         }
       ]
     },
