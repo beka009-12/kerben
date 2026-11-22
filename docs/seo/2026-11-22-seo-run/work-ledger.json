@@ -1,0 +1,51 @@
+{
+  "ledger_version": "1.0.0",
+  "title": "Kerben Travel SEO run 2026-11-22: audit, local fixes and Markdown discovery layer",
+  "steps": [
+    {
+      "id": "research",
+      "path": "keyword-research.md",
+      "title": "Keyword research and query-to-page map",
+      "status": "provisional",
+      "owner": "Kerben Travel",
+      "outcome": "Query families assigned one owner page each; head-term and nearer-term tracks; applied in aff5360",
+      "sha256": "d96f1d09c940439659c261be8448b1b13978fc2cce799369e541931c85354584"
+    },
+    {
+      "id": "markdown",
+      "path": "markdown-delivery.md",
+      "title": "Markdown discovery layer",
+      "status": "completed",
+      "owner": "Kerben Travel",
+      "outcome": "llms.txt, sitemap.md and 224 .md pages implemented locally and verified; live delivery pending release",
+      "sha256": "9db52119db5a0da7440e508eee935e5f82c1f0215931cbac8fd5cf39d0044c15"
+    },
+    {
+      "id": "plan",
+      "path": "action-plan.md",
+      "title": "Decision record and action plan",
+      "status": "completed",
+      "owner": "Kerben Travel",
+      "outcome": "Implementation authorized and done locally; release and provider actions await the owner (A-01..A-10)",
+      "sha256": "2a076eb2978be3e184f2ff734d77df870c8fcb0d83d94348b33032d9ea6afa96"
+    },
+    {
+      "id": "summary",
+      "path": "delivery-summary.md",
+      "title": "Delivery summary and 27-skill coverage",
+      "status": "completed",
+      "owner": "Kerben Travel",
+      "outcome": "Local implementation complete; measurement blocked until Search Console is verified",
+      "sha256": "4b13b9bc54757f1c3b7806a35029ea0b6c1363bf8e65e7924e018ed9bf4aaf96"
+    },
+    {
+      "id": "audit",
+      "path": "site-audit.md",
+      "title": "Site audit of 224 live URLs",
+      "status": "completed",
+      "owner": "Kerben Travel",
+      "outcome": "12 findings; 9 fixed locally in aff5360..1dee531, 3 open for the owner (F-10..F-12)",
+      "sha256": "0053ddc967c0dda56834cc65e825f7164b945502bfe65de03e69f81a1425131e"
+    }
+  ]
+}
