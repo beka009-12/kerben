@@ -1,16 +1,19 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import { defaultLocale, localeNames, locales, type Locale } from "@/utils/i18n/config";
+import { markdownPath } from "@/utils/markdown/md";
 
 export const DEFAULT_OG_IMAGE = { url: "/images/og/kerben-travel-og.jpg", width: 1200, height: 630 } as const;
 
 const DESCRIPTION_MAX = 160;
 const DESCRIPTION_MIN = 70;
 
-export function alternates(locale: Locale, path: string): Metadata["alternates"] {
+export function alternates(locale: Locale, path: string, markdown = true): Metadata["alternates"] {
   return {
     canonical: `/${locale}${path}`,
     languages: languageUrls(path),
+    // <link rel="alternate" type="text/markdown">: та же страница текстом для LLM-агентов
+    ...(markdown ? { types: { "text/markdown": markdownPath(locale, path) } } : {}),
   };
 }
 
@@ -45,15 +48,17 @@ interface PageSeo {
   title: string;
   description?: string;
   image?: string | null;
+  /** false — у страницы нет Markdown-версии (закрытые разделы) */
+  markdown?: boolean;
 }
 
 /** title, description, canonical, hreflang, Open Graph и Twitter одной страницы */
-export function pageMetadata({ locale, path, title, description, image }: PageSeo): Metadata {
+export function pageMetadata({ locale, path, title, description, image, markdown = true }: PageSeo): Metadata {
   const images = image ? [{ url: image }] : [DEFAULT_OG_IMAGE];
   return {
     title,
     ...(description ? { description } : {}),
-    alternates: alternates(locale, path),
+    alternates: alternates(locale, path, markdown),
     openGraph: {
       type: "website",
       siteName: siteConfig.name,

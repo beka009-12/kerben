@@ -59,6 +59,14 @@ const nextConfig: NextConfig = {
     qualities: [75, 85, 90],
     minimumCacheTTL: 2678400,
   },
+  // Markdown-версии страниц: /en/tours/49.md → обработчик /md/en/tours/49. beforeFiles — раньше, чем [slug] примет «49.md» за id
+  async rewrites() {
+    return {
+      beforeFiles: [{ source: "/:lang(en|ru|de|zh)/:path(.+)\\.md", destination: "/md/:lang/:path" }],
+      afterFiles: [],
+      fallback: [],
+    };
+  },
   async redirects() {
     const lang = ":lang(en|ru|de|zh)";
     return [

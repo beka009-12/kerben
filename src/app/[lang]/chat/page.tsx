@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/chat">): P
   const { lang } = await params;
   if (!hasLocale(lang)) return {};
   const dict = await getDictionary(lang);
-  return pageMetadata({ locale: lang, path: "/chat", title: dict.meta.chatTitle, description: dict.meta.chatDescription });
+  return pageMetadata({ locale: lang, path: "/chat", title: dict.meta.chatTitle, description: dict.meta.chatDescription, markdown: false });
 }
 
 export default async function ChatPage({ params }: PageProps<"/[lang]/chat">) {
