@@ -28,8 +28,9 @@ const csp = [
 // Стандартный список Next 16 + Googlebot, AI-поисковики и Telegram. Им отдаётся полностью
 // отрендеренный HTML: из кэша Vercel они получали prerender-оболочку без контента (H1, JSON-LD).
 // Задание htmlLimitedBots заменяет стандартный список целиком, поэтому он скопирован.
+// В конце — остальные поисковые и AI-краулеры, которым robots.txt не запрещает сайт: без них они видели пустую оболочку.
 const HTML_LIMITED_BOTS =
-  /Googlebot|[\w-]+-Google|Google-[\w-]+|Chrome-Lighthouse|Slurp|DuckDuckBot|baiduspider|yandex|sogou|bitlybot|tumblr|vkShare|quora link preview|redditbot|ia_archiver|Bingbot|BingPreview|applebot|facebookexternalhit|facebookcatalog|Twitterbot|LinkedInBot|Slackbot|Discordbot|WhatsApp|TelegramBot|SkypeUriPreview|Yeti|googleweblight|GPTBot|OAI-SearchBot|ChatGPT-User|ClaudeBot|Claude-User|Claude-SearchBot|PerplexityBot|Perplexity-User/i;
+  /Googlebot|[\w-]+-Google|Google-[\w-]+|Chrome-Lighthouse|Slurp|DuckDuckBot|baiduspider|yandex|sogou|bitlybot|tumblr|vkShare|quora link preview|redditbot|ia_archiver|Bingbot|BingPreview|applebot|facebookexternalhit|facebookcatalog|Twitterbot|LinkedInBot|Slackbot|Discordbot|WhatsApp|TelegramBot|SkypeUriPreview|Yeti|googleweblight|GPTBot|OAI-SearchBot|ChatGPT-User|ClaudeBot|Claude-User|Claude-SearchBot|PerplexityBot|Perplexity-User|Amazonbot|DuckAssistBot|meta-externalagent|meta-externalfetcher|MistralAI-User|PetalBot|CCBot/i;
 
 const nextConfig: NextConfig = {
   cacheComponents: true,
