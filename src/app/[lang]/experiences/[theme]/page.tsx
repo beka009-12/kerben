@@ -10,7 +10,7 @@ import { EXPERIENCES } from "@/data/experiences";
 import { getTours } from "@/utils/api/tours";
 import { hasLocale } from "@/utils/i18n/config";
 import { getDictionary } from "@/utils/i18n/dictionaries";
-import { metaDescription, pageMetadata } from "@/utils/seo";
+import { pageMetadata } from "@/utils/seo";
 import { defaultFilters, filterTours, THEMES, type Theme } from "@/utils/tour-filters";
 import "./experience-page.css";
 
@@ -29,8 +29,8 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/experience
   return pageMetadata({
     locale: lang,
     path: `/experiences/${theme}`,
-    title: item.title,
-    description: metaDescription(item.text, dict.meta.description),
+    title: item.seoTitle,
+    description: item.seoDescription,
   });
 }
 

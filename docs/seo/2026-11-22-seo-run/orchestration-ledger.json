@@ -1,0 +1,359 @@
+{
+  "ledger_version": "1.0.0",
+  "suite_version": "3.3.0",
+  "created_at": "2026-11-22T13:10:45Z",
+  "request": {
+    "summary": "Audit kerben-travel.com, fix findings locally on feat/seo-improvements, and add an LLM Markdown discovery layer (llms.txt, sitemap.md, .md page mirrors) for en/ru/de/zh",
+    "mode": "end-to-end",
+    "authorized_boundary": "Research, audit, plan and local implementation with commits on feat/seo-improvements; no push, deploy or provider mutation"
+  },
+  "overall_state": "blocked",
+  "skills": [
+    {
+      "skill": "ai-search-research",
+      "state": "deferred-by-owner",
+      "reason": "Owner scoped the run to audit, local fixes and the Markdown layer without AI-answer research",
+      "evidence_refs": [],
+      "output_refs": [],
+      "blocker": null,
+      "owner_decision_ref": "action-plan.md"
+    },
+    {
+      "skill": "seo-aeo",
+      "state": "completed",
+      "reason": "Extractability addressed via direct-answer Markdown (FAQ, contacts, prices); no formal Research Pack audit because no engine evidence was collected",
+      "evidence_refs": [
+        "markdown-delivery.md"
+      ],
+      "output_refs": [
+        "markdown-delivery.md"
+      ],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-geo",
+      "state": "not-applicable",
+      "reason": "No engine observations or citation evidence to audit; entity consistency handled by existing sameAs and llms.txt profiles",
+      "evidence_refs": [],
+      "output_refs": [],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "ai-visibility-monitor",
+      "state": "deferred-by-owner",
+      "reason": "Owner did not request AI-answer tracking",
+      "evidence_refs": [],
+      "output_refs": [],
+      "blocker": null,
+      "owner_decision_ref": "action-plan.md"
+    },
+    {
+      "skill": "seo",
+      "state": "completed",
+      "reason": "Router: intake, 27-skill screen, task graph, synthesis and closeout",
+      "evidence_refs": [
+        "raw/crawl-googlebot-ua.json"
+      ],
+      "output_refs": [
+        "delivery-summary.md",
+        "index.md"
+      ],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-action-plan",
+      "state": "completed",
+      "reason": "Decision record, implemented items with verification and rollback, owner backlog",
+      "evidence_refs": [
+        "site-audit.md"
+      ],
+      "output_refs": [
+        "action-plan.md"
+      ],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-agentic",
+      "state": "completed",
+      "reason": "Unlisted crawlers and agents saw an empty shell; fixed for named crawlers and covered by the Markdown corpus",
+      "evidence_refs": [
+        "raw/crawl-browser-ua.json"
+      ],
+      "output_refs": [
+        "site-audit.md",
+        "markdown-delivery.md"
+      ],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-architecture",
+      "state": "completed",
+      "reason": "No orphans; weakest pages have one inbound link; llms.txt to sitemap.md to topic maps to page.md path verified",
+      "evidence_refs": [
+        "raw/crawl-googlebot-ua.json",
+        "raw/md-verification-local.json"
+      ],
+      "output_refs": [
+        "site-audit.md",
+        "markdown-delivery.md"
+      ],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-authority",
+      "state": "completed",
+      "reason": "Zero indexed mentions of the new domain; brand SERP held by an unrelated company; citation plan A-04 and A-05",
+      "evidence_refs": [
+        "keyword-research.md"
+      ],
+      "output_refs": [
+        "site-audit.md",
+        "action-plan.md"
+      ],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-audit",
+      "state": "completed",
+      "reason": "Multi-lane audit of all 224 sitemap URLs with Googlebot and generic UAs",
+      "evidence_refs": [
+        "raw/crawl-googlebot-ua.json",
+        "raw/crawl-browser-ua.json"
+      ],
+      "output_refs": [
+        "site-audit.md"
+      ],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-commerce",
+      "state": "completed",
+      "reason": "Priced trips without a cart or feed; schema price equals visible price on all 10 EN tours",
+      "evidence_refs": [
+        "raw/crawl-googlebot-ua.json"
+      ],
+      "output_refs": [
+        "site-audit.md"
+      ],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-competitor-pages",
+      "state": "not-applicable",
+      "reason": "No comparison or alternative pages in scope",
+      "evidence_refs": [],
+      "output_refs": [],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-content",
+      "state": "completed",
+      "reason": "Snippet copy for catalog and detail templates rewritten; Markdown bodies built from the same sources as the HTML",
+      "evidence_refs": [
+        "raw/crawl-googlebot-ua.json"
+      ],
+      "output_refs": [
+        "site-audit.md",
+        "markdown-delivery.md"
+      ],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-hreflang",
+      "state": "completed",
+      "reason": "Reciprocal en/ru/de/zh-CN/x-default clusters valid on all 224 URLs; Markdown docs link their language siblings",
+      "evidence_refs": [
+        "raw/crawl-googlebot-ua.json"
+      ],
+      "output_refs": [
+        "site-audit.md"
+      ],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-images",
+      "state": "completed",
+      "reason": "Alt text complete (0 missing on 224 URLs); og:image on every page; no action needed",
+      "evidence_refs": [
+        "raw/crawl-googlebot-ua.json"
+      ],
+      "output_refs": [
+        "site-audit.md"
+      ],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-local",
+      "state": "completed",
+      "reason": "NAP and hours checked; street address missing and no Google Business Profile evidence; handed to the owner as A-02 and A-03",
+      "evidence_refs": [
+        "raw/crawl-googlebot-ua.json"
+      ],
+      "output_refs": [
+        "site-audit.md",
+        "action-plan.md"
+      ],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-news-discover",
+      "state": "not-applicable",
+      "reason": "No articles or news content",
+      "evidence_refs": [],
+      "output_refs": [],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-page",
+      "state": "completed",
+      "reason": "Search-result presentation (title, description, H1, canonical, favicon) reviewed per template; copy fixed in aff5360",
+      "evidence_refs": [
+        "raw/crawl-googlebot-ua.json"
+      ],
+      "output_refs": [
+        "site-audit.md"
+      ],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-plan",
+      "state": "completed",
+      "reason": "Sequencing of the owner backlog across now, next and later",
+      "evidence_refs": [
+        "site-audit.md"
+      ],
+      "output_refs": [
+        "action-plan.md",
+        "keyword-research.md"
+      ],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-programmatic",
+      "state": "completed",
+      "reason": "Detail templates fed by the backend: duplicate descriptions fixed at template level; data gaps in A-06",
+      "evidence_refs": [
+        "raw/crawl-googlebot-ua.json"
+      ],
+      "output_refs": [
+        "site-audit.md",
+        "action-plan.md"
+      ],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-research",
+      "state": "completed",
+      "reason": "Query families, page ownership and the head-term and nearer-term tracks from dated SERP snapshots; no volume data available",
+      "evidence_refs": [
+        "raw/crawl-googlebot-ua.json"
+      ],
+      "output_refs": [
+        "keyword-research.md"
+      ],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-performance",
+      "state": "blocked",
+      "reason": "Conventional measurement needs Search Console or Bing data",
+      "evidence_refs": [],
+      "output_refs": [],
+      "blocker": "Search Console is not verified (verification file is on an unmerged branch, 404 live) and no Bing Webmaster or analytics export was provided",
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-schema",
+      "state": "completed",
+      "reason": "JSON-LD inventory and visible-price parity; helicopter, transport and trekking markup plus TravelAgency fields added in a7e6033",
+      "evidence_refs": [
+        "raw/crawl-googlebot-ua.json"
+      ],
+      "output_refs": [
+        "site-audit.md",
+        "action-plan.md"
+      ],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-sitemap",
+      "state": "completed",
+      "reason": "XML inventory reconciled with routes (224); sitemap.md and exact .md mappings for the whole eligible scope",
+      "evidence_refs": [
+        "raw/live-sitemap-2026-11-22.xml"
+      ],
+      "output_refs": [
+        "markdown-delivery.md",
+        "raw/sitemap-md-candidate.md"
+      ],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-technical",
+      "state": "completed",
+      "reason": "Crawl, render-by-UA, favicon, htmlLimitedBots, llms.txt, MIME, canonical header and cache policy",
+      "evidence_refs": [
+        "raw/crawl-googlebot-ua.json",
+        "raw/crawl-browser-ua.json",
+        "raw/md-verification-local.json"
+      ],
+      "output_refs": [
+        "site-audit.md",
+        "markdown-delivery.md"
+      ],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-video",
+      "state": "not-applicable",
+      "reason": "Only a decorative hero background video; no watch pages",
+      "evidence_refs": [],
+      "output_refs": [],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "optimise-seo",
+      "state": "completed",
+      "reason": "Local implementation in five commits, aff5360 to 1dee531; release not authorized",
+      "evidence_refs": [
+        "action-plan.md"
+      ],
+      "output_refs": [
+        "action-plan.md",
+        "markdown-delivery.md"
+      ],
+      "blocker": null,
+      "owner_decision_ref": null
+    }
+  ],
+  "coverage_summary": "20 lanes completed with local implementation in 5 commits; seo-performance blocked by missing Search Console access; 2 AI-measurement lanes deferred by owner scope; 4 lanes not applicable (video, news, competitor pages, GEO without engine evidence).",
+  "limitations": [
+    "No first-party search data or keyword volumes; query families are qualitative and provisional",
+    "SERP snapshots came from a US-only search tool, not locale/device-specific results",
+    "Changes are implemented locally only; live delivery and any search or AI outcome are unverified",
+    "German and Chinese copy needs native review"
+  ]
+}

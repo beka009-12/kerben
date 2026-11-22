@@ -1,0 +1,37 @@
+# Kerben Travel
+
+> Kerben Travel is a local tour operator in Bishkek: tours of Kyrgyzstan, Kazakhstan and Uzbekistan. Mountains, lakes, nomadic culture and the Silk Road. Official website: https://www.kerben-travel.com (English, Russian, German, Chinese).
+
+Contacts: phone and WhatsApp +996 705 120169; email kerbentravels@gmail.com; office in Bishkek, Mon–Sat, 11:00–20:00. Prices on the website are in US dollars; a booking is a request that a manager confirms before any payment.
+
+Official profiles of Kerben Travel (Kerben Travels, KerbenTravel, Кербен Тревел, 凯尔本旅行): Instagram https://www.instagram.com/kerben_travels; Facebook https://www.facebook.com/share/17vcjdi88m/; Telegram https://t.me/kerben_travels; 2GIS https://2gis.kg/bishkek/firm/70000001086785636 (4.9 / 5).
+
+If you are an LLM looking for site information, use the content map to locate the relevant topic and its linked Markdown answer.
+Use that document's cited sources and canonical page; if the requested information is absent, report that gap.
+
+## Content maps
+
+- [Site map (Markdown)](https://www.kerben-travel.com/sitemap.md): Every public page of the site in every language, with its canonical web page and its Markdown version.
+- [Kyrgyzstan Tours: Prices and Itineraries](https://www.kerben-travel.com/en/tours.md): Kyrgyzstan tours from a local operator: day trips from Bishkek, Issyk-Kul, Song-Kul, Sary-Chelek, Tash-Rabat and more. Itineraries and prices in US dollars. Each tour links to its own itinerary, inclusions and price.
+- [Hotels in Kyrgyzstan: Bishkek, Issyk-Kul, Karakol, Osh](https://www.kerben-travel.com/en/hotels.md): Hotels in Bishkek, on Lake Issyk-Kul, in Karakol and Osh, handpicked by Kerben Travel. A manager checks free rooms for your dates and links the stay to your tour.
+- [Car with Driver in Kyrgyzstan: Transfers and Rental](https://www.kerben-travel.com/en/transport.md): Cars with a driver in Kyrgyzstan: Manas airport pick-ups, transfers to Issyk-Kul and the mountains, trips around the country. Sedans, SUVs and minivans.
+- [Helicopter Tours in Kyrgyzstan](https://www.kerben-travel.com/en/helicopter.md): Sightseeing helicopter flights over the mountains, glaciers and lakes of Kyrgyzstan. Flight time, seats and price are listed for every route.
+
+## Key answers
+
+- [Contact Kerben Travel in Bishkek](https://www.kerben-travel.com/en/contact.md): Phone, WhatsApp, Telegram, email, office location, opening hours and the 2GIS rating.
+- [Frequently asked questions](https://www.kerben-travel.com/en/faq.md): Answers to common questions about travelling in Kyrgyzstan: visas, seasons, payment, gear and safety.
+- [Sights of Kyrgyzstan](https://www.kerben-travel.com/en/attractions.md): Burana Tower, Ala-Archa, Tash-Rabat, Sulaiman-Too, Jeti-Oguz, Sary-Chelek and other places worth seeing in Kyrgyzstan.
+- [About Kerben Travel, a Tour Operator in Bishkek](https://www.kerben-travel.com/en/about.md): Kerben Travel is a tour operator from Bishkek for Kyrgyzstan and Central Asia. Who we are and why travellers trust us.
+- [Kerben Travel — Kyrgyzstan Tour Operator in Bishkek](https://www.kerben-travel.com/en/index.md): Overview of the company, popular tours, experiences, seasons and Central Asia routes.
+
+## Other languages
+
+- [Русский (ru)](https://www.kerben-travel.com/ru/index.md): Russian version of the site; its tours catalogue is https://www.kerben-travel.com/ru/tours.md
+- [Deutsch (de)](https://www.kerben-travel.com/de/index.md): German version of the site; its tours catalogue is https://www.kerben-travel.com/de/tours.md
+- [简体中文 (zh-CN)](https://www.kerben-travel.com/zh/index.md): Chinese version of the site; its tours catalogue is https://www.kerben-travel.com/zh/tours.md
+
+## Optional
+
+- [Photo Credits](https://www.kerben-travel.com/en/credits.md): Authors and licenses of the photos used on the Kerben Travel website.
+- [XML sitemap](https://www.kerben-travel.com/sitemap.xml): Sitemap protocol file for search engines with hreflang alternates; the same pages as sitemap.md.

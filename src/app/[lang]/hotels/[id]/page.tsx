@@ -12,7 +12,8 @@ import { AMENITY_ICONS } from "@/utils/hotels/amenity-icons";
 import { hasLocale } from "@/utils/i18n/config";
 import { getDictionary } from "@/utils/i18n/dictionaries";
 import { hotelItem } from "@/utils/listing-items";
-import { metaDescription, pageMetadata } from "@/utils/seo";
+import { hotelSeo } from "@/utils/detail-seo";
+import { pageMetadata } from "@/utils/seo";
 import { hotelJsonLd, serializeJsonLd } from "@/utils/structured-data";
 import "./hotel-page.css";
 
@@ -26,13 +27,7 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/hotels/[id
   if (!hasLocale(lang)) return {};
   const [hotel, dict] = await Promise.all([getHotel(lang, id), getDictionary(lang)]);
   if (!hotel) return {};
-  return pageMetadata({
-    locale: lang,
-    path: `/hotels/${id}`,
-    title: hotel.name,
-    description: metaDescription(hotel.description || hotel.location, dict.meta.hotelsDescription),
-    image: hotel.image,
-  });
+  return pageMetadata({ locale: lang, path: `/hotels/${id}`, ...hotelSeo(hotel, lang, dict), image: hotel.image });
 }
 
 export default function HotelPage({ params }: PageProps<"/[lang]/hotels/[id]">) {

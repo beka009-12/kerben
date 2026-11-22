@@ -12,7 +12,9 @@ import { formatPrice } from "@/utils/format";
 import { hasLocale } from "@/utils/i18n/config";
 import { getDictionary } from "@/utils/i18n/dictionaries";
 import { carItem, seatsLabel } from "@/utils/listing-items";
-import { metaDescription, pageMetadata } from "@/utils/seo";
+import { carSeo } from "@/utils/detail-seo";
+import { pageMetadata } from "@/utils/seo";
+import { crumbsJsonLd, serializeJsonLd } from "@/utils/structured-data";
 import "./transport-page.css";
 
 export async function generateStaticParams() {
@@ -26,13 +28,7 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/transport/
   const [cars, dict] = await Promise.all([getTransports(lang), getDictionary(lang)]);
   const car = cars.find((c) => c.id === Number(id));
   if (!car) return {};
-  return pageMetadata({
-    locale: lang,
-    path: `/transport/${id}`,
-    title: car.name,
-    description: metaDescription(car.description || car.subtitle, dict.meta.transportDescription),
-    image: car.image,
-  });
+  return pageMetadata({ locale: lang, path: `/transport/${id}`, ...carSeo(car, lang, dict), image: car.image });
 }
 
 export default function TransportDetailPage({ params }: PageProps<"/[lang]/transport/[id]">) {
@@ -67,35 +63,38 @@ async function TransportContent({ params }: { params: PageProps<"/[lang]/transpo
   ];
 
   return (
-    <DetailLayout
-      header={{ title: car.name, kicker: t.title, meta, section: { href: `/${lang}/transport`, label: t.title } }}
-      images={[car.image, ...car.gallery]}
-      aside={
-        <BookingCard
-          title={car.name}
-          price={car.price > 0 ? formatPrice(car.price, lang) : null}
-          fields={[dateField("from", t.dateFrom), dateField("to", t.dateTo)]}
-          contacts={extras.contacts}
-          chatHref={`/${lang}/chat`}
-          askHref={`/${lang}/chat?ask=${encodeURIComponent(t.askPrompt.replace("{name}", car.name))}`}
-          labels={bookingLabels(dict, dict.units[car.unit], { book: dict.offers.request, notes: true })}
-        />
-      }
-      others={{
-        title: t.other,
-        link: { href: `/${lang}/transport`, label: t.back },
-        items: cars
-          .filter((c) => c.id !== car.id)
-          .slice(0, 3)
-          .map((item) => carItem(item, lang, dict)),
-      }}
-      locale={lang}
-      dict={dict}
-    >
-      <DetailAbout title={t.specs} facts={specs} />
-      <DetailSection id="about" title={t.about}>
-        <p className="transport-page-text">{car.description || t.aboutFallback}</p>
-      </DetailSection>
-    </DetailLayout>
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(crumbsJsonLd({ locale: lang, home: dict.nav.home, section: { name: dict.nav.transport, path: "/transport" }, name: car.name, path: `/transport/${car.id}` })) }} />
+      <DetailLayout
+        header={{ title: car.name, kicker: t.title, meta, section: { href: `/${lang}/transport`, label: t.title } }}
+        images={[car.image, ...car.gallery]}
+        aside={
+          <BookingCard
+            title={car.name}
+            price={car.price > 0 ? formatPrice(car.price, lang) : null}
+            fields={[dateField("from", t.dateFrom), dateField("to", t.dateTo)]}
+            contacts={extras.contacts}
+            chatHref={`/${lang}/chat`}
+            askHref={`/${lang}/chat?ask=${encodeURIComponent(t.askPrompt.replace("{name}", car.name))}`}
+            labels={bookingLabels(dict, dict.units[car.unit], { book: dict.offers.request, notes: true })}
+          />
+        }
+        others={{
+          title: t.other,
+          link: { href: `/${lang}/transport`, label: t.back },
+          items: cars
+            .filter((c) => c.id !== car.id)
+            .slice(0, 3)
+            .map((item) => carItem(item, lang, dict)),
+        }}
+        locale={lang}
+        dict={dict}
+      >
+        <DetailAbout title={t.specs} facts={specs} />
+        <DetailSection id="about" title={t.about}>
+          <p className="transport-page-text">{car.description || t.aboutFallback}</p>
+        </DetailSection>
+      </DetailLayout>
+    </>
   );
 }
